@@ -1,9 +1,9 @@
 <template>
   <header>
+    <router-link to="/">
+      <span role="img" aria-label="logo">Gigerr.</span>
+    </router-link>
     <nav>
-      <router-link to="/">
-        <span role="img" aria-label="logo">🙏</span>
-      </router-link>
       <router-link to="/gig">Gigs</router-link>
       <router-link to="/review">Reviews</router-link>
       <router-link to="/chat">Chat</router-link>
