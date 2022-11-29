@@ -1,7 +1,6 @@
 <template>
   <section class="container home text-center">
     <h1>Home Page</h1>
-    <p>hi</p>
     <h5 class="text-center">
       Powered up Frontend 
     </h5>
