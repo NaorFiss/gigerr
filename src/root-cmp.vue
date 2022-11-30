@@ -3,6 +3,7 @@
     <user-msg/>
     <app-header />
     <router-view/>
+    <app-footer />
   </section>
 </template>
 
@@ -11,6 +12,7 @@
 
 import { store } from './store/store'
 import appHeader from './cmps/app-header.vue'
+import appFooter from './cmps/app-footer.vue'
 import userMsg from './cmps/user-msg.vue'
 import { userService } from './services/user.service'
 
@@ -24,7 +26,8 @@ export default {
   },
   components: {
     appHeader,
-    userMsg
+    userMsg,
+    appFooter
   },
 }
 </script>

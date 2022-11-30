@@ -64,8 +64,10 @@ async function addGigMsg(gigId, txt) {
 
 function getEmptyGig() {
     return {
-        name: 'gig' + (Date.now() % 1000),
-        price: utilService.getRandomIntInclusive(1000, 9000),
+        title: 'gig' + (Date.now() % 1000),
+        price: {basic :utilService.getRandomIntInclusive(1000, 9000)},
+        description : 'I will do a nice job',
+        rate : 4,
     }
 }
 
