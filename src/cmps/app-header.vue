@@ -4,7 +4,7 @@
       <span role="img" aria-label="logo">Gigerr.</span>
     </router-link>
     <nav>
-      <router-link to="/gig">Gigs</router-link>
+      <router-link to="/gig">Explore</router-link>
       <router-link to="/review">Reviews</router-link>
       <router-link to="/chat">Chat</router-link>
       <router-link to="/login">Login / Signup</router-link>
