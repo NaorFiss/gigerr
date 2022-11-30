@@ -6,18 +6,18 @@
                 <div class="flex mini-user">
                     <img :src="loggedInUser.imgUrl" alt="">
                     <div>
-                        <p>{{ gig.owner.fullname }}</p>
-                        <p>{{ gig.owner.level }} seller</p>
+                        <p class="fs14">{{ gig.owner.fullname }}</p>
+                        <p :class='(gig.owner.level  === "Top Rated Seller" ? "orange" : "" , "fs14")'>{{ gig.owner.level }} seller</p>
                     </div>
                 </div>
                 <p>{{ gig.title }}</p>
-                <p class="orange">⭐ {{ gig.owner.rate }}</p>
+                <p class="orange fs14">&#9733{{ gig.owner.rate }}</p>
             </article>
             <div class="flex space align-center li-bottom">
                 <p >🤍</p>
                 <div class="flex column align-end">
-                    <p>STARTING AT</p>
-                    <p>${{ gig.price.basic?.toLocaleString() }}</p>
+                    <p class="fs10">STARTING AT</p>
+                    <p class="fs18">${{ gig.price.basic?.toLocaleString() }}</p>
                 </div>
             </div>
         </li>
