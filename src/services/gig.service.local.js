@@ -68,10 +68,10 @@ async function addGigMsg(gigId, txt) {
 function getEmptyGig() {
     return {
         title: 'gig' + (Date.now() % 1000),
-        price: {basic :utilService.getRandomIntInclusive(1000, 9000)},
-        description : 'I will do a nice job',
-        owner:{rate : 4},
-        imgUrl : 'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/22527722/original/d9de303ea2f07efe1e75e1a67f657e33e6aa9b4f/do-professional-and-unique-logo-design.jpg'
+        price: { basic: utilService.getRandomIntInclusive(1000, 9000) },
+        description: 'I will do a nice job',
+        owner: { rate: 4 },
+        imgUrl: 'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/22527722/original/d9de303ea2f07efe1e75e1a67f657e33e6aa9b4f/do-professional-and-unique-logo-design.jpg'
 
     }
 }
@@ -93,7 +93,10 @@ function getEmptyGig() {
 //           "fullname": "itzik",
 //           "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
 //           "level": "level 1",
-//           "rate": 4
+//           "rate": 4,
+//           "from": "Israel",
+//           "memberSince": 2010,
+//           "about": "The very BEST!"
 //         },
 //         "daysToMake": 3,
 //         "description": "Any logo you can think of I will make it! ",
@@ -129,7 +132,10 @@ function getEmptyGig() {
 //           "fullname": "naor",
 //           "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
 //           "level": "level 2",
-//           "rate": 4
+//           "rate": 4,
+//           "from": "Israel",
+//           "memberSince": 2010,
+//           "about": "The very BEST!"
 //         },
 //         "daysToMake": 4,
 //         "description": "I build your app faster than you think! ",
@@ -164,7 +170,10 @@ function getEmptyGig() {
 //           "fullname": "shachar",
 //           "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
 //           "level": "Top Rated Seller",
-//           "rate": 5
+//           "rate": 5,
+//           "from": "Israel",
+//           "memberSince": 2010,
+//           "about": "The very BEST!"
 //         },
 //         "daysToMake": 5,
 //         "description": "I can teach you english quick! ",

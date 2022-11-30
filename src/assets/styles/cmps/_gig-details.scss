@@ -1,16 +1,143 @@
-.gig-details{
+// .gig-details {
 
-}
-.about-seller{
+//     height: 100%;
+//     display: flex;
+//     justify-content: center;
 
-}
-.gig-description{
+//     & .gig-description {
+//         max-width: 800px;
+//     }
 
-}
+//     & .plans {
+//         position: sticky;
+//         top: 0;
+//         height: 300px;
+//         width: 400px;
+//         padding-top: 135px;
+//     }
+
+//     & .continue-plans-btn {
+//         height: 40px;
+//         font-size: 1em;
+//         border-radius: 4px;
+//         font-weight: bold;
+
+//         &:hover {
+
+//             background-color: darken($color: $clr2, $amount: 7%);
+//         }
+//     }
+// }
 
 
-.seller-info {
-    & img {
-        width: 0.8rem;
-    }
-}
+// .reviews-container {
+
+
+
+
+//     & .review-list {
+//         display: flex;
+//         flex-direction: column;
+//     }
+
+//     & .user-info {
+//         display: flex;
+//         flex-direction: row;
+//         gap: 20px;
+//         align-items: center;
+//     }
+
+//     & .user-info img {
+//         border: 1px solid black;
+//         border-radius: 28px;
+//         width: 32px;
+//     }
+
+//     & .review-details {
+//         margin-left: 44px;
+//     }
+// }
+
+// .seller-overview {
+//     display: flex;
+
+
+//     & img {
+//         border: 1px solid black;
+//         border-radius: 28px;
+//         width: 32px;
+//     }
+// }
+
+// .seller-details {
+//     display: flex;
+//     align-items: center;
+//     gap: 0.5rem;
+
+//     & img {
+//         height: 35px;
+//         width: 35px;
+//         border-radius: 50%;
+//         object-fit: cover;
+//     }
+
+//     & a {
+//         font-weight: bolder;
+//     }
+// }
+
+// .overview-rate {
+//     display: flex;
+//     align-items: center;
+//     gap: 0.5rem;
+
+//     & span {
+//         font-size: 1.2rem;
+//     }
+// }
+
+// .gig-imgs-container {
+//     margin-top: 0.5rem;
+//     resize: none;
+//     max-width: 600px;
+// }
+
+// .main-img-container {
+//     height: 400px;
+//     width: 100%;
+//     background-color: #F5F5F5;
+//     border: 1px solid #EFEFF0;
+
+    
+// }
+
+// .img-thumbnails {
+//     display: flex;
+//     justify-content: flex-start;
+//     flex-wrap: wrap;
+//     gap: 10px;
+//     margin-top: 5px;
+
+    
+//     & img {
+//         height: 75px;
+//         width: 112px;
+//         object-fit: cover;
+//         opacity: 0.5;
+//         cursor: pointer;
+
+//         & :focus {
+//             height: 200px;
+//             ;
+//         }
+
+        
+//     }
+// }
+
+// .gig-main-img {
+//     padding: 0.5rem;
+//     object-fit: contain;
+//     width: 100%;
+//     height: 100%
+// }

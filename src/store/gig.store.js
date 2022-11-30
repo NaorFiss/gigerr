@@ -1,4 +1,4 @@
-import { gigService } from '../services/gig.service.local'
+import { gigService } from '../services/gig.service.local.js'
 
 export function getActionRemoveGig(gigId) {
     return {
@@ -76,6 +76,7 @@ export const gigStore = {
             }
         },
         async loadGigs(context) {
+
             try {
                 const gigs = await gigService.query()
                 context.commit({ type: 'setGigs', gigs })
@@ -84,6 +85,20 @@ export const gigStore = {
                 throw err
             }
         },
+        async gigsToDisplay(context, filterBy) {
+            try {
+                const gigs = await gigService.query()
+                if (!filterBy?.txt) return gigs
+                const regex = new RegExp(filterBy.txt, 'i')
+                gigs = gigs.filter((gig) => regex.test(gig.tags) || regex.test(gig.title))
+                context.commit({ type: 'setGigs', gigs })
+
+            } catch (err) {
+                console.log('gigStore: Error in loadGigs', err)
+                throw err
+            }
+        },
+
         async removeGig(context, { gigId }) {
             try {
                 await gigService.remove(gigId)
@@ -102,6 +117,15 @@ export const gigStore = {
                 throw err
             }
         },
+        async getGigById(context, { id }) {
+            try {
+                let gig = await gigService.getById(id)
+                return gig
+            } catch (err) {
+                console.log('Cannot load gig', err);
+                throw err;
+            }
+        }
 
     }
 }
