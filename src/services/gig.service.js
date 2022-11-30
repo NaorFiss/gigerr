@@ -13,14 +13,14 @@ export const gigService = {
     save,
     remove,
     getEmptyGig,
-    addGigMsg
+    // addGigMsg
 }
 window.cs = gigService
 
 
-async function query(filterBy = { txt: '', price:  }) {
+async function query(filterBy = { txt: '', price:  0}) {
     // return httpService.get(STORAGE_KEY, filterBy)
-    console.log("gig.service")
+    // console.log("gig.service")
     var gigs = await storageService.query(STORAGE_KEY)
     if (filterBy.txt) {
         const regex = new RegExp(filterBy.txt, 'i')

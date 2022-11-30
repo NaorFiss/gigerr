@@ -1,7 +1,6 @@
 <template>
   <div class="container home">
     <gig-list :gigs="gigs"/>
-    <hr />
     <form v-if="loggedInUser" @submit.prevent="addGig()">
       <h2>Add gig</h2>
       <input type="text" v-model="gigToAdd.name" />
