@@ -84,102 +84,102 @@ function getEmptyGig() {
 //         "title": "I will design your logo",
 //         "price":
 //         {
-//           "basic": 12,
-//           "standard": 30,
-//           "premium": 50
+//             "basic": 12,
+//             "standard": 30,
+//             "premium": 50
 //         },
 //         "owner": {
-//           "_id": "1",
-//           "fullname": "itzik",
-//           "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
-//           "level": "level 1",
-//           "rate": 4,
-//           "from": "Israel",
-//           "memberSince": 2010,
-//           "about": "The very BEST!"
+//             "_id": "1",
+//             "fullname": "itzik",
+//             "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+//             "level": "level 1",
+//             "rate": 4,
+//             "from": "Israel",
+//             "memberSince": 2010,
+//             "about": "The very BEST!"
 //         },
 //         "daysToMake": 3,
 //         "description": "Any logo you can think of I will make it! ",
 //         "imgUrl": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/286507591/original/ca5801a43ad812945a018f799dace04f7e52f679/design-outstanding-logo-for-your-brand.jpg",
 //         "tags": [
-//           "logo-design",
-//           "artisitic",
-//           "proffesional",
-//           "accessible"
+//             "logo-design",
+//             "artisitic",
+//             "proffesional",
+//             "accessible"
 //         ],
 //         "likedByUsers": [
-//           {
-//             "_id": 2,
-//             "username": 'naor'
-//           },
+//             {
+//                 "_id": 2,
+//                 "username": 'naor'
+//             },
 //         ] // for user-wishlist : use $in
-//       },)
-//     await storageService.post(STORAGE_KEY,  {
+//     },)
+//     await storageService.post(STORAGE_KEY, {
 //         "_id": "g2",
 //         "title": "I will build an app",
 //         "price":
 //         {
-//           "basic": 40,
-//           "standard": 50,
-//           "premium": 60
+//             "basic": 40,
+//             "standard": 50,
+//             "premium": 60
 //         },
 //         "owner": {
-//           "_id": "2",
-//           "fullname": "naor",
-//           "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
-//           "level": "level 2",
-//           "rate": 4,
-//           "from": "Israel",
-//           "memberSince": 2010,
-//           "about": "The very BEST!"
+//             "_id": "2",
+//             "fullname": "naor",
+//             "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+//             "level": "level 2",
+//             "rate": 4,
+//             "from": "Israel",
+//             "memberSince": 2010,
+//             "about": "The very BEST!"
 //         },
 //         "daysToMake": 4,
 //         "description": "I build your app faster than you think! ",
 //         "imgUrl": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/185781763/original/375357920dd1ff15663a044cc2333691bd07c371/be-mobile-app-developer-for-android-and-ios-app-development.jpg",
 //         "tags": [
-//           "app",
-//           "proffesional",
-//           "computer"
+//             "app",
+//             "proffesional",
+//             "computer"
 //         ],
 //         "likedByUsers": [
-//           {
-//             "_id": 3,
-//             "username": 'shachar'
-//           },
+//             {
+//                 "_id": 3,
+//                 "username": 'shachar'
+//             },
 //         ] // for user-wishlist : use $in
-//       },)
-//       await storageService.post(STORAGE_KEY,{
+//     },)
+//     await storageService.post(STORAGE_KEY, {
 //         "_id": "g3",
 //         "title": "I will teach you english",
 //         "price":
 //         {
-//           "basic": 20,
-//           "standard": 30,
-//           "premium": 40
+//             "basic": 20,
+//             "standard": 30,
+//             "premium": 40
 //         },
 //         "owner": {
-//           "_id": "3",
-//           "fullname": "shachar",
-//           "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
-//           "level": "Top Rated Seller",
-//           "rate": 5,
-//           "from": "Israel",
-//           "memberSince": 2010,
-//           "about": "The very BEST!"
+//             "_id": "3",
+//             "fullname": "shachar",
+//             "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+//             "level": "Top Rated Seller",
+//             "rate": 5,
+//             "from": "Israel",
+//             "memberSince": 2010,
+//             "about": "The very BEST!"
 //         },
 //         "daysToMake": 5,
 //         "description": "I can teach you english quick! ",
 //         "imgUrl": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/165085366/original/514f6bf75dc78f0e0950e2e1a74ea6f863dd3e64/translate-500-words-from-english-to-korean-in-24h.png",
 //         "tags": [
-//           "english",
-//           "proffesional",
-//           "langaugh"
+//             "english",
+//             "proffesional",
+//             "langaugh"
 //         ],
 //         "likedByUsers": [
-//           {
-//             "_id": 1,
-//             "username": 'itzik'
-//           },
+//             {
+//                 "_id": 1,
+//                 "username": 'itzik'
+//             },
 //         ] // for user-wishlist : use $in
-//       },)
+//     },)
 // })()

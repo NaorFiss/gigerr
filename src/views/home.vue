@@ -43,6 +43,7 @@ export default {
     return {
       filterBy: {
         txt: '',
+        price: 0,
       },
     }
   },
@@ -54,16 +55,14 @@ export default {
     goToExplore() {
       this.$router.push('/gig')
     },
-    async gigsToDisplay(filterBy) {
-      console.log(this.filterBy.txt)
+    async loadGigs(filterBy) {
       const filterByTxt = JSON.parse(JSON.stringify(this.filterBy.txt))
-      await this.$store.dispatch({ type: 'gigsToDisplay', filterByTxt })
+      await this.$store.dispatch({ type: 'loadGigs', filterBy })
       this.goToExplore()
     },
     setFilter(tag) {
       this.filterBy.txt = tag
-      console.log(this.filterBy.txt)
-      this.gigsToDisplay(this.filterBy)
+      this.loadGigs(this.filterBy)
     }
   },
   computed: {

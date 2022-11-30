@@ -1,4 +1,4 @@
-import { gigService } from '../services/gig.service.local.js'
+import { gigService } from '../services/gig.service.js'
 
 export function getActionRemoveGig(gigId) {
     return {
@@ -30,6 +30,7 @@ export function getActionAddGigMsg(gigId) {
 export const gigStore = {
     state: {
         gigs: []
+
     },
     getters: {
         gigs({ gigs }) { return gigs },
@@ -75,23 +76,14 @@ export const gigStore = {
                 throw err
             }
         },
-        async loadGigs(context) {
+        async loadGigs(context, filterBy) {
 
             try {
-                const gigs = await gigService.query()
+                console.log("befor service", filterBy)
+                const gigs = await gigService.query(filterBy)
+                console.log("after service", filterBy)
                 context.commit({ type: 'setGigs', gigs })
-            } catch (err) {
-                console.log('gigStore: Error in loadGigs', err)
-                throw err
-            }
-        },
-        async gigsToDisplay(context, filterBy) {
-            try {
-                const gigs = await gigService.query()
-                if (!filterBy?.txt) return gigs
-                const regex = new RegExp(filterBy.txt, 'i')
-                gigs = gigs.filter((gig) => regex.test(gig.tags) || regex.test(gig.title))
-                context.commit({ type: 'setGigs', gigs })
+                console.log("after comit", filterBy)
 
             } catch (err) {
                 console.log('gigStore: Error in loadGigs', err)
