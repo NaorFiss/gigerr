@@ -1,4 +1,4 @@
-import { gigService } from '../services/gig.service.local'
+import { gigService } from '../services/gig.service.local.js'
 
 export function getActionRemoveGig(gigId) {
     return {
@@ -117,6 +117,15 @@ export const gigStore = {
                 throw err
             }
         },
+        async getGigById(context, { id }) {
+            try {
+                let gig = await gigService.getById(id)
+                return gig
+            } catch (err) {
+                console.log('Cannot load gig', err);
+                throw err;
+            }
+        }
 
     }
 }
