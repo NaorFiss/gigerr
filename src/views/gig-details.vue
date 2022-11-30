@@ -65,6 +65,9 @@ import { gigService } from '../services/gig.service.js'
 import gigReview from "../cmps/gig-review.vue"
 export default {
     name: 'gig-details',
+    props:{
+        gig:Object,
+    },
     component: {
         gigReview,
 
