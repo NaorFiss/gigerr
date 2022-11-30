@@ -2,11 +2,13 @@
   <div class="container home">
     <ul class="gig-list">
       <li v-for="gig in gigs" :key="gig._id">
-        <!-- <img src="" alt=""> -->
+        <!-- <img src="{{gig.imgUrl}}" alt="" /> -->
+        <!-- <pre>{{gig.imgUrl}}</pre> -->
         <p>{{  gig.title  }}</p>
-        <p>${{gig.price.basic?.toLocaleString()}}</p>
+        <!-- <p>${{gig.price.basic?.toLocaleString()}}</p> -->
         <button @click="removeGig(gig._id)">x</button>
         <button @click="updateGig(gig)">Update</button>
+        <p>⭐ {{gig.rate}}</p>
         <hr />
         <div class="flex space">
           <p>🤍</p>
