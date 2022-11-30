@@ -9,23 +9,22 @@
             </p>
             <div class="search-bar">
               <form class="flex">
-                <input type="search" placeholder="Try building mobile app" value>
-                <button class="submit" @click="goToExplore">search
+                <input type="search" v-focus v-model="filterBy.txt" placeholder="Try building mobile app" value>
+                <button class="submit" @click="loadGigs">search
                 </button>
               </form>
             </div>
-            <div class="popular-gigs flex">" Popular"
-              <ul class="flex">
-                <li>Website Design</li>
-                <li>WordPress</li>
-                <li>Logo Design</li>
-                <li>Video Editing</li>
-              </ul>
+            <div class="flex justify-between items-center ">
+              <p>Popular:</p>
+              <a class="btn-filter" @click="setFilter('Website Design')">Website Design</a>
+              <a class="btn-filter" @click="setFilter('WordPress')">WordPress</a>
+              <a class="btn-filter" @click="setFilter('Logo Design')">Logo Design</a>
+              <a class="btn-filter" @click="setFilter('Video Editing')">Video Editing</a>
             </div>
           </div>
-          <div class="hero backgrounds">
+        </div>
+        <div class="hero backgrounds">
 
-          </div>
         </div>
       </div>
     </div>
@@ -36,10 +35,15 @@
 </template>
 
 <script>
+
 export default {
+
   name: 'home',
   data() {
     return {
+      filterBy: {
+        txt: '',
+      },
     }
   },
   computed: {
@@ -49,7 +53,23 @@ export default {
   methods: {
     goToExplore() {
       this.$router.push('/gig')
+    },
+    async loadGigs(filterBy) {
+      console.log(this.filterBy.txt)
+      const filterByTxt = JSON.parse(JSON.stringify(this.filterBy.txt))
+      await this.$store.dispatch({ type: 'loadGigs', filterBy })
+      this.goToExplore()
+    },
+    setFilter(tag) {
+      this.filterBy.txt = tag
+      console.log(this.filterBy.txt)
+      this.loadGigs(this.filterBy)
     }
+  },
+  computed: {
+    tags() {
+      return this.$store.getters.tags
+    },
   }
 
 }

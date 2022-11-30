@@ -75,7 +75,8 @@ export const gigStore = {
                 throw err
             }
         },
-        async loadGigs(context) {
+        async loadGigs(context, filterBy) {
+
             try {
                 const gigs = await gigService.query()
                 context.commit({ type: 'setGigs', gigs })
