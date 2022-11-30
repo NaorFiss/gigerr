@@ -75,7 +75,7 @@ export const gigStore = {
                 throw err
             }
         },
-        async loadGigs(context, filterBy) {
+        async loadGigs(context) {
 
             try {
                 const gigs = await gigService.query()
@@ -85,6 +85,20 @@ export const gigStore = {
                 throw err
             }
         },
+        async gigsToDisplay(context, filterBy) {
+            try {
+                const gigs = await gigService.query()
+                if (!filterBy?.txt) return gigs
+                const regex = new RegExp(filterBy.txt, 'i')
+                gigs = gigs.filter((gig) => regex.test(gig.tags) || regex.test(gig.title))
+                context.commit({ type: 'setGigs', gigs })
+
+            } catch (err) {
+                console.log('gigStore: Error in loadGigs', err)
+                throw err
+            }
+        },
+
         async removeGig(context, { gigId }) {
             try {
                 await gigService.remove(gigId)
