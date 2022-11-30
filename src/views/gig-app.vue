@@ -1,27 +1,6 @@
 <template>
   <div class="container home">
-    <ul class="gig-list">
-      <li v-for="gig in gigs" :key="gig._id">
-        <!-- <img src="{{gig.imgUrl}}" alt="" /> -->
-        <!-- <pre>{{gig.imgUrl}}</pre> -->
-        <p>{{  gig.title  }}</p>
-        <!-- <p>${{gig.price.basic?.toLocaleString()}}</p> -->
-        <button @click="removeGig(gig._id)">x</button>
-        <button @click="updateGig(gig)">Update</button>
-        <p>⭐ {{gig.rate}}</p>
-        <hr />
-        <div class="flex space">
-          <p>🤍</p>
-          <div>  
-            <p>STARTING AT</p>
-            <p>${{gig.price.basic?.toLocaleString()}}</p>
-          </div>
-        </div>
-        <!-- <button @click="addGigMsg(gig._id)">Add gig msg</button>
-        <button @click="printGigToConsole(gig)">Print msgs to console</button> -->
-
-      </li>
-    </ul>
+    <gig-list :gigs="gigs"/>
     <hr />
     <form @submit.prevent="addGig()">
       <h2>Add gig</h2>
@@ -35,6 +14,8 @@
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { gigService } from '../services/gig.service.local'
 import { getActionRemoveGig, getActionUpdateGig, getActionAddGigMsg } from '../store/gig.store'
+
+import gigList from '../cmps/gig-list.vue'
 export default {
   data() {
     return {
@@ -97,8 +78,9 @@ export default {
     printGigToConsole(gig) {
       console.log('Gig msgs:', gig.msgs)
     }
+  },
+  components:{
+    gigList,
   }
-
-
 }
 </script>

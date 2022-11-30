@@ -1,9 +1,20 @@
 <template>
     <section class="flex">
-        <div class="flex">
-        </div>
-        <div>
-
-        </div>
+        <ul class="gig-list">
+            <gigPreview v-for="gig in gigs" :gig="gig" :key="gig._id"/>
+        </ul>
     </section>
 </template>
+
+<script>
+import gigPreview from './gig-preview.vue';
+export default {
+    name: 'gig-list',
+    props: {
+        gigs: Array,
+    },
+    components:{
+        gigPreview,
+    }
+}
+</script>
