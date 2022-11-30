@@ -100,7 +100,11 @@ function getEmptyGig() {
 //         },
 //         "daysToMake": 3,
 //         "description": "Any logo you can think of I will make it! ",
-//         "imgUrl": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/286507591/original/ca5801a43ad812945a018f799dace04f7e52f679/design-outstanding-logo-for-your-brand.jpg",
+//         "imgUrl": [
+//             "./src/imgs/gig-img/gig1/1.jpg",
+//             // "./src/imgs/gig-img/gig1/2.jpg",
+//             // "./src/imgs/gig-img/gig1/3.jpg",
+//         ],
 //         "tags": [
 //             "logo-design",
 //             "artisitic",
@@ -135,11 +139,23 @@ function getEmptyGig() {
 //         },
 //         "daysToMake": 4,
 //         "description": "I build your app faster than you think! ",
+<<<<<<< HEAD
 //         "imgUrl": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/185781763/original/375357920dd1ff15663a044cc2333691bd07c371/be-mobile-app-developer-for-android-and-ios-app-development.jpg",
 //         "tags": [
 //             "app",
 //             "proffesional",
 //             "computer"
+=======
+//         "imgUrl": [
+//             "./src/imgs/gig-img/gig2/1.jpg",
+//             // "./src/imgs/gig-img/gig2/2.jpg",
+//             // "./src/imgs/gig-img/gig2/3.jpg",
+//         ],
+//             "tags": [
+//           "app",
+//           "proffesional",
+//           "computer"
+>>>>>>> 82bf2f7571decf211919e9f4ba04c22430e40d3e
 //         ],
 //         "likedByUsers": [
 //             {
@@ -169,7 +185,10 @@ function getEmptyGig() {
 //         },
 //         "daysToMake": 5,
 //         "description": "I can teach you english quick! ",
-//         "imgUrl": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/165085366/original/514f6bf75dc78f0e0950e2e1a74ea6f863dd3e64/translate-500-words-from-english-to-korean-in-24h.png",
+//         "imgUrl": [
+//             "./src/imgs/gig-img/gig3/1.jpg",
+//             // "./src/imgs/gig-img/gig3/2.jpg",
+//         ],
 //         "tags": [
 //             "english",
 //             "proffesional",
