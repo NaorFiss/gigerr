@@ -10,7 +10,7 @@
                         <p :class='(gig.owner.level  === "Top Rated Seller" ? "orange" : "" , "fs14")'>{{ gig.owner.level }} seller</p>
                     </div>
                 </div>
-                <p>{{ gig.title }}</p>
+                <router-link :to="'/gig/' + gig._id">{{ gig.title }}</router-link>
                 <p class="orange fs14">&#9733{{ gig.owner.rate }}</p>
             </article>
             <div class="flex space align-center li-bottom">

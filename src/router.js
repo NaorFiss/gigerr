@@ -6,6 +6,7 @@ import gigApp from './views/gig-app.vue'
 import reviewApp from './views/review-app.vue'
 import loginSignup from './views/login-signup.vue'
 import userDetails from './views/user-details.vue'
+import gigDetails from './views/gig-details.vue'
 
 const routes = [
   {
@@ -37,7 +38,12 @@ const routes = [
     path: '/user/:id',
     name: 'user-details',
     component: userDetails
-  }
+  },
+  {
+    path: '/gig/:id',
+    name: 'gig-details',
+    component: userDetails
+  },
 ]
 
 
