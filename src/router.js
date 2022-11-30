@@ -42,7 +42,7 @@ const routes = [
   {
     path: '/gig/:id',
     name: 'gig-details',
-    component: userDetails
+    component: gigDetails
   },
 ]
 

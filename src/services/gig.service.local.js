@@ -90,7 +90,7 @@ function getEmptyGig() {
 //         "owner": {
 //           "_id": "1",
 //           "fullname": "itzik",
-//           "imgUrl": "/img/img1.jpg",
+//           "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
 //           "level": "level 1",
 //           "rate": 4
 //         },
@@ -122,7 +122,7 @@ function getEmptyGig() {
 //         "owner": {
 //           "_id": "2",
 //           "fullname": "naor",
-//           "imgUrl": "/img/img2.jpg",
+//           "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
 //           "level": "level 2",
 //           "rate": 4
 //         },
@@ -153,7 +153,7 @@ function getEmptyGig() {
 //         "owner": {
 //           "_id": "3",
 //           "fullname": "shachar",
-//           "imgUrl": "/img/img3.jpg",
+//           "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
 //           "level": "Top Rated Seller",
 //           "rate": 5
 //         },
