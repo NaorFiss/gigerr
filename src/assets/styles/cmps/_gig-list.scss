@@ -2,17 +2,18 @@
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-
+    gap: 30px;
     li {
         background-color: $clr6;
         color: $clr1;
         max-width: 300px;
+        max-height: 380px;
         margin: 5px;
         border: 1px solid $clr1;
 
-        p {
-            font-size: 0.9em;
-        }
+        // p {
+        //     font-size: 0.9em;
+        // }
 
         .li-bottom {
             border-top: 1px solid $clr1;
