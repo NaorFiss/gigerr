@@ -1,10 +1,10 @@
 <template>
-    <section class="gig-details">
+    <section v-if="gig" class="gig-details">
         <div>
             <h1>{{ gig.title }}</h1>
             <div>
                 <img :src="gig.owner.imgUrl" />
-                <router-link to="'user/' + gig.owner._id">{{
+                <router-link :to="'user/' + gig.owner._id">{{
                         gig.owner.fullname
                 }}</router-link> |
                 <p>{{ gig.owner.level }}</p>
@@ -15,7 +15,7 @@
                 <img src="../assets/star.jpg" />
                 (7)
             </div>
-            <img src="gig.imgUrl">
+            <img :src="gig.imgUrl">
         </div>
         <section class="owner-review">
             <h1>What people loved about this seller</h1>
@@ -60,8 +60,8 @@
 </template>
 
 <script>
-// import { gigService } from '../services/gig-service.js'
-import { gigService } from '../services/gig.service.js'
+// import { gigService } from '../services/gig.service.js'
+import { gigService } from '../services/gig.service.local.js'
 import gigReview from "../cmps/gig-review.vue"
 export default {
     name: 'gig-details',
@@ -79,8 +79,8 @@ export default {
     },
     async created() {
         try {
-            const { _id } = this.$route.params
-            const gig = await gigService.getById(_id)
+            const { id } = this.$route.params
+            const gig = await gigService.getById(id)
             this.gig = gig
 
         } catch (err) {

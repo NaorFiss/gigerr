@@ -2,7 +2,7 @@
   <div class="container home">
     <gig-list :gigs="gigs"/>
     <hr />
-    <form @submit.prevent="addGig()">
+    <form v-if="loggedInUser" @submit.prevent="addGig()">
       <h2>Add gig</h2>
       <input type="text" v-model="gigToAdd.name" />
       <button>Save</button>

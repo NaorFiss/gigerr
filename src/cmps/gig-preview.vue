@@ -4,7 +4,7 @@
             <img :src="gig.imgUrl" alt="" class="full" />
             <article class="preview-card">
                 <div class="flex mini-user">
-                    <img :src="loggedInUser.imgUrl" alt="">
+                    <img :src="gig.owner.imgUrl" alt="">
                     <div>
                         <p class="fs14">{{ gig.owner.fullname }}</p>
                         <p :class='(gig.owner.level  === "Top Rated Seller" ? "orange" : "" , "fs14")'>{{ gig.owner.level }} seller</p>
