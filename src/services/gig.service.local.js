@@ -69,7 +69,7 @@ function getEmptyGig() {
         title: 'gig' + (Date.now() % 1000),
         price: {basic :utilService.getRandomIntInclusive(1000, 9000)},
         description : 'I will do a nice job',
-        rate : 4,
+        owner:{rate : 4},
         imgUrl : 'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/22527722/original/d9de303ea2f07efe1e75e1a67f657e33e6aa9b4f/do-professional-and-unique-logo-design.jpg'
 
     }

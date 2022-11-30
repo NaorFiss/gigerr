@@ -25,6 +25,9 @@
     &.justify-center {
         justify-content: center;
     }
+    &.align-end {
+        align-items: end;
+    }
     &.align-center {
         align-items: center;
     }
@@ -43,4 +46,8 @@
 }
 .portrait-ratio {
     @include aspect-ratio(9, 16);
+}
+
+.orange{
+    color: #ffbe5b;;
 }

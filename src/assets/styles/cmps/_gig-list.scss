@@ -2,28 +2,53 @@
     list-style: none;
     display: flex;
     flex-wrap: wrap;
+
     li {
         background-color: $clr6;
         color: $clr1;
-        padding: 5px;
+        max-width: 300px;
         margin: 5px;
         border: 1px solid $clr1;
-        p{
+
+        p {
             font-size: 0.9em;
         }
+
+        .li-bottom {
+            border-top: 1px solid $clr1;
+            padding: 10px;
+        }
+
+        img {
+            max-height: 180px;
+        }
+
+        .mini-user {
+            gap: 5px;
+            img {
+                width: 30px;
+                height: 30px;
+                align-self: center;
+            }
+        }
+        .preview-card{
+            padding: 10px;
+            > *{
+                margin-bottom: 10px;
+            }
+        }
     }
+
     a {
         color: $clr1;
         padding: 10px;
-    }    
+    }
+
     pre {
         background-color: #ddd;
         font-size: .5em;
         color: #333;
         padding: .2em;
         margin: .2em;
-    }    
+    }
 }
-
-
-

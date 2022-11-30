@@ -8,7 +8,7 @@
 }
 
 html {
-    font-family: montserrat;
+    // font-family: montserrat;
     line-height: 1.6;
     color: $clr2;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -35,7 +35,7 @@ img {
 }
 
 p {
-    margin: 0 0 1em;
+    margin: 0 0 0;
     max-width: 40ch;
 }
 
@@ -48,3 +48,6 @@ a:hover {
     color: $clr3;
 }
 
+div{
+    margin: 0%;
+}
