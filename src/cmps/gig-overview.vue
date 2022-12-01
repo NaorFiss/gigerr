@@ -5,11 +5,7 @@
       <img class="user-img" :src="gig.owner.imgUrl" />
       <router-link to="">{{ gig.owner.fullname }}</router-link> |
       <h3>{{ gig.owner.level }} Seller </h3>
-      <img class="star-img" src="../assets/star.jpg" />
-      <img class="star-img" src="../assets/star.jpg" />
-      <img class="star-img" src="../assets/star.jpg" />
-      <img class="star-img" src="../assets/star.jpg" />
-      <img class="star-img" src="../assets/star.jpg" />
+      <img v-for="n in rate" class="star-img" src="../assets/star.jpg" />
       (24)
     </div>
     <imgCard :imgs="gig.imgUrl" />
@@ -22,6 +18,11 @@ import imgCard from './img-card.vue'
 export default {
   props: {
     gig: Object
+  },
+  computed: {
+    rate() {
+      return +this.gig.owner.rate
+    },
   },
   components: {
     imgCard,
