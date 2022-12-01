@@ -1,16 +1,18 @@
 <template>
-    <div class="main-layout">
-    
-        <div class="gig-overview-contanier">
-            <div class="gig-info">
-                <gig-overview id="gig-overview" :gig="gig" />
-                <gig-description id="gig-description" :gig="gig" />
-                <about-seller id="about-seller" :gig="gig" />
+    <section class="gig-details main-container">
+        <div class="main-layout  margin">
+
+            <div class="gig-overview-contanier ">
+                <div class="gig-info">
+                    <gig-overview id="gig-overview" :gig="gig" />
+                    <gig-description id="gig-description" :gig="gig" />
+                    <about-seller id="about-seller" :gig="gig" />
+                </div>
+                <order-details class="order-details" :gig="gig" />
 
             </div>
-            <order-details :gig="gig" />
         </div>
-    </div>
+    </section>
 </template>
   
 <script>
@@ -28,7 +30,7 @@ export default {
     },
     async created() {
         try {
-            const id  = this.$route.params.id
+            const id = this.$route.params.id
             const gig = await gigService.getById(id)
             this.gig = gig
         } catch (err) {

@@ -34,6 +34,7 @@ async function query(filterBy) {
         //     gigs = gigs.filter(gig => gig.price.basic <= filterBy.price)
         // }
     }
+    console.log(gigs)
     return gigs
 }
 
@@ -97,9 +98,9 @@ function getEmptyGig() {
 //         "title": "I will design your logo in no time trust me",
 //         "price":
 //         {
-//           "basic": 12,
-//           "standard": 30,
-//           "premium": 50
+//             "basic": 12,
+//             "standard": 30,
+//             "premium": 50
 //         },
 //         "owner": {
 //           "_id": "1",
@@ -119,26 +120,26 @@ function getEmptyGig() {
 //             "./src/imgs/gig-img/gig1/3.jpg",
 //         ],
 //         "tags": [
-//           "logo-design",
-//           "artisitic",
-//           "proffesional",
-//           "accessible"
+//             "logo-design",
+//             "artisitic",
+//             "proffesional",
+//             "accessible"
 //         ],
 //         "likedByUsers": [
-//           {
-//             "_id": 2,
-//             "username": 'naor'
-//           },
+//             {
+//                 "_id": 2,
+//                 "username": 'naor'
+//             },
 //         ] // for user-wishlist : use $in
-//       },)
-//     await storageService.post(STORAGE_KEY,  {
+//     },)
+//     await storageService.post(STORAGE_KEY, {
 //         "_id": "g2",
 //         "title": "I will build an app, so click here and start apping your special app now! hurry hurry hurry",
 //         "price":
 //         {
-//           "basic": 40,
-//           "standard": 50,
-//           "premium": 60
+//             "basic": 40,
+//             "standard": 50,
+//             "premium": 60
 //         },
 //         "owner": {
 //           "_id": "2",
@@ -157,26 +158,26 @@ function getEmptyGig() {
 //             "./src/imgs/gig-img/gig2/2.jpg",
 //             "./src/imgs/gig-img/gig2/3.jpg",
 //         ],
-//             "tags": [
-//           "app",
-//           "proffesional",
-//           "computer"
+//         "tags": [
+//             "app",
+//             "proffesional",
+//             "computer"
 //         ],
 //         "likedByUsers": [
-//           {
-//             "_id": 3,
-//             "username": 'shachar'
-//           },
+//             {
+//                 "_id": 3,
+//                 "username": 'shachar'
+//             },
 //         ] // for user-wishlist : use $in
-//       },)
-//       await storageService.post(STORAGE_KEY,{
+//     },)
+//     await storageService.post(STORAGE_KEY, {
 //         "_id": "g3",
 //         "title": "I will teach you english",
 //         "price":
 //         {
-//           "basic": 20,
-//           "standard": 30,
-//           "premium": 40
+//             "basic": 20,
+//             "standard": 30,
+//             "premium": 40
 //         },
 //         "owner": {
 //           "_id": "3",
@@ -195,15 +196,15 @@ function getEmptyGig() {
 //             "./src/imgs/gig-img/gig3/2.jpg",
 //         ],
 //         "tags": [
-//           "english",
-//           "proffesional",
-//           "langaugh"
+//             "english",
+//             "proffesional",
+//             "langaugh"
 //         ],
 //         "likedByUsers": [
-//           {
-//             "_id": 1,
-//             "username": 'itzik'
-//           },
+//             {
+//                 "_id": 1,
+//                 "username": 'itzik'
+//             },
 //         ] // for user-wishlist : use $in
-//       },)
+//     },)
 // })()

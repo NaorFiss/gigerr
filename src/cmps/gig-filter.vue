@@ -9,7 +9,7 @@
                 <div class="search-bar">
                     <form class="flex" @submit.prevent="loadGigs">
                         <input type="search" v-model="filterBy.txt" placeholder="Try building mobile app" value>
-                        <button class="submit" >search
+                        <button class="submit">search
                         </button>
                     </form>
                 </div>
@@ -39,12 +39,12 @@ export default {
         }
     },
     methods: {
-        // goToExplore() {
-        //     this.$router.push('/gig')
-        // },
+        goToExplore() {
+            this.$router.push('/gig')
+        },
         async loadGigs() {
             const filterBy = JSON.parse(JSON.stringify(this.filterBy))
-            console.log(filterBy)
+            this.filterBy.tag = ''
             await this.$store.dispatch({ type: 'loadGigs', filterBy })
             // this.goToExplore()
         },
