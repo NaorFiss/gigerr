@@ -6,7 +6,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    max-height: 80px;
 
     .loggedin-user {
         // background-color: $clr1;
@@ -47,5 +47,8 @@ header {
         background-color: $clr3;
         color: white;
         transition: 0.5s;
+    }
+    .logo{
+        max-width: 100px;
     }
 }

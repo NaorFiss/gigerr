@@ -2,18 +2,18 @@
     <section class="gig-preview flex">
         <li>
             <imgCard :imgs="gig.imgUrl" />
-            <article class="preview-card">
+            <article class="preview-card flex column">
                 <div class="flex mini-user">
                     <img :src="gig.owner.imgUrl" alt="">
                     <div>
                         <p class="fs14 mac-bold black">{{ gig.owner.fullname }}</p>
-                        <p :class=' gig.owner.level === "Top Rated" ? "orange , fs14" : "mac-light , fs14" '>{{
+                        <p :class=' gig.owner.level === "Top Rated" ? "orange , fs14" : " $clr6, fs14" '>{{
                                 gig.owner.level
                         }} Seller</p>
                     </div>
                 </div>
-                <router-link :to="'/gig/' + gig._id">{{ gig.title }}</router-link>
-                <p class="orange fs14">&#9733{{ gig.owner.rate }}</p>
+                <router-link class="title" :to="'/gig/' + gig._id">{{ gig.title }}</router-link>
+                <p class="clr-6"><span class="orange  flex3">&#9733{{ gig.owner.rate }}</span>(24)</p>
             </article>
             <div class="flex space align-center li-bottom">
                 <p>❤</p>

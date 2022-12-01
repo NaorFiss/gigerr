@@ -1,7 +1,9 @@
 <template>
   <header>
     <router-link to="/">
-      <span role="img" aria-label="logo">Gigerr.</span>
+      <span role="img" aria-label="logo">
+        <img class="logo" src="@/assets/logo.svg" alt="">
+      </span>
     </router-link>
     <nav class="flex">
       <router-link to="/gig">Explore</router-link>
