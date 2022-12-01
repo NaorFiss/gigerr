@@ -2,7 +2,7 @@
     <section class="hero-container full">
         <div class="img-container">
             <Transition>
-                <img  :src="getImgUrl" />
+                <img v-if1="show" :src="getImgUrl" />
             </Transition>
 
 
