@@ -1,5 +1,5 @@
 <template>
-    <section class="">
+    <section class="filter-container">
         <div class="hero-wrapper flex column">
             <div class="hero-title ">
                 <!-- <p>
@@ -11,8 +11,8 @@
                         <button class="submit search-button fs18 ">Search</button>
                     </form>
                 </div>
-                <div class="flex justify-between items-center ">
-                    <p>Popular : </p>
+                <p>Popular : </p>
+                <div class="flex justify-between items-center filter-tags">
                     <a class="btn-filter" @click="setFilter('')">All</a>
                     <a class="btn-filter" @click="setFilter('app')">app</a>
                     <a class="btn-filter" @click="setFilter('Website Design')">Website Design</a>
@@ -49,6 +49,7 @@ export default {
         },
         setFilter(tag) {
             this.filterBy.tag = tag
+            this.filterBy.txt = tag
             this.loadGigs()
         }
     },
