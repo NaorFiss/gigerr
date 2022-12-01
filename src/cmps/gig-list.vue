@@ -4,6 +4,7 @@
             <gigPreview v-for="gig in gigs" :gig="gig" :key="gig._id"/>
         </ul>
     </section>
+    <router-link to="/gig/edit">Add Gig</router-link>
 </template>
 
 <script>

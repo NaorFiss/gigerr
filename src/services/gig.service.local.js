@@ -14,16 +14,25 @@ export const gigService = {
     addGigMsg
 }
 window.cs = gigService
-
+// const regex = new RegExp(byVendor, 'i')
+//   let filteredCars = gCars.filter((car) => regex.test(car.vendor))
 
 async function query(filterBy) {
     var gigs = await storageService.query(STORAGE_KEY)
     if (filterBy) {
-        const regex = new RegExp(filterBy.txt, 'i')
-        gigs = gigs.filter(gig => regex.test(gig.tags[0]) || regex.test(gig.title))
-    }
-    if (filterBy) {
-        gigs = gigs.filter(gig => gig.price.basic <= filterBy.price)
+        if (filterBy.txt) {
+            const regex = new RegExp(filterBy.txt, 'i')
+            gigs = gigs.filter(gig => regex.test(gig.title))
+        }
+
+        if (filterBy.tag) {
+            gigs = gigs.filter(gig =>
+                gig.tags.includes(filterBy.tag.toLowerCase())
+            )
+        }
+        // if (filterBy) {
+        //     gigs = gigs.filter(gig => gig.price.basic <= filterBy.price)
+        // }
     }
     return gigs
 }
@@ -71,7 +80,11 @@ function getEmptyGig() {
         price: { basic: utilService.getRandomIntInclusive(1000, 9000) },
         description: 'I will do a nice job',
         owner: { rate: 4 },
-        imgUrl: 'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/22527722/original/d9de303ea2f07efe1e75e1a67f657e33e6aa9b4f/do-professional-and-unique-logo-design.jpg'
+        imgUrl: [
+            "./src/imgs/gig-img/gig1/1.jpg",
+            "./src/imgs/gig-img/gig1/2.jpg",
+            "./src/imgs/gig-img/gig1/3.jpg",
+        ],
 
     }
 }

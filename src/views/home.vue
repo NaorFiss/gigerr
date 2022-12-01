@@ -9,7 +9,7 @@
             </p>
             <div class="search-bar">
               <form class="flex">
-                <input type="search" v-focus v-model="filterBy.txt" placeholder="Try building mobile app" value>
+                <input type="search" v-model="filterBy.txt" placeholder="Try building mobile app" value>
                 <button class="submit" @click="loadGigs">search
                 </button>
               </form>
@@ -28,9 +28,6 @@
       </div>
     </div>
   </section>
-
-
-
 </template>
 
 <script>

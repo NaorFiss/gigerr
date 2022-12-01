@@ -80,7 +80,7 @@ export const gigStore = {
             try {
                 console.log(filterBy)
                 const gigs = await gigService.query(filterBy)
-                console.log(gigs)
+                // console.log(gigs)
                 context.commit({ type: 'setGigs', gigs })
             } catch (err) {
                 console.log('gigStore: Error in loadGigs', err)
