@@ -1,5 +1,5 @@
 <template>
-    <div class="order-details">
+    <div class="order-details" v-if=gig>
         <div class="order-card">
             <h1>Your order</h1>
             <div class="flex space-between">

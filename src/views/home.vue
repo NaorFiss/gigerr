@@ -8,6 +8,7 @@
               Find the perfect freelance services for your business
             </p>
             <gig-filter />
+            <app-hero/>
             <!-- <div class="search-bar">
               <form class="flex">
                 <input type="search" v-model="filterBy.txt" placeholder="Try building mobile app" value>
@@ -32,6 +33,7 @@
 </template>
 
 <script>
+import appHero from '../cmps/app-hero.vue'
 import gigFilter from '../cmps/gig-filter.vue'
 export default {
 
@@ -69,7 +71,8 @@ export default {
     },
   },
   components: {
-    gigFilter
+    gigFilter,
+    appHero
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if=gig>
         <h1>About The Seller</h1>
         <div class="seller-info">
             <img class="user-img" :src="gig.owner.imgUrl">
