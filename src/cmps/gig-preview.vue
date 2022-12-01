@@ -1,12 +1,12 @@
 <template>
     <section class="gig-preview flex">
         <li>
-            <imgCard :imgs="gig.imgUrl" />
+            <imgCard @click="gigDetails" :imgs="gig.imgUrl" />
             <article class="preview-card flex column">
                 <div class="flex mini-user">
-                    <img :src="gig.owner.imgUrl" alt="">
+                    <img  :src="gig.owner.imgUrl" alt="">
                     <div>
-                        <p class="fs14 mac-bold black">{{ gig.owner.fullname }}</p>
+                        <p @click="userDetails" class="fs14 mac-bold black mini-username">{{ gig.owner.fullname }}</p>
                         <p :class=' gig.owner.level === "Top Rated" ? "orange , fs14" : " $clr6, fs14" '>{{
                                 gig.owner.level
                         }} Seller</p>
@@ -42,6 +42,15 @@ export default {
         loggedInUser() {
             return this.$store.getters.loggedinUser
         },
+    },
+    methods:{
+        gigDetails(){
+            this.$router.push('/gig/'+ this.gig._id)
+        },
+        userDetails(){
+            console.log(this.gig.owner._id);
+            this.$router.push('/user/'+ this.gig.owner._id)
+        }
     },
     components: {
         imgCard

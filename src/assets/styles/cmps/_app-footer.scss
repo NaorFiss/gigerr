@@ -1,13 +1,28 @@
 footer {
     // background-color: $clr2;
     border-top: 1px $clr2 solid;
-    padding: 10px;
+    padding-inline: 30px;
+    padding-block: 20px;
     display: flex;
     justify-content: space-between;
     position: relative;
     bottom: 0;
     width: 100%;
+    align-items: center;
+    gap: 10px;
     
+    .links-container{
+        gap: 20px;
+        align-items: center;
+        img{
+            color: $clr6;
+        }
+        img:hover{
+            cursor: pointer;
+            box-shadow: 0 0 5px 5px rgb(223, 221, 221);
+            border-radius: 5px;
+        }
+    }
     nav {
         // background-color: $clr4;
         padding: 5px 0;
