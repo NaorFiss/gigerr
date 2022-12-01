@@ -4,11 +4,7 @@
         <div class="seller-info">
             <img class="user-img" :src="gig.owner.imgUrl">
             <h5>{{ gig.owner.fullname }}</h5>
-            <img class="star-img" src="../assets/star.jpg" />
-            <img class="star-img" src="../assets/star.jpg" />
-            <img class="star-img" src="../assets/star.jpg" />
-            <img class="star-img" src="../assets/star.jpg" />
-            <img class="star-img" src="../assets/star.jpg" />
+            <img v-for="n in rate" class="star-img" src="../assets/star.jpg" />
             (223)
             <button>Contact Me</button>
         </div>
@@ -33,6 +29,13 @@
 export default {
     props: {
         gig: Object
+    },
+    computed: {
+        rate() {
+            console.log(Math.trunc(+this.gig.owner.rate))
+            return Math.trunc(+this.gig.owner.rate)
+
+        },
     },
 }
 </script>
