@@ -18,13 +18,12 @@
               <p>Popular:</p>
               <a class="btn-filter" @click="setFilter('Website Design')">Website Design</a>
               <a class="btn-filter" @click="setFilter('WordPress')">WordPress</a>
-              <a class="btn-filter" @click="setFilter('Logo Design')">Logo Design</a>
+              <a class="btn-filter" @click="setFilter('Logo-design')">Logo design</a>
               <a class="btn-filter" @click="setFilter('Video Editing')">Video Editing</a>
             </div>
           </div>
         </div>
         <div class="hero backgrounds">
-
         </div>
       </div>
     </div>
@@ -55,14 +54,15 @@ export default {
     goToExplore() {
       this.$router.push('/gig')
     },
-    async loadGigs(filterBy) {
-      const filterByTxt = JSON.parse(JSON.stringify(this.filterBy.txt))
+    async loadGigs() {
+      const filterBy = JSON.parse(JSON.stringify(this.filterBy))
+      console.log(filterBy)
       await this.$store.dispatch({ type: 'loadGigs', filterBy })
       this.goToExplore()
     },
     setFilter(tag) {
       this.filterBy.txt = tag
-      this.loadGigs(this.filterBy)
+      this.loadGigs()
     }
   },
   computed: {

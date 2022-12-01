@@ -18,20 +18,58 @@ export const gigService = {
 window.cs = gigService
 
 
-async function query(filterBy = { txt: '', price:  0}) {
-    // return httpService.get(STORAGE_KEY, filterBy)
-    // console.log("gig.service")
+// async function query(filterBy = { txt: '', price: 0 }) {
+// return httpService.get(STORAGE_KEY, filterBy)
+async function query(filterBy) {
     var gigs = await storageService.query(STORAGE_KEY)
     if (filterBy.txt) {
         const regex = new RegExp(filterBy.txt, 'i')
-        gigs = gigs.filter(gig => regex.test(gig.name) || regex.test(gig.description))
+        gigs = gigs.filter(gig => regex.test(gig.tags[0]) || regex.test(gig.title))
     }
     if (filterBy.price) {
         gigs = gigs.filter(gig => gig.price <= filterBy.price)
     }
+    console.log(gigs)
     return gigs
 
 }
+// async function query(filterBy) {
+//     // return httpService.get(STORAGE_KEY, filterBy)
+//     var gigs = await storageService.query(STORAGE_KEY)
+//     if (filterBy) {
+//         console.log(filterBy.txt)
+//         var filterGigs = []
+//         for (var i = 0; i < gigs.length; i++) {
+//             for (var j = 0; j < gigs[i].tags.length; j++) {
+//                 console.log(gig.tags[0] === filterBy.txt)
+//                 if (gigs[i].tags[j] === filterBy.txt) {
+
+//                     filterGigs.push(gigs[i])
+//                 }
+
+//             }
+// gigs = gigs.filter((gig) =>
+//     gig.tags[0] === filterBy.txt
+//     console.log(gig.tags[0] === filterBy.txt)
+// )
+// console.log("helo if", filterBy.txt)
+// const regex = new RegExp(filterBy.txt, 'i')
+// console.log("regex", regex)
+// gigs = gigs.filter(gig => {
+//     console.log(gig.tags[0])
+//     regex.test(gig.tags[0])
+// })
+// gigs = gigs.filter(gig => regex.test(gig.name) || regex.test(gig.description))
+// }
+// if (filterBy.price) {
+//     gigs = gigs.filter(gig => gig.price <= filterBy.price)
+//         // }
+//         gigs = filterGigs
+//     }
+//     console.log("service", gigs)
+//     return gigs
+
+// }
 function getById(gigId) {
     return storageService.get(STORAGE_KEY, gigId)
     // return httpService.get(`gig/${gigId}`)
