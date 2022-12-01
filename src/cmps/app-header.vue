@@ -1,5 +1,5 @@
 <template>
-  <header >
+  <header ref="header" v-bind:style="{ position: stickyNav ? 'fixed' : 'static' }">
     <div class="hamburger">
       <svg xmlns="http://www.w3.org/2000/svg" width="23" height="19" viewBox="0 0 23 19">
         <rect y="16" width="23" height="3" rx="1.5" fill="#555"></rect>
@@ -24,12 +24,36 @@
     </nav>
   </header>
 </template>
+
 <script>
 export default {
   computed: {
     loggedInUser() {
       return this.$store.getters.loggedinUser
     },
-  }
+  },
+  // methods: {
+  //   onHeaderObserved(entries) {
+  //     entries.forEach((entry) => {
+  //       this.stickyNav = entry.isIntersecting ? false : true;
+  //     });
+  //   },
+  // },
+
+  // mounted() {
+  //   this.headerObserver = new IntersectionObserver(this.onHeaderObserved, {
+  //     rootMargin: "-85px 0px 0px",
+  //   });
+  //   this.headerObserver.observe(this.$refs.header);
+  // },
+
+  // data: () => {
+  //   return {
+  //     // arrowRight: miscellaneous.arrowRight,
+  //     // arrowLeft: miscellaneous.arrowLeft,
+  //     headerObserver: null,
+  //     stickyNav: false,
+  //   };
+  // },
 }
 </script>
