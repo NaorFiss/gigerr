@@ -4,11 +4,11 @@
       <div class="main-layout">
         <div class="hero-wrapper flex column">
           <div class="hero-title ">
+            <app-hero/>
             <p>
               Find the perfect freelance services for your business
             </p>
             <gig-filter />
-            <app-hero/>
           </div>
         </div>
         <div class="hero backgrounds">
@@ -16,6 +16,7 @@
       </div>
     </div>
   </section>
+  <div style="height:1000px"></div>
 </template>
 
 <script>
