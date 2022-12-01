@@ -1,9 +1,12 @@
 header {
     // background-color: $clr2;
     border-bottom: 1px $clr2 solid;
-    padding: 10px;
+    padding-block: 10px;
+    padding-inline: 30px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
 
     .loggedin-user {
         // background-color: $clr1;
@@ -27,12 +30,22 @@ header {
         // background-color: $clr4;
         padding: 5px 0;
     }
-    nav a:not(:first-child) {
-        padding: 0 5px;
+    nav >*{
+        // padding: 0 5px;
+        padding: 10px;
         margin: 10px;
     }
     nav .active {
         color: $clr3;
     }
-    
+    .join{
+        border: 1px solid $clr3;
+        color: $clr3;
+        border-radius: 10%;
+    }
+    .join:hover{
+        background-color: $clr3;
+        color: white;
+        transition: 0.5s;
+    }
 }

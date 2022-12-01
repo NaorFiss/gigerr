@@ -10,7 +10,7 @@
       </h3>
     </div>
     <div v-else>
-      <h2>Login</h2>
+      <h2>Sign in to Gigger</h2>
       <form @submit.prevent="doLogin">
         <select v-model="loginCred.username">
           <option value="">Select User</option>
@@ -25,14 +25,6 @@
         <button>Login</button>
       </form>
       <p class="mute">user1 or admin, pass:123 </p>
-      <form @submit.prevent="doSignup">
-        <h2>Signup</h2>
-        <input type="text" v-model="signupCred.fullname" placeholder="Your full name" />
-        <input type="text" v-model="signupCred.password" placeholder="Password" />
-        <input type="text" v-model="signupCred.username" placeholder="Username" />
-        <img-uploader @uploaded="onUploaded"></img-uploader>
-        <button>Signup</button>
-      </form>
     </div>
     <hr />
     <details>
@@ -50,16 +42,12 @@
 </template>
 
 <script>
-
-import imgUploader from '../cmps/img-uploader.vue'
-
 export default {
-  name: 'login-signup',
+  name: 'login',
   data() {
     return {
       msg: '',
       loginCred: { username: 'user1', password: '123' },
-      signupCred: { username: '', password: '', fullname: '', imgUrl : '' },
     }
   },
   computed: {
@@ -90,15 +78,6 @@ export default {
     doLogout() {
       this.$store.dispatch({ type: 'logout' })
     },
-    async doSignup() {
-      if (!this.signupCred.fullname || !this.signupCred.password || !this.signupCred.username) {
-        this.msg = 'Please fill up the form'
-        return
-      }
-      await this.$store.dispatch({ type: 'signup', userCred: this.signupCred })
-      this.$router.push('/')
-
-    },
     loadUsers() {
       this.$store.dispatch({ type: "loadUsers" })
     },
@@ -110,13 +89,8 @@ export default {
         this.msg = 'Failed to remove user'
       }
     },
-    onUploaded(imgUrl) {
-      this.signupCred.imgUrl = imgUrl
-    }
-
   },
   components: {
-    imgUploader
   }
 }
 </script>
