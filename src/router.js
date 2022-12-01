@@ -4,7 +4,8 @@ import home from './views/home.vue'
 import chat from './views/chat.vue'
 import gigApp from './views/gig-app.vue'
 import reviewApp from './views/review-app.vue'
-import loginSignup from './views/login-signup.vue'
+import login from './views/login.vue'
+import signSup from './views/sign-up.vue'
 import userDetails from './views/user-details.vue'
 import gigDetails from './views/gig-details.vue'
 
@@ -31,8 +32,13 @@ const routes = [
   },
   {
     path: '/login',
-    name: 'loginSignup',
-    component: loginSignup
+    name: 'login',
+    component: login
+  },
+  {
+    path: '/signup',
+    name: 'signup',
+    component: signSup
   },
   {
     path: '/user/:id',

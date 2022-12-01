@@ -1,14 +1,16 @@
-<template >
-    <section class="slide">
-        <img :src="img" alt="">
-    </section>
+<template>
+    <el-carousel  height="180px" :interval="0" trigger="click" >
+        <el-carousel-item class="main-img" v-for="item in imgs" :key="item">
+                <img  :src="item" alt="">
+        </el-carousel-item>
+    </el-carousel>
 </template>
 
 <script>
 export default {
     name: 'gig-list',
     props: {
-        img: String
+        imgs: Array
     },
     components: {
     }

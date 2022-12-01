@@ -1,29 +1,25 @@
 <template>
     <section class="gig-preview flex">
         <li>
-            <section class="slider-container flex justify-center">
-                <div class="img-slider">
-                    <imgCard v-for="(img, index) in gig.imgUrl" :img="img" :key="`item - ${index}`"/>
-                </div>
-            </section>
+            <imgCard :imgs="gig.imgUrl" />
             <article class="preview-card">
                 <div class="flex mini-user">
                     <img :src="gig.owner.imgUrl" alt="">
                     <div>
-                        <p class="fs14">{{ gig.owner.fullname }}</p>
-                        <p :class='(gig.owner.level === "Top Rated Seller" ? "orange" : "", "fs14")'>{{
+                        <p class="fs14 mac-bold black">{{ gig.owner.fullname }}</p>
+                        <p :class=' gig.owner.level === "Top Rated" ? "orange , fs14" : "mac-light , fs14" '>{{
                                 gig.owner.level
-                        }} seller</p>
+                        }} Seller</p>
                     </div>
                 </div>
                 <router-link :to="'/gig/' + gig._id">{{ gig.title }}</router-link>
                 <p class="orange fs14">&#9733{{ gig.owner.rate }}</p>
             </article>
             <div class="flex space align-center li-bottom">
-                <p>🤍</p>
+                <p>❤</p>
                 <div class="flex column align-end">
-                    <p class="fs10">STARTING AT</p>
-                    <p class="fs18">${{ gig.price.basic?.toLocaleString() }}</p>
+                    <p class="fs10 weight-7">STARTING AT</p>
+                    <p class="fs18 black">${{ gig.price.basic?.toLocaleString() }}</p>
                 </div>
             </div>
         </li>
