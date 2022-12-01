@@ -1,5 +1,4 @@
 header {
-    // background-color: $clr2;
     border-bottom: 1px $clr2 solid;
     padding-block: 10px;
     padding-inline: 30px;
@@ -7,48 +6,81 @@ header {
     justify-content: space-between;
     align-items: center;
     max-height: 80px;
+    position: sticky;
 
     .loggedin-user {
-        // background-color: $clr1;
         padding: 2px 8px;
         border-radius: 1em;
         align-self: flex-end;
         color: whitesmoke;
-        span{
+
+        span {
             background-color: $clr2;
             padding: 4px;
             margin: 10px;
             border-radius: 50%;
         }
+
         img {
             width: 2em;
             height: 2em;
             border-radius: 50%;
         }
     }
+
     nav {
-        // background-color: $clr4;
         padding: 5px 0;
     }
-    nav >*{
-        // padding: 0 5px;
+
+    nav>* {
         padding: 10px;
         margin: 10px;
     }
+
     nav .active {
         color: $clr3;
     }
-    .join{
+
+    .join {
         border: 1px solid $clr3;
         color: $clr3;
         border-radius: 10%;
     }
-    .join:hover{
+
+    .join:hover {
         background-color: $clr3;
         color: white;
         transition: 0.5s;
     }
-    .logo{
+
+    .logo {
         max-width: 100px;
+    }
+
+    .hamburger {
+        display: none;
+    }
+}
+
+
+@media (max-width: 600px) {
+    header> :nth-child(3) :not(:last-child) {
+        display: none;
+    }
+
+    header> :nth-child(3) :last-child {
+        color: $clr2;
+        border: none;
+    }
+
+    header {
+        border: none;
+
+        .hamburger {
+            display: block;
+            cursor: pointer;
+            padding: 10px;
+            align-self: flex-end;
+        }
     }
 }

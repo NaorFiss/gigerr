@@ -11,6 +11,7 @@
         </router-link>
       </li>
     </ul>
+    <button @click="doLogout">Logout</button>
 
     <details>
       <summary>Full JSON</summary>
@@ -50,5 +51,10 @@ export default {
       return this.$route.params.id
     },
   },
+  methods:{
+    doLogout() {
+      this.$store.dispatch({ type: 'logout' })
+    },
+  }
 }
 </script>
