@@ -16,14 +16,14 @@ export const gigService = {
 window.cs = gigService
 
 
-async function query(filterBy = { txt: '', price: 0 }) {
+async function query(filterBy) {
     var gigs = await storageService.query(STORAGE_KEY)
-    if (filterBy.txt) {
+    if (filterBy) {
         const regex = new RegExp(filterBy.txt, 'i')
-        gigs = gigs.filter(gig => regex.test(gig.vendor) || regex.test(gig.description))
+        gigs = gigs.filter(gig => regex.test(gig.tags[0]) || regex.test(gig.title))
     }
-    if (filterBy.price) {
-        gigs = gigs.filter(gig => gig.price <= filterBy.price)
+    if (filterBy) {
+        gigs = gigs.filter(gig => gig.price.basic <= filterBy.price)
     }
     return gigs
 }
@@ -139,23 +139,11 @@ function getEmptyGig() {
 //         },
 //         "daysToMake": 4,
 //         "description": "I build your app faster than you think! ",
-<<<<<<< HEAD
 //         "imgUrl": "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/185781763/original/375357920dd1ff15663a044cc2333691bd07c371/be-mobile-app-developer-for-android-and-ios-app-development.jpg",
 //         "tags": [
 //             "app",
 //             "proffesional",
 //             "computer"
-=======
-//         "imgUrl": [
-//             "./src/imgs/gig-img/gig2/1.jpg",
-//             // "./src/imgs/gig-img/gig2/2.jpg",
-//             // "./src/imgs/gig-img/gig2/3.jpg",
-//         ],
-//             "tags": [
-//           "app",
-//           "proffesional",
-//           "computer"
->>>>>>> 82bf2f7571decf211919e9f4ba04c22430e40d3e
 //         ],
 //         "likedByUsers": [
 //             {

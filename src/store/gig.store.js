@@ -1,4 +1,4 @@
-import { gigService } from '../services/gig.service.js'
+import { gigService } from '../services/gig.service.local.js'
 
 export function getActionRemoveGig(gigId) {
     return {
@@ -76,15 +76,12 @@ export const gigStore = {
                 throw err
             }
         },
-        async loadGigs(context, filterBy) {
-
+        async loadGigs(context, { filterBy }) {
             try {
-                console.log("befor service", filterBy)
+                console.log(filterBy)
                 const gigs = await gigService.query(filterBy)
-                console.log("after service", filterBy)
+                console.log(gigs)
                 context.commit({ type: 'setGigs', gigs })
-                console.log("after comit", filterBy)
-
             } catch (err) {
                 console.log('gigStore: Error in loadGigs', err)
                 throw err
