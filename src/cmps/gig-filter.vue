@@ -2,10 +2,9 @@
     <section class="">
         <div class="hero-wrapper flex column">
             <div class="hero-title ">
-                <h1>Im gig filter!!!!</h1>
-                <p>
+                <!-- <p>
                     Find the perfect freelance services for your business
-                </p>
+                </p> -->
                 <div class="search-bar">
                     <form class="flex" @submit.prevent="loadGigs">
                         <input type="search" v-model="filterBy.txt" placeholder="Try building mobile app" value>

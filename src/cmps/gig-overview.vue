@@ -1,11 +1,10 @@
 <template>
-  <div>
+  <div v-if=gig>
     <h1>{{ gig.title }}</h1>
-    <div class="seller-details">
+    <div class="seller-details flex">
       <img class="user-img" :src="gig.owner.imgUrl" />
-      <router-link to="">{{
-          gig.owner.fullname
-      }}</router-link> |
+      <router-link to="">{{ gig.owner.fullname }}</router-link> |
+      <h3>{{ gig.owner.level }} Seller </h3>
       <img class="star-img" src="../assets/star.jpg" />
       <img class="star-img" src="../assets/star.jpg" />
       <img class="star-img" src="../assets/star.jpg" />
@@ -14,7 +13,6 @@
       (24)
     </div>
     <imgCard :imgs="gig.imgUrl" />
-    <!-- <img class="img-fit" :src="gig.imgUrl"> -->
   </div>
 </template>
 
@@ -26,7 +24,7 @@ export default {
     gig: Object
   },
   components: {
-    imgCard
+    imgCard,
   }
 }
 </script>
