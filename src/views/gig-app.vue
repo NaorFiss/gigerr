@@ -1,5 +1,5 @@
 <template>
-  <div class="container home">
+  <div class="app-container home">
     <gig-filter />
     <gig-list :gigs="gigs" />
   </div>

@@ -1,6 +1,6 @@
 .container {
     max-width: 1500px;
-    padding: 10px;
+    // padding: 10px;
 }
 
 .main-container {
@@ -50,3 +50,9 @@ grid-template-columns: minmax(24px,1fr) minmax(auto,1240px) minmax(24px,1fr);
     grid-column: 1/-1;
 }
 
+.app-container{
+    padding-inline: 30px;
+}
+.app-container > *{
+    margin-bottom: 30px;
+}

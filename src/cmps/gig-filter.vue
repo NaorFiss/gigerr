@@ -1,5 +1,5 @@
 <template>
-    <section class="main-container">
+    <section class="">
         <div class="hero-wrapper flex column">
             <div class="hero-title ">
                 <h1>Im gig filter!!!!</h1>
@@ -14,7 +14,8 @@
                     </form>
                 </div>
                 <div class="flex justify-between items-center ">
-                    <p>Popular:</p>
+                    <p>Popular : </p>
+                    <a class="btn-filter" @click="setFilter('')">All</a>
                     <a class="btn-filter" @click="setFilter('app')">app</a>
                     <a class="btn-filter" @click="setFilter('Website Design')">Website Design</a>
                     <a class="btn-filter" @click="setFilter('WordPress')">WordPress</a>

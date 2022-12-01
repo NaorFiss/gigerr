@@ -95,7 +95,7 @@ function getEmptyGig() {
 // ; (async () => {
 //     await storageService.post(STORAGE_KEY, {
 //         "_id": "g1",
-//         "title": "I will design your logo",
+//         "title": "I will design your logo in no time trust me",
 //         "price":
 //         {
 //             "basic": 12,
@@ -103,14 +103,14 @@ function getEmptyGig() {
 //             "premium": 50
 //         },
 //         "owner": {
-//             "_id": "1",
-//             "fullname": "itzik",
-//             "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
-//             "level": "Level 1",
-//             "rate": 4,
-//             "from": "Israel",
-//             "memberSince": 2010,
-//             "about": "The very BEST!"
+//           "_id": "Gk3Lm",
+//           "fullname": "itzik",
+//           "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+//           "level": "Level 1",
+//           "rate": 4.2,
+//           "from": "Israel",
+//           "memberSince": 2010,
+//           "about": "The very BEST!"
 //         },
 //         "daysToMake": 3,
 //         "description": "Any logo you can think of I will make it! ",
@@ -134,7 +134,7 @@ function getEmptyGig() {
 //     },)
 //     await storageService.post(STORAGE_KEY, {
 //         "_id": "g2",
-//         "title": "I will build an app",
+//         "title": "I will build an app, so click here and start apping your special app now! hurry hurry hurry",
 //         "price":
 //         {
 //             "basic": 40,
@@ -142,14 +142,14 @@ function getEmptyGig() {
 //             "premium": 60
 //         },
 //         "owner": {
-//             "_id": "2",
-//             "fullname": "naor",
-//             "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
-//             "level": "Level 2",
-//             "rate": 4,
-//             "from": "Israel",
-//             "memberSince": 2010,
-//             "about": "The very BEST!"
+//           "_id": "2",
+//           "fullname": "naor",
+//           "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+//           "level": "Level 2",
+//           "rate": 4.8,
+//           "from": "Israel",
+//           "memberSince": 2010,
+//           "about": "The very BEST!"
 //         },
 //         "daysToMake": 4,
 //         "description": "I build your app faster than you think! ",
@@ -180,14 +180,14 @@ function getEmptyGig() {
 //             "premium": 40
 //         },
 //         "owner": {
-//             "_id": "3",
-//             "fullname": "shachar",
-//             "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
-//             "level": "Top Rated",
-//             "rate": 5,
-//             "from": "Israel",
-//             "memberSince": 2010,
-//             "about": "The very BEST!"
+//           "_id": "3",
+//           "fullname": "shachar",
+//           "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+//           "level": "Top Rated",
+//           "rate": 5.0,
+//           "from": "Israel",
+//           "memberSince": 2010,
+//           "about": "The very BEST!"
 //         },
 //         "daysToMake": 5,
 //         "description": "I can teach you english quick! ",
