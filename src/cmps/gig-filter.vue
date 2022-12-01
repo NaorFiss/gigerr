@@ -18,7 +18,7 @@
                     <a class="btn-filter" @click="setFilter('app')">app</a>
                     <a class="btn-filter" @click="setFilter('Website Design')">Website Design</a>
                     <a class="btn-filter" @click="setFilter('WordPress')">WordPress</a>
-                    <a class="btn-filter" @click="setFilter('Logo-design')">Logo design</a>
+                    <a class="btn-filter" @click="setFilter('Logo Design')">Logo design</a>
                     <a class="btn-filter" @click="setFilter('Video Editing')">Video Editing</a>
                 </div>
             </div>
