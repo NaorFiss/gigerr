@@ -13,14 +13,20 @@
       <img class="star-img" src="../assets/star.jpg" />
       (24)
     </div>
-    <img class="img-fit" :src="gig.imgUrl">
+    <imgCard :imgs="gig.imgUrl" />
+    <!-- <img class="img-fit" :src="gig.imgUrl"> -->
   </div>
 </template>
 
 <script>
+import imgCard from './img-card.vue'
+
 export default {
   props: {
     gig: Object
+  },
+  components: {
+    imgCard
   }
 }
 </script>
