@@ -1,16 +1,17 @@
 <template>
-    <section class="gig-details main-container">
-        <div class="main-layout  margin">
-
-            <div class="gig-overview-contanier ">
-                <div class="gig-info">
+    <section class="gig-details ">
+        <div class="gig-overview">
+            <div class="gig-info">
+                <div class="up-content flex wrap space">
                     <gig-overview id="gig-overview" :gig="gig" />
-                    <gig-description id="gig-description" :gig="gig" />
-                    <about-seller id="about-seller" :gig="gig" />
+                    <order-details class="order-details" :gig="gig" />
                 </div>
-                <order-details class="order-details" :gig="gig" />
+                <gig-description id="gig-description" :gig="gig" />
+                <about-seller id="about-seller" :gig="gig" />
 
             </div>
+
+
         </div>
     </section>
 </template>
