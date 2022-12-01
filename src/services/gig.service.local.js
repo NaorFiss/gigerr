@@ -23,11 +23,14 @@ async function query(filterBy) {
         if (filterBy.txt) {
             const regex = new RegExp(filterBy.txt, 'i')
             gigs = gigs.filter(gig => regex.test(gig.title))
+            console.log("filterBy.txt :", filterBy.txt)
+            console.log("gigs :", gigs)
         }
 
         if (filterBy.tag) {
             gigs = gigs.filter(gig =>
                 gig.tags.includes(filterBy.tag.toLowerCase())
+
             )
         }
         // if (filterBy) {
@@ -92,7 +95,7 @@ function getEmptyGig() {
 
 
 // TEST DATA
-// ; (async () => {
+// (async () => {
 //     await storageService.post(STORAGE_KEY, {
 //         "_id": "g1",
 //         "title": "I will design your logo in no time trust me",
@@ -120,7 +123,7 @@ function getEmptyGig() {
 //             "./src/imgs/gig-img/gig1/3.jpg",
 //         ],
 //         "tags": [
-//             "logo-design",
+//             "logo Design",
 //             "artisitic",
 //             "proffesional",
 //             "accessible"
@@ -160,7 +163,7 @@ function getEmptyGig() {
 //         ],
 //         "tags": [
 //             "app",
-//             "proffesional",
+//             "Website Design",
 //             "computer"
 //         ],
 //         "likedByUsers": [
