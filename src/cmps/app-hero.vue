@@ -2,10 +2,8 @@
     <section class="hero-container full">
         <div class="img-container">
             <Transition>
-                <img v-if1="show" :src="getImgUrl" />
+                <img class="full hero-img" v-if1="show" :src="getImgUrl" />
             </Transition>
-
-
         </div>
     </section>
 </template>
@@ -13,31 +11,28 @@
 <script>
 export default {
     name: 'hero',
-    mounted(){
+    mounted() {
         setInterval(this.changeCurrImage, 3000)
-         
     },
-    data(){
+    data() {
         return {
             show: false,
             idx: 1,
         }
     },
     methods: {
-        changeCurrImage(){
-            this.show=!this.show
-            if(!this.show){
-          this.idx=this.idx< 5 ? this.idx+1 : 1
-         
+        changeCurrImage() {
+            this.show = !this.show
+            if (!this.show) {
+                this.idx = this.idx < 5 ? this.idx + 1 : 1
             }
         }
     },
-        computed:{
-            getImgUrl(){
-                return `src/imgs/hero-img/hero${this.idx}.jpg`
-            },
-        
-        }
+    computed: {
+        getImgUrl() {
+            return `src/imgs/hero-img/hero${this.idx}.jpg`
+        },
     }
-    </script>
+}
+</script>
  

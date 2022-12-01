@@ -8,23 +8,8 @@ header {
     max-height: 80px;
     width: 100%;
     z-index: 20;
+
     
-    // .sticky{
-    //     top: 0;
-    // }
-    // .atHome {
-    //     position: fixed;
-    //     background-color: transparent;
-    //     background-color: yellow;
-    //     border: none;
-    // }
-
-    // .atExplore {
-    //     position: relative;
-    //     background-color: white;
-
-    // }
-
     .loggedin-user {
         padding: 2px 8px;
         border-radius: 1em;
@@ -88,10 +73,7 @@ header {
     position: fixed;
     background-color: transparent;
     border: none;
-    // &.scrolled{
-    //     background-color: white;
-    //     border-bottom: 1px gray solid;
-    // }
+    transition: 0.4s;
 }
 
 

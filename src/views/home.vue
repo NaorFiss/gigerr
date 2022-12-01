@@ -5,9 +5,12 @@
         <div class="hero-wrapper flex column">
           <div class="hero-title ">
             <app-hero/>
-            <p>
-              Find the perfect freelance services for your business
-            </p>
+            <h2 class="header-title">
+              Find the perfect freelance
+            </h2>
+            <h2 class="header-title">
+              services for your business
+            </h2>
             <gig-filter />
           </div>
         </div>

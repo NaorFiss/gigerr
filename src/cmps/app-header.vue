@@ -44,7 +44,7 @@ export default {
   methods: {
     atHome() {
       // console.log(this.$route.path )
-      return this.$route.path === '/gig' ? false : true
+      return this.$route.path === '/' ? true : false
     },
     onHeaderObserved(entries) {
       entries.forEach((entry) => {
