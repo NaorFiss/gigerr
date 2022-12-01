@@ -1,6 +1,6 @@
 <template>
-    <footer class="flex">
-        <div class="flex links-container">
+    <footer class="flex space">
+        <div class="flex logo-container">
             <h2 class="mac-bold fs30"><img src="@/assets/footer-logo.svg" alt=""></h2>
             <p class="clr-6 fs14">© Gigerr International Ltd. 2022</p>
         </div>
