@@ -1,3 +1,17 @@
+.gig-overview-contanier{
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 1fr;
+    -webkit-margin-before: 2.5rem;
+    margin-block-start: 2.5rem;
+}
+.order-details{
+    grid-column: 1;
+    grid-row: 2;
+    -webkit-margin-after: 2.5rem;
+    margin-block-end: 2.5rem;
+}
+
 .gig-overview-contanier {
     display: flex;
     justify-content: space-between;
@@ -7,7 +21,7 @@
 .order-details {
     position: sticky;
     top: 50%;
-    transform: translateY(-30%);
+    // transform: translateY(-30%);
     max-width: 300px;
     max-height: 500px;
 }
@@ -97,3 +111,4 @@
     min-height: 7rem;
     min-width: 20rem;
 }
+

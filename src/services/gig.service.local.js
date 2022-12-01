@@ -34,6 +34,7 @@ async function query(filterBy) {
         //     gigs = gigs.filter(gig => gig.price.basic <= filterBy.price)
         // }
     }
+    console.log(gigs)
     return gigs
 }
 
@@ -97,19 +98,19 @@ function getEmptyGig() {
 //         "title": "I will design your logo",
 //         "price":
 //         {
-//           "basic": 12,
-//           "standard": 30,
-//           "premium": 50
+//             "basic": 12,
+//             "standard": 30,
+//             "premium": 50
 //         },
 //         "owner": {
-//           "_id": "1",
-//           "fullname": "itzik",
-//           "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
-//           "level": "Level 1",
-//           "rate": 4,
-//           "from": "Israel",
-//           "memberSince": 2010,
-//           "about": "The very BEST!"
+//             "_id": "1",
+//             "fullname": "itzik",
+//             "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+//             "level": "Level 1",
+//             "rate": 4,
+//             "from": "Israel",
+//             "memberSince": 2010,
+//             "about": "The very BEST!"
 //         },
 //         "daysToMake": 3,
 //         "description": "Any logo you can think of I will make it! ",
@@ -119,36 +120,36 @@ function getEmptyGig() {
 //             "./src/imgs/gig-img/gig1/3.jpg",
 //         ],
 //         "tags": [
-//           "logo-design",
-//           "artisitic",
-//           "proffesional",
-//           "accessible"
+//             "logo-design",
+//             "artisitic",
+//             "proffesional",
+//             "accessible"
 //         ],
 //         "likedByUsers": [
-//           {
-//             "_id": 2,
-//             "username": 'naor'
-//           },
+//             {
+//                 "_id": 2,
+//                 "username": 'naor'
+//             },
 //         ] // for user-wishlist : use $in
-//       },)
-//     await storageService.post(STORAGE_KEY,  {
+//     },)
+//     await storageService.post(STORAGE_KEY, {
 //         "_id": "g2",
 //         "title": "I will build an app",
 //         "price":
 //         {
-//           "basic": 40,
-//           "standard": 50,
-//           "premium": 60
+//             "basic": 40,
+//             "standard": 50,
+//             "premium": 60
 //         },
 //         "owner": {
-//           "_id": "2",
-//           "fullname": "naor",
-//           "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
-//           "level": "Level 2",
-//           "rate": 4,
-//           "from": "Israel",
-//           "memberSince": 2010,
-//           "about": "The very BEST!"
+//             "_id": "2",
+//             "fullname": "naor",
+//             "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+//             "level": "Level 2",
+//             "rate": 4,
+//             "from": "Israel",
+//             "memberSince": 2010,
+//             "about": "The very BEST!"
 //         },
 //         "daysToMake": 4,
 //         "description": "I build your app faster than you think! ",
@@ -157,36 +158,36 @@ function getEmptyGig() {
 //             "./src/imgs/gig-img/gig2/2.jpg",
 //             "./src/imgs/gig-img/gig2/3.jpg",
 //         ],
-//             "tags": [
-//           "app",
-//           "proffesional",
-//           "computer"
+//         "tags": [
+//             "app",
+//             "proffesional",
+//             "computer"
 //         ],
 //         "likedByUsers": [
-//           {
-//             "_id": 3,
-//             "username": 'shachar'
-//           },
+//             {
+//                 "_id": 3,
+//                 "username": 'shachar'
+//             },
 //         ] // for user-wishlist : use $in
-//       },)
-//       await storageService.post(STORAGE_KEY,{
+//     },)
+//     await storageService.post(STORAGE_KEY, {
 //         "_id": "g3",
 //         "title": "I will teach you english",
 //         "price":
 //         {
-//           "basic": 20,
-//           "standard": 30,
-//           "premium": 40
+//             "basic": 20,
+//             "standard": 30,
+//             "premium": 40
 //         },
 //         "owner": {
-//           "_id": "3",
-//           "fullname": "shachar",
-//           "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
-//           "level": "Top Rated",
-//           "rate": 5,
-//           "from": "Israel",
-//           "memberSince": 2010,
-//           "about": "The very BEST!"
+//             "_id": "3",
+//             "fullname": "shachar",
+//             "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+//             "level": "Top Rated",
+//             "rate": 5,
+//             "from": "Israel",
+//             "memberSince": 2010,
+//             "about": "The very BEST!"
 //         },
 //         "daysToMake": 5,
 //         "description": "I can teach you english quick! ",
@@ -195,15 +196,15 @@ function getEmptyGig() {
 //             "./src/imgs/gig-img/gig3/2.jpg",
 //         ],
 //         "tags": [
-//           "english",
-//           "proffesional",
-//           "langaugh"
+//             "english",
+//             "proffesional",
+//             "langaugh"
 //         ],
 //         "likedByUsers": [
-//           {
-//             "_id": 1,
-//             "username": 'itzik'
-//           },
+//             {
+//                 "_id": 1,
+//                 "username": 'itzik'
+//             },
 //         ] // for user-wishlist : use $in
-//       },)
+//     },)
 // })()
