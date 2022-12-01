@@ -1,19 +1,19 @@
-hero-container {
-    height: 760px;
+.hero-container {
+    // height: 760px;
 
-
-
+    .hero-img {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+    }
 
     .v-enter-active,
     .v-leave-active {
         transition: opacity 0.5s ease;
     }
 
-
-
     .v-enter-from,
     .v-leave-to {
         opacity: 0;
     }
-
 }
