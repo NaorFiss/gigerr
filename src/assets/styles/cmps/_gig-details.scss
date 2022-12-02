@@ -4,6 +4,13 @@
     // display: flex;
    margin: 16px;
 
+    & h1{
+        font-family: WorkSansBold;
+        font-size: 1.875rem;
+        line-height: 130%;
+        font-weight: bolder;
+    }
+
     & .gig-description {
         max-width: 800px;
     }
@@ -75,14 +82,24 @@
     gap: 0.5rem;
 
     & img {
-        height: 35px;
-        width: 35px;
+        
         border-radius: 50%;
         object-fit: cover;
+
+            & star-img{
+                height: 16px;
+                width: 16px;
+            }
     }
 
+
     & a {
-        font-weight: bolder;
+        font-weight: bolder;       
+        color: #404145;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 14px;
+        margin-right: 8px
     }
 }
 
