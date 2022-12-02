@@ -8,7 +8,7 @@
       <img v-for="n in rate" class="star-img" src="../assets/star.jpg" />
       (24)
     </div>
-    <imgDetails :imgs="gig.imgUrl" />
+    <imgDetails :imgs="gig.imgUrl" class="el-carousel-details" />
   </div>
 </template>
 
