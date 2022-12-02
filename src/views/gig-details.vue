@@ -1,17 +1,14 @@
 <template>
     <section class="gig-details ">
         <div class="gig-overview">
-            <div class="gig-info">
+            <div class="gig-info flex">
                 <div class="up-content flex wrap space">
                     <gig-overview id="gig-overview" :gig="gig" />
-                    <order-details class="order-details" :gig="gig" />
+                    <gig-description id="gig-description" :gig="gig" />
+                    <about-seller id="about-seller" :gig="gig" />
                 </div>
-                <gig-description id="gig-description" :gig="gig" />
-                <about-seller id="about-seller" :gig="gig" />
-
+                <order-details class="order-details" :gig="gig" />
             </div>
-
-
         </div>
     </section>
 </template>
