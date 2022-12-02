@@ -102,9 +102,9 @@ function getLoggedinUser() {
 //     await userService.signup({fullname: 'Puki Norma', username: 'puki', password:'123',score: 10000, isAdmin: false , rate: 4.5})
 //     await userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123', score: 10000, isAdmin: true , rate: 4.5})
 //     await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 10000 , rate: 4.5})
-//     await userService.signup({_id: 1 , fullname: 'itzik', username: 'itzik', password:'123', score: 10000, isAdmin: true , rate: 4.2})
-//     await userService.signup({_id: 2 , fullname: 'naor', username: 'naor', password:'123',score: 10000, isAdmin: true , rate: 4.8})
-//     await userService.signup({_id: 3 , fullname: 'shacar', username: 'shacar', password:'123', score: 10000 ,isAdmin: true, rate: 5.0})
+//     await userService.signup({_id: "1" , fullname: 'itzik', username: 'itzik', password:'123', score: 10000, isAdmin: true , rate: 4.2 , imgUrl:'./src/imgs/user-img/itzik.jpg'})
+//     await userService.signup({_id: "2" , fullname: 'naor', username: 'naor', password:'123',score: 10000, isAdmin: true , rate: 4.8 , imgUrl:'./src/imgs/user-img/Naor-Fiss.jpeg'})
+//     await userService.signup({_id: "3" , fullname: 'shacar', username: 'shacar', password:'123', score: 10000 ,isAdmin: true, rate: 5.0 , imgUrl:'./src/imgs/user-img/shacar.jpg'})
 // })()
 
 

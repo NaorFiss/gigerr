@@ -1,5 +1,5 @@
 <template>
-    <section class="gig-preview flex">
+    <section class="gig-preview ">
         <li>
             <imgCard @click="gigDetails" :imgs="gig.imgUrl" />
             <article class="preview-card flex column">
