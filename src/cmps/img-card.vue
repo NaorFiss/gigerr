@@ -1,7 +1,7 @@
 <template>
-    <el-carousel height="180px" :interval="0" trigger="click">
-        <el-carousel-item class="main-img" v-for="item in imgs" :key="item">
-            <img :src="item" alt="">
+    <el-carousel class="carousel-container" :interval="0" trigger="click">
+        <el-carousel-item class="main-img-container" v-for="item in imgs" :key="item">
+            <img class="main-img" :src="item" alt="">
         </el-carousel-item>
     </el-carousel>
 </template>

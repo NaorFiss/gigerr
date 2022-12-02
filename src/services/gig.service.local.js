@@ -106,9 +106,9 @@ function getEmptyGig() {
 //             "premium": 50
 //         },
 //         "owner": {
-//             "_id": "Gk3Lm",
+//             "_id": "1",
 //             "fullname": "itzik",
-//             "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+//             "imgUrl": "./src/imgs/user-img/itzik.jpg",
 //             "level": "Level 1",
 //             "rate": 4.2,
 //             "from": "Israel",
@@ -147,7 +147,7 @@ function getEmptyGig() {
 //         "owner": {
 //             "_id": "2",
 //             "fullname": "naor",
-//             "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+//             "imgUrl": "./src/imgs/user-img/Naor-Fiss.jpeg",
 //             "level": "Level 2",
 //             "rate": 3.7,
 //             "from": "Israel",
@@ -185,7 +185,7 @@ function getEmptyGig() {
 //         "owner": {
 //             "_id": "3",
 //             "fullname": "shachar",
-//             "imgUrl": "https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png",
+//             "imgUrl": "./src/imgs/user-img/shacar.jpg",
 //             "level": "Top Rated",
 //             "rate": 5.0,
 //             "from": "Israel",
