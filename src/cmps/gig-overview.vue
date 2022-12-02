@@ -8,12 +8,12 @@
       <img v-for="n in rate" class="star-img" src="../assets/star.jpg" />
       (24)
     </div>
-    <imgCard :imgs="gig.imgUrl" class="el-carousel__container-d" />
+    <imgDetails :imgs="gig.imgUrl" class="el-carousel-details" />
   </div>
 </template>
 
 <script>
-import imgCard from './img-card.vue'
+import imgDetails from './img-details.vue'
 
 export default {
   props: {
@@ -27,7 +27,7 @@ export default {
     },
   },
   components: {
-    imgCard,
+    imgDetails,
   }
 }
 </script>
