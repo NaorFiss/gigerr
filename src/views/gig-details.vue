@@ -1,16 +1,24 @@
 <template>
+    <div class="details-header flex">
+        <a href="">Overview</a>
+        <a href="">About the seller</a>
+        <a href="">Compare packages</a>
+        <a href="">Reviews</a>
+    </div>
     <section class="gig-details ">
         <div class="gig-overview">
             <div class="gig-info flex">
-                <div class="up-content flex wrap space">
+                <div class="up-content flex column wrap space gap-16 details-left">
                     <gig-overview id="gig-overview" :gig="gig" />
                     <gig-description id="gig-description" :gig="gig" />
                     <about-seller id="about-seller" :gig="gig" />
+                    <div style="height:1000px"></div>
                 </div>
                 <order-details class="order-details" :gig="gig" />
             </div>
         </div>
     </section>
+
 </template>
   
 <script>

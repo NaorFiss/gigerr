@@ -4,6 +4,13 @@
     grid-row: 2;
     -webkit-margin-after: 2.5rem;
     margin-block-end: 2.5rem;
+    flex-basis: 35%;
+    width: 35%;
+}
+
+.details-left{
+    flex-basis: 65%;
+    padding-inline-end: 50px;
 }
 
 .gig-overview-contanier {
@@ -15,20 +22,19 @@
 
 .order-details {
     position: sticky;
-    top: 50%;
-    // transform: translateY(-30%);
-    max-width: 300px;
-    max-height: 500px;
+    top: 30px;
+    max-height: 725px;
 }
 
 .order-card {
     color: $clr1;
-    border: 1px solid $clr4;
+    border: 1px solid rgb(218, 216, 216);
     display: flex;
     flex-direction: column;
     gap: 1rem;
     justify-content: flex-start;
     padding: 1rem;
+    margin-bottom: 25px;
 
     & h1 {
         align-self: center;
@@ -84,18 +90,25 @@
 }
 
 .seller-data {
-    display: flex;
-    justify-content: space-around;
     border-bottom: 1px solid $clr4;
-
+    margin-bottom: 25px;
     & .seller-header {
         color: $clr1;
     }
 }
 
+.seller-data >* {
+    flex-grow: 1;
+    gap:10px;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+    padding-bottom: 25px;
+}
+
 .seller-desc {
-    border: 1px solid $clr4;
-    padding: 1rem;
+    border: 1px solid rgb(218, 216, 216);
+    padding: 25px;
     margin-top: 0.5rem;
 }
 
@@ -107,5 +120,11 @@
     min-width: 20rem;
 }
 .el-carousel-details{
-    width: 700px;
+    // width: 700px;
+}
+
+.about-seller{
+    white-space: pre-line;
+    line-height: 150%;
+    max-width: none;
 }
