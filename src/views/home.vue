@@ -1,20 +1,14 @@
 <template>
   <section class="main-container">
-    <div class="main-content">
-      <div class="main-layout">
-        <div class="hero-wrapper flex column">
-          <div class="hero-title ">
-            <app-hero/>
-            <h2 class="header-title">
-              Find the perfect freelance
-            </h2>
-            <h2 class="header-title">
-              services for your business
-            </h2>
-            <gig-filter />
+    <div class="main-layout">
+      <div class="hero-title ">
+        <app-hero />
+        <div class="hero-grid">
+          <div class="mb-10 bold-font">
+            <h2 class="header-title mb-10">Find the perfect  <span class="courgette"> freelance</span></h2>
+            <h2 class="header-title">services for your business</h2>
           </div>
-        </div>
-        <div class="hero backgrounds">
+          <gig-filter />
         </div>
       </div>
     </div>

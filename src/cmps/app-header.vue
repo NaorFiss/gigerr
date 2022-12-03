@@ -18,12 +18,12 @@
       <nav  :class="!stickyNav && atHome() ? 'white-links' : ''">
         <router-link to="/gig">Explore</router-link>
         <!-- <router-link to="/review">Reviews</router-link> -->
-        <router-link to="/chat">Chat</router-link>
+        <!-- <router-link to="/chat">Chat</router-link> -->
         <router-link v-if="!loggedInUser" to="/login">Sign In</router-link>
         <router-link class="loggedin-user" v-if="loggedInUser" :to="`/user/${loggedInUser._id}`">
           <img :src="loggedInUser.imgUrl" />
         </router-link>
-        <router-link v-if="!loggedInUser" class="join" to="/signup">Join</router-link>
+        <router-link v-else class="join" to="/signup">Join</router-link>
       </nav>
     </header>
   </section>

@@ -117,7 +117,7 @@
     gap: 7px;
 }
 
-.seller-info :nth-child(4){
+.seller-info > :last-child{
     margin-top: 15px;
     width: 50%;
 }
