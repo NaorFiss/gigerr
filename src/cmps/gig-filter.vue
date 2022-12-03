@@ -6,8 +6,9 @@
                     Find the perfect freelance services for your business
                 </p> -->
                 <div class="search-bar">
-                     <form class="flex search-container" @submit.prevent="loadGigs">
-                        <input class="search-input" type="search" v-model="filterBy.txt" placeholder="Try building mobile app" value>
+                    <form class="flex search-container" @submit.prevent="loadGigs">
+                        <input class="search-input" type="search" v-model="filterBy.txt"
+                            placeholder="Try building mobile app" value>
                         <button class="submit search-button fs18 ">Search</button>
                     </form>
                 </div>
@@ -17,7 +18,7 @@
                     <a class="btn-filter" @click="setFilter('app')">app</a>
                     <a class="btn-filter" @click="setFilter('Website Design')">Website Design</a>
                     <a class="btn-filter" @click="setFilter('WordPress')">WordPress</a>
-                    <a class="btn-filter" @click="setFilter('Logo Design')">Logo design</a>
+                    <a class="btn-filter" @click="setFilter('Logo Design')">Logo Design</a>
                     <a class="btn-filter" @click="setFilter('Video Editing')">Video Editing</a>
                 </div>
             </div>
