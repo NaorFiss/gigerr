@@ -47,12 +47,15 @@ header {
         border: 1px solid $clr3;
         color: $clr3;
         border-radius: 10%;
+        margin-inline-end: 0;
+        padding: 7px 20px;
     }
 
     .join:hover {
         background-color: $clr3;
         color: white;
         transition: 0.5s;
+        border: 1px solid $clr3;
     }
 
     .logo {
@@ -67,6 +70,14 @@ header {
         color: white;
     }
 
+    .white-links > :last-child {
+        border: 1px solid white;
+    }
+
+    .white-links > :last-child:hover {
+        border: 1px solid $clr3;
+    }
+
 }
 
 .atExplore {
@@ -78,6 +89,7 @@ header {
     background-color: transparent;
     border: none;
     transition: 0.4s;
+    padding-block: 25px;
 }
 
 

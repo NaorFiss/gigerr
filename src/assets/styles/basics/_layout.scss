@@ -51,7 +51,7 @@ grid-template-columns: minmax(24px,1fr) minmax(auto,1240px) minmax(24px,1fr);
 }
 
 .app-container:not(.full){
-    padding-inline: 30px;
+    padding: 30px;
 }
 
 .app-container > *{

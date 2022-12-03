@@ -2,23 +2,23 @@
     <section class="filter-container">
         <div class="hero-wrapper flex column">
             <div class="hero-title ">
-                <!-- <p>
-                    Find the perfect freelance services for your business
-                </p> -->
-                <div class="search-bar">
-                     <form class="flex search-container" @submit.prevent="loadGigs">
-                        <input class="search-input" type="search" v-model="filterBy.txt" placeholder="Try building mobile app" value>
+                <div class="search-bar mb-24">
+                    <form class="flex search-container" @submit.prevent="loadGigs">
+                        <input class="search-input" type="search" v-model="filterBy.txt"
+                            placeholder="Try building mobile app" value>
                         <button class="submit search-button fs18 ">Search</button>
                     </form>
                 </div>
-                <p>Popular : </p>
-                <div class="flex justify-between items-center filter-tags">
-                    <a class="btn-filter" @click="setFilter('')">All</a>
-                    <a class="btn-filter" @click="setFilter('app')">app</a>
-                    <a class="btn-filter" @click="setFilter('Website Design')">Website Design</a>
-                    <a class="btn-filter" @click="setFilter('WordPress')">WordPress</a>
-                    <a class="btn-filter" @click="setFilter('Logo Design')">Logo design</a>
-                    <a class="btn-filter" @click="setFilter('Video Editing')">Video Editing</a>
+                <div class="flex popular-tags-container">
+                    <p>Popular : </p>
+                    <div class="flex justify-between items-center inline filter-tags popular-tags">
+                        <!-- <a class="btn-filter" @click="setFilter('')">All</a> -->
+                        <!-- <a class="btn-filter" @click="setFilter('app')">app</a> -->
+                        <a class="btn-filter" @click="setFilter('Website Design')">Website Design</a>
+                        <a class="btn-filter" @click="setFilter('WordPress')">WordPress</a>
+                        <a class="btn-filter" @click="setFilter('Logo Design')">Logo design</a>
+                        <a class="btn-filter" @click="setFilter('Video Editing')">Video Editing</a>
+                    </div>
                 </div>
             </div>
         </div>

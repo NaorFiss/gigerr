@@ -1,18 +1,19 @@
 <template>
     <div class="details-header flex">
-        <a href="">Overview</a>
-        <a href="">About the seller</a>
+        <a class="active-link" href="#gigoverview">Overview</a>
+        <a href="#bottom">About the seller</a>
         <a href="">Compare packages</a>
         <a href="">Reviews</a>
     </div>
     <section class="gig-details ">
         <div class="gig-overview">
             <div class="gig-info flex">
-                <div class="up-content flex column wrap space gap-16 details-left">
+                <div class="up-content flex column wrap space gap-16 details-left" id="gig-overview">
                     <gig-overview id="gig-overview" :gig="gig" />
                     <gig-description id="gig-description" :gig="gig" />
-                    <about-seller id="about-seller" :gig="gig" />
+                    <about-seller id="about-seller" :owner="gig.owner" />
                     <div style="height:1000px"></div>
+                    <a name="gigoverview" id="gigoverview"></a>
                 </div>
                 <order-details class="order-details" :gig="gig" />
             </div>

@@ -1,16 +1,19 @@
 <template>
-  <section v-if="user">
-    <h1>User Details - {{ user.fullname }}</h1>
-    <h3>{{ user.username }} score: {{ user.score }}</h3>
-    <img style="max-width: 200px;" :src="user.imgUrl" />
-    <ul>
-      <li v-for="review in user.givenReviews" :key="review._id">
-        {{ review.txt }}
-        <router-link :to="`/user/${review.aboutUser._id}`">
-          About {{ review.aboutUser.fullname }}
-        </router-link>
-      </li>
-    </ul>
+  <section v-if="user" class="user-details-page">
+    <about-seller class="about-seller flex column" :owner="user" />
+    <!-- <div class="user-page-details"> -->
+
+      <!-- <img style="max-width: 200px;" :src="user.imgUrl" />
+      <ul>
+        <h3> {{ user.fullname }}</h3>
+        <li v-for="review in user.givenReviews" :key="review._id">
+          {{ review.txt }}
+          <router-link :to="`/user/${review.aboutUser._id}`">
+            About {{ review.aboutUser.fullname }}
+          </router-link>
+        </li>
+      </ul>
+    </div> -->
     <button @click="doLogout">Logout</button>
 
     <details>
@@ -22,8 +25,10 @@
 
 <script>
 // import {userService} from '../services/user.service'
+import aboutSeller from "../cmps/about-seller.vue"
 
 export default {
+
   data() {
     return {
       // user: null
@@ -56,6 +61,9 @@ export default {
     doLogout() {
       this.$store.dispatch({ type: 'logout' })
     },
+  },
+  components:{
+    aboutSeller
   }
 }
 </script>
