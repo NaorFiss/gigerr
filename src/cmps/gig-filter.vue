@@ -3,13 +3,16 @@
         <div class="hero-wrapper flex column">
             <div class="hero-title ">
                 <div class="search-bar mb-24">
-                    <form class="flex search-container" @submit.prevent="loadGigs">
+                    <form :class="!atExplore ? 'search-container' : 'search-container-explore'" @submit.prevent="loadGigs">
                         <input class="search-input" type="search" v-model="filterBy.txt"
                             placeholder="Try building mobile app" value>
-                        <button class="submit search-button fs18 ">Search</button>
+                        <button class="submit search-button fs18 ">
+                            {{!atExplore ? 'Search' : ''}}
+                            <img v-if="atExplore" class="white-search" src="@/assets/svg/white-search.svg" alt="">
+                        </button>
                     </form>
                 </div>
-                <div class="flex popular-tags-container">
+                <div v-if="!atExplore" class="flex popular-tags-container">
                     <p>Popular : </p>
                     <div class="flex justify-between items-center inline filter-tags popular-tags">
                         <!-- <a class="btn-filter" @click="setFilter('')">All</a> -->
@@ -27,6 +30,9 @@
 <script>
 
 export default {
+    props :{
+        atExplore : String
+    },
     name: 'home',
     data() {
         return {

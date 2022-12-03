@@ -15,7 +15,8 @@
           <img v-else class="logo" src="@/assets/logo.svg" alt="">
         </span>
       </router-link>
-      <nav  :class="!stickyNav && atHome() ? 'white-links' : ''">
+      <gig-filter  v-if="!atHome()" :atExplore="'atExplore'"/>
+      <nav :class="!stickyNav && atHome() ? 'white-links' : ''">
         <router-link to="/gig">Explore</router-link>
         <!-- <router-link to="/review">Reviews</router-link> -->
         <!-- <router-link to="/chat">Chat</router-link> -->
@@ -30,6 +31,8 @@
 </template>
 
 <script>
+import gigFilter from './gig-filter.vue'
+
 export default {
   data() {
     return {
@@ -60,5 +63,8 @@ export default {
     console.log('here');
     this.headerObserver.observe(this.$refs.header);
   },
+  components:{
+    gigFilter
+  }
 }
 </script>
