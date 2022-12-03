@@ -20,24 +20,26 @@ window.cs = gigService
 async function query(filterBy) {
     var gigs = await storageService.query(STORAGE_KEY)
     if (filterBy) {
-        if (filterBy.txt) {
-            const regex = new RegExp(filterBy.txt, 'i')
-            gigs = gigs.filter(gig => regex.test(gig.title))
-            console.log("filterBy.txt :", filterBy.txt)
-            console.log("gigs :", gigs)
-        }
-
         if (filterBy.tag) {
+            gigs.forEach(gig =>
+                gig.tags = gig.tags.map(tag => tag.toLowerCase()))
             gigs = gigs.filter(gig =>
-                gig.tags.includes(filterBy.tag.toLowerCase())
-
-            )
+                gig.tags.includes(filterBy.tag.toLowerCase()))
         }
-        // if (filterBy) {
-        //     gigs = gigs.filter(gig => gig.price.basic <= filterBy.price)
-        // }
+        else {
+            if (filterBy.txt) {
+                const regex = new RegExp(filterBy.txt, 'i')
+                gigs = gigs.filter(gig => regex.test(gig.title))
+            }
+        }
     }
-    console.log(gigs)
+
+
+    // if (filterBy) {
+    //     gigs = gigs.filter(gig => gig.price.basic <= filterBy.price)
+    // }
+
+
     return gigs
 }
 
@@ -98,7 +100,7 @@ function getEmptyGig() {
 // (async () => {
 //     await storageService.post(STORAGE_KEY, {
 //         "_id": "g1",
-//         "title": "I will design your logo in no time trust me",
+//         "title": "I will design your logo in no time trust me ",
 //         "price":
 //         {
 //             "basic": 12,
@@ -123,10 +125,11 @@ function getEmptyGig() {
 //             "./src/imgs/gig-img/gig1/3.jpg",
 //         ],
 //         "tags": [
-//             "logo Design",
+//             "Logo Design",
 //             "artisitic",
 //             "proffesional",
-//             "accessible"
+//             "accessible",
+//             "Video Editing"
 //         ],
 //         "likedByUsers": [
 //             {
@@ -164,7 +167,8 @@ function getEmptyGig() {
 //         "tags": [
 //             "app",
 //             "Website Design",
-//             "computer"
+//             "computer",
+//             "Logo Design"
 //         ],
 //         "likedByUsers": [
 //             {
@@ -201,7 +205,9 @@ function getEmptyGig() {
 //         "tags": [
 //             "english",
 //             "proffesional",
-//             "langaugh"
+//             "langaugh",
+//             "WordPress"
+
 //         ],
 //         "likedByUsers": [
 //             {
