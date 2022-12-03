@@ -11,10 +11,11 @@
       </div>
       <router-link to="/">
         <span role="img" aria-label="logo">
-          <img class="logo" src="@/assets/logo.svg" alt="">
+          <img v-if="!stickyNav && atHome()" class="logo" src="@/assets/white-logo.svg" alt="">
+          <img v-else class="logo" src="@/assets/logo.svg" alt="">
         </span>
       </router-link>
-      <nav class="flex">
+      <nav  :class="!stickyNav && atHome() ? 'white-links' : ''">
         <router-link to="/gig">Explore</router-link>
         <!-- <router-link to="/review">Reviews</router-link> -->
         <router-link to="/chat">Chat</router-link>

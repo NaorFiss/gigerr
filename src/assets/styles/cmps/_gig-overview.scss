@@ -43,12 +43,13 @@
 }
 
 .star-img {
-    width: 0.8rem;
+    width: 15px;
+    margin-inline-end: 5px;
 }
 
-.review-star-img {
-    width: 1.2rem;
-}
+// .review-star-img {
+//     width: 1.2rem;
+// }
 
 .reviews-title {
     display: inline;
@@ -112,7 +113,14 @@
     margin-top: 0.5rem;
 }
 
+.seller-info{
+    gap: 7px;
+}
 
+.seller-info :nth-child(4){
+    margin-top: 15px;
+    width: 50%;
+}
 .review-txt {
     resize: none;
     font-family: inherit;

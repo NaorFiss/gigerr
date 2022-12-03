@@ -3,12 +3,12 @@
         <h3 class="black b-pad-25">About The Seller</h3>
         <div class="flex gap-16 b-pad-25">
             <img class="user-details-img" :src="gig.owner.imgUrl">
-            <div class="seller-info flex column gap-16" >
+            <div class="seller-info flex column " >
                 <h4>{{ gig.owner.fullname }}</h4>
                 <p>Quality is more important than quantity</p>
                 <div>
                     <img v-for="n in rate" class="star-img" src="../assets/star.jpg" />
-                    (223)
+                    <p class="clr-6 inline"><span class="orange  flex3">&#9733{{ gig.owner.rate }}</span>(24)</p>
                 </div>
                 <button class="btn white-btn">Contact Me</button>
             </div>
