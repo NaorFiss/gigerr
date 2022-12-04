@@ -14,12 +14,14 @@ import gigList from '../cmps/gig-list.vue'
 export default {
   computed: {
     gigs() {
+      console.log("gigs", this.$store.getters.gigs)
       return this.$store.getters.gigs
     }
   },
   created() {
+    console.log(this.$route.path);
     // if( !this.$route.path === '/gig/filtered') 
-    this.$store.dispatch({ type: 'loadGigs' , })
+    this.$store.dispatch({ type: 'loadGigs', })
   },
   // methods: {
   //   async removeGig(gigId) {

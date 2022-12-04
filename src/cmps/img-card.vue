@@ -8,7 +8,7 @@
 
 <script>
 export default {
-    name: 'gig-list',
+    name: 'img-card',
     props: {
         imgs: Array
     },

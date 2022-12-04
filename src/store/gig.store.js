@@ -30,6 +30,7 @@ export function getActionAddGigMsg(gigId) {
 export const gigStore = {
     state: {
         gigs: [],
+        gigsUrl: [],
         filterBy: {
             txt: '',
             price: 0,
@@ -39,10 +40,14 @@ export const gigStore = {
     },
     getters: {
         gigs({ gigs }) { return gigs },
+        gigsUrl({ gigsUrl }) { return gigsUrl }
     },
     mutations: {
         setGigs(state, { gigs }) {
             state.gigs = gigs
+        },
+        setUrlList(state, { urlList }) {
+            state.gigsUrl = urlList
         },
         addGig(state, { gig }) {
             state.gigs.push(gig)
@@ -86,9 +91,8 @@ export const gigStore = {
                 throw err
             }
         },
-        async loadGigs({commit , state}) {
+        async loadGigs({ commit, state }) {
             try {
-                console.log(state.filterBy);
                 const gigs = await gigService.query(state.filterBy)
                 commit({ type: 'setGigs', gigs })
             } catch (err) {
@@ -120,6 +124,15 @@ export const gigStore = {
                 return gig
             } catch (err) {
                 console.log('Cannot load gig', err);
+                throw err;
+            }
+        },
+        async getGigsUrl({ commit }) {
+            try {
+                const urlList = await gigService.queryUrl()
+                commit({ type: 'setUrlList', urlList })
+            } catch (err) {
+                console.log('Cannot load urlList', err);
                 throw err;
             }
         },
