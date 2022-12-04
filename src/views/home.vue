@@ -9,6 +9,7 @@
             <h2 class="header-title">services for your business</h2>
           </div>
           <gig-filter />
+          <p class="img-names">Zack, Bar Owner</p>
         </div>
       </div>
     </div>

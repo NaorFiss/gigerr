@@ -1,5 +1,5 @@
 header {
-    border-bottom: 1px $clr2 solid;
+    border-bottom: 1px rgb(199, 197, 197) solid;
     padding-block: 10px;
     padding-inline: 30px;
     display: flex;
@@ -35,7 +35,7 @@ header {
     }
 
     nav>* {
-        padding: 10px;
+        // padding: 5px;
         margin: 10px;
     }
 
@@ -83,26 +83,22 @@ header {
 .atExplore {
     position: relative;
     background-color: white;
+    padding-block: 30px;
+    .join {
+        padding: 10px 16px;
+    }
 }
 .atHome {
     position: fixed;
     background-color: transparent;
     border: none;
-    transition: 0.4s;
+    transition: 0.5s;
     padding-block: 25px;
 }
 
 
 
 @media (max-width: 600px) {
-    header> :nth-child(3) :not(:last-child) {
-        display: none;
-    }
-
-    header> :nth-child(3) :last-child {
-        color: $clr2;
-        border: none;
-    }
 
     header {
         border: none;
@@ -110,8 +106,18 @@ header {
         .hamburger {
             display: block;
             cursor: pointer;
-            padding: 10px;
-            align-self: flex-end;
+            // padding: 10px;
+            // align-self: ;
+        }
+
+        > :last-child :last-child {
+            color: $clr2;
+            border: none;
+            padding-inline: 0;
+        }
+
+        > :nth-child(3) , > :last-child :not(:last-child) {
+            display: none;
         }
     }
 }

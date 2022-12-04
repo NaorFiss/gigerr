@@ -6,7 +6,7 @@
     padding: 30px;
 
     & h1 {
-        font-family: WorkSansBold;
+        // font-family: WorkSansBold;
         font-size: 1.875rem;
         line-height: 130%;
         font-weight: bolder;
@@ -28,6 +28,7 @@
         width: 110px;
         height: 110px;
         border-radius: 100%;
+        object-fit: cover;
     }
     
 }
