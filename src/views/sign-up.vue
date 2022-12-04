@@ -1,13 +1,13 @@
 <template>
-  <div class="container about">
+  <div class="container about log-sign flex column">
     <p>{{ msg }}</p>
-      <form @submit.prevent="doSignup">
+      <form @submit.prevent="doSignup" class="sign-form flex column">
         <h2>Join Gigger</h2>
         <input type="text" v-model="signupCred.fullname" placeholder="Your full name" />
         <input type="text" v-model="signupCred.password" placeholder="Password" />
         <input type="text" v-model="signupCred.username" placeholder="Username" />
-        <img-uploader @uploaded="onUploaded"></img-uploader>
-        <button>Signup</button>
+        <!-- <img-uploader @uploaded="onUploaded"></img-uploader> -->
+        <button class="green-btn btn">Signup</button>
       </form>
   </div>
 </template>

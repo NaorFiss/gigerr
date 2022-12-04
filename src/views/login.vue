@@ -1,5 +1,5 @@
 <template>
-  <div class="container about">
+  <div class="container about log-sign flex column">
     <p>{{ msg }}</p>
 
     <div v-if="loggedinUser">
@@ -10,21 +10,21 @@
       </h3>
     </div>
     <div v-else>
-      <h2>Sign in to Gigger</h2>
-      <form @submit.prevent="doLogin">
-        <select v-model="loginCred.username">
+      <form @submit.prevent="doLogin" class="sign-form flex column">
+        <h2>Sign in to Gigger</h2>
+        <!-- <select v-model="loginCred.username">
           <option value="">Select User</option>
           <option v-for="user in users" :key="user._id" :value="user.username">{{ user.fullname }}</option>
-        </select>
-        <!-- <input type="text" v-model="loginCred.username" placeholder="User name" />
+        </select> -->
+        <input type="text" v-model="loginCred.username" placeholder="User name" />
         <input
           type="text"
           v-model="loginCred.password"
           placeholder="Password"
-        /> -->
-        <button>Login</button>
+        />
+        <button class="green-btn btn">Login</button>
+        <p class="mute">itzik/shacar/naor, pass:123 </p>
       </form>
-      <p class="mute">user1 or admin, pass:123 </p>
     </div>
     <hr />
     <details>
@@ -47,7 +47,7 @@ export default {
   data() {
     return {
       msg: '',
-      loginCred: { username: 'user1', password: '123' },
+      loginCred: { username: '', password: '' },
     }
   },
   computed: {
