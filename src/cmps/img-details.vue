@@ -17,7 +17,7 @@
 
 <script>
 export default {
-    name: 'gig-list',
+    name: 'img-details',
     props: {
         imgs: Array
     },

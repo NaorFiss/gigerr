@@ -11,7 +11,8 @@ export const gigService = {
     save,
     remove,
     getEmptyGig,
-    addGigMsg
+    addGigMsg,
+    queryUrl
 }
 window.cs = gigService
 // const regex = new RegExp(byVendor, 'i')
@@ -41,6 +42,16 @@ async function query(filterBy) {
 
 
     return gigs
+}
+async function queryUrl() {
+    var gigs = await storageService.query(STORAGE_KEY)
+    var urlList = []
+    gigs.map(gig => {
+        urlList = urlList.concat(gig.imgUrl)
+        console.log("gig.imgUrl", gig.imgUrl)
+        console.log("urlList", urlList)
+    })
+    return urlList
 }
 
 function getById(gigId) {
