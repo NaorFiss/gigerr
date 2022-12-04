@@ -1,7 +1,7 @@
 <template>
-    <section class="gig-edit">
+    <section class="gig-edit flex column">
+        <h2>Add gig</h2>
         <form v-if="loggedInUser" @submit.prevent="addGig()">
-            <h2>Add gig</h2>
             <input type="text" v-model="gigToAdd.name" />
             <button>Save</button>
         </form>

@@ -8,7 +8,7 @@
                 <p>Quality is more important than quantity</p>
                 <div>
                     <p class="clr-6 inline"><span class="orange flex3"><span v-for="n in rate"
-                                class="star-img">&#9733</span> {{ owner.rate }}</span>(24)</p>
+                                class="star-img">★</span> {{ owner.rate }}</span>(24)</p>
                 </div>
                 <button class="btn white-btn">Contact Me</button>
             </div>

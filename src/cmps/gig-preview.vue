@@ -4,16 +4,16 @@
             <imgCard @click="gigDetails" :imgs="gig.imgUrl" />
             <article class="preview-card flex column">
                 <div class="flex mini-user">
-                    <img  :src="gig.owner.imgUrl" alt="">
+                    <img :src="gig.owner.imgUrl" alt="">
                     <div>
-                        <p @click="userDetails" class="fs14 mac-bold black mini-username">{{ gig.owner.fullname }}</p>
-                        <p :class=' gig.owner.level === "Top Rated" ? "orange , fs14" : " $clr6, fs14" '>{{
+                        <router-link class="fs14 mac-bold black mini-username" :to='("/user/" + gig.owner._id)'>{{ gig.owner.fullname }}</router-link>
+                        <p :class='gig.owner.level === "Top Rated" ? "orange , fs14" : " $clr6, fs14"'>{{
                                 gig.owner.level
                         }} Seller</p>
                     </div>
                 </div>
                 <router-link class="title" :to="'/gig/' + gig._id">{{ gig.title }}</router-link>
-                <p class="clr-6"><span class="orange  flex3">&#9733{{ gig.owner.rate }}</span>(24)</p>
+                <p class="clr-6"><span class="orange  flex3">★{{ gig.owner.rate }}</span>(24)</p>
             </article>
             <div class="flex space align-center li-bottom">
                 <p>❤</p>
@@ -31,6 +31,8 @@
 </template>
 
 <script>
+import { getActionRemoveGig, getActionUpdateGig } from '../store/gig.store'
+
 import imgCard from './img-card.vue'
 
 export default {
@@ -43,16 +45,35 @@ export default {
             return this.$store.getters.loggedinUser
         },
     },
-    methods:{
-        gigDetails(){
-            this.$router.push('/gig/'+ this.gig._id)
+    methods: {
+        gigDetails() {
+            this.$router.push('/gig/' + this.gig._id)
         },
-        userDetails(){
-            this.$router.push('/user/'+ this.gig.owner._id)
+        async removeGig(gigId) {
+            try {
+                await this.$store.dispatch(getActionRemoveGig(gigId))
+                // showSuccessMsg('Gig removed')
+
+            } catch (err) {
+                console.log(err)
+                // showErrorMsg('Cannot remove gig')
+            }
+        },
+        // async updateGig(gig) {
+            //     try {
+            //       gig = { ...gig }
+            //       gig.price = +prompt('New price?', gig.price.basic)
+            //       await this.$store.dispatch(getActionUpdateGig(gig))
+            //       showSuccessMsg('Gig updated')
+
+            //     } catch (err) {
+            //       console.log(err)
+            //       showErrorMsg('Cannot update gig')
+            //     }
+            //   },
+        },
+        components: {
+            imgCard
         }
-    },
-    components: {
-        imgCard
     }
-}
 </script>

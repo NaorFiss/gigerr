@@ -58,6 +58,10 @@ grid-template-columns: minmax(24px,1fr) minmax(auto,1240px) minmax(24px,1fr);
     margin-bottom: 30px;
 }
 
+.max-width-container{
+    max-width: 1400px;
+}
+
 @media (max-width: 1150px){
     .pad-inline{
         padding-inline: 30px;

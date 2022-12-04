@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container home">
+  <div class="app-container home max-width-container ">
     <gig-list :gigs="gigs" />
   </div>
 </template>
@@ -35,7 +35,7 @@ export default {
   //   async updateGig(gig) {
   //     try {
   //       gig = { ...gig }
-  //       gig.price = +prompt('New price?', gig.price)
+  //       gig.price = +prompt('New price?', gig.price.basic)
   //       await this.$store.dispatch(getActionUpdateGig(gig))
   //       showSuccessMsg('Gig updated')
 

@@ -1,5 +1,5 @@
 <template>
-  <section class="main-container">
+  <section class="main-container max-width-container ">
     <div class="main-layout">
       <div class="hero-title ">
         <app-hero />

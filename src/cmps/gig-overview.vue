@@ -6,7 +6,7 @@
       <p @click="userDetails" class="fs14 mac-bold black mini-username">{{ gig.owner.fullname }}</p> |
       <p>{{ gig.owner.level }} Seller </p>
       <div>
-        <p class="clr-6 inline"><span class="orange flex3"><span v-for="n in rate" class="star-img">&#9733</span> {{
+        <p class="clr-6 inline"><span class="orange flex3"><span v-for="n in rate" class="star-img">★</span> {{
             gig.owner.rate
         }}</span>(24)</p>
       </div>
