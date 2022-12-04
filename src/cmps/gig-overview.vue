@@ -24,7 +24,6 @@ export default {
   },
   computed: {
     rate() {
-      console.log(Math.trunc(+this.gig.owner.rate))
       return Math.trunc(+this.gig.owner.rate)
 
     },

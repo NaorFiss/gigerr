@@ -14,7 +14,6 @@ import gigList from '../cmps/gig-list.vue'
 export default {
   computed: {
     gigs() {
-      console.log("gigs", this.$store.getters.gigs)
       return this.$store.getters.gigs
     }
   },
