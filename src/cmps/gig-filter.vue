@@ -3,24 +3,40 @@
         <div class="hero-wrapper flex column">
             <div class="hero-title ">
                 <div class="search-bar mb-24">
-                    <form :class="!atExplore ? 'search-container' : 'search-container-explore'" @submit.prevent="loadGigs">
-                        <input class="search-input" type="search" v-model="filterBy.txt"
-                            placeholder="Try building mobile app" value>
-                        <button class="submit search-button fs18 ">
-                            {{!atExplore ? 'Search' : ''}}
-                            <img v-if="atExplore" class="white-search" src="@/assets/svg/white-search.svg" alt="">
-                        </button>
-                    </form>
+                    <router-link to="/gig" custom v-slot="{ navigate }">
+                        <form :class="!atExplore ? 'search-container' : 'search-container-explore'"
+                            @submit.prevent="loadGigs(); navigate()" role="link">
+                            <input class="search-input" type="search" v-model="filterBy.txt"
+                                placeholder="Try building mobile app" value>
+                            <button class="submit search-button fs18 ">
+                                {{ !atExplore ? 'Search' : '' }}
+                                <img v-if="atExplore" class="white-search" src="@/assets/svg/white-search.svg" alt="">
+                            </button>
+                        </form>
+                    </router-link>
+
                 </div>
                 <div v-if="!atExplore" class="flex popular-tags-container">
                     <p>Popular : </p>
                     <div class="flex justify-between items-center inline filter-tags popular-tags">
                         <!-- <a class="btn-filter" @click="setFilter('')">All</a> -->
                         <!-- <a class="btn-filter" @click="setFilter('app')">app</a> -->
-                        <a class="btn-filter" @click="setFilter('Website Design')">Website Design</a>
-                        <a class="btn-filter" @click="setFilter('WordPress')">WordPress</a>
-                        <a class="btn-filter" @click="setFilter('Logo Design')">Logo design</a>
-                        <a class="btn-filter" @click="setFilter('Video Editing')">Video Editing</a>
+                        <router-link to="/gig" custom v-slot="{ navigate }">
+                            <a class="btn-filter" @click="setFilter('Website Design');
+                            navigate()" role="link">Website Design</a>
+                        </router-link>
+                        <router-link to="/gig" custom v-slot="{ navigate }">
+                            <a class="btn-filter" @click="setFilter('WordPress');
+                            navigate()" role="link">WordPress</a>
+                        </router-link>
+                        <router-link to="/gig" custom v-slot="{ navigate }">
+                            <a class="btn-filter" @click="setFilter('Logo Design');
+                            navigate()" role="link">Logo Design</a>
+                        </router-link>
+                        <router-link to="/gig" custom v-slot="{ navigate }">
+                            <a class="btn-filter" @click="setFilter('Video Editing');
+                            navigate()" role="link">Video Editing</a>
+                        </router-link>
                     </div>
                 </div>
             </div>
@@ -30,8 +46,8 @@
 <script>
 
 export default {
-    props :{
-        atExplore : String
+    props: {
+        atExplore: String
     },
     name: 'home',
     data() {
@@ -44,14 +60,10 @@ export default {
         }
     },
     methods: {
-        goToExplore() {
-            this.$router.push('/gig')
-        },
         async loadGigs() {
             const filterBy = JSON.parse(JSON.stringify(this.filterBy))
             this.$emit('setFilter', { ...filterBy })
             this.filterBy.tag = ''
-            this.$router.push('/gig')
         },
         setFilter(tag) {
             this.filterBy.tag = tag

@@ -38,7 +38,6 @@ export default {
   },
   computed: {
     gigsUrl() {
-      console.log("gigsUrl", this.$store.getters.gigsUrl)
       return this.$store.getters.gigsUrl
     },
     tags() {
