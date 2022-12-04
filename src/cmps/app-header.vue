@@ -15,7 +15,7 @@
           <img v-else class="logo" src="@/assets/logo.svg" alt="">
         </span>
       </router-link>
-      <gig-filter  v-if="!atHome()" :atExplore="'atExplore'"/>
+      <gig-filter  v-if="!atHome()" :atExplore="'atExplore'" @setFilter="setFilter"/>
       <nav :class="!stickyNav && atHome() ? 'white-links' : ''">
         <router-link to="/gig">Explore</router-link>
         <!-- <router-link to="/review">Reviews</router-link> -->
@@ -47,14 +47,16 @@ export default {
   },
   methods: {
     atHome() {
-      // console.log(this.$route.path )
       return this.$route.path === '/' ? true : false
     },
     onHeaderObserved(entries) {
       entries.forEach((entry) => {
         this.stickyNav = entry.isIntersecting ? false : true;
-      });
+      })
     },
+    setFilter(filterBy) {
+      this.$store.dispatch({ type: 'setFilter', filterBy })
+    }
   },
   mounted() {
     this.headerObserver = new IntersectionObserver(this.onHeaderObserved, {

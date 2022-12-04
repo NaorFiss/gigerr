@@ -49,9 +49,9 @@ export default {
         },
         async loadGigs() {
             const filterBy = JSON.parse(JSON.stringify(this.filterBy))
+            this.$emit('setFilter', { ...filterBy })
             this.filterBy.tag = ''
-            await this.$store.dispatch({ type: 'loadGigs', filterBy })
-            // this.goToExplore()
+            this.$router.push('/gig')
         },
         setFilter(tag) {
             this.filterBy.tag = tag

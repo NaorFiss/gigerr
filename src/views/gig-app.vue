@@ -18,6 +18,8 @@ export default {
     }
   },
   created() {
+    console.log( this.$route.path);
+    // if( !this.$route.path === '/gig/filtered') 
     this.$store.dispatch({ type: 'loadGigs' , })
   },
   // methods: {

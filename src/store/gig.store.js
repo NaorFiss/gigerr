@@ -29,7 +29,12 @@ export function getActionAddGigMsg(gigId) {
 
 export const gigStore = {
     state: {
-        gigs: []
+        gigs: [],
+        filterBy: {
+            txt: '',
+            price: 0,
+            tag: '',
+        },
 
     },
     getters: {
@@ -54,6 +59,11 @@ export const gigStore = {
             if (!gig.msgs) gig.msgs = []
             gig.msgs.push(msg)
         },
+        setFilter(state, { filterBy }) {
+            console.log(filterBy);
+            state.filterBy = filterBy
+            console.log(filterBy);
+        },
     },
     actions: {
         async addGig(context, { gig }) {
@@ -76,16 +86,16 @@ export const gigStore = {
                 throw err
             }
         },
-        async loadGigs(context, { filterBy }) {
+        async loadGigs({commit , state}) {
             try {
-                const gigs = await gigService.query(filterBy)
-                context.commit({ type: 'setGigs', gigs })
+                console.log(state.filterBy);
+                const gigs = await gigService.query(state.filterBy)
+                commit({ type: 'setGigs', gigs })
             } catch (err) {
                 console.log('gigStore: Error in loadGigs', err)
                 throw err
             }
         },
-
         async removeGig(context, { gigId }) {
             try {
                 await gigService.remove(gigId)
@@ -112,7 +122,15 @@ export const gigStore = {
                 console.log('Cannot load gig', err);
                 throw err;
             }
-        }
-
+        },
+        async setFilter({ commit, dispatch }, { filterBy }) {
+            try {
+                commit({ type: 'setFilter', filterBy })
+                dispatch({ type: 'loadGigs' })
+            } catch (err) {
+                console.log('Cannot load gig', err);
+                throw err;
+            }
+        },
     }
 }
