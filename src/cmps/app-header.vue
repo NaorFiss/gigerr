@@ -62,7 +62,6 @@ export default {
     this.headerObserver = new IntersectionObserver(this.onHeaderObserved, {
       rootMargin: "0px 0px 0px",
     });
-    console.log('here');
     this.headerObserver.observe(this.$refs.header);
   },
   components:{

@@ -1,5 +1,4 @@
-
-.order-details{
+.order-details {
     grid-column: 1;
     grid-row: 2;
     -webkit-margin-after: 2.5rem;
@@ -8,7 +7,7 @@
     width: 35%;
 }
 
-.details-left{
+.details-left {
     flex-basis: 65%;
     padding-inline-end: 50px;
 }
@@ -44,7 +43,9 @@
 
 .star-img {
     width: 15px;
-    margin-inline-end: 5px;
+    line-height: 40px;
+    font-size: 20px;
+    margin-inline-end: 2px;
 }
 
 // .review-star-img {
@@ -93,14 +94,15 @@
 .seller-data {
     border-bottom: 1px solid $clr4;
     margin-bottom: 25px;
+
     & .seller-header {
         color: $clr1;
     }
 }
 
-.seller-data >* {
+.seller-data>* {
     flex-grow: 1;
-    gap:10px;
+    gap: 10px;
     display: flex;
     flex-direction: column;
     flex-basis: 50%;
@@ -113,32 +115,34 @@
     margin-top: 0.5rem;
 }
 
-.seller-info{
+.seller-info {
     gap: 7px;
 }
 
-.seller-info > :last-child{
+.seller-info> :last-child {
     margin-top: 15px;
     width: 50%;
 }
+
 .review-txt {
     resize: none;
     font-family: inherit;
     min-height: 7rem;
     min-width: 20rem;
 }
-.el-carousel-details{
+
+.el-carousel-details {
     // width: 100%;
     overflow: hidden;
 }
 
-.about-seller{
+.about-seller {
     white-space: pre-line;
     line-height: 150%;
     max-width: none;
 }
 
-.small-img{
+.small-img {
     height: 30px;
     width: 30px;
 }

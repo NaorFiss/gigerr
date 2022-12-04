@@ -3,12 +3,12 @@
         <h3 class="black b-pad-25 about-h3">About The Seller</h3>
         <div class="flex gap-16 b-pad-25 mini-user-info">
             <img class="user-details-img" :src="owner.imgUrl">
-            <div class="seller-info flex column " >
-                <p @click="userDetails" class="fs14 mac-bold black mini-username">{{ owner.fullname }}</p> 
+            <div class="seller-info flex column ">
+                <p @click="userDetails" class="fs14 mac-bold black mini-username">{{ owner.fullname }}</p>
                 <p>Quality is more important than quantity</p>
                 <div>
-                    <img v-for="n in rate" class="star-img" src="../assets/star.jpg" />
-                    <p class="clr-6 inline"><span class="orange  flex3">&#9733{{ owner.rate }}</span>(24)</p>
+                    <p class="clr-6 inline"><span class="orange flex3"><span v-for="n in rate"
+                                class="star-img">&#9733</span> {{ owner.rate }}</span>(24)</p>
                 </div>
                 <button class="btn white-btn">Contact Me</button>
             </div>
@@ -34,7 +34,11 @@
             </div>
             <!-- <p class=" b-pad-25">{{ owner.about }}</p> -->
             <p class=" b-pad-25 about-seller">Hey There!
-My name is Wania Arif. I'm 23 years old passionate and highly skilled graphic designer working with skillful team of designers and developers. My passion is designing Illustrating new ideas making them come to life. I have been in this industry for more then 4 years. I will design for you a very high-quality, clean, and proffesional logo that stands out from other designs. I'm here to serve all my beautiful upcoming clients.</p>
+                My name is Wania Arif. I'm 23 years old passionate and highly skilled graphic designer working with
+                skillful team of designers and developers. My passion is designing Illustrating new ideas making them
+                come to life. I have been in this industry for more then 4 years. I will design for you a very
+                high-quality, clean, and proffesional logo that stands out from other designs. I'm here to serve all my
+                beautiful upcoming clients.</p>
         </div>
     </div>
 </template>
@@ -50,10 +54,14 @@ export default {
             return Math.trunc(+this.owner.rate)
         },
     },
-    methods:{
-        userDetails(){
-            this.$router.push('/user/'+ this.owner._id)
+    methods: {
+        userDetails() {
+            this.$router.push('/user/' + this.owner._id)
         }
     },
+    atUserPage(){
+        console.log(this.$route.path);
+      return this.$route.path === '/user/:id' ? true : false
+    }
 }
 </script>
