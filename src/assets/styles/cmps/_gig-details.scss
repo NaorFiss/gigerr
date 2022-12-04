@@ -166,9 +166,11 @@
     gap: 10px;
     color: $clr1;
     align-items: center;
+    font-size: 0.8rem;
 }
 
 .details-header > * {
+    color: #919191;
     height: 50px;
     display: flex;
     align-items: center;
@@ -176,4 +178,5 @@
 
 .active-link{
     box-shadow: inset 0 -4px $clr3;
+    color: #404145;
 }

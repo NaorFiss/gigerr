@@ -53,7 +53,6 @@ export default {
       return this.$store.getters.watchedUser
     },
     userId() {
-      console.log(this.$route.params.id);
       return this.$route.params.id
     },
   },

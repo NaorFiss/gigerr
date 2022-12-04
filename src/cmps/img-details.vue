@@ -1,5 +1,5 @@
 <template>
-    <el-carousel height="400px" :interval="0" trigger="click" indicator-position="outside">
+    <el-carousel class="details-carousel" height="400px" :interval="0" trigger="click" indicator-position="outside" arrow="always" >
         <el-carousel-item class="main-img" v-for="item in imgs" :key="item">
             <img :src="item" alt="">
         </el-carousel-item>
@@ -10,7 +10,6 @@
                     <img class="small-img" :src="item" alt="">
                 </button>
             </li>
-
         </ul>
     </el-carousel>
 </template>

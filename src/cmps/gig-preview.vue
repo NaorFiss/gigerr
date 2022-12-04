@@ -48,7 +48,6 @@ export default {
             this.$router.push('/gig/'+ this.gig._id)
         },
         userDetails(){
-            console.log(this.gig.owner._id);
             this.$router.push('/user/'+ this.gig.owner._id)
         }
     },
