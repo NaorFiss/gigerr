@@ -4,7 +4,7 @@
         <div class="flex gap-16 b-pad-25 mini-user-info">
             <img class="user-details-img" :src="owner.imgUrl">
             <div class="seller-info flex column " >
-                <h4>{{ owner.fullname }}</h4>
+                <p @click="userDetails" class="fs14 mac-bold black mini-username">{{ owner.fullname }}</p> 
                 <p>Quality is more important than quantity</p>
                 <div>
                     <img v-for="n in rate" class="star-img" src="../assets/star.jpg" />
@@ -46,10 +46,14 @@ export default {
     },
     computed: {
         rate() {
-            console.log(Math.trunc(+this.owner.rate))
+            // console.log(Math.trunc(+this.owner.rate))
             return Math.trunc(+this.owner.rate)
-
         },
+    },
+    methods:{
+        userDetails(){
+            this.$router.push('/user/'+ this.owner._id)
+        }
     },
 }
 </script>

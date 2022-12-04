@@ -11,7 +11,7 @@
                 <div class="up-content flex column wrap space gap-16 details-left" id="gig-overview">
                     <gig-overview id="gig-overview" :gig="gig" />
                     <gig-description id="gig-description" :gig="gig" />
-                    <about-seller id="about-seller" :owner="gig.owner" />
+                    <about-seller id="about-seller" v-if="gig" :owner="gig.owner" />
                     <div style="height:1000px"></div>
                     <a name="gigoverview" id="gigoverview"></a>
                 </div>
@@ -32,7 +32,6 @@ export default {
     data() {
         return {
             gig: null,
-
         }
     },
     async created() {
