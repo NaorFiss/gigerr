@@ -48,8 +48,8 @@ async function queryUrl() {
     var urlList = []
     gigs.map(gig => {
         urlList = urlList.concat(gig.imgUrl)
-        console.log("gig.imgUrl", gig.imgUrl)
-        console.log("urlList", urlList)
+        // console.log("gig.imgUrl", gig.imgUrl)
+        // console.log("urlList", urlList)
     })
     return urlList
 }

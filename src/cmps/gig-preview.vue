@@ -17,7 +17,7 @@
             </article>
             <div class="flex space align-center li-bottom">
                 <p>❤</p>
-                <div class="flex column align-end">
+                <div class="flex align-end sapce">
                     <p class="fs10 weight-7">STARTING AT</p>
                     <p class="fs18 black">${{ gig.price.basic?.toLocaleString() }}</p>
                 </div>

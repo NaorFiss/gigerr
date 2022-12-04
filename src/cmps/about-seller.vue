@@ -16,19 +16,19 @@
         <div class="seller-desc flex column  b-pad-25">
             <div class="seller-data flex wrap  b-pad-25">
                 <div class="from">
-                    <h3 class="seller-header">From</h3>
+                    <p class="seller-header">From</p>
                     <h3>{{ owner.from }}</h3>
                 </div>
                 <div class="since">
-                    <h3 class="seller-header">Member since</h3>
+                    <p class="seller-header">Member since</p>
                     <h3>{{ owner.memberSince }}</h3>
                 </div>
                 <div class="from">
-                    <h3 class="seller-header">Avg. response time</h3>
+                    <p class="seller-header">Avg. response time</p>
                     <h3> 1 Hour</h3>
                 </div>
                 <div class="since">
-                    <h3 class="seller-header">Last delivery</h3>
+                    <p class="seller-header">Last delivery</p>
                     <h3>about 12 hours</h3>
                 </div>
             </div>

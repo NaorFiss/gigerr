@@ -13,7 +13,7 @@
                     </form>
                 </div>
                 <div v-if="!atExplore" class="flex popular-tags-container">
-                    <p>Popular : </p>
+                    <p>Popular: </p>
                     <div class="flex justify-between items-center inline filter-tags popular-tags">
                         <!-- <a class="btn-filter" @click="setFilter('')">All</a> -->
                         <!-- <a class="btn-filter" @click="setFilter('app')">app</a> -->
@@ -44,13 +44,10 @@ export default {
         }
     },
     methods: {
-        goToExplore() {
-            this.$router.push('/gig')
-        },
         async loadGigs() {
             const filterBy = JSON.parse(JSON.stringify(this.filterBy))
             this.$emit('setFilter', { ...filterBy })
-            this.filterBy.tag = ''
+            // this.filterBy.tag = ''
             this.$router.push('/gig')
         },
         setFilter(tag) {

@@ -1,9 +1,7 @@
 <template>
-    <el-carousel height="400px" :interval="0" trigger="click" indicator-position="outside">
-        <el-carousel-item class="main-img" v-for="item in imgs" :key="item">
-            <img :src="item" alt="">
-        </el-carousel-item>
-    </el-carousel>
+    <div v-for="img in imgs" class=" slider-img-container">
+        <img class="img-home" :src="img" alt="">
+    </div>
 </template>
 
 <script>

@@ -1,9 +1,13 @@
 <template>
     <div class="details-header flex">
-        <a class="active-link" href="#gigoverview">Overview</a>
-        <a href="#bottom">About the seller</a>
+        <!-- <a class="active-link" href="#gigoverview">Overview</a> -->
+        <router-link :to="{path: '', hash:'#gig-overview'}">Overview</router-link>
+        <router-link :to="{path: '', hash:'#gig-description'}">About the seller</router-link>
+        <router-link :to="{path: '', hash:'#about-seller'}">Compare packages</router-link>
+        <router-link :to="{path: '', hash:'#gigoverview'}">Reviews</router-link>
+        <!-- <a href="#bottom">About the seller</a>
         <a href="">Compare packages</a>
-        <a href="">Reviews</a>
+        <a href="">Reviews</a> -->
     </div>
     <section class="gig-details ">
         <div class="gig-overview">

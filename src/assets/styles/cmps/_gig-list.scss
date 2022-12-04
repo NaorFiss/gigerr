@@ -5,6 +5,7 @@
     margin: 0;
     padding: 0;
 
+    font-size: 16px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 32px;
@@ -17,7 +18,13 @@
         .li-bottom {
             border-top: 1px solid #e4e5e7;
             padding: 10px;
-            height: 60px;
+            height: 45px;
+             > :last-child{
+                gap: 5px;
+                > :first-child{
+                    letter-spacing: .5px;
+                }
+             }
         }
 
         .main-img {
@@ -74,10 +81,10 @@
             color: $clr3;
         }
 
-        .flex3 {
-            flex-basis: 20%;
-            flex-grow: 0;
-        }
+        // .flex3 {
+        //     flex-basis: 20%;
+        //     flex-grow: 0;
+        // }
         .preview-card {
             padding: 10px;
 
@@ -144,15 +151,19 @@
     overflow: hidden;
 }
 
+
+
 @media (max-width: 1200px) {
     .gig-list {
         grid-template-columns: repeat(3, 1fr);
+        grid-gap: 16px;
     }
 }
 
 @media (max-width: 900px) {
     .gig-list {
         grid-template-columns: repeat(2, 1fr);
+        
     }
 }
 
