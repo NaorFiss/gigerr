@@ -1,6 +1,8 @@
 <template>
     <div class="details-review flex " v-if=gig>
-        <div class="user-img-container">img-container</div>
+        <div class="user-img-container">
+            <img class="user-img" :src="gig.reviews[0].user - imgUrl" />
+        </div>
         <section class="main-details-review flex column">
             <div class="user-review-name">
                 {{ gig.likedByUsers[0].username }}
@@ -10,8 +12,8 @@
                 <p class="country-name">country name</p>
             </div>
             <div class="performance-grade flex">
-                <div class="performance-stars">stars </div> |
-                <div class="performance-date">date</div>
+                <div class="rate-stars">stars </div> |
+                <div class="review-date">date</div>
             </div>
             <div class="review-txt">
                 I am satisfied with my first experience on fiverr and with mohsinfancy. Communication was good, even

@@ -140,12 +140,27 @@ function getEmptyGig() {
 //             "accessible",
 //             "Video Editing"
 //         ],
+
 //         "likedByUsers": [
 //             {
 //                 "_id": 2,
 //                 "username": 'naor'
 //             },
-//         ] // for user-wishlist : use $in
+//         ],
+//         "reviews": [
+//             {
+//                 "_id": "r1",
+//                 "user_id": 2,
+//                 "username": 'naor',
+//                 "user-imgUrl": "./src/imgs/user-img/jewel.jpg",
+//                 "country-flag": '',
+//                 "country-name": "Argentina",
+//                 "rate": 5,
+//                 "txt": "I am satisfied with my first experience on fiverr and with mohsinfancy.Communication was good, even though sometimes a bit short and informal.I am happy with the solid design skill, even if nothing extraordinary.You can tell he has his style or template but this is ok, as it fits well with what I was looking for.All in all very good price/ performance ratio"
+//             }
+//         ]
+
+//         // for user-wishlist : use $in
 //     },)
 //     await storageService.post(STORAGE_KEY, {
 //         "_id": "g2",
@@ -184,7 +199,19 @@ function getEmptyGig() {
 //                 "_id": 3,
 //                 "username": 'shachar'
 //             },
-//         ] // for user-wishlist : use $in
+//         ],
+//         "reviews": [
+//             {
+//                 "_id": "r1",
+//                 "user_id": 2,
+//                 "username": 'naor',
+//                 "user-imgUrl": "./src/imgs/user-img/jewel.jpg",
+//                 "country-flag": '',
+//                 "country-name": "Argentina",
+//                 "rate": 5,
+//                 "txt": "I am satisfied with my first experience on fiverr and with mohsinfancy.Communication was good, even though sometimes a bit short and informal.I am happy with the solid design skill, even if nothing extraordinary.You can tell he has his style or template but this is ok, as it fits well with what I was looking for.All in all very good price/ performance ratio"
+//             }
+//         ]// for user-wishlist : use $in
 //     },)
 //     await storageService.post(STORAGE_KEY, {
 //         "_id": "g3",
@@ -223,6 +250,18 @@ function getEmptyGig() {
 //                 "_id": 1,
 //                 "username": 'itzik'
 //             },
+//         ],
+//         "reviews": [
+//             {
+//                 "_id": "r1",
+//                 "user_id": 2,
+//                 "username": 'naor',
+//                 "user-imgUrl": "./src/imgs/user-img/jewel.jpg",
+//                 "country-flag": '',
+//                 "country-name": "Argentina",
+//                 "rate": 5,
+//                 "txt": "I am satisfied with my first experience on fiverr and with mohsinfancy.Communication was good, even though sometimes a bit short and informal.I am happy with the solid design skill, even if nothing extraordinary.You can tell he has his style or template but this is ok, as it fits well with what I was looking for.All in all very good price/ performance ratio"
+//             }
 //         ] // for user-wishlist : use $in
 //     },)
 
@@ -264,6 +303,18 @@ function getEmptyGig() {
 //                 "_id": "2",
 //                 "username": 'naor'
 //             },
+//         ],
+//         "reviews": [
+//             {
+//                 "_id": "r1",
+//                 "user_id": 2,
+//                 "username": 'naor',
+//                 "user-imgUrl": "./src/imgs/user-img/jewel.jpg",
+//                 "country-flag": '',
+//                 "country-name": "Argentina",
+//                 "rate": 5,
+//                 "txt": "I am satisfied with my first experience on fiverr and with mohsinfancy.Communication was good, even though sometimes a bit short and informal.I am happy with the solid design skill, even if nothing extraordinary.You can tell he has his style or template but this is ok, as it fits well with what I was looking for.All in all very good price/ performance ratio"
+//             }
 //         ] // for user-wishlist : use $in
 //     },)
 //     await storageService.post(STORAGE_KEY, {
@@ -303,6 +354,18 @@ function getEmptyGig() {
 //                 "_id": 3,
 //                 "username": 'shachar'
 //             },
+//         ],
+//         "reviews": [
+//             {
+//                 "_id": "r1",
+//                 "user_id": 2,
+//                 "username": 'naor',
+//                 "user-imgUrl": "./src/imgs/user-img/jewel.jpg",
+//                 "country-flag": '',
+//                 "country-name": "Argentina",
+//                 "rate": 5,
+//                 "txt": "I am satisfied with my first experience on fiverr and with mohsinfancy.Communication was good, even though sometimes a bit short and informal.I am happy with the solid design skill, even if nothing extraordinary.You can tell he has his style or template but this is ok, as it fits well with what I was looking for.All in all very good price/ performance ratio"
+//             }
 //         ] // for user-wishlist : use $in
 //     },)
 //     await storageService.post(STORAGE_KEY, {
@@ -344,6 +407,18 @@ function getEmptyGig() {
 //                 "_id": 1,
 //                 "username": 'itzik'
 //             },
+//         ],
+//         "reviews": [
+//             {
+//                 "_id": "r1",
+//                 "user_id": 2,
+//                 "username": 'naor',
+//                 "user-imgUrl": "./src/imgs/user-img/jewel.jpg",
+//                 "country-flag": '',
+//                 "country-name": "Argentina",
+//                 "rate": 5,
+//                 "txt": "I am satisfied with my first experience on fiverr and with mohsinfancy.Communication was good, even though sometimes a bit short and informal.I am happy with the solid design skill, even if nothing extraordinary.You can tell he has his style or template but this is ok, as it fits well with what I was looking for.All in all very good price/ performance ratio"
+//             }
 //         ] // for user-wishlist : use $in
 //     },)
 
@@ -385,6 +460,18 @@ function getEmptyGig() {
 //                 "_id": "2",
 //                 "username": 'naor'
 //             },
+//         ],
+//         "reviews": [
+//             {
+//                 "_id": "r1",
+//                 "user_id": 2,
+//                 "username": 'naor',
+//                 "user-imgUrl": "./src/imgs/user-img/jewel.jpg",
+//                 "country-flag": '',
+//                 "country-name": "Argentina",
+//                 "rate": 5,
+//                 "txt": "I am satisfied with my first experience on fiverr and with mohsinfancy.Communication was good, even though sometimes a bit short and informal.I am happy with the solid design skill, even if nothing extraordinary.You can tell he has his style or template but this is ok, as it fits well with what I was looking for.All in all very good price/ performance ratio"
+//             }
 //         ] // for user-wishlist : use $in
 //     },)
 //     await storageService.post(STORAGE_KEY, {
@@ -423,6 +510,18 @@ function getEmptyGig() {
 //                 "_id": 3,
 //                 "username": 'shachar'
 //             },
+//         ],
+//         "reviews": [
+//             {
+//                 "_id": "r1",
+//                 "user_id": 2,
+//                 "username": 'naor',
+//                 "user-imgUrl": "./src/imgs/user-img/jewel.jpg",
+//                 "country-flag": '',
+//                 "country-name": "Argentina",
+//                 "rate": 5,
+//                 "txt": "I am satisfied with my first experience on fiverr and with mohsinfancy.Communication was good, even though sometimes a bit short and informal.I am happy with the solid design skill, even if nothing extraordinary.You can tell he has his style or template but this is ok, as it fits well with what I was looking for.All in all very good price/ performance ratio"
+//             }
 //         ] // for user-wishlist : use $in
 //     },)
 //     await storageService.post(STORAGE_KEY, {
@@ -462,6 +561,18 @@ function getEmptyGig() {
 //                 "_id": 1,
 //                 "username": 'itzik'
 //             },
+//         ],
+//         "reviews": [
+//             {
+//                 "_id": "r1",
+//                 "user_id": 2,
+//                 "username": 'naor',
+//                 "user-imgUrl": "./src/imgs/user-img/jewel.jpg",
+//                 "country-flag": '',
+//                 "country-name": "Argentina",
+//                 "rate": 5,
+//                 "txt": "I am satisfied with my first experience on fiverr and with mohsinfancy.Communication was good, even though sometimes a bit short and informal.I am happy with the solid design skill, even if nothing extraordinary.You can tell he has his style or template but this is ok, as it fits well with what I was looking for.All in all very good price/ performance ratio"
+//             }
 //         ] // for user-wishlist : use $in
 //     },)
 //     await storageService.post(STORAGE_KEY, {
@@ -502,6 +613,18 @@ function getEmptyGig() {
 //                 "_id": "2",
 //                 "username": 'naor'
 //             },
+//         ],
+//         "reviews": [
+//             {
+//                 "_id": "r1",
+//                 "user_id": 2,
+//                 "username": 'naor',
+//                 "user-imgUrl": "./src/imgs/user-img/jewel.jpg",
+//                 "country-flag": '',
+//                 "country-name": "Argentina",
+//                 "rate": 5,
+//                 "txt": "I am satisfied with my first experience on fiverr and with mohsinfancy.Communication was good, even though sometimes a bit short and informal.I am happy with the solid design skill, even if nothing extraordinary.You can tell he has his style or template but this is ok, as it fits well with what I was looking for.All in all very good price/ performance ratio"
+//             }
 //         ] // for user-wishlist : use $in
 //     },)
 //     await storageService.post(STORAGE_KEY, {
@@ -540,6 +663,18 @@ function getEmptyGig() {
 //                 "_id": 3,
 //                 "username": 'shachar'
 //             },
+//         ],
+//         "reviews": [
+//             {
+//                 "_id": "r1",
+//                 "user_id": 2,
+//                 "username": 'naor',
+//                 "user-imgUrl": "./src/imgs/user-img/jewel.jpg",
+//                 "country-flag": '',
+//                 "country-name": "Argentina",
+//                 "rate": 5,
+//                 "txt": "I am satisfied with my first experience on fiverr and with mohsinfancy.Communication was good, even though sometimes a bit short and informal.I am happy with the solid design skill, even if nothing extraordinary.You can tell he has his style or template but this is ok, as it fits well with what I was looking for.All in all very good price/ performance ratio"
+//             }
 //         ] // for user-wishlist : use $in
 //     },)
 //     await storageService.post(STORAGE_KEY, {
@@ -581,6 +716,18 @@ function getEmptyGig() {
 //                 "_id": 1,
 //                 "username": 'itzik'
 //             },
+//         ],
+//         "reviews": [
+//             {
+//                 "_id": "r1",
+//                 "user_id": 2,
+//                 "username": 'naor',
+//                 "user-imgUrl": "./src/imgs/user-img/jewel.jpg",
+//                 "country-flag": '',
+//                 "country-name": "Argentina",
+//                 "rate": 5,
+//                 "txt": "I am satisfied with my first experience on fiverr and with mohsinfancy.Communication was good, even though sometimes a bit short and informal.I am happy with the solid design skill, even if nothing extraordinary.You can tell he has his style or template but this is ok, as it fits well with what I was looking for.All in all very good price/ performance ratio"
+//             }
 //         ] // for user-wishlist : use $in
 //     },)
 
