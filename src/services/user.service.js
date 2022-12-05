@@ -88,7 +88,7 @@ async function changeScore(by) {
 
 
 function saveLocalUser(user) {
-    user = {_id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, score: user.score , rate: user.rate}
+    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, score: user.score, rate: user.rate }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
@@ -98,14 +98,28 @@ function getLoggedinUser() {
 }
 
 
-// ;(async ()=>{
-//     await userService.signup({fullname: 'Puki Norma', username: 'puki', password:'123',score: 10000, isAdmin: false , rate: 4.5})
-//     await userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123', score: 10000, isAdmin: true , rate: 4.5})
-//     await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 10000 , rate: 4.5})
-//     await userService.signup({_id: "1" , fullname: 'itzik', username: 'itzik', password:'123', score: 10000, isAdmin: true , rate: 4.2 , imgUrl:'./src/imgs/user-img/itzik.jpg'})
-//     await userService.signup({_id: "2" , fullname: 'naor', username: 'naor', password:'123',score: 10000, isAdmin: true , rate: 4.8 , imgUrl:'./src/imgs/user-img/Naor-Fiss.jpeg'})
-//     await userService.signup({_id: "3" , fullname: 'shacar', username: 'shacar', password:'123', score: 10000 ,isAdmin: true, rate: 5.0 , imgUrl:'./src/imgs/user-img/shacar.jpg'})
-// })()
+; (async () => {
+    await userService.signup({ fullname: 'Puki Norma', username: 'puki', password: '123', score: 10000, isAdmin: false, rate: 4.5 })
+
+    await userService.signup({ fullname: 'Master Adminov', username: 'admin', password: '123', score: 10000, isAdmin: true, rate: 4.5 })
+
+    await userService.signup({ fullname: 'Muki G', username: 'muki', password: '123', score: 10000, rate: 4.5 })
+
+    await userService.signup({
+        _id: "1", fullname: 'itzik', username: 'itzik', password: '123', score: 10000, isAdmin: true, rate: 4.2, imgUrl: './src/imgs/user-img/itzik.jpg', "countryFlag": "./src/imgs/flags-img/argentina.jpg",
+        "countryName": "Argentina"
+    })
+
+    await userService.signup({
+        _id: "2", fullname: 'naor', username: 'naor', password: '123', score: 10000, isAdmin: true, rate: 4.8, imgUrl: './src/imgs/user-img/Naor-Fiss.jpeg', "countryFlag": "./src/imgs/flags-img/argentina.jpg",
+        "countryName": "Argentina"
+    })
+
+    await userService.signup({
+        _id: "3", fullname: 'shacar', username: 'shacar', password: '123', score: 10000, isAdmin: true, rate: 5.0, imgUrl: './src/imgs/user-img/shacar.jpg', "countryFlag": "./src/imgs/flags-img/argentina.jpg",
+        "countryName": "Argentina"
+    })
+})()
 
 
 
