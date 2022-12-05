@@ -50,6 +50,7 @@
                 height: 30px;
                 align-self: center;
                 border-radius: 50%;
+                object-fit: cover;
             }
 
             .mini-username:hover {
@@ -127,10 +128,6 @@
             left: -25px;
             justify-content: end;
         }
-    }
-
-    a {
-        color: $clr1;
     }
 
     pre {

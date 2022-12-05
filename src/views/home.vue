@@ -65,14 +65,45 @@ export default {
   computed: {
     gigsUrl() {
       return [
-        './src/imgs/home-img/slider1.jpg',
-        './src/imgs/home-img/slider2.jpg',
-        './src/imgs/home-img/slider3.jpg',
-        './src/imgs/home-img/slider4.jpg',
-        './src/imgs/home-img/slider5.jpg',
-        './src/imgs/home-img/slider6.jpg',
-        './src/imgs/home-img/slider7.jpg',
-        './src/imgs/home-img/slider8.jpg',
+        {src: './src/imgs/home-img/slider1.jpg',
+        p: 'Build your brand',
+        title: 'Logo Design'
+        },
+        {src: './src/imgs/home-img/slider2.jpg',
+        p: 'Custiomize your site',
+        title: 'WordPress'
+        },
+        {src: './src/imgs/home-img/slider3.jpg',
+        p: 'Share your message',
+        title: 'Voice Over'
+        },
+        {src: './src/imgs/home-img/slider4.jpg',
+        p: 'Engage your audience',
+        title: 'Video Explainer'
+        },
+        {src: './src/imgs/home-img/slider5.jpg',
+        p: 'Unlock growth online',
+        title: 'SEO'
+        },
+        {src: './src/imgs/home-img/slider6.jpg',
+        p: 'Color your dreams',
+        title: 'Illustration'
+        },
+        {src: './src/imgs/home-img/slider7.jpg',
+        p: 'Go global',
+        title: 'Translation'
+        },
+        {src: './src/imgs/home-img/slider8.jpg',
+        p: 'Learn your business',
+        title: 'Data entry'
+        },
+        // './src/imgs/home-img/slider2.jpg',
+        // './src/imgs/home-img/slider3.jpg',
+        // './src/imgs/home-img/slider4.jpg',
+        // './src/imgs/home-img/slider5.jpg',
+        // './src/imgs/home-img/slider6.jpg',
+        // './src/imgs/home-img/slider7.jpg',
+        // './src/imgs/home-img/slider8.jpg',
       ]
     },
     trustedByImg() {
