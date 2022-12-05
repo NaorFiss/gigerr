@@ -8,9 +8,8 @@
                 {{ gig.likedByUsers[0].username }}
             </p>
             <div class="user-review-country flex">
-                <div class="country-flag">flag </div> |
-                <p class="country-name">country n
-                    ame</p>
+                <img class="country-flag" :src="gig.reviews[0].countryFlag" /> |
+                <p class="country-name">country</p>
             </div>
             <div class="performance-grade flex">
                 <p class="clr-6 inline fs14"><span class="orange flex3"><span v-for="n in rate"

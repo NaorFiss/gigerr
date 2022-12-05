@@ -153,7 +153,7 @@ function getEmptyGig() {
                 "user_id": 2,
                 "username": 'naor',
                 "userImgUrl": "./src/imgs/user-img/jewel.jpg",
-                "countryFlag": '',
+                "countryFlag": ".src/imgs/flags-img/argentina.jpg",
                 "countryName": "Argentina",
                 "rate": 5,
                 "txt": "I am satisfied with my first experience on fiverr and with mohsinfancy.Communication was good, even though sometimes a bit short and informal.I am happy with the solid design skill, even if nothing extraordinary.You can tell he has his style or template but this is ok, as it fits well with what I was looking for.All in all very good price/ performance ratio"
@@ -206,7 +206,7 @@ function getEmptyGig() {
                 "user_id": 2,
                 "username": 'naor',
                 "userImgUrl": "./src/imgs/user-img/jewel.jpg",
-                "countryFlag": '',
+                "countryFlag": ".src/imgs/flags-img/argentina.jpg",
                 "countryName": "Argentina",
                 "rate": 5,
                 "txt": "I am satisfied with my first experience on fiverr and with mohsinfancy.Communication was good, even though sometimes a bit short and informal.I am happy with the solid design skill, even if nothing extraordinary.You can tell he has his style or template but this is ok, as it fits well with what I was looking for.All in all very good price/ performance ratio"
@@ -257,7 +257,7 @@ function getEmptyGig() {
                 "user_id": 2,
                 "username": 'naor',
                 "userImgUrl": "./src/imgs/user-img/jewel.jpg",
-                "countryFlag": '',
+                "countryFlag": ".src/imgs/flags-img/argentina.jpg",
                 "countryName": "Argentina",
                 "rate": 5,
                 "txt": "I am satisfied with my first experience on fiverr and with mohsinfancy.Communication was good, even though sometimes a bit short and informal.I am happy with the solid design skill, even if nothing extraordinary.You can tell he has his style or template but this is ok, as it fits well with what I was looking for.All in all very good price/ performance ratio"
@@ -310,7 +310,7 @@ function getEmptyGig() {
                 "user_id": 2,
                 "username": 'naor',
                 "userImgUrl": "./src/imgs/user-img/jewel.jpg",
-                "countryFlag": '',
+                "countryFlag": ".src/imgs/flags-img/argentina.jpg",
                 "countryName": "Argentina",
                 "rate": 5,
                 "txt": "I am satisfied with my first experience on fiverr and with mohsinfancy.Communication was good, even though sometimes a bit short and informal.I am happy with the solid design skill, even if nothing extraordinary.You can tell he has his style or template but this is ok, as it fits well with what I was looking for.All in all very good price/ performance ratio"
@@ -361,7 +361,7 @@ function getEmptyGig() {
                 "user_id": 2,
                 "username": 'naor',
                 "userImgUrl": "./src/imgs/user-img/jewel.jpg",
-                "countryFlag": '',
+                "countryFlag": ".src/imgs/flags-img/argentina.jpg",
                 "countryName": "Argentina",
                 "rate": 5,
                 "txt": "I am satisfied with my first experience on fiverr and with mohsinfancy.Communication was good, even though sometimes a bit short and informal.I am happy with the solid design skill, even if nothing extraordinary.You can tell he has his style or template but this is ok, as it fits well with what I was looking for.All in all very good price/ performance ratio"
@@ -414,7 +414,7 @@ function getEmptyGig() {
                 "user_id": 2,
                 "username": 'naor',
                 "userImgUrl": "./src/imgs/user-img/jewel.jpg",
-                "countryFlag": '',
+                "countryFlag": ".src/imgs/flags-img/argentina.jpg",
                 "countryName": "Argentina",
                 "rate": 5,
                 "txt": "I am satisfied with my first experience on fiverr and with mohsinfancy.Communication was good, even though sometimes a bit short and informal.I am happy with the solid design skill, even if nothing extraordinary.You can tell he has his style or template but this is ok, as it fits well with what I was looking for.All in all very good price/ performance ratio"
@@ -467,7 +467,7 @@ function getEmptyGig() {
                 "user_id": 2,
                 "username": 'naor',
                 "userImgUrl": "./src/imgs/user-img/jewel.jpg",
-                "countryFlag": '',
+                "countryFlag": ".src/imgs/flags-img/argentina.jpg",
                 "countryName": "Argentina",
                 "rate": 5,
                 "txt": "I am satisfied with my first experience on fiverr and with mohsinfancy.Communication was good, even though sometimes a bit short and informal.I am happy with the solid design skill, even if nothing extraordinary.You can tell he has his style or template but this is ok, as it fits well with what I was looking for.All in all very good price/ performance ratio"
@@ -517,7 +517,7 @@ function getEmptyGig() {
                 "user_id": 2,
                 "username": 'naor',
                 "userImgUrl": "./src/imgs/user-img/jewel.jpg",
-                "countryFlag": '',
+                "countryFlag": ".src/imgs/flags-img/argentina.jpg",
                 "countryName": "Argentina",
                 "rate": 5,
                 "txt": "I am satisfied with my first experience on fiverr and with mohsinfancy.Communication was good, even though sometimes a bit short and informal.I am happy with the solid design skill, even if nothing extraordinary.You can tell he has his style or template but this is ok, as it fits well with what I was looking for.All in all very good price/ performance ratio"
@@ -568,7 +568,7 @@ function getEmptyGig() {
                 "user_id": 2,
                 "username": 'naor',
                 "userImgUrl": "./src/imgs/user-img/jewel.jpg",
-                "countryFlag": '',
+                "countryFlag": ".src/imgs/flags-img/argentina.jpg",
                 "countryName": "Argentina",
                 "rate": 5,
                 "txt": "I am satisfied with my first experience on fiverr and with mohsinfancy.Communication was good, even though sometimes a bit short and informal.I am happy with the solid design skill, even if nothing extraordinary.You can tell he has his style or template but this is ok, as it fits well with what I was looking for.All in all very good price/ performance ratio"
@@ -620,7 +620,7 @@ function getEmptyGig() {
                 "user_id": 2,
                 "username": 'naor',
                 "userImgUrl": "./src/imgs/user-img/jewel.jpg",
-                "countryFlag": '',
+                "countryFlag": ".src/imgs/flags-img/argentina.jpg",
                 "countryName": "Argentina",
                 "rate": 5,
                 "txt": "I am satisfied with my first experience on fiverr and with mohsinfancy.Communication was good, even though sometimes a bit short and informal.I am happy with the solid design skill, even if nothing extraordinary.You can tell he has his style or template but this is ok, as it fits well with what I was looking for.All in all very good price/ performance ratio"
@@ -670,7 +670,7 @@ function getEmptyGig() {
                 "user_id": 2,
                 "username": 'naor',
                 "userImgUrl": "./src/imgs/user-img/jewel.jpg",
-                "countryFlag": '',
+                "countryFlag": ".src/imgs/flags-img/argentina.jpg",
                 "countryName": "Argentina",
                 "rate": 5,
                 "txt": "I am satisfied with my first experience on fiverr and with mohsinfancy.Communication was good, even though sometimes a bit short and informal.I am happy with the solid design skill, even if nothing extraordinary.You can tell he has his style or template but this is ok, as it fits well with what I was looking for.All in all very good price/ performance ratio"
@@ -723,7 +723,7 @@ function getEmptyGig() {
                 "user_id": 2,
                 "username": 'naor',
                 "userImgUrl": "./src/imgs/user-img/jewel.jpg",
-                "countryFlag": '',
+                "countryFlag": ".src/imgs/flags-img/argentina.jpg",
                 "countryName": "Argentina",
                 "rate": 5,
                 "txt": "I am satisfied with my first experience on fiverr and with mohsinfancy.Communication was good, even though sometimes a bit short and informal.I am happy with the solid design skill, even if nothing extraordinary.You can tell he has his style or template but this is ok, as it fits well with what I was looking for.All in all very good price/ performance ratio"
