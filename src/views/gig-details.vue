@@ -16,6 +16,7 @@
                     <gig-overview id="gig-overview" :gig="gig" />
                     <gig-description id="gig-description" :gig="gig" />
                     <about-seller id="about-seller" v-if="gig" :owner="gig.owner" />
+                    <details-review :gig="gig" />
                     <div style="height:1000px"></div>
                     <a name="gigoverview" id="gigoverview"></a>
                 </div>
@@ -31,6 +32,7 @@ import gigOverview from "../cmps/gig-overview.vue"
 import gigDescription from "../cmps/gig-description.vue"
 import aboutSeller from "../cmps/about-seller.vue"
 import orderDetails from "../cmps/order-details.vue"
+import detailsReview from "../cmps/details-review.vue"
 import { gigService } from "../services/gig.service.local.js"
 export default {
     data() {
@@ -52,6 +54,7 @@ export default {
         aboutSeller,
         gigDescription,
         orderDetails,
+        detailsReview
     },
 }
 </script>
