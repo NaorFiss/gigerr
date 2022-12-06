@@ -1,6 +1,15 @@
-.gig-edit{
+.gig-edit {
     align-items: center;
     justify-content: center;
     gap: 16px;
     padding: 30px;
+
+    .add-gig-container {
+        background-color: white;
+        padding: 30px;
+        border-radius: 7px;
+        border: 1px solid $clr5;
+        align-items: center;
+
+    }
 }

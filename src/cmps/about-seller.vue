@@ -1,6 +1,6 @@
 <template>
     <div class="b-pad-25" v-if=owner>
-        <h3 class="black b-pad-25 about-h3">About The Seller</h3>
+        <h3 class="black b-pad-25 hide-detail">About The Seller</h3>
         <div class="flex gap-16 b-pad-25 mini-user-info">
             <img class="user-details-img" :src="owner.imgUrl">
             <div class="seller-info flex column ">
@@ -13,15 +13,17 @@
                 <button class="btn white-btn">Contact Me</button>
             </div>
         </div>
-        <div class="seller-desc flex column  b-pad-25">
-            <div class="seller-data flex wrap  b-pad-25">
+        <div class="seller-desc flex column b-pad-25">
+            <div class="seller-data flex wrap b-pad-25">
                 <div class="from">
                     <p class="seller-header">From</p>
-                    <h3>{{ owner.from }}</h3>
+                    <h3>Israel</h3>
+                    <!-- <h3>{{ owner.from }}</h3> -->
                 </div>
                 <div class="since">
                     <p class="seller-header">Member since</p>
-                    <h3>{{ owner.memberSince }}</h3>
+                    <h3>dec 2010</h3>
+                    <!-- <h3>{{ owner.memberSince }}</h3> -->
                 </div>
                 <div class="from">
                     <p class="seller-header">Avg. response time</p>
@@ -29,11 +31,11 @@
                 </div>
                 <div class="since">
                     <p class="seller-header">Last delivery</p>
-                    <h3>about 12 hours</h3>
+                    <h3>12 hours</h3>
                 </div>
             </div>
             <!-- <p class=" b-pad-25">{{ owner.about }}</p> -->
-            <p class=" b-pad-25 about-seller">Hey There!
+            <p class="b-pad-25 about-seller hide-detail">Hey There!
                 My name is Wania Arif. I'm 23 years old passionate and highly skilled graphic designer working with
                 skillful team of designers and developers. My passion is designing Illustrating new ideas making them
                 come to life. I have been in this industry for more then 4 years. I will design for you a very

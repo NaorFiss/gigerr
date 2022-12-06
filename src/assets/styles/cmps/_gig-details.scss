@@ -1,9 +1,11 @@
 .gig-details {
 
-
     height: 100%;
-    // display: flex;
     padding: 30px;
+
+    .gig-info {
+        gap: 5rem;
+    }
 
     & h1 {
         // font-family: WorkSansBold;
@@ -24,20 +26,60 @@
         padding-top: 135px;
     }
 
-    .user-details-img{
+    .user-details-img {
         width: 110px;
         height: 110px;
         border-radius: 100%;
         object-fit: cover;
     }
-    
+
+    .details-review {
+        padding-block: 40px;
+        border-bottom: 1px solid rgb(202, 200, 200);
+
+        .country-flag {
+            width: 24px;
+        }
+
+        .review-user-details {
+            gap: 18px;
+        }
+
+        .user-img {
+            width: 48px;
+            height: 48px;
+        }
+
+        .country-name {
+            padding-inline-start: 8px;
+            align-self: center;
+        }
+
+        .user-review-name {
+            font-weight: 400;
+            font-size: 17px;
+        }
+
+        .review-date {
+            align-self: center;
+        }
+
+        .performance-grade {
+            gap: 5px;
+            line-height: 4;
+        }
+
+        .main-details-review {
+            padding-inline-start: 64px;
+            line-height: 1.5;
+        }
+    }
+
+
 }
 
 
 .reviews-container {
-
-
-
 
     & .review-list {
         display: flex;
@@ -61,6 +103,7 @@
         margin-left: 44px;
     }
 }
+
 .mini-username:hover {
     text-decoration: underline;
     cursor: pointer;
@@ -169,14 +212,24 @@
     font-size: 0.8rem;
 }
 
-.details-header > * {
+.details-header>* {
     color: #919191;
     height: 50px;
     display: flex;
     align-items: center;
 }
 
-.active-link{
+.active-link {
     box-shadow: inset 0 -4px $clr3;
     color: #404145;
+}
+
+@media (min-width: 1200px) {
+    .gig-details {
+
+        .gig-info {
+            padding: 30px;
+            gap: 8rem;
+        }
+    }
 }

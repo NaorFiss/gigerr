@@ -36,11 +36,12 @@ export const gigStore = {
             price: 0,
             tag: '',
         },
-
+        // userGigs:[],
     },
     getters: {
         gigs({ gigs }) { return gigs },
-        gigsUrl({ gigsUrl }) { return gigsUrl }
+        gigsUrl({ gigsUrl }) { return gigsUrl },
+        // gigsUrl({ userGigs }) { return userGigs },
     },
     mutations: {
         setGigs(state, { gigs }) {
@@ -65,9 +66,7 @@ export const gigStore = {
             gig.msgs.push(msg)
         },
         setFilter(state, { filterBy }) {
-            console.log(filterBy);
             state.filterBy = filterBy
-            console.log(filterBy);
         },
     },
     actions: {
@@ -118,9 +117,9 @@ export const gigStore = {
                 throw err
             }
         },
-        async getGigById(context, { id }) {
+        async getGigById(context, { _id }) {
             try {
-                let gig = await gigService.getById(id)
+                let gig = await gigService.getById(_id)
                 return gig
             } catch (err) {
                 console.log('Cannot load gig', err);
@@ -140,6 +139,15 @@ export const gigStore = {
             try {
                 commit({ type: 'setFilter', filterBy })
                 dispatch({ type: 'loadGigs' })
+            } catch (err) {
+                console.log('Cannot load gig', err);
+                throw err;
+            }
+        },
+        async AddOrder({ commit, dispatch }, { order }) {
+            try {
+                // commit({ type: 'setFilter', filterBy })
+                // dispatch({ type: 'loadGigs' })
             } catch (err) {
                 console.log('Cannot load gig', err);
                 throw err;

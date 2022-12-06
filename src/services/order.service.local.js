@@ -3,107 +3,124 @@ import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
 import { userService } from './user.service.js'
 
-const STORAGE_KEY = 'gig'
+const STORAGE_KEY = 'order'
 
-export const gigService = {
+export const orderService = {
     query,
     getById,
     save,
     remove,
-    getEmptyGig,
-    addGigMsg,
-    queryUrl
+    getEmptyOrder,
+    addOrderMsg,
+    queryUrl,
+    getBuyerOrders,
+    getSellerOrders,
 }
-window.cs = gigService
+window.cs = orderService
 
 async function query(filterBy) {
-    var gigs = await storageService.query(STORAGE_KEY)
+    var orders = await storageService.query(STORAGE_KEY)
     if (filterBy) {
         if (filterBy.tag) {
-            gigs.forEach(gig =>
-                gig.tags = gig.tags.map(tag => tag.toLowerCase()))
-            gigs = gigs.filter(gig =>
-                gig.tags.includes(filterBy.tag.toLowerCase()))
+            orders.forEach(order =>
+                order.tags = order.tags.map(tag => tag.toLowerCase()))
+            orders = orders.filter(order =>
+                order.tags.includes(filterBy.tag.toLowerCase()))
         }
         else {
             if (filterBy.txt) {
                 const regex = new RegExp(filterBy.txt, 'i')
-                gigs = gigs.filter(gig => regex.test(gig.title))
+                orders = orders.filter(order => regex.test(order.title))
             }
         }
     }
     // if (filterBy) {
-    //     gigs = gigs.filter(gig => gig.price.basic <= filterBy.price)
+    //     orders = orders.filter(order => order.price.basic <= filterBy.price)
     // }
-    return gigs
+    return orders
 }
 
 async function queryUrl() {
-    var gigs = await storageService.query(STORAGE_KEY)
+    var orders = await storageService.query(STORAGE_KEY)
     var urlList = []
-    gigs.map(gig => {
-        urlList = urlList.concat(gig.imgUrl)
+    orders.map(order => {
+        urlList = urlList.concat(order.imgUrl)
     })
     return urlList
 }
 
-function getById(gigId) {
-    return storageService.get(STORAGE_KEY, gigId)
+function getById(orderId) {
+    return storageService.get(STORAGE_KEY, orderId)
 }
 
-async function remove(gigId) {
+async function getBuyerOrders(userId) {
+    var orders = await storageService.query(STORAGE_KEY )
+    return  orders.filter(order => order.buyer._id === userId)
+}
+
+async function getSellerOrders(userId) {
+    var orders = await storageService.query(STORAGE_KEY )
+    return  orders.filter(order => order.seller._id === userId)
+}
+
+async function remove(orderId) {
     let user = userService.getLoggedinUser()
-    let idx = user.gigs.findIndex(gig => gig._id === gigId)
-    user.gigs.splice(idx ,1)
+    let idx = user.orders.findIndex(order => order._id === orderId)
+    user.orders.splice(idx ,1)
     userService.update(user)
-    await storageService.remove(STORAGE_KEY, gigId)
+    await storageService.remove(STORAGE_KEY, orderId)
 }
 
-async function save(gig) {
-    var savedGig
-    if (gig._id) {
-        savedGig = await storageService.put(STORAGE_KEY, gig)
+async function save(order) {
+    var savedOrder
+    if (order._id) {
+        savedOrder = await storageService.put(STORAGE_KEY, order)
     } else {
         // Later, owner is set by the backend
-        gig._id = utilService.makeId()
-        gig.owner = userService.getLoggedinUser()
-        gig.owner.gigs.push({ _id: gig._id })
-        userService.update(gig.owner)
-        savedGig = await storageService.post(STORAGE_KEY, gig)
+        const user =  userService.getLoggedinUser()
+        order._id = utilService.makeId()
+        order.buyer = {_id: user._id, imgUrl : user.imgUrl, fullname:user.fullname}
+        order.createdAt = new Date().toDateString(),
+        order.status = 'pending'
+        // order.owner.orders.push({ _id: order._id })
+        // userService.update(order.owner)
+        savedOrder = await storageService.post(STORAGE_KEY, order)
     }
-    return savedGig
+    return savedOrder
 }
 
-async function addGigMsg(gigId, txt) {
+async function addOrderMsg(orderId, txt) {
     // Later, this is all done by the backend
-    const gig = await getById(gigId)
-    if (!gig.msgs) gig.msgs = []
+    const order = await getById(orderId)
+    if (!order.msgs) order.msgs = []
 
     const msg = {
         id: utilService.makeId(),
         by: userService.getLoggedinUser(),
         txt
     }
-    gig.msgs.push(msg)
-    await storageService.put(STORAGE_KEY, gig)
+    order.msgs.push(msg)
+    await storageService.put(STORAGE_KEY, order)
 
     return msg
 }
 
-function getEmptyGig() {
+function getEmptyOrder() {
     return {
         title: 'I will',
         price: { basic: '' },
         description: '',
         owner: { rate: 4 },
         imgUrl: [
-            "./src/imgs/gig-img/gig1/1.jpg",
-            "./src/imgs/gig-img/gig1/2.jpg",
-            "./src/imgs/gig-img/gig1/3.jpg",
+            "./src/imgs/order-img/order1/1.jpg",
+            "./src/imgs/order-img/order1/2.jpg",
+            "./src/imgs/order-img/order1/3.jpg",
         ],
 
     }
 }
+
+
 
 
 // // TEST DATA
@@ -130,9 +147,9 @@ function getEmptyGig() {
 //         "daysToMake": 3,
 //         "description": "Any logo you can think of I will make it! ",
 //         "imgUrl": [
-//             "./src/imgs/gig-img/gig1/1.jpg",
-//             "./src/imgs/gig-img/gig1/2.jpg",
-//             "./src/imgs/gig-img/gig1/3.jpg",
+//             "./src/imgs/order-img/order1/1.jpg",
+//             "./src/imgs/order-img/order1/2.jpg",
+//             "./src/imgs/order-img/order1/3.jpg",
 //         ],
 //         "tags": [
 //             "Logo Design",
@@ -185,9 +202,9 @@ function getEmptyGig() {
 //         "daysToMake": 4,
 //         "description": "I build your app faster than you think! ",
 //         "imgUrl": [
-//             "./src/imgs/gig-img/gig2/1.jpg",
-//             "./src/imgs/gig-img/gig2/2.jpg",
-//             "./src/imgs/gig-img/gig2/3.jpg",
+//             "./src/imgs/order-img/order2/1.jpg",
+//             "./src/imgs/order-img/order2/2.jpg",
+//             "./src/imgs/order-img/order2/3.jpg",
 //         ],
 //         "tags": [
 //             "app",
@@ -236,8 +253,8 @@ function getEmptyGig() {
 //         "daysToMake": 5,
 //         "description": "I can teach you english quick! ",
 //         "imgUrl": [
-//             "./src/imgs/gig-img/gig3/1.jpg",
-//             "./src/imgs/gig-img/gig3/2.jpg",
+//             "./src/imgs/order-img/order3/1.jpg",
+//             "./src/imgs/order-img/order3/2.jpg",
 //         ],
 //         "tags": [
 //             "english",
@@ -288,9 +305,9 @@ function getEmptyGig() {
 //         "daysToMake": 3,
 //         "description": "grow-and-manage-your-instagram-marketing ",
 //         "imgUrl": [
-//             "./src/imgs/gig-img/gig4/1.jpg",
-//             "./src/imgs/gig-img/gig4/2.jpg",
-//             "./src/imgs/gig-img/gig4/3.jpg",
+//             "./src/imgs/order-img/order4/1.jpg",
+//             "./src/imgs/order-img/order4/2.jpg",
+//             "./src/imgs/order-img/order4/3.jpg",
 //         ],
 //         "tags": [
 //             "marketing",
@@ -340,9 +357,9 @@ function getEmptyGig() {
 //         "daysToMake": 4,
 //         "description": "I build your app faster than you think! ",
 //         "imgUrl": [
-//             "./src/imgs/gig-img/gig5/1.jpg",
-//             "./src/imgs/gig-img/gig5/2.jpg",
-//             "./src/imgs/gig-img/gig5/3.jpg",
+//             "./src/imgs/order-img/order5/1.jpg",
+//             "./src/imgs/order-img/order5/2.jpg",
+//             "./src/imgs/order-img/order5/3.jpg",
 //         ],
 //         "tags": [
 //             "app",
@@ -391,9 +408,9 @@ function getEmptyGig() {
 //         "daysToMake": 5,
 //         "description": "I can teach you english quick! ",
 //         "imgUrl": [
-//             "./src/imgs/gig-img/gig6/1.jpg",
-//             "./src/imgs/gig-img/gig6/2.jpg",
-//             "./src/imgs/gig-img/gig6/3.jpg"
+//             "./src/imgs/order-img/order6/1.jpg",
+//             "./src/imgs/order-img/order6/2.jpg",
+//             "./src/imgs/order-img/order6/3.jpg"
 //         ],
 //         "tags": [
 //             "english",
@@ -445,9 +462,9 @@ function getEmptyGig() {
 //         "daysToMake": 3,
 //         "description": "wordpress malware removal ",
 //         "imgUrl": [
-//             "./src/imgs/gig-img/gig7/1.jpg",
-//             "./src/imgs/gig-img/gig7/2.jpg",
-//             "./src/imgs/gig-img/gig7/3.jpg",
+//             "./src/imgs/order-img/order7/1.jpg",
+//             "./src/imgs/order-img/order7/2.jpg",
+//             "./src/imgs/order-img/order7/3.jpg",
 //         ],
 //         "tags": [
 //             "marketing",
@@ -497,9 +514,9 @@ function getEmptyGig() {
 //         "daysToMake": 4,
 //         "description": "I build your app faster than you think! ",
 //         "imgUrl": [
-//             "./src/imgs/gig-img/gig8/1.jpg",
-//             "./src/imgs/gig-img/gig8/2.jpg",
-//             "./src/imgs/gig-img/gig8/3.jpg",
+//             "./src/imgs/order-img/order8/1.jpg",
+//             "./src/imgs/order-img/order8/2.jpg",
+//             "./src/imgs/order-img/order8/3.jpg",
 //         ],
 //         "tags": [
 //             "body double",
@@ -547,8 +564,8 @@ function getEmptyGig() {
 //         "daysToMake": 5,
 //         "description": "I can teach you english quick! ",
 //         "imgUrl": [
-//             "./src/imgs/gig-img/gig9/1.jpg",
-//             "./src/imgs/gig-img/gig9/2.jpg",
+//             "./src/imgs/order-img/order9/1.jpg",
+//             "./src/imgs/order-img/order9/2.jpg",
 //         ],
 //         "tags": [
 //             "coaching",
@@ -598,9 +615,9 @@ function getEmptyGig() {
 //         "daysToMake": 3,
 //         "description": "wordpress malware removal ",
 //         "imgUrl": [
-//             "./src/imgs/gig-img/gig10/1.jpg",
-//             "./src/imgs/gig-img/gig10/2.jpg",
-//             "./src/imgs/gig-img/gig10/3.jpg",
+//             "./src/imgs/order-img/order10/1.jpg",
+//             "./src/imgs/order-img/order10/2.jpg",
+//             "./src/imgs/order-img/order10/3.jpg",
 //         ],
 //         "tags": [
 //             "traveling",
@@ -650,9 +667,9 @@ function getEmptyGig() {
 //         "daysToMake": 4,
 //         "description": "I build your app faster than you think! ",
 //         "imgUrl": [
-//             "./src/imgs/gig-img/gig11/1.jpg",
-//             "./src/imgs/gig-img/gig11/2.jpg",
-//             "./src/imgs/gig-img/gig11/3.jpg",
+//             "./src/imgs/order-img/order11/1.jpg",
+//             "./src/imgs/order-img/order11/2.jpg",
+//             "./src/imgs/order-img/order11/3.jpg",
 //         ],
 //         "tags": [
 //             "indonesia",
@@ -700,9 +717,9 @@ function getEmptyGig() {
 //         "daysToMake": 5,
 //         "description": "I can teach you english quick! ",
 //         "imgUrl": [
-//             "./src/imgs/gig-img/gig12/1.jpg",
-//             "./src/imgs/gig-img/gig12/2.jpg",
-//             "./src/imgs/gig-img/gig12/3.jpg"
+//             "./src/imgs/order-img/order12/1.jpg",
+//             "./src/imgs/order-img/order12/2.jpg",
+//             "./src/imgs/order-img/order12/3.jpg"
 //         ],
 //         "tags": [
 //             "website design",

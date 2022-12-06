@@ -17,7 +17,7 @@ const routes = [
     component: home
   },
   {
-    path: '/gig',
+    path: '/explore/:tag?',
     name: 'gig-app',
     component: gigApp
   },

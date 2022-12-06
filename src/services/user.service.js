@@ -88,7 +88,7 @@ async function changeScore(by) {
 
 
 function saveLocalUser(user) {
-    user = {_id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, score: user.score , rate: user.rate}
+    user = { _id: user._id, fullname: user.fullname, imgUrl: user.imgUrl, gigs: user.gigs  ,rate: user.rate }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
     return user
 }
@@ -98,14 +98,107 @@ function getLoggedinUser() {
 }
 
 
-// ;(async ()=>{
-//     await userService.signup({fullname: 'Puki Norma', username: 'puki', password:'123',score: 10000, isAdmin: false , rate: 4.5})
-//     await userService.signup({fullname: 'Master Adminov', username: 'admin', password:'123', score: 10000, isAdmin: true , rate: 4.5})
-//     await userService.signup({fullname: 'Muki G', username: 'muki', password:'123', score: 10000 , rate: 4.5})
-//     await userService.signup({_id: "1" , fullname: 'itzik', username: 'itzik', password:'123', score: 10000, isAdmin: true , rate: 4.2 , imgUrl:'./src/imgs/user-img/itzik.jpg'})
-//     await userService.signup({_id: "2" , fullname: 'naor', username: 'naor', password:'123',score: 10000, isAdmin: true , rate: 4.8 , imgUrl:'./src/imgs/user-img/Naor-Fiss.jpeg'})
-//     await userService.signup({_id: "3" , fullname: 'shacar', username: 'shacar', password:'123', score: 10000 ,isAdmin: true, rate: 5.0 , imgUrl:'./src/imgs/user-img/shacar.jpg'})
+// ; (async () => {
+//     await userService.signup({
+//         "_id": "1",
+//         "fullname": "itzik",
+//         "imgUrl": "./src/imgs/user-img/itzik.jpg",
+//         "username": "itzik",
+//         "password": "123",
+//         "level": "level 1",
+//         "isAdmin": true,
+//         "rate": 4.2,
+//         "gigs": [{
+//             "_id": "g1",
+//             "title": "I will design your logo",
+//         },
+//         {
+//             "_id": "g4",
+//             "title": "I will grow instagram marketing instagram promotion to get targeted instagram followers ",
+//         }],
+//         "reviews": [
+//             {
+//                 "id": "r1",
+//                 "gig": {
+//                     "_id": "g1",
+//                     "title": "I will design your logo",
+//                 },
+//                 "txt": "Very kind and works fast",
+//                 "rate": 4,
+//                 "by": {
+//                     "_id": "2",
+//                     "fullname": "naor",
+//                     "imgUrl": "./src/imgs/user-img/Naor-Fiss.jpeg"
+//                 },
+//             },
+//         ],
+//     },)
+//     await userService.signup({
+//         "_id": "2",
+//         "fullname": "naor",
+//         "imgUrl": "./src/imgs/user-img/Naor-Fiss.jpeg",
+//         "username": "naor",
+//         "password": "123",
+//         "level": "level 2",
+//         "isAdmin": true,
+//         "rate": 4.8,
+//         "gigs": [{
+//             "_id": "g2",
+//             "title": "I will build an app",
+//         },{
+//             "_id": "g5",
+//             "title": "I will  UX and marketing content for your website and apps",
+//         }],
+//         "reviews": [
+//             {
+//                 "id": "r2",
+//                 "gig": {
+//                     "_id": "g2",
+//                     "title": "I will build an app",
+//                 },
+//                 "txt": "Very kind",
+//                 "rate": 5,
+//                 "by": {
+//                     "_id": "3",
+//                     "fullname": "shachar",
+//                     "imgUrl": "./src/imgs/user-img/shacar.jpg"
+//                 },
+//             },
+//         ],
+//     },)
+//     await userService.signup({
+//         "_id": "3",
+//         "fullname": "shachar",
+//         "imgUrl": "./src/imgs/user-img/shacar.jpg",
+//         "username": "shachar",
+//         "password": "123",
+//         "level": "Top Rated",
+//         "isAdmin": true,
+//         "rate": 4.8,
+//         "gigs": [{
+//             "_id": "g3",
+//             "title": "I will teach you english",
+//         },
+//         {
+//             "_id": "g6",
+//             "title": "I will write professional resume cover letter and linkedin",
+//         }],
+//         "reviews": [
+//             {
+//                 "id": "r3",
+//                 "gig": {
+//                     "_id": "g3",
+//                     "title": "I will teach you english",
+//                 },
+//                 "txt": "kind and works ",
+//                 "rate": 5,
+//                 "by": {
+//                     "_id": "1",
+//                     "fullname": "itzik",
+//                     "imgUrl": "./src/imgs/user-img/itzik.jpg"
+//                 },
+//             },
+//         ],
+//     },)
 // })()
-
-
 

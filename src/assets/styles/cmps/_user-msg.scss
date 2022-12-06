@@ -6,11 +6,15 @@
     top: 0;
     right: 0.5em;
     padding: 1em;
+    font-weight: 700;
+    border-bottom-left-radius:5px ;
+    border-bottom-right-radius:5px ;
+    z-index: 100;
     &.alert-success {
-        background-color: lightgreen;
+        background-color: $clr3;
     }
     &.alert-error {
-        background-color: lightcoral;
+        background-color: rgb(241, 106, 106);
     }
 }
 

@@ -1,11 +1,13 @@
 <template>
-    <section class="gig-edit flex column">
+    <section class="gig-edit log-sign flex column ">
         <h2>Add gig</h2>
-        <form v-if="loggedInUser" @submit.prevent="addGig()">
-            <input type="text" v-model="gigToAdd.name" />
-            <button>Save</button>
+        <form class="add-gig-container flex column gap-16" v-if="loggedInUser" @submit.prevent="addGig()">
+            <input type="text" placeholder="Gigs name" v-model="gigToAdd.title" />
+            <input type="text" placeholder="Gigs price" v-model="gigToAdd.price.basic" />
+            <input type="text" placeholder="Gigs Description" v-model="gigToAdd.description" />
+            <button class="btn green-btn">Save</button>
         </form>
-        <button @click="goBack" class="btn" type="button">go back</button>
+        <button @click="goBack" class="btn " type="button">go back</button>
     </section>
 </template>
 
@@ -30,8 +32,8 @@ export default {
         async addGig() {
             try {
                 await this.$store.dispatch({ type: 'addGig', gig: this.gigToAdd })
-                showSuccessMsg('Gig added')
-                this.$router.push('/gig')
+                showSuccessMsg('Gig added successfully')
+                this.$router.push('/explore')
                 this.gigToAdd = gigService.getEmptyGig()
             } catch (err) {
                 console.log(err)
@@ -48,30 +50,21 @@ export default {
             }
         },
         goBack() {
-            this.$router.push('/gig')
+            this.$router.push('/exlpore')
         },
-        //     async removeGig(gigId) {
-        //         try {
-        //             await this.$store.dispatch(getActionRemoveGig(gigId))
-        //             showSuccessMsg('Gig removed')
+   
+            // async updateGig(gig) {
+            //     try {
+            //         gig = { ...gig }
+            //         gig.price = +prompt('New price?', gig.price)
+            //         await this.$store.dispatch(getActionUpdateGig(gig))
+            //         showSuccessMsg('Gig updated')
 
-        //         } catch (err) {
-        //             console.log(err)
-        //             showErrorMsg('Cannot remove gig')
-        //         }
-        //     },
-        //     async updateGig(gig) {
-        //         try {
-        //             gig = { ...gig }
-        //             gig.price = +prompt('New price?', gig.price)
-        //             await this.$store.dispatch(getActionUpdateGig(gig))
-        //             showSuccessMsg('Gig updated')
-
-        //         } catch (err) {
-        //             console.log(err)
-        //             showErrorMsg('Cannot update gig')
-        //         }
-        //     },
+            //     } catch (err) {
+            //         console.log(err)
+            //         showErrorMsg('Cannot update gig')
+            //     }
+            // },
         // printGigToConsole(gig) {
         //     console.log('Gig msgs:', gig.msgs)
         // }
