@@ -1,16 +1,16 @@
 <template>
     <section class="filter flex space-between">
         <div class="filter-btns">
-           
+
             <button @click="TogglePriceModal" class="price-btn">Budget <span
                     :class="{ open: openPriceModal }">></span></button>
             <price-modal class="price-modal" v-if="openPriceModal" @close="openPriceModal = false" @search="filter" />
-            <button class="delivery-btn" @click="ToggleDeliveryModal">Delivery Days <span
-                    :class="{ open: openDeliveryModal }">></span></button>
+            <button class="delivery-btn" @click="ToggleDeliveryModal">Delivery
+                Days <span :class="{ open: openDeliveryModal }">></span></button>
             <delivery-modal class="delivery-modal" v-if="openDeliveryModal" @close="openDeliveryModal = false"
                 @search="filter" />
         </div>
-        
+
     </section>
 </template>
 <script>
@@ -25,7 +25,11 @@ export default {
             openDeliveryModal: false,
             openPriceModal: false,
             openSortModal: false,
-            sortBy: 'all'
+            sortBy: 'all',
+            dBtnActive: false,
+            bBtnActive: false,
+
+
         }
     },
     methods: {
@@ -45,16 +49,35 @@ export default {
                 this.openTagsModal = !this.openTagsModal
         },
         ToggleDeliveryModal() {
+            if(this.bBtnActive){
+                document.querySelector(".price-btn").classList.remove("price-btn-active")
+                this.bBtnActive=false
+            }
             this.openSortModal = false
             this.openPriceModal = false
             this.openTagsModal = false;
             this.openDeliveryModal = !this.openDeliveryModal
+            this.dBtnActive=!this.dBtnActive
+            if(this.dBtnActive)
+            document.querySelector(".delivery-btn").classList.add("delivery-btn-active")
+            else 
+            document.querySelector(".delivery-btn").classList.remove("delivery-btn-active")
+            
         },
         TogglePriceModal() {
+            if(this.dBtnActive){
+                document.querySelector(".delivery-btn").classList.remove("delivery-btn-active")
+                this.dBtnActive=false
+            }
             this.openSortModal = false
             this.openTagsModal = false
             this.openDeliveryModal = false;
             this.openPriceModal = !this.openPriceModal
+            this.bBtnActive=!this.bBtnActive
+            if(this.bBtnActive)
+            document.querySelector(".price-btn").classList.add("price-btn-active")
+            else 
+            document.querySelector(".price-btn").classList.remove("price-btn-active")
         },
         toggleSortModal() {
             this.openTagsModal = false
@@ -70,10 +93,10 @@ export default {
         }
     },
     components: {
-        
+
         DeliveryModal,
         priceModal,
-        
+
     },
     destroyed() {
         this.filterBy.title = ''
@@ -81,6 +104,7 @@ export default {
         this.filterBy.delivery = 'all'
         this.filterBy.min = 0
         this.filterBy.max = Infinity
+        this.dBtnActive = false
     }
 }
 </script>

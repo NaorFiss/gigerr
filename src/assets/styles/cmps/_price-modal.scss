@@ -6,12 +6,12 @@
         gap: 20px
     }
 
-   
+
 
     top: 143px;
     left: 23.6%;
     width: 350px;
-    
+
 
     .modal__footer {
         justify-content: inherit;
@@ -42,6 +42,32 @@
     font-family: macan-light;
     font-weight: bold;
     color: #222325;
+    cursor: pointer;
+    padding: 10px;
+
+    span {
+        margin-left: 5px;
+        transition: all 0.7s ease;
+        display: inline-block;
+        transform: rotate(90deg);
+        width: 10px;
+    }
+
+    span.open {
+        transform: rotate(270deg);
+    }
+}
+
+.price-btn-active {
+    background-color: #e8faf4;
+    border-color: #a6eaca;
+    color: #1dbf73;
+    border: 1px solid;
+    
+    border-radius: 5px;
+    font-family: macan-light;
+    font-weight: bold;
+    
     cursor: pointer;
     padding: 10px;
 
