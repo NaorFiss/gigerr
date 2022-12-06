@@ -26,11 +26,13 @@ async function query(filterBy) {
                 gig.tags.includes(filterBy.tag.toLowerCase()))
         }
         else {
-            if (filterBy.txt) {
-                const regex = new RegExp(filterBy.txt, 'i')
+            if (filterBy.title) {
+                const regex = new RegExp(filterBy.title, 'i')
                 gigs = gigs.filter(gig => regex.test(gig.title))
             }
         }
+       
+       
     }
     // if (filterBy) {
     //     gigs = gigs.filter(gig => gig.price.basic <= filterBy.price)

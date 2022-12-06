@@ -1,9 +1,9 @@
-<template>
-    <section class="gig-preview ">
+<template >
+    <section class="gig-preview">
         <li>
             <imgCard @click="gigDetails" :imgs="gig.imgUrl" />
             <article class="preview-card flex column">
-                <div class="flex mini-user">
+                <div class="flex mini-user" v-if="gig.owner">
                     <img :src="gig.owner.imgUrl" alt="">
                     <div>
                         <router-link class="fs14 mac-bold black mini-username" :to='("/user/" + gig.owner._id)'>{{
@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <router-link class="title" :to="'/gig/' + gig._id">{{ gig.title }}</router-link>
-                <p class="clr-6"><span class="orange  flex3">★{{ gig.owner.rate }}</span>(24)</p>
+                <p v-if="gig.owner" class="clr-6"><span class="orange  flex3">★{{ gig.owner.rate }}</span>(24)</p>
             </article>
             <div class="flex space align-center li-bottom">
                 <p>❤</p>

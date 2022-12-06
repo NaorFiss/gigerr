@@ -31,7 +31,7 @@ import gigDescription from "../cmps/gig-description.vue"
 import aboutSeller from "../cmps/about-seller.vue"
 import orderDetails from "../cmps/order-details.vue"
 import detailsReview from "../cmps/details-review.vue"
-import { gigService } from "../services/gig.service.local.js"
+import { gigService } from "../services/gig.service.js"
 export default {
     data() {
         return {

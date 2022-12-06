@@ -1,4 +1,4 @@
-import { gigService } from '../services/gig.service.local.js'
+import { gigService } from '../services/gig.service.js'
 
 export function getActionRemoveGig(gigId) {
     return {
@@ -32,16 +32,49 @@ export const gigStore = {
         gigs: [],
         gigsUrl: [],
         filterBy: {
-            txt: '',
-            price: 0,
-            tag: '',
+            title: '',
+            category: '',
+            subCategory: '',
+            min: null,
+            max: null,
+            delivery: '',
         },
         // userGigs:[],
     },
     getters: {
-        gigs({ gigs }) { return gigs },
+        gigs({ gigs, filterBy }) {
+            var filteredGigs = gigs
+            const regex = new RegExp(filterBy.title, 'i')
+            filteredGigs = gigs.filter((gig) => regex.test(gig.title))
+
+            if (filterBy.category)
+                filteredGigs = filteredGigs.filter(
+                    (gig) => gig.category === filterBy.category
+                )
+
+            if (filterBy.subCategory)
+                filteredGigs = filteredGigs.filter(
+                    (gig) => gig.subCategory === filterBy.subCategory
+                )
+
+            if (filterBy.min)
+                filteredGigs = filteredGigs.filter(
+                    (gig) => parseInt(gig.price.basic) >= filterBy.min
+                )
+            if (filterBy.max)
+                filteredGigs = filteredGigs.filter(
+                    (gig) => parseInt(gig.price.basic) <= filterBy.max
+                )
+            if (filterBy.delivery)
+                filteredGigs = filteredGigs.filter(
+                    (gig) => parseInt(gig.daysToMake) <= filterBy.delivery
+                )
+
+            return filteredGigs
+        },
         gigsUrl({ gigsUrl }) { return gigsUrl },
-        // gigsUrl({ userGigs }) { return userGigs },
+        getFilter({filterBy}) { return filterBy }
+
     },
     mutations: {
         setGigs(state, { gigs }) {
@@ -66,7 +99,10 @@ export const gigStore = {
             gig.msgs.push(msg)
         },
         setFilter(state, { filterBy }) {
+            // state.filterBy = filterBy
+
             state.filterBy = filterBy
+
         },
     },
     actions: {

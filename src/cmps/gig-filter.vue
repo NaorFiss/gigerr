@@ -39,7 +39,7 @@ export default {
     data() {
         return {
             filterBy: {
-                txt: '',
+                title: '',
                 price: 0,
                 tag: '',
             },
@@ -54,7 +54,7 @@ export default {
         },
         setFilter(tag) {
             this.filterBy.tag = tag
-            this.filterBy.txt = tag
+            this.filterBy.title = tag
             this.loadGigs()
         }
     },
