@@ -19,12 +19,14 @@
             border-top: 1px solid #e4e5e7;
             padding: 10px;
             height: 45px;
-             > :last-child{
+
+            > :last-child {
                 gap: 5px;
-                > :first-child{
+
+                > :first-child {
                     letter-spacing: .5px;
                 }
-             }
+            }
         }
 
         .main-img {
@@ -160,7 +162,7 @@
 @media (max-width: 900px) {
     .gig-list {
         grid-template-columns: repeat(2, 1fr);
-        
+
     }
 }
 
@@ -169,5 +171,3 @@
         grid-template-columns: repeat(1, 1fr);
     }
 }
-
-
