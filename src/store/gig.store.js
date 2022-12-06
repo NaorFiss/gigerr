@@ -32,15 +32,49 @@ export const gigStore = {
         gigs: [],
         gigsUrl: [],
         filterBy: {
-            txt: '',
-            price: 0,
-            tag: '',
+            title: '',
+            category: '',
+            subCategory: '',
+            min: null,
+            max: null,
+            delivery: '',
         },
 
     },
     getters: {
-        gigs({ gigs }) { return gigs },
-        gigsUrl({ gigsUrl }) { return gigsUrl }
+        gigs({ gigs, filterBy }) {
+            var filteredGigs = gigs
+            const regex = new RegExp(filterBy.title, 'i')
+            filteredGigs = gigs.filter((gig) => regex.test(gig.title))
+
+            if (filterBy.category)
+                filteredGigs = filteredGigs.filter(
+                    (gig) => gig.category === filterBy.category
+                )
+
+            if (filterBy.subCategory)
+                filteredGigs = filteredGigs.filter(
+                    (gig) => gig.subCategory === filterBy.subCategory
+                )
+
+            if (filterBy.min)
+                filteredGigs = filteredGigs.filter(
+                    (gig) => parseInt(gig.price.basic) >= filterBy.min
+                )
+            if (filterBy.max)
+                filteredGigs = filteredGigs.filter(
+                    (gig) => parseInt(gig.price.basic) <= filterBy.max
+                )
+            if (filterBy.delivery)
+                filteredGigs = filteredGigs.filter(
+                    (gig) => parseInt(gig.daysToMake) <= filterBy.delivery
+                )
+
+            return filteredGigs
+        },
+        gigsUrl({ gigsUrl }) { return gigsUrl },
+        getFilter({filterBy}) { return filterBy }
+
     },
     mutations: {
         setGigs(state, { gigs }) {
@@ -65,9 +99,9 @@ export const gigStore = {
             gig.msgs.push(msg)
         },
         setFilter(state, { filterBy }) {
-            console.log(filterBy);
+
             state.filterBy = filterBy
-            console.log(filterBy);
+
         },
     },
     actions: {
