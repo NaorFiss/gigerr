@@ -10,7 +10,7 @@
                 </div>
                 <div class="modal__footer">
                     <div class="tags-buttons-container flex space-between">
-                        <button @click="closeModal" class="clear-btn">Cancel</button>
+                        <button @click="closeModal" class="clear-btn">Clear All</button>
                         <button class="btn-primary btn apply-btn" @click="search">Apply</button>
                         <slot name="footer" />
                     </div>
