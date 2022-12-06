@@ -72,7 +72,8 @@ export const gigStore = {
 
             return filteredGigs
         },
-        gigsUrl({ gigsUrl }) { return gigsUrl }
+        gigsUrl({ gigsUrl }) { return gigsUrl },
+        getFilter({filterBy}) { return filterBy }
 
     },
     mutations: {
@@ -98,9 +99,9 @@ export const gigStore = {
             gig.msgs.push(msg)
         },
         setFilter(state, { filterBy }) {
-            
+
             state.filterBy = filterBy
-            
+
         },
     },
     actions: {

@@ -36,7 +36,7 @@ export default {
             this.$emit("close");
         },
         search() {
-            this.$emit('setFilter', this.filterBy)
+            this.$emit('search', this.filterBy)
         }
     },
     components: {
