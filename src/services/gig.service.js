@@ -12,24 +12,18 @@ export const gigService = {
     getById,
     save,
     remove,
+    queryUrl,
     getEmptyGig,
     addGigMsg
+
+
 }
 window.cs = gigService
 
 
-async function query(filterBy = { txt: '', price: 0 }) {
+async function query(filterBy = { txt: '', tag: 0 }) {
     return httpService.get(STORAGE_KEY, filterBy)
 
-    // var gigs = await storageService.query(STORAGE_KEY)
-    // if (filterBy.txt) {
-    //     const regex = new RegExp(filterBy.txt, 'i')
-    //     gigs = gigs.filter(gig => regex.test(gig.tag) || regex.test(gig.description))
-    // }
-    // if (filterBy.price) {
-    //     gigs = gigs.filter(gig => gig.price <= filterBy.price)
-    // }
-    // return gigs
 
 }
 function getById(gigId) {
@@ -56,6 +50,18 @@ async function save(gig) {
     return savedGig
 }
 
+async function queryUrl() {
+    console.log("queryUrl-1")
+    var gigs = await httpService.get(STORAGE_KEY)
+    console.log("queryUrl-2", gigs)
+    var urlList = []
+    gigs.map(gig => {
+        urlList = urlList.concat(gig.imgUrl)
+    })
+    console.log("urlList", urlList)
+    return urlList
+}
+
 async function addGigMsg(gigId, txt) {
     const savedMsg = await httpService.post(`gig/${gigId}/msg`, { txt })
     return savedMsg
@@ -64,9 +70,18 @@ async function addGigMsg(gigId, txt) {
 
 function getEmptyGig() {
     return {
-        tag: 'Susita-' + (Date.now() % 1000),
-        price: utilService.getRandomIntInclusive(1000, 9000),
+        title: 'gig' + (Date.now() % 1000),
+        price: { basic: utilService.getRandomIntInclusive(1000, 9000) },
+        description: 'I will do a nice job',
+        owner: { rate: 4 },
+        imgUrl: [
+            "./src/imgs/gig-img/gig1/1.jpg",
+            "./src/imgs/gig-img/gig1/2.jpg",
+            "./src/imgs/gig-img/gig1/3.jpg",
+        ],
+
     }
+
 }
 
 

@@ -1,10 +1,10 @@
 <template>
     <div class="details-header flex">
         <!-- <a class="active-link" href="#gigoverview">Overview</a> -->
-        <router-link :to="{path: '', hash:'#gig-overview'}">Overview</router-link>
-        <router-link :to="{path: '', hash:'#gig-description'}">About the seller</router-link>
-        <router-link :to="{path: '', hash:'#about-seller'}">Compare packages</router-link>
-        <router-link :to="{path: '', hash:'#gigoverview'}">Reviews</router-link>
+        <router-link :to="{ path: '', hash: '#gig-overview' }">Overview</router-link>
+        <router-link :to="{ path: '', hash: '#gig-description' }">About the seller</router-link>
+        <router-link :to="{ path: '', hash: '#about-seller' }">Compare packages</router-link>
+        <router-link :to="{ path: '', hash: '#gigoverview' }">Reviews</router-link>
         <!-- <a href="#bottom">About the seller</a>
         <a href="">Compare packages</a>
         <a href="">Reviews</a> -->
@@ -33,7 +33,7 @@ import gigDescription from "../cmps/gig-description.vue"
 import aboutSeller from "../cmps/about-seller.vue"
 import orderDetails from "../cmps/order-details.vue"
 import detailsReview from "../cmps/details-review.vue"
-import { gigService } from "../services/gig.service.local.js"
+import { gigService } from "../services/gig.service.js"
 export default {
     data() {
         return {

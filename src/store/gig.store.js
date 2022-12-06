@@ -1,4 +1,4 @@
-import { gigService } from '../services/gig.service.local.js'
+import { gigService } from '../services/gig.service.js'
 
 export function getActionRemoveGig(gigId) {
     return {

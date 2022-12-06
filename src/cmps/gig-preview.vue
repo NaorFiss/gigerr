@@ -1,19 +1,21 @@
-<template>
-    <section class="gig-preview ">
+<template >
+    <section class="gig-preview">
         <li>
             <imgCard @click="gigDetails" :imgs="gig.imgUrl" />
             <article class="preview-card flex column">
-                <div class="flex mini-user">
+                <div class="flex mini-user" v-if="gig.owner">
                     <img :src="gig.owner.imgUrl" alt="">
                     <div>
-                        <router-link class="fs14 mac-bold black mini-username" :to='("/user/" + gig.owner._id)'>{{ gig.owner.fullname }}</router-link>
+                        <router-link class="fs14 mac-bold black mini-username" :to='("/user/" + gig.owner._id)'>{{
+                                gig.owner.fullname
+                        }}</router-link>
                         <p :class='gig.owner.level === "Top Rated" ? "orange , fs14" : " $clr6, fs14"'>{{
                                 gig.owner.level
                         }} Seller</p>
                     </div>
                 </div>
                 <router-link class="title" :to="'/gig/' + gig._id">{{ gig.title }}</router-link>
-                <p class="clr-6"><span class="orange  flex3">★{{ gig.owner.rate }}</span>(24)</p>
+                <p v-if="gig.owner" class="clr-6"><span class="orange  flex3">★{{ gig.owner.rate }}</span>(24)</p>
             </article>
             <div class="flex space align-center li-bottom">
                 <p>❤</p>
@@ -60,20 +62,20 @@ export default {
             }
         },
         // async updateGig(gig) {
-            //     try {
-            //       gig = { ...gig }
-            //       gig.price = +prompt('New price?', gig.price.basic)
-            //       await this.$store.dispatch(getActionUpdateGig(gig))
-            //       showSuccessMsg('Gig updated')
+        //     try {
+        //       gig = { ...gig }
+        //       gig.price = +prompt('New price?', gig.price.basic)
+        //       await this.$store.dispatch(getActionUpdateGig(gig))
+        //       showSuccessMsg('Gig updated')
 
-            //     } catch (err) {
-            //       console.log(err)
-            //       showErrorMsg('Cannot update gig')
-            //     }
-            //   },
-        },
-        components: {
-            imgCard
-        }
+        //     } catch (err) {
+        //       console.log(err)
+        //       showErrorMsg('Cannot update gig')
+        //     }
+        //   },
+    },
+    components: {
+        imgCard
     }
+}
 </script>
