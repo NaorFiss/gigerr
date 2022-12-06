@@ -1,7 +1,7 @@
 <template>
     <el-table class="order-table" :data="orders" stripe style="width: 100%">
         <el-table-column class="order-img" v-if="buyerProfile" prop="buyer.imgUrl" label="" width="165">
-            <template  #default="scope"><img class="order-img" :src="scope.row.gig.img" /></template>
+            <template #default="scope"><img class="order-img" :src="scope.row.gig.img" /></template>
         </el-table-column>
         <el-table-column v-else prop="buyer.imgUrl" label="Buyer" width="65">
             <template #default="scope"><img :src="scope.row.buyer.imgUrl" /></template>
@@ -24,7 +24,9 @@
 </template>
   
 <script >
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 export default {
+
     props: {
         orders: Array
     },
@@ -32,22 +34,28 @@ export default {
         return {
         }
     },
-    computed:{
-        buyerProfile(){
+    computed: {
+        buyerProfile() {
             return this.$store.getters.loggedinUser._id === this.orders[0].buyer._id
         }
-    },  
+    },
     methods: {
-        approveOrder(order) {
+        async approveOrder(order) {
             if (this.$store.getters.loggedinUser._id !== order.seller._id) return console.log('Not YOUR gig!');
             order.status = order.status === 'pending' ? 'in progress' : 'complited'
-            this.$store.dispatch({ type: 'updateOrder', order })
+            try {
+                await this.$store.dispatch({ type: 'updateOrder', order })
+                showSuccessMsg('You got the gig!')
+                console.log('hee');
+            } catch (err) {
+                console.log(err)
+                showErrorMsg('Cannot add gig msg')
+            }
         },
         orderStatus(status) {
             if (status === 'pending') return 'table-btn'
             else if (status === 'in progress') return 'table-btn progress-btn'
             else return 'green-btn table-btn'
-
         },
     },
 }

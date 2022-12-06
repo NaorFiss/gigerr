@@ -58,7 +58,7 @@ export default {
         async removeGig(gigId) {
             try {
                 await this.$store.dispatch(getActionRemoveGig(gigId))
-                showSuccessMsg('Gig removed')
+                showSuccessMsg(`Gig removed`)
             } catch (err) {
                 console.log(err)
                 showErrorMsg('Cannot remove gig')

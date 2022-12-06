@@ -14,12 +14,14 @@
 </template>
   
 <script>
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
+
 export default {
     props: {
         gig: Object,
     },
     methods: {
-        makeOrder() {
+        async makeOrder() {
             var order = {
                 seller: { _id: this.gig.owner._id },
                 gig: {
@@ -29,7 +31,14 @@ export default {
                     img: this.gig.imgUrl[0]
                 }
             }
-            this.$store.dispatch({ type: 'addOrder', order })
+            try {
+            await this.$store.dispatch({ type: 'addOrder', order })
+                showSuccessMsg('You got the gig!')
+                console.log('hee');
+            } catch (err) {
+                console.log(err)
+                showErrorMsg('Cannot add gig msg')
+            }
             console.log('buying succseed');
         }
     },

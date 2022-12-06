@@ -1,5 +1,5 @@
 <template>
-  <div v-show="alive" class="alert" :class="alertClass">
+  <div  class="alert content" :class="alive ? alertClass : ''">
     {{ msg?.txt }}
   </div>
 </template>
@@ -19,9 +19,9 @@ export default {
     eventBus.on(SHOW_MSG, (msg) => {
       console.log(msg);
       this.msg = msg
-      var delay = msg.delay || 2000
+      var delay = msg.delay || 2400
       this.alive = true
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // window.scrollTo({ top: 0, behavior: 'smooth' });
       setTimeout(() => {
         this.alive = false
       }, delay)
