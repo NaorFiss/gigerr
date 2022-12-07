@@ -28,8 +28,9 @@ export default {
     },
     methods: {
         async makeOrder() {
+            console.log(this.gig.owner);
             var order = {
-                seller: { _id: this.gig.owner._id },
+                seller: { _id: this.gig.owner._id , fullname: this.gig.owner.fullname},
                 gig: {
                     _id: this.gig._id,
                     price: this.gig.price.basic,
