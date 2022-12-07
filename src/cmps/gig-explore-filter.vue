@@ -7,30 +7,34 @@
                     <div class="price-range-filter">
                         <div class="input-div">
                             <label class="budget-l">MIN.</label>
-                            <el-option value="1"><el-input class="min" type="number" v-model.number="filterBy.min" @click.stop
-                                    placeholder="Any" /></el-option>
+                            <el-option value="1"><el-input class="min" type="number" v-model.number="filterBy.min"
+                                    @click.stop placeholder="Any" />
+                                <i>$</i>
+                            </el-option>
                         </div>
                         <div class="input-div">
                             <label class="budget-l">MAX.</label>
-                            <el-option value="1"><el-input class="max" type="number" v-model.number="filterBy.max" @click.stop
-                                    placeholder="Any" /></el-option>
+                            <el-option value="1"><el-input class="max" type="number" v-model.number="filterBy.max"
+                                    @click.stop placeholder="Any" /><i>$</i></el-option>
                         </div>
                     </div>
                 </div>
                 <div class="btn-row"><el-button class="clear" @click="clearBudget()">Clear
-                    </el-button><el-button class="apply" @click="filter()">Apply</el-button>
+                    </el-button><el-option class="apply" @click="filter()">Apply</el-option>
                 </div>
             </el-select>
 
 
-            <el-select @change="filter()" class="m-2 delivery-input" v-model="filterBy.delivery"
+            <el-select @visible-change="filter()" class="m-2 delivery-input" v-model="filterBy.delivery"
                 placeholder="Delivery Time" size="large">
-                <el-option value="1" v-model="filterBy.delivery">Express 24H</el-option>
-                <el-option value="3" v-model="filterBy.delivery">Up to 3 days</el-option>
-                <el-option value="7" v-model="filterBy.delivery">Up to 7 days</el-option>
-                <el-option value="" v-model="filterBy.delivery">Anytime</el-option>
-                <div class="btn-row"><el-button @click="clearDeliverby()">Clear
-                        All</el-button><el-button @click="filter()">Apply</el-button>
+                <div class1="content-scroll">
+                    <el-option class="delivery-opt" value="1" v-model="filterBy.delivery">Express 24H</el-option>
+                    <el-option class="delivery-opt" value="3" v-model="filterBy.delivery">Up to 3 days</el-option>
+                    <el-option class="delivery-opt" value="7" v-model="filterBy.delivery">Up to 7 days</el-option>
+                    <el-option class="delivery-opt" value="" v-model="filterBy.delivery">Anytime</el-option>
+                    <!-- <div class="btn-row"><el-button class="clear" @click="clearDeliverby()">Clear
+                            All</el-button>
+                    </div> -->
                 </div>
             </el-select>
         </div>
@@ -39,13 +43,6 @@
     <div class="sorting-click">
         <div class="flex ">
             <h4 class="available-services" v-if="gigs">{{ gigs.length }} Services available</h4>
-        </div>
-        <div class="sort-input">
-            <h4> Sort by </h4><el-select id="sortby-select" class="m-2 sortby-select" placeholder="Relevance"
-                size="large">
-                <el-option value="bestSelling">Best Selling</el-option>
-                <el-option value="newestArrivals">Newest Arrivals</el-option>
-            </el-select>
         </div>
     </div>
 
@@ -64,6 +61,7 @@ export default {
                 delivery: null,
             },
             demoInfo: true,
+            try: false,
 
         }
     },
@@ -89,6 +87,7 @@ export default {
         filter(filterBy = this.filterBy) {
             this.$router.push({ name: 'gig-app', query: { ...filterBy } })
             this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
+
         },
         clearBudget() {
             this.filterBy.min = ''
