@@ -2,7 +2,7 @@
   <div v-if="isYourProfile" class="user-details-header flex ">
     <button @click="myOrders = false; myCart = false">Profile</button>
     <button @click="myOrders = true ; myCart = false">Manage Orders</button>
-    <button @click="(myCart = !myCart)">Gigs</button>
+    <button @click="myCart = true">Gigs</button>
   </div>
   <section v-if="user" class="user-details-page flex">
     <div v-if="(!myOrders && !myCart)" class="personal-user-details">
@@ -19,7 +19,7 @@
       </div>
     </div>
 
-    <div v-if="(!myOrders && !myCart)">
+    <div v-if="(!myOrders && !myCart)" class="flex-grow">
       <div v-if="userGigsList.length" class="user-details-section">
         <div class="flex space ">
           <p class="mac-semi">{{ user.fullname }}'s Gigs </p>
