@@ -28,11 +28,13 @@ async function query(filterBy = { txt: '', tag: 0 }) {
 }
 function getById(gigId) {
     // return storageService.get(STORAGE_KEY, gigId)
+    console.log('im here' ,gigId);
     return httpService.get(`gig/${gigId}`)
 }
 
 async function remove(gigId) {
     // await storageService.remove(STORAGE_KEY, gigId)
+    console.log(gigId);
     return httpService.delete(`gig/${gigId}`)
 }
 async function save(gig) {
@@ -43,22 +45,27 @@ async function save(gig) {
 
     } else {
         // Later, owner is set by the backend
-        gig.owner = userService.getLoggedinUser()
         // savedGig = await storageService.post(STORAGE_KEY, gig)
+        gig.owner = userService.getLoggedinUser()
+        const user = await userService.getById(gig.owner._id)
         savedGig = await httpService.post('gig', gig)
+        user.gigs.push({ _id: savedGig._id })
+        console.log(user);
+        let newuser = await userService.update(user)
+        console.log(newuser);
     }
     return savedGig
 }
 
 async function queryUrl() {
-    console.log("queryUrl-1")
+    // console.log("queryUrl-1")
     var gigs = await httpService.get(STORAGE_KEY)
-    console.log("queryUrl-2", gigs)
+    // console.log("queryUrl-2", gigs)
     var urlList = []
     gigs.map(gig => {
         urlList = urlList.concat(gig.imgUrl)
     })
-    console.log("urlList", urlList)
+    // console.log("urlList", urlList)
     return urlList
 }
 
@@ -68,20 +75,19 @@ async function addGigMsg(gigId, txt) {
 }
 
 
+
 function getEmptyGig() {
     return {
-        title: 'gig' + (Date.now() % 1000),
-        price: { basic: utilService.getRandomIntInclusive(1000, 9000) },
-        description: 'I will do a nice job',
+        title: 'I will',
+        price: { basic: '' },
+        description: '',
         owner: { rate: 4 },
         imgUrl: [
             "./src/imgs/gig-img/gig1/1.jpg",
             "./src/imgs/gig-img/gig1/2.jpg",
             "./src/imgs/gig-img/gig1/3.jpg",
         ],
-
     }
-
 }
 
 

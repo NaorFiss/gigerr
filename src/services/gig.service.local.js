@@ -67,8 +67,8 @@ async function save(gig) {
         savedGig = await storageService.put(STORAGE_KEY, gig)
     } else {
         // Later, owner is set by the backend
-        gig._id = utilService.makeId()
-        gig.owner = userService.getLoggedinUser()
+        // gig._id = utilService.makeId()
+        // gig.owner = userService.getLoggedinUser()
         gig.owner.gigs.push({ _id: gig._id })
         userService.update(gig.owner)
         savedGig = await storageService.post(STORAGE_KEY, gig)
@@ -103,7 +103,6 @@ function getEmptyGig() {
             "./src/imgs/gig-img/gig1/2.jpg",
             "./src/imgs/gig-img/gig1/3.jpg",
         ],
-
     }
 }
 

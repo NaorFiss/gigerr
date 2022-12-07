@@ -16,7 +16,7 @@
                 <gig-description id="gig-description" :gig="gig" />
                 <about-seller id="about-seller" v-if="gig" :owner="gig.owner" />
                 <details-review v-if="gig?.reviews" :gig="gig" />
-                <div style="height:1000px"></div>
+                <div style="height:200px"></div>
                 <a name="gigoverview" id="gigoverview"></a>
             </div>
             <order-details class="order-details" :gig="gig" />

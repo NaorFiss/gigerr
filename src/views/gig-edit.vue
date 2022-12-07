@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { gigService } from '../services/gig.service.local'
+import { gigService } from '../services/gig.service'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { getActionAddGigMsg } from '../store/gig.store'
 
