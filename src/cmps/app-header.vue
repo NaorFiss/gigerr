@@ -2,6 +2,7 @@
   <section ref="header">
     <header :style="{ backgroundColor: stickyNav && atHome() ? 'white' : '' }"
       :class="atHome() ? 'atHome' : 'atExplore'">
+      <!-- <h1 class="header-logo">Gigger.</h1> -->
       <div class="hamburger">
         <svg xmlns="http://www.w3.org/2000/svg" width="23" height="19" viewBox="0 0 23 19">
           <rect y="16" width="23" height="3" rx="1.5" fill="#555"></rect>
@@ -23,7 +24,7 @@
         
         <router-link v-if="!loggedInUser" to="/login">Sign In</router-link>
         <router-link v-if="!loggedInUser" class="join" to="/signup">Join</router-link>
-
+        
         <el-dropdown v-if="loggedInUser" trigger="click" size="large">
           <div class="loggedin-user"><img :src="loggedInUser.imgUrl"/></div>
           <template #dropdown>

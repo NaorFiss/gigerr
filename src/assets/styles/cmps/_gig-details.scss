@@ -1,7 +1,7 @@
 .gig-details {
 
     height: 100%;
-    padding: 30px;
+    padding: 32px;
 
     .gig-info {
         gap: 5rem;
@@ -204,8 +204,8 @@
 }
 
 .details-header {
-    padding-inline: 30px;
-    border-bottom: 1px solid gray;
+    padding-inline: 32px;
+    border-bottom: 1px solid $clr5;
     gap: 10px;
     color: $clr1;
     align-items: center;
@@ -228,7 +228,7 @@
     .gig-details {
 
         .gig-info {
-            padding: 30px;
+            padding: 32px;
             gap: 8rem;
         }
     }

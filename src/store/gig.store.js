@@ -69,7 +69,6 @@ export const gigStore = {
                 filteredGigs = filteredGigs.filter(
                     (gig) => parseInt(gig.daysToMake) <= filterBy.delivery
                 )
-                    console.log(filteredGigs);
             return filteredGigs
         },
         gigsUrl({ gigsUrl }) { return gigsUrl },
@@ -155,7 +154,6 @@ export const gigStore = {
         },
         async getGigById(context, { _id }) {
             try {
-                console.log('store');
                 let gig = await gigService.getById(_id)
                 return gig
             } catch (err) {

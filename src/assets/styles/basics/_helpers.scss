@@ -130,6 +130,11 @@
     border: 1px solid rgb(209, 209, 209);
 }
 
+.gray-btn{
+    background-color: $clr1;
+    padding: 13px;
+}
+
 .white-btn:hover {
     background-color: $clr1;
     color: white;
