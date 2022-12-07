@@ -33,8 +33,8 @@ async function query(filterBy) {
                 gigs = gigs.filter(gig => regex.test(gig.title))
             }
         }
-       
-       
+
+
     }
 
 
@@ -109,57 +109,57 @@ function getEmptyGig() {
 
 // TEST DATA
 // (async () => {
-//     await storageService.post(STORAGE_KEY, {
-//         "_id": "g1",
-//         "title": "I will design your logo in no time trust me ",
-//         "price":
-//         {
-//             "basic": 12,
-//             "standard": 30,
-//             "premium": 50
-//         },
-//         "owner": {
-//             "_id": "1",
-//             "fullname": "itzik",
-//             "imgUrl": "./src/imgs/user-img/itzik.jpg",
-//             "level": "Level 1",
-//             "rate": 4.2,
-//             "from": "Israel",
-//             "memberSince": 2010,
-//             "about": "The very BEST!"
-//         },
-//         "daysToMake": 3,
-//         "description": "Any logo you can think of I will make it! ",
-//         "imgUrl": [
-//             "./src/imgs/gig-img/gig1/1.jpg",
-//             "./src/imgs/gig-img/gig1/2.jpg",
-//             "./src/imgs/gig-img/gig1/3.jpg",
-//         ],
-//         "tags": [
-//             "Logo Design",
-//             "artisitic",
-//             "proffesional",
-//             "accessible",
-//             "Video Editing"
-//         ],
+    // await storageService.post(STORAGE_KEY, {
+    //     "_id": "g1",
+    //     "title": "I will design your logo in no time trust me ",
+    //     "price":
+    //     {
+    //         "basic": 12,
+    //         "standard": 30,
+    //         "premium": 50
+    //     },
+    //     "owner": {
+    //         "_id": "1",
+    //         "fullname": "itzik",
+    //         "imgUrl": "./src/imgs/user-img/itzik.jpg",
+    //         "level": "Level 1",
+    //         "rate": 4.2,
+    //         "from": "Israel",
+    //         "memberSince": 2010,
+    //         "about": "The very BEST!"
+    //     },
+    //     "daysToMake": 3,
+    //     "description": "Any logo you can think of I will make it! ",
+    //     "imgUrl": [
+    //         "./src/imgs/gig-img/gig1/1.jpg",
+    //         "./src/imgs/gig-img/gig1/2.jpg",
+    //         "./src/imgs/gig-img/gig1/3.jpg",
+    //     ],
+    //     "tags": [
+    //         "Logo Design",
+    //         "artisitic",
+    //         "proffesional",
+    //         "accessible",
+    //         "Video Editing"
+    //     ],
 
-//         "likedByUsers": [
-//             {
-//                 "_id": 2,
-//                 "username": 'naor'
-//             },
-//         ],
-//         "reviews": [
-//             {
-//                 "_id": "r1",
-//                 "user_id": 2,
-//                 "username": 'naor',
-//                 "userImgUrl": "./src/imgs/user-img/jewel.jpg",
-//                 "countryFlag": ".src/imgs/flags-img/argentina.jpg",
-//                 "countryName": "Argentina",
-//                 "rate": 5,
-//                 "txt": "I am satisfied with my first experience on fiverr and with mohsinfancy.Communication was good, even though sometimes a bit short and informal.I am happy with the solid design skill, even if nothing extraordinary.You can tell he has his style or template but this is ok, as it fits well with what I was looking for.All in all very good price/ performance ratio"
-//             }
+    //     "likedByUsers": [
+    //         {
+    //             "_id": 2,
+    //             "username": 'naor'
+    //         },
+    //     ],
+    //     "reviews": [
+    //         {
+    //             "_id": "r1",
+    //             "user_id": 2,
+    //             "username": 'naor',
+    //             "userImgUrl": "./src/imgs/user-img/jewel.jpg",
+    //             "countryFlag": ".src/imgs/flags-img/argentina.jpg",
+    //             "countryName": "Argentina",
+    //             "rate": 5,
+    //             "txt": "I am satisfied with my first experience on fiverr and with mohsinfancy.Communication was good, even though sometimes a bit short and informal.I am happy with the solid design skill, even if nothing extraordinary.You can tell he has his style or template but this is ok, as it fits well with what I was looking for.All in all very good price/ performance ratio"
+    //         }
 //         ]
 
 //         // for user-wishlist : use $in
