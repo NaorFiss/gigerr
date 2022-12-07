@@ -39,7 +39,7 @@ export const gigStore = {
             max: null,
             delivery: '',
         },
-
+        // userGigs:[],
     },
     getters: {
         gigs({ gigs, filterBy }) {
@@ -69,7 +69,7 @@ export const gigStore = {
                 filteredGigs = filteredGigs.filter(
                     (gig) => parseInt(gig.daysToMake) <= filterBy.delivery
                 )
-
+                    console.log(filteredGigs);
             return filteredGigs
         },
         gigsUrl({ gigsUrl }) { return gigsUrl },
@@ -99,6 +99,7 @@ export const gigStore = {
             gig.msgs.push(msg)
         },
         setFilter(state, { filterBy }) {
+            // state.filterBy = filterBy
 
             state.filterBy = filterBy
 
@@ -152,9 +153,10 @@ export const gigStore = {
                 throw err
             }
         },
-        async getGigById(context, { id }) {
+        async getGigById(context, { _id }) {
             try {
-                let gig = await gigService.getById(id)
+                console.log('store');
+                let gig = await gigService.getById(_id)
                 return gig
             } catch (err) {
                 console.log('Cannot load gig', err);
@@ -174,6 +176,15 @@ export const gigStore = {
             try {
                 commit({ type: 'setFilter', filterBy })
                 dispatch({ type: 'loadGigs' })
+            } catch (err) {
+                console.log('Cannot load gig', err);
+                throw err;
+            }
+        },
+        async AddOrder({ commit, dispatch }, { order }) {
+            try {
+                // commit({ type: 'setFilter', filterBy })
+                // dispatch({ type: 'loadGigs' })
             } catch (err) {
                 console.log('Cannot load gig', err);
                 throw err;

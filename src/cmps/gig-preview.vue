@@ -25,14 +25,15 @@
                 </div>
             </div>
         </li>
+        <button v-if="isYourProfile" @click="removeGig(gig._id)">x</button>
     </section>
-    <!-- <button @click="removeGig(gig._id)">x</button> -->
     <!-- <button @click="updateGig(gig)">Update</button> -->
     <!-- <button @click="addGigMsg(gig._id)">Add gig msg</button>
 <button @click="printGigToConsole(gig)">Print msgs to console</button> -->
 </template>
 
 <script>
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { getActionRemoveGig, getActionUpdateGig } from '../store/gig.store'
 
 import imgCard from './img-card.vue'
@@ -46,6 +47,9 @@ export default {
         loggedInUser() {
             return this.$store.getters.loggedinUser
         },
+        isYourProfile() {
+            return this.$store.getters.loggedinUser?._id === this.gig.owner?._id
+        }
     },
     methods: {
         gigDetails() {
@@ -54,11 +58,10 @@ export default {
         async removeGig(gigId) {
             try {
                 await this.$store.dispatch(getActionRemoveGig(gigId))
-                // showSuccessMsg('Gig removed')
-
+                showSuccessMsg(`Gig removed`)
             } catch (err) {
                 console.log(err)
-                // showErrorMsg('Cannot remove gig')
+                showErrorMsg('Cannot remove gig')
             }
         },
         // async updateGig(gig) {

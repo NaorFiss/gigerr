@@ -1,48 +1,88 @@
 <template>
-  <section v-if="user" class="user-details-page">
-    <about-seller class="about-seller flex column" :owner="user" />
-    <!-- <div class="user-page-details"> -->
+  <div v-if="isYourProfile" class="user-details-header flex ">
+    <button @click="myOrders = true ; myCart = false">Orders</button>
+    <button @click="(myCart = !myCart)">My Cart</button>
+    <button @click="myOrders = false; myCart = false">Gigs</button>
+  </div>
+  <section v-if="user" class="user-details-page flex">
+    <div>
+      <about-seller class="about-seller flex column mb-24" :owner="user" />
+      <div class="about-seller ">
+        <!-- <p class=" b-pad-25">{{ owner.about }}</p> -->
+        <h4 class="black mb-24">Description</h4>
+        <p class="b-pad-25 ">Hey There!
+          My name is Wania Arif. I'm 23 years old passionate and highly skilled graphic designer working with
+          skillful team of designers and developers. My passion is designing Illustrating new ideas making them
+          come to life. I have been in this industry for more then 4 years. I will design for you a very
+          high-quality, clean, and proffesional logo that stands out from other designs. I'm here to serve all my
+          beautiful upcoming clients.</p>
+      </div>
+    </div>
 
-      <!-- <img style="max-width: 200px;" :src="user.imgUrl" />
-      <ul>
-        <h3> {{ user.fullname }}</h3>
-        <li v-for="review in user.givenReviews" :key="review._id">
-          {{ review.txt }}
-          <router-link :to="`/user/${review.aboutUser._id}`">
-            About {{ review.aboutUser.fullname }}
-          </router-link>
-        </li>
-      </ul>
-    </div> -->
-    <button @click="doLogout">Logout</button>
+    <div v-if="(!myOrders && !myCart)">
+      <div v-if="userGigsList.length" class="user-details-section">
+        <div class="flex space">
+          <h2 class="mb-24">{{ user.fullname }}'s Gigs </h2>
+          <router-link v-if="(isYourProfile)" to="/gig/edit" class="btn green-btn add-btn">Add Gig</router-link>
+        </div>
+        <gigList :gigs="userGigsList" />
+      </div>
 
-    <details>
-      <summary>Full JSON</summary>
-      <pre>{{ user }}</pre>
-    </details>
+      <div class="create-new-gig flex column" v-if="(!isLoading && isYourProfile && !userGigsList.length )">
+        <img class="create-gig-img" src="@/assets/svg/create-gig.svg" alt="">
+        <p>It seems that you don't have any active Gigs</p>
+        <router-link to="/gig/edit" class="btn green-btn add-btn">Create a new Gig</router-link>
+      </div>
+    </div>
+
+    <div v-if="(myOrders && !myCart)" class="">
+      <h1 class="mb-24">Manage Seller Orders</h1>
+      <ordersTable :orders="sellerOrders" />
+    </div>
+
+    <div v-if="myCart" class="">
+      <h1 class="mb-24">Your Buyer orders</h1>
+      <ordersTable :orders="buyerOrders" />
+    </div>
   </section>
 </template>
 
 <script>
 // import {userService} from '../services/user.service'
+import gigList from '../cmps/gig-list.vue'
 import aboutSeller from "../cmps/about-seller.vue"
+import ordersTable from '../cmps/orders-table.vue'
 
 export default {
-
   data() {
     return {
-      // user: null
+      userGigsList: [],
+      isLoading: true,
+      myOrders: false,
+      myCart: false,
+      buyerOrders: [],
+      sellerOrders: []
     }
   },
   async created() {
-    // const user = await userService.getById(id)
-    // this.user = user
+    const sellerOrders = await this.$store.dispatch({ type: 'getSellerOrders' })
+    this.sellerOrders = sellerOrders
+    const buyerOrders = await this.$store.dispatch({ type: 'getBuyerOrders' })
+    this.buyerOrders = buyerOrders
   },
   watch: {
     userId: {
-      handler() {
-        if(this.userId){
-            this.$store.dispatch({ type: "loadAndWatchUser", userId: this.userId })
+      async handler() {
+        if (this.userId) {
+          this.userGigsList = []
+          await this.$store.dispatch({ type: "loadAndWatchUser", userId: this.userId })
+          console.log(this.$store.getters.watchedUser)
+          this.$store.getters.watchedUser.gigs.forEach(async ({ _id }) => {
+             console.log('id' , _id)
+            const gig = await this.$store.dispatch({ type: 'getGigById', _id })
+            this.userGigsList.push(gig)
+          })
+          this.isLoading = false
         }
       },
       immediate: true,
@@ -55,14 +95,14 @@ export default {
     userId() {
       return this.$route.params.id
     },
-  },
-  methods:{
-    doLogout() {
-      this.$store.dispatch({ type: 'logout' })
+    isYourProfile() {
+      return this.$store.getters.loggedinUser?._id === this.$store.getters.watchedUser?._id
     },
   },
-  components:{
-    aboutSeller
+  components: {
+    aboutSeller,
+    gigList,
+    ordersTable,
   }
 }
 </script>

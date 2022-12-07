@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container log-sign flex column">
     <h1>About Us</h1>
     <p>We like You</p>
     <h2>Lets Chat About {{topic}}</h2>

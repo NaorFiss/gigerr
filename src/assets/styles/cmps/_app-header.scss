@@ -1,5 +1,5 @@
 header {
-    border-bottom: 1px rgb(199, 197, 197) solid;
+    border-bottom: 1px $clr5 solid;
     padding-block: 10px;
     padding-inline: 30px;
     display: flex;
@@ -9,10 +9,11 @@ header {
     width: 100%;
     z-index: 20;
 
-    
+
     .loggedin-user {
         // border-radius: 1em;
         // align-self: flex-end;
+        cursor: pointer;
         color: whitesmoke;
 
         span {
@@ -27,24 +28,30 @@ header {
             height: 2em;
             border-radius: 50%;
             object-fit: cover;
+            border: none !important;
         }
 
         margin-inline-end: 0 !important;
         border: none !important;
     }
 
+
+
     nav {
         padding: 5px 0;
     }
 
-    nav > *{
-        margin: 10px;
+    nav>* {
+        margin-inline: 10px;
+        line-height: 2;
     }
 
     nav .active {
         color: $clr3;
     }
-
+    .search-bar{
+        margin: 0;
+    }
     .join {
         border: 1px solid $clr3;
         color: $clr3;
@@ -68,28 +75,51 @@ header {
         display: none;
     }
 
-    .white-links > * {
+    .white-links>* {
         color: white;
     }
 
-    .white-links > :last-child {
+    .white-links> :last-child :not(el-dropdown) {
         border: 1px solid white;
     }
 
-    .white-links > :last-child:hover {
+    .white-links> :last-child:hover :not(el-dropdown) {
         border: 1px solid $clr3;
     }
 
+}
+
+.el-dropdown__popper {
+    --el-dropdown-menuItem-hover-fill: none;
+    // --el-dropdown-menuItem-hover-color: none;
+
+    .el-dropdown-menu {
+        width: 150px;
+        padding-inline: 10px;
+        display: flex;
+        flex-direction: column;
+
+        >* {
+            align-self: flex-start;
+            width: 100%;
+            font-size: 16px;
+            color: rgb(138, 133, 133) !important;
+            width: 100%;
+            padding-inline: 0;
+        }
+    }
 }
 
 .atExplore {
     position: relative;
     background-color: white;
     padding-block: 30px;
+
     .join {
         padding: 10px 16px;
     }
 }
+
 .atHome {
     position: fixed;
     background-color: transparent;
@@ -118,7 +148,8 @@ header {
             padding-inline: 0;
         }
 
-        > :nth-child(3) , > :last-child :not(:last-child) {
+        > :nth-child(3),
+        > :last-child :not(:last-child) {
             display: none;
         }
     }

@@ -15,16 +15,24 @@
           <img v-else class="logo" src="@/assets/logo.svg" alt="">
         </span>
       </router-link>
-      <gig-filter  v-if="!atHome()" :atExplore="'atExplore'" @setFilter="setFilter"/>
+      <gig-filter v-if="!atHome()" :atExplore="'atExplore'" @setFilter="setFilter" />
       <nav :class="!stickyNav && atHome() ? 'white-links' : ''">
-        <router-link to="/gig">Explore</router-link>
+        <router-link to="/explore">Explore</router-link>
         <!-- <router-link to="/review">Reviews</router-link> -->
         <!-- <router-link to="/chat">Chat</router-link> -->
+        
         <router-link v-if="!loggedInUser" to="/login">Sign In</router-link>
-        <router-link class="loggedin-user" v-if="loggedInUser" :to="`/user/${loggedInUser._id}`">
-          <img :src="loggedInUser.imgUrl" />
-        </router-link>
-        <router-link v-else class="join" to="/signup">Join</router-link>
+        <router-link v-if="!loggedInUser" class="join" to="/signup">Join</router-link>
+
+        <el-dropdown v-if="loggedInUser" trigger="click" size="large">
+          <div class="loggedin-user"><img :src="loggedInUser.imgUrl"/></div>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item @click="goToProfile">Profile</el-dropdown-item>
+              <el-dropdown-item divided @click="doLogout">Logout</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
       </nav>
     </header>
   </section>
@@ -32,7 +40,6 @@
 
 <script>
 import gigFilter from './gig-filter.vue'
-
 export default {
   data() {
     return {
@@ -47,7 +54,10 @@ export default {
   },
   methods: {
     atHome() {
-      return this.$route.path === '/' ? true : false
+      return this.$route.path === '/' 
+    },
+    goToProfile(){
+      this.$router.push(`/user/${this.loggedInUser._id}`)
     },
     onHeaderObserved(entries) {
       entries.forEach((entry) => {
@@ -56,7 +66,10 @@ export default {
     },
     setFilter(filterBy) {
       this.$store.dispatch({ type: 'setFilter', filterBy })
-    }
+    },
+    doLogout() {
+      this.$store.dispatch({ type: 'logout' })
+    },
   },
   mounted() {
     this.headerObserver = new IntersectionObserver(this.onHeaderObserved, {
@@ -64,7 +77,7 @@ export default {
     });
     this.headerObserver.observe(this.$refs.header);
   },
-  components:{
+  components: {
     gigFilter
   }
 }

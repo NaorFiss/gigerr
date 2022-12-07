@@ -1,5 +1,5 @@
 <template>
-  <div v-show="alive" class="alert" :class="alertClass">
+  <div  class="alert content" :class="alive ? alertClass : ''">
     {{ msg?.txt }}
   </div>
 </template>
@@ -9,22 +9,23 @@
 import { eventBus, SHOW_MSG } from "../services/event-bus.service.js"
 
 export default {
-  created() {
-    eventBus.on(SHOW_MSG, (msg) => {
-      this.msg = msg
-      var delay = msg.delay || 2000
-      this.alive = true
-      window.scrollTo({top: 0, behavior: 'smooth'});
-      setTimeout(() => {
-        this.alive = false
-      }, delay)
-    })
-  },
   data() {
     return {
       alive: false,
       msg: null,
     }
+  },
+  created() {
+    eventBus.on(SHOW_MSG, (msg) => {
+      console.log(msg);
+      this.msg = msg
+      var delay = msg.delay || 2400
+      this.alive = true
+      // window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => {
+        this.alive = false
+      }, delay)
+    })
   },
   computed: {
     alertClass() {

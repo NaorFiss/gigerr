@@ -1,16 +1,43 @@
-
-
 .alert {
-    background-color: lightgray;
+    background-color: rgb(243, 243, 243);
+    border: 1px solid $clr5;
+    border-radius: 10px;
+    box-shadow: 0 0 3px rgb(228, 226, 226);
     position: absolute;
-    top: 0;
-    right: 0.5em;
+    bottom: 30px;
+    left: -200px;
     padding: 1em;
+    font-weight: 700;
+    z-index: 100;
+    transition: 0.4s;
+    padding-left: 40px;
+    
     &.alert-success {
-        background-color: lightgreen;
+        transform: translateX(250px);
+        transition: 0.7s;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 20px;
+            background: url("@/assets/svg/success.svg") center / contain no-repeat;
+        }
     }
+    
     &.alert-error {
-        background-color: lightcoral;
+        transform: translateX(250px);
+        transition: 1s;
+        &::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: 0;
+            bottom: 0;
+            width: 20px;
+            background: url("@/assets/svg/error.svg") center / contain no-repeat;
+        }
     }
 }
-

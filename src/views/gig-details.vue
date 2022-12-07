@@ -10,18 +10,16 @@
         <a href="">Reviews</a> -->
     </div>
     <section class="gig-details ">
-        <div class="gig-overview">
-            <div class="gig-info flex">
-                <div class="up-content flex column wrap space gap-16 details-left" id="gig-overview">
-                    <gig-overview id="gig-overview" :gig="gig" />
-                    <gig-description id="gig-description" :gig="gig" />
-                    <about-seller id="about-seller" v-if="gig" :owner="gig.owner" />
-                    <details-review :gig="gig" />
-                    <div style="height:1000px"></div>
-                    <a name="gigoverview" id="gigoverview"></a>
-                </div>
-                <order-details class="order-details" :gig="gig" />
+        <div class="gig-info flex">
+            <div class="up-content flex column wrap space gap-16 details-left" id="gig-overview">
+                <gig-overview id="gig-overview" :gig="gig" />
+                <gig-description id="gig-description" :gig="gig" />
+                <about-seller id="about-seller" v-if="gig" :owner="gig.owner" />
+                <details-review v-if="gig?.reviews" :gig="gig" />
+                <div style="height:200px"></div>
+                <a name="gigoverview" id="gigoverview"></a>
             </div>
+            <order-details class="order-details" :gig="gig" />
         </div>
     </section>
 
