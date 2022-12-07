@@ -36,15 +36,10 @@ export default {
     },
     // filterTag(){
     //   return this.$route.params.tag || 'All gigs in one place' 
+    // },
     titleId() {
       return this.$route.params.title
     },
-    isClicked() {
-      return ((delivery) => {
-        if (delivery === this.filterBy.delivery)
-          return 'clicked'
-      })
-    }
   },
   created() {
     // if( !this.$route.path === '/gig/filtered') 
@@ -58,17 +53,11 @@ export default {
       this.$router.push({ name: 'gig-app', query: { ...filterBy } })
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
     },
-    clearBudget() {
-      this.filterBy.min = ''
-      this.filterBy.max = ''
-      this.filter()
-    },
+    
     close() {
       this.$emit("close");
     },
-    search() {
-      this.$emit('search', this.filterBy)
-    }
+    
   },
   watch: {
     $route: {
