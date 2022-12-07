@@ -3,6 +3,14 @@
     // padding: 10px;
 }
 
+.main-view{
+    min-height: 100vh;
+}
+
+.flex-grow{
+    flex: 1;
+}
+
 .main-container {
     // display: grid;
     // grid-template-columns: 20px 1fr 20px;
@@ -51,7 +59,8 @@ grid-template-columns: minmax(24px,1fr) minmax(auto,1240px) minmax(24px,1fr);
 }
 
 .app-container:not(.full){
-    padding: 30px;
+    padding: 32px;
+    flex: 1;
 }
 
 .app-container > *{
@@ -64,7 +73,7 @@ grid-template-columns: minmax(24px,1fr) minmax(auto,1240px) minmax(24px,1fr);
 
 @media (max-width: 1150px){
     .pad-inline{
-        padding-inline: 30px;
+        padding-inline: 32px;
     }
 }
 

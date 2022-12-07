@@ -1,8 +1,8 @@
 <template>
-  <section>
+  <section class="main-view flex column">
     <user-msg/>
     <app-header />
-    <router-view/>
+    <router-view />
     <app-footer />
   </section>
 </template>

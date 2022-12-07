@@ -3,9 +3,9 @@
     border: 1px solid $clr5;
     border-radius: 10px;
     box-shadow: 0 0 3px rgb(228, 226, 226);
-    position: absolute;
+    position: fixed;
     bottom: 30px;
-    left: -200px;
+    left: -300px;
     padding: 1em;
     font-weight: 700;
     z-index: 100;
@@ -13,7 +13,7 @@
     padding-left: 40px;
     
     &.alert-success {
-        transform: translateX(250px);
+        transform: translateX(350px);
         transition: 0.7s;
 
         &::before {

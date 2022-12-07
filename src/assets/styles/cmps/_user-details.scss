@@ -1,30 +1,50 @@
 .user-details-page {
 
+    background-color: #f7f7f7;
+    flex: 1;
+
     > :nth-child(2) {
         flex-shrink: 2;
-        // margin-inline-start: 30px;
     }
 
-    > :nth-child(1) {
+    .user-details-section {
+        >:first-child {
+            background-color: white;
+            align-items: center;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid $clr5;
+        }
+    }
+
+    .personal-user- {
         flex-shrink: 1;
         flex-basis: 45%;
         max-width: 395px;
         min-width: 250px;
     }
 
-    padding: 30px;
+    padding: 32px;
     gap: 30px;
 
-    .add-btn {
+    .order-table-container{
+        margin-inline: auto;
+    }
+
+    .add-btn{
+        width: 170px;
+        height: 40px;
+        text-align: center;
+        line-height: 2.4;
+    }
+    .add-btn-small {
         width: 140px;
         height: 30px;
         text-align: center;
-        line-height: 1.9;
+        line-height: 2;
+        font-size: 15px;
     }
 
-    .create-gig-img {
-        width: 252px;
-    }
 
     .hide-detail {
         display: none;
@@ -54,7 +74,8 @@
     .about-seller {
         max-width: 410px;
         border: 1px solid $clr5;
-        padding: 30px;
+        padding: 32px;
+        background-color: white;
 
         button {
             width: 100%;
@@ -88,6 +109,13 @@
         grid-template-columns: repeat(3, 1fr);
     }
 
+    .gig-preview {
+
+        .preview-card,
+        .li-bottom {
+            background-color: white;
+        }
+    }
 
     .mini-user-info {
         flex-direction: column;
@@ -114,7 +142,7 @@
     .el-table {
 
         // min-width: 900px;
-        
+
         .cell {
             white-space: nowrap;
             overflow: hidden;
@@ -127,20 +155,21 @@
             width: 40px;
             object-fit: cover;
         }
-        
-        .order-img{
+
+        .order-img {
             border-radius: 12px;
             object-fit: scale-down;
         }
-        
 
-        .table-btn{
+
+        .table-btn {
             border-radius: 5px;
             min-width: 80px;
             padding: 3px;
             border: 0;
         }
-        .progress-btn{
+
+        .progress-btn {
             background-color: #ffbe5b;
         }
     }
@@ -152,6 +181,11 @@
         height: 484px;
         width: 100%;
         gap: 10px;
+        background-color: white;
+    }
+
+    .create-gig-img {
+        width: 252px;
     }
 
     .btn {
@@ -176,7 +210,7 @@
     height: 50px;
     width: 100%;
     border-bottom: 1px solid $clr5;
-    padding-inline: 30px;
+    padding-inline: 32px;
     gap: 5px;
 
     button {
