@@ -1,110 +1,102 @@
 <template>
-    <section class="filter flex space-between">
-        <div class="filter-btns">
+    <div class="advanced-filter">
+        <div class="advanced-input">
+           
+            <el-select value="1" class="m-2 budget-input" placeholder="Budget" size="large">
+                <el-option value="1"><el-input type="number" v-model.number="filterBy.min" @click.stop
+                        placeholder="Any" /></el-option>
+                <el-option value="1"><el-input type="number" v-model.number="filterBy.max" @click.stop
+                        placeholder="Any" /></el-option>
+                <div><el-button @click="clearBudget()">Clear
+                        </el-button><el-button @click="filter()">Apply</el-button>
+                </div>
+            </el-select>
 
-            <button @click="TogglePriceModal" class="price-btn">Budget <span
-                    :class="{ open: openPriceModal }">></span></button>
-            <price-modal class="price-modal" v-if="openPriceModal" @close="openPriceModal = false" @search="filter" />
-            <button class="delivery-btn" @click="ToggleDeliveryModal">Delivery
-                Days <span :class="{ open: openDeliveryModal }">></span></button>
-            <delivery-modal class="delivery-modal" v-if="openDeliveryModal" @close="openDeliveryModal = false"
-                @search="filter" />
+            
+            <el-select @change="filter()" class="m-2 delivery-input" v-model="filterBy.delivery"
+                placeholder="Delivery Time" size="large">
+                <el-option value="1" v-model="filterBy.delivery">Express 24H</el-option>
+                <el-option value="3" v-model="filterBy.delivery">Up to 3 days</el-option>
+                <el-option value="7" v-model="filterBy.delivery">Up to 7 days</el-option>
+                <el-option value="" v-model="filterBy.delivery">Anytime</el-option>
+                <div><el-button @click="clearDeliverby()">Clear
+                        All</el-button><el-button @click="filter()">Apply</el-button>
+                </div>
+                </el-select>
         </div>
 
-    </section>
+    </div>
+    <div class="sorting-click">
+        <div class="flex ">
+            <h4 class="available-services" v-if="gigs">{{ gigs.length }} Services available</h4>
+        </div>
+        <div class="sort-input">
+            <h4> Sort by </h4><el-select id="sortby-select" class="m-2 sortby-select" placeholder="Relevance"
+                size="large">
+                <el-option value="bestSelling">Best Selling</el-option>
+                <el-option value="newestArrivals">Newest Arrivals</el-option>
+            </el-select>
+        </div>
+    </div>
+
 </template>
 <script>
-import priceModal from './price-modal.vue'
-import DeliveryModal from './delivery-modal.vue'
+
 
 export default {
     data() {
         return {
-            filterBy: this.$store.getters.getFilter,
-            openTagsModal: false,
-            openDeliveryModal: false,
-            openPriceModal: false,
-            openSortModal: false,
-            sortBy: 'all',
-            dBtnActive: false,
-            bBtnActive: false,
-
-
+            filterBy: {
+                title: '',
+                tag: '',
+                min: null,
+                max: null,
+                delivery: null,
+            },
+            demoInfo: true,
+           
         }
     },
-    methods: {
-        filter(filterBy) {
-            if (filterBy) this.filterBy = filterBy
-            this.$store.commit({ type: 'setFilter', filterBy: this.filterBy })
-            this.$emit('filter', this.filterBy)
-            this.openDeliveryModal = false
-            this.openTagsModal = false
-            this.openPriceModal = false
-            this.openSortModal = false
+    computed: {
+        loggedInUser() {
+            return this.$store.getters.loggedinUser
         },
-        ToggleTagsModal() {
-            this.openSortModal = false
-            this.openPriceModal = false
-            this.openDeliveryModal = false,
-                this.openTagsModal = !this.openTagsModal
+        gigs() {
+            return this.$store.getters.gigs
         },
-        ToggleDeliveryModal() {
-            if(this.bBtnActive){
-                document.querySelector(".price-btn").classList.remove("price-btn-active")
-                this.bBtnActive=false
-            }
-            this.openSortModal = false
-            this.openPriceModal = false
-            this.openTagsModal = false;
-            this.openDeliveryModal = !this.openDeliveryModal
-            this.dBtnActive=!this.dBtnActive
-            if(this.dBtnActive)
-            document.querySelector(".delivery-btn").classList.add("delivery-btn-active")
-            else 
-            document.querySelector(".delivery-btn").classList.remove("delivery-btn-active")
-            
-        },
-        TogglePriceModal() {
-            if(this.dBtnActive){
-                document.querySelector(".delivery-btn").classList.remove("delivery-btn-active")
-                this.dBtnActive=false
-            }
-            this.openSortModal = false
-            this.openTagsModal = false
-            this.openDeliveryModal = false;
-            this.openPriceModal = !this.openPriceModal
-            this.bBtnActive=!this.bBtnActive
-            if(this.bBtnActive)
-            document.querySelector(".price-btn").classList.add("price-btn-active")
-            else 
-            document.querySelector(".price-btn").classList.remove("price-btn-active")
-        },
-        toggleSortModal() {
-            this.openTagsModal = false
-            this.openDeliveryModal = false;
-            this.openPriceModal = false
-            this.openSortModal = !this.openSortModal
-        },
-        sorting(sortBy) {
-            if (sortBy) this.sortBy = sortBy
-            this.$store.commit({ type: 'setSort', sortBy: this.sortBy })
-            this.$store.commit({ type: 'setFilter', filterBy: this.filterBy })
-            this.openSortModal = false
+        titleId() {
+            return this.$route.params.title
         }
+    },
+    created() {
+        this.filterBy = { ...this.$route.query }
+        this.filter()
     },
     components: {
-
-        DeliveryModal,
-        priceModal,
-
+       
     },
-    destroyed() {
-        this.filterBy.title = ''
-        this.filterBy.tags = 'all'
-        this.filterBy.delivery = 'all'
-        this.filterBy.min = 0
-        this.filterBy.max = Infinity
-        this.dBtnActive = false
+    methods: {
+        filter(filterBy = this.filterBy) {
+            this.$router.push({ name: 'gig-app', query: { ...filterBy } })
+            this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
+        },
+        clearBudget() {
+            this.filterBy.min = ''
+            this.filterBy.max = ''
+            this.filter()
+        },
+        clearDeliverby(){
+            this.filterBy.delivery=null
+            this.filter()
+        }
+    },
+    watch: {
+        $route: {
+            handler(newValue) {
+                if (newValue.path == '/explore') this.filter(newValue.query)
+            },
+            deep: true
+        },
     }
 }
 </script>

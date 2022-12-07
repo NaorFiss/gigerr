@@ -31,8 +31,8 @@ async function query(filterBy) {
                 gigs = gigs.filter(gig => regex.test(gig.title))
             }
         }
-       
-       
+
+
     }
     // if (filterBy) {
     //     gigs = gigs.filter(gig => gig.price.basic <= filterBy.price)
@@ -56,7 +56,7 @@ function getById(gigId) {
 async function remove(gigId) {
     let user = userService.getLoggedinUser()
     let idx = user.gigs.findIndex(gig => gig._id === gigId)
-    user.gigs.splice(idx ,1)
+    user.gigs.splice(idx, 1)
     userService.update(user)
     await storageService.remove(STORAGE_KEY, gigId)
 }
@@ -109,39 +109,39 @@ function getEmptyGig() {
 
 // // TEST DATA
 // (async () => {
-//     await storageService.post(STORAGE_KEY, {
-//         "_id": "g1",
-//         "title": "I will design your logo in no time trust me ",
-//         "price":
-//         {
-//             "basic": 12,
-//             "standard": 30,
-//             "premium": 50
-//         },
-//         "owner": {
-//             "_id": "1",
-//             "fullname": "itzik",
-//             "imgUrl": "./src/imgs/user-img/itzik.jpg",
-//             "level": "Level 1",
-//             "rate": 4.2,
-//             "from": "Israel",
-//             "memberSince": 2010,
-//             "about": "The very BEST!"
-//         },
-//         "daysToMake": 3,
-//         "description": "Any logo you can think of I will make it! ",
-//         "imgUrl": [
-//             "./src/imgs/gig-img/gig1/1.jpg",
-//             "./src/imgs/gig-img/gig1/2.jpg",
-//             "./src/imgs/gig-img/gig1/3.jpg",
-//         ],
-//         "tags": [
-//             "Logo Design",
-//             "artisitic",
-//             "proffesional",
-//             "accessible",
-//             "Video Editing"
-//         ],
+    // await storageService.post(STORAGE_KEY, {
+    //     "_id": "g1",
+    //     "title": "I will design your logo in no time trust me ",
+    //     "price":
+    //     {
+    //         "basic": 12,
+    //         "standard": 30,
+    //         "premium": 50
+    //     },
+    //     "owner": {
+    //         "_id": "1",
+    //         "fullname": "itzik",
+    //         "imgUrl": "./src/imgs/user-img/itzik.jpg",
+    //         "level": "Level 1",
+    //         "rate": 4.2,
+    //         "from": "Israel",
+    //         "memberSince": 2010,
+    //         "about": "The very BEST!"
+    //     },
+    //     "daysToMake": 3,
+    //     "description": "Any logo you can think of I will make it! ",
+    //     "imgUrl": [
+    //         "./src/imgs/gig-img/gig1/1.jpg",
+    //         "./src/imgs/gig-img/gig1/2.jpg",
+    //         "./src/imgs/gig-img/gig1/3.jpg",
+    //     ],
+    //     "tags": [
+    //         "Logo Design",
+    //         "artisitic",
+    //         "proffesional",
+    //         "accessible",
+    //         "Video Editing"
+    //     ],
 
 //         "likedByUsers": [
 //             {
