@@ -1,5 +1,6 @@
 <template>
-    <el-table class="order-table" :data="orders" stripe style="width: 100%">
+    <p v-if="!orders.length">There are no gigs yet</p>
+    <el-table v-else class="order-table" :data="orders" stripe style="width: 100%">
         <el-table-column class="order-img" v-if="buyerProfile" prop="buyer.imgUrl" label="" width="165">
             <template #default="scope"><img class="order-img" :src="scope.row.gig.img" /></template>
         </el-table-column>
@@ -45,11 +46,10 @@ export default {
             order.status = order.status === 'pending' ? 'in progress' : 'complited'
             try {
                 await this.$store.dispatch({ type: 'updateOrder', order })
-                showSuccessMsg('You got the gig!')
-                console.log('hee');
+                showSuccessMsg('Thanks!  We will update the buyer')
             } catch (err) {
                 console.log(err)
-                showErrorMsg('Cannot add gig msg')
+                showErrorMsg('Cannot update')
             }
         },
         orderStatus(status) {

@@ -1,11 +1,11 @@
 <template>
   <div v-if="isYourProfile" class="user-details-header flex ">
-    <button @click="myOrders = true ; myCart = false">Orders</button>
-    <button @click="(myCart = !myCart)">My Cart</button>
-    <button @click="myOrders = false; myCart = false">Gigs</button>
+    <button @click="myOrders = false; myCart = false">Profile</button>
+    <button @click="myOrders = true ; myCart = false">Manage Orders</button>
+    <button @click="(myCart = !myCart)">Gigs</button>
   </div>
   <section v-if="user" class="user-details-page flex">
-    <div>
+    <div v-if="(!myOrders && !myCart)" class="personal-user-details">
       <about-seller class="about-seller flex column mb-24" :owner="user" />
       <div class="about-seller ">
         <!-- <p class=" b-pad-25">{{ owner.about }}</p> -->
@@ -21,26 +21,26 @@
 
     <div v-if="(!myOrders && !myCart)">
       <div v-if="userGigsList.length" class="user-details-section">
-        <div class="flex space">
-          <h2 class="mb-24">{{ user.fullname }}'s Gigs </h2>
-          <router-link v-if="(isYourProfile)" to="/gig/edit" class="btn green-btn add-btn">Add Gig</router-link>
+        <div class="flex space ">
+          <p class="mac-semi">{{ user.fullname }}'s Gigs </p>
+          <router-link v-if="(isYourProfile)" to="/gig/edit" class="btn green-btn add-btn-small">Create new gig</router-link>
         </div>
         <gigList :gigs="userGigsList" />
       </div>
 
-      <div class="create-new-gig flex column" v-if="(!isLoading && isYourProfile && !userGigsList.length )">
+      <div class="create-new-gig flex column" v-if="(!isLoading && isYourProfile && !userGigsList.length)">
         <img class="create-gig-img" src="@/assets/svg/create-gig.svg" alt="">
         <p>It seems that you don't have any active Gigs</p>
         <router-link to="/gig/edit" class="btn green-btn add-btn">Create a new Gig</router-link>
       </div>
     </div>
 
-    <div v-if="(myOrders && !myCart)" class="">
+    <div v-if="(myOrders && !myCart)" class="order-table-container">
       <h1 class="mb-24">Manage Seller Orders</h1>
       <ordersTable :orders="sellerOrders" />
     </div>
 
-    <div v-if="myCart" class="">
+    <div v-if="myCart" class="order-table-container">
       <h1 class="mb-24">Your Buyer orders</h1>
       <ordersTable :orders="buyerOrders" />
     </div>
@@ -78,7 +78,6 @@ export default {
           await this.$store.dispatch({ type: "loadAndWatchUser", userId: this.userId })
           console.log(this.$store.getters.watchedUser)
           this.$store.getters.watchedUser.gigs.forEach(async ({ _id }) => {
-             console.log('id' , _id)
             const gig = await this.$store.dispatch({ type: 'getGigById', _id })
             this.userGigsList.push(gig)
           })

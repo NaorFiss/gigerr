@@ -17,7 +17,6 @@ export default {
   },
   created() {
     eventBus.on(SHOW_MSG, (msg) => {
-      console.log(msg);
       this.msg = msg
       var delay = msg.delay || 2400
       this.alive = true

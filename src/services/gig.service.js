@@ -28,13 +28,19 @@ async function query(filterBy = { txt: '', tag: 0 }) {
 }
 function getById(gigId) {
     // return storageService.get(STORAGE_KEY, gigId)
-    console.log('im here' ,gigId);
     return httpService.get(`gig/${gigId}`)
 }
 
 async function remove(gigId) {
     // await storageService.remove(STORAGE_KEY, gigId)
-    console.log(gigId);
+    const user = userService.getLoggedinUser()
+    
+    // console.log(gigId)
+    // console.log(user)
+    let idx = user.gigs.findIndex(gig => gig._id === gigId)
+    if(idx === -1) return
+    user.gigs.splice(1,idx)
+    await userService.update(user)
     return httpService.delete(`gig/${gigId}`)
 }
 async function save(gig) {
@@ -46,13 +52,12 @@ async function save(gig) {
     } else {
         // Later, owner is set by the backend
         // savedGig = await storageService.post(STORAGE_KEY, gig)
-        gig.owner = userService.getLoggedinUser()
-        const user = await userService.getById(gig.owner._id)
+        // gig.owner = userService.getLoggedinUser()
+        // console.log(gig.owner);
         savedGig = await httpService.post('gig', gig)
+        const user = await userService.getById(gig.owner._id)
         user.gigs.push({ _id: savedGig._id })
-        console.log(user);
-        let newuser = await userService.update(user)
-        console.log(newuser);
+        await userService.update(user)
     }
     return savedGig
 }
@@ -81,12 +86,14 @@ function getEmptyGig() {
         title: 'I will',
         price: { basic: '' },
         description: '',
-        owner: { rate: 4 },
+        owner: {  },
         imgUrl: [
             "./src/imgs/gig-img/gig1/1.jpg",
             "./src/imgs/gig-img/gig1/2.jpg",
             "./src/imgs/gig-img/gig1/3.jpg",
         ],
+        tags: [],
+        daysToMake: '',
     }
 }
 

@@ -148,7 +148,6 @@ export const orderStore = {
             try {
                 const _id = context.getters.loggedinUser._id
                 const order = await orderService.getBuyerOrders(_id)
-                console.log(order);
                 return order
             } catch (err) {
                 console.log('Cannot load order', err);
@@ -159,7 +158,6 @@ export const orderStore = {
             try {
                 const _id = context.getters.loggedinUser._id
                 const order = await orderService.getSellerOrders(_id)
-                console.log(order);
                 return order
             } catch (err) {
                 console.log('Cannot load order', err);

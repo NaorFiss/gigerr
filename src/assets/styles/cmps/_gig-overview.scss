@@ -5,6 +5,60 @@
     margin-block-end: 2.5rem;
     flex-basis: 35%;
     width: 35%;
+
+    .delivery-days {
+        position: relative;
+
+        ::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            width: 16px;
+            height: 16px;
+            background: url("@/assets/svg/order-clock.svg") center / contain no-repeat;
+        }
+
+        span {
+            margin-inline-end: 22px;
+        }
+    }
+
+    .v-list {
+        gap: 8px;
+        font-size: 14px;
+        color: rgb(173, 173, 173);
+
+        p {
+            position: relative;
+        }
+
+        span {
+            margin-inline-end: 22px;
+        }
+
+        ::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            width: 16px;
+            height: 16px;
+            background: url("@/assets/svg/order-v.svg") center / contain no-repeat;
+        }
+    }
+
+    .continue-btn {
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            // top: 11px;
+            right: 25px;
+            width: 16px;
+            height: 16px;
+            background: url("@/assets/svg/continue-arrow.svg") center / contain no-repeat;
+        }
+    }
 }
 
 .details-left {

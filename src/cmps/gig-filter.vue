@@ -2,11 +2,11 @@
     <section class="filter-container">
         <div class="hero-wrapper flex column">
             <div class="hero-title ">
-                <div class="search-bar mb-24">
+                <div class="search-bar ">
                     <form :class="!atExplore ? 'search-container' : 'search-container-explore'"
                         @submit.prevent="loadGigs(); navigate()" role="link">
                         <input class="search-input" type="search" v-model="filterBy.txt"
-                            placeholder="Try building mobile app" value>
+                            placeholder="Try &quot;building mobile app&quot;" value>
                         <button class="submit search-button fs18 ">
                             {{ !atExplore ? 'Search' : '' }}
                             <img v-if="atExplore" class="white-search" src="@/assets/svg/white-search.svg" alt="">
@@ -15,7 +15,7 @@
                 </div>
 
                 <div v-if="!atExplore" class="flex popular-tags-container">
-                    <p>Popular: </p>
+                    <p class="fs14 mac-bold">Popular: </p>
                     <div class="flex justify-between items-center inline filter-tags popular-tags">
                         <!-- <a class="btn-filter" @click="setFilter('')">All</a> -->
                         <!-- <a class="btn-filter" @click="setFilter('app')">app</a> -->

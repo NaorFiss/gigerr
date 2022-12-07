@@ -9,7 +9,7 @@
         <a href="">Compare packages</a>
         <a href="">Reviews</a> -->
     </div>
-    <section class="gig-details ">
+    <section class="gig-details flex-grow">
         <div class="gig-info flex">
             <div class="up-content flex column wrap space gap-16 details-left" id="gig-overview">
                 <gig-overview id="gig-overview" :gig="gig" />
