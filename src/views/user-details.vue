@@ -76,7 +76,9 @@ export default {
         if (this.userId) {
           this.userGigsList = []
           await this.$store.dispatch({ type: "loadAndWatchUser", userId: this.userId })
-          await this.$store.getters.watchedUser.gigs.forEach(async ({ _id }) => {
+          console.log(this.$store.getters.watchedUser)
+          this.$store.getters.watchedUser.gigs.forEach(async ({ _id }) => {
+             console.log('id' , _id)
             const gig = await this.$store.dispatch({ type: 'getGigById', _id })
             this.userGigsList.push(gig)
           })
@@ -94,7 +96,7 @@ export default {
       return this.$route.params.id
     },
     isYourProfile() {
-      return this.$store.getters.loggedinUser?._id === this.$store.getters.watchedUser._id
+      return this.$store.getters.loggedinUser?._id === this.$store.getters.watchedUser?._id
     },
   },
   components: {
