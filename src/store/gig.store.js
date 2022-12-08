@@ -72,7 +72,7 @@ export const gigStore = {
             return filteredGigs
         },
         gigsUrl({ gigsUrl }) { return gigsUrl },
-        getFilter({filterBy}) { return filterBy }
+        getFilter({ filterBy }) { return filterBy }
 
     },
     mutations: {
