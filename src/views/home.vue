@@ -123,7 +123,6 @@ export default {
   components: {
     gigFilter,
     appHero,
-    appHeroCopy,
     imgHero
   }
 }
