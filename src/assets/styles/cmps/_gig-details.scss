@@ -209,19 +209,33 @@
     gap: 10px;
     color: $clr1;
     align-items: center;
-    font-size: 0.8rem;
+    z-index: 100;
+    background-color: white;
+    width: 100%;
+    // font-size: 0.8rem;   
+    // .router-link-exact-active {
+    //     // color: rgb(192, 203, 209);
+    //     box-shadow: inset 0 -4px $clr3;
+    //     color: #404145;
+    // }
+    transition: 0.7s;
 }
-
+.order-sticky{
+    // transform: translate3d(0px, 50px, 0px);
+    // transition: 0.7s;
+}
 .details-header>* {
     color: #919191;
     height: 50px;
     display: flex;
     align-items: center;
+    font-size: 14px;
+    font-family: macan-bold;
 }
 
 .active-link {
-    box-shadow: inset 0 -4px $clr3;
-    color: #404145;
+    // box-shadow: inset 0 -4px $clr3;
+    // color: #404145;
 }
 
 @media (min-width: 1200px) {

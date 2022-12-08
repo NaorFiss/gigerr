@@ -20,8 +20,13 @@
     </div>
     <h2 class="mb-24 popular-header mac-bold">Popular professional services</h2>
     <div class=" slider-container">
-      <button class="slider-btn left-slider-btn fs20" @click="scrollImg(-1)">&lt</button>
-      <button class="slider-btn right-slider-btn fs20" @click="scrollImg(1)">></button>
+      <div class="slider-btn left-slider-btn fs20">
+        <button class="left-svg" @click="scrollImg(-1)"></button>
+      </div>
+      <div class="slider-btn right-slider-btn fs20">
+        <button class="right-svg" @click="scrollImg(1)"></button>
+      </div>
+      <!-- <button class="slider-btn right-slider-btn fs20" @click="scrollImg(1)">></button> -->
       <div ref="slider" class="flex slider-imgs-container">
         <imgHero :imgs="gigsUrl" />
       </div>

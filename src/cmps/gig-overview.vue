@@ -25,7 +25,6 @@ export default {
   computed: {
     rate() {
       return Math.trunc(+this.gig.owner.rate)
-
     },
   },
   methods: {

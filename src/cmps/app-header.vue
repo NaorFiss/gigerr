@@ -2,7 +2,6 @@
   <section ref="header">
     <header :style="{ backgroundColor: stickyNav && atHome() ? 'white' : '' }"
       :class="atHome() ? 'atHome' : 'atExplore'">
-      <!-- <h1 class="header-logo">Gigger.</h1> -->
       <div class="hamburger">
         <svg xmlns="http://www.w3.org/2000/svg" width="23" height="19" viewBox="0 0 23 19">
           <rect y="16" width="23" height="3" rx="1.5" fill="#555"></rect>
@@ -12,8 +11,8 @@
       </div>
       <router-link to="/">
         <span role="img" aria-label="logo">
-          <img v-if="!stickyNav && atHome()" class="logo" src="@/assets/white-logo.svg" alt="">
-          <img v-else class="logo" src="@/assets/logo.svg" alt="">
+          <img v-if="!stickyNav && atHome()" class="logo" src="@/assets/logo-white.svg" alt="">
+          <img v-else class="logo" src="@/assets/black-logo.svg" alt="">
         </span>
       </router-link>
       <gig-filter v-if="!atHome()" :atExplore="'atExplore'" @setFilter="setFilter" />

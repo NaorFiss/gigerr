@@ -179,14 +179,5 @@ export const gigStore = {
                 throw err;
             }
         },
-        async AddOrder({ commit, dispatch }, { order }) {
-            try {
-                // commit({ type: 'setFilter', filterBy })
-                // dispatch({ type: 'loadGigs' })
-            } catch (err) {
-                console.log('Cannot load gig', err);
-                throw err;
-            }
-        },
     }
 }

@@ -51,9 +51,7 @@ async function save(gig) {
         const user = await userService.getById(gig.owner._id)
         savedGig = await httpService.post('gig', gig)
         user.gigs.push({ _id: savedGig._id })
-        console.log(user);
-        let newuser = await userService.update(user)
-        console.log(newuser);
+        await userService.update(user)
     }
     return savedGig
 }
