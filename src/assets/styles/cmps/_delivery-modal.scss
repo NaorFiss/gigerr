@@ -37,20 +37,49 @@
     }
 
 
-
-
 }
 
-.m-2 .delivery-input {
-    width: 150px;
-    height: 40px;
+.m-2 {
 
+    .delivery-input {
+        width: 150px;
+        height: 40px;
+
+    }
 }
 
 .delivery-opt {
     margin-left: 15px;
 }
 
+.budget-input {
+    .el-input__inner {
+        width: 90px;
+
+    }
+}
+
+@media(max-width:600px) {
+    .budget-input {
+        .el-input__inner {
+            width: 55px;
+
+        }
+    }
+
+    .delivery-input {
+        .el-input__inner {
+            width: 109px;
+
+            // height: 70px;
+        }
+    }
+
+    .el-select .el-input {
+        display: flex;
+        flex-direction: column;
+    }
+}
 
 
 .m-2 {
@@ -200,16 +229,17 @@
     line-height: 22px;
     font-weight: 600;
     pointer-events: none;
-    
+
 }
+
 .dollar-sign {
     color: #b5b6ba;
     font-style: normal;
     position: absolute;
     z-index: 1;
-    
-    right:15px;
+    right: 15px;
 }
+
 .max {
     min-height: 36px;
     min-width: 120px;
