@@ -45,7 +45,7 @@ a {
     color: $clr1;
     font-weight: 700;
 }
-a:hover {
+a:hover :not(button) {
     color: $clr3;
 }
 
@@ -58,3 +58,16 @@ div{
 //         font-size: 16px;
 //     }
 // }
+
+.max-1400{
+    max-width: 1400px;
+}
+.margin{
+    margin: auto;
+}
+
+.main-layout>*:not(.full) {
+    // max-width: 1400px;
+    // margin-inline-start: auto !important;
+    // margin-inline-end: auto !important;
+}

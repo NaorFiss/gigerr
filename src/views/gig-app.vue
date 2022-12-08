@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container home max-width-container ">
+  <div class="app-container home main-layout">
     <!-- <h2 v-if="filterTag">{{filterTag}}</h2> -->
     <gig-explore-filter />
     <gig-list :gigs="gigs" />

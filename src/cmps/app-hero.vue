@@ -1,5 +1,5 @@
 <template>
-    <section class="hero-container full">
+    <section class="hero-container full main-layout">
         <div class="img-container">
             <Transition>
                 <img class="full hero-img" v-if1="show" :src="getImgUrl" />

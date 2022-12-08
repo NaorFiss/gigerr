@@ -4,14 +4,21 @@
         <p>{{ msg }}</p>
         <p v-if="!loggedInUser">Log-in before adding a gig</p>
         <form class="add-gig-container flex column gap-16" v-if="loggedInUser" @submit.prevent="addGig()">
-            <input type="text" placeholder="Gigs name" v-model="gigToAdd.title" />
-            <input type="text" placeholder="Gigs Description" v-model="gigToAdd.description" />
-            <input type="text" placeholder="Gigs price" v-model="gigToAdd.price.basic" />
-            <input type="text" placeholder="Days to deliver" v-model="gigToAdd.daysToMake" />
-            <input type="text" placeholder="Add tags" v-model="gigToAdd.tags" />
-            <button class="btn green-btn">Save</button>
+            <div v-if="!secongPage" class="flex column gap-16 add-gig-inside-container" >
+                <input type="text" placeholder="Gigs name" v-model="gigToAdd.title" />
+                <input type="text" placeholder="Gigs Description" v-model="gigToAdd.description" />
+                <input type="text" placeholder="Gigs price" v-model="gigToAdd.price.basic" />
+                <input type="text" placeholder="Days to deliver" v-model="gigToAdd.daysToMake" />
+                <input type="text" placeholder="Add tags" v-model="gigToAdd.tags" />
+                <button @click="(secongPage = !secongPage)" class="btn green-btn ">Next</button>
+            </div>
+            <div v-else class="flex column gap-16 add-gig-inside-container" >
+                <imgUploader @uploaded="addImage"/>
+                <button class="btn green-btn">Save</button>
+                <button @click="(secongPage = !secongPage)" class="btn green-btn">Back</button>
+            </div>
         </form>
-        <router-link class="btn gray-btn" to="/explore">Back</router-link>
+        <router-link class="btn gray-btn" to="/explore">Back Home</router-link>
     </section>
 </template>
 
@@ -19,13 +26,14 @@
 import { gigService } from '../services/gig.service'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { getActionAddGigMsg } from '../store/gig.store'
-
+import imgUploader from '../cmps/img-uploader.vue'
 
 export default {
     data() {
         return {
             msg: '',
-            gigToAdd: gigService.getEmptyGig()
+            gigToAdd: gigService.getEmptyGig(),
+            secongPage :false,
         }
     },
     computed: {
@@ -69,6 +77,14 @@ export default {
                 showErrorMsg('Cannot update gig')
             }
         },
+        async addImage(img){
+            if (!img) return
+            this.gigToAdd.imgUrl = []
+            this.gigToAdd.imgUrl.push(...img)
+        }
     },
+    components:{
+        imgUploader
+    }
 }
 </script>

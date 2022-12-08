@@ -85,6 +85,7 @@ function getEmptyGig() {
             "./src/imgs/gig-img/gig1/2.jpg",
             "./src/imgs/gig-img/gig1/3.jpg",
         ],
+        img: []
     }
 }
 

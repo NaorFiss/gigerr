@@ -3,7 +3,11 @@
     justify-content: center;
     gap: 16px;
     padding: 32px;
-
+    // height: ;
+    position: relative;
+    button{
+        width: 200px;
+    }
     .add-gig-container {
         background-color: white;
         padding-inline: 32px;
@@ -11,6 +15,23 @@
         border-radius: 7px;
         border: 1px solid $clr5;
         align-items: center;
+        flex: 1;
+        // overflow: hidden;
+        width: 400px;
 
+        .add-gig-inside-container{
+            align-items: center;
+        }
+    }
+    .svg-upload{
+        width: 100px;
+        height: 50px;
+    }
+    .drag {
+        color: lightgray;
+    }
+    
+    .drag-zone {
+        outline: 2px dashed lightgray;
     }
 }
