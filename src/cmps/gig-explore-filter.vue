@@ -9,13 +9,13 @@
                             <label class="budget-l">MIN.</label>
                             <el-option value="1"><el-input class="min" type="number" v-model.number="filterBy.min"
                                     @click.stop placeholder="Any" />
-                                <i>$</i>
+                                <i class="dollar-sign">$</i>
                             </el-option>
                         </div>
                         <div class="input-div">
                             <label class="budget-l">MAX.</label>
                             <el-option value="1"><el-input class="max" type="number" v-model.number="filterBy.max"
-                                    @click.stop placeholder="Any" /><i>$</i></el-option>
+                                    @click.stop placeholder="Any" /><i class="dollar-sign">$</i></el-option>
                         </div>
                     </div>
                 </div>
