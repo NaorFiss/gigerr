@@ -14,7 +14,7 @@
       </div>
     </div>
     <div style="height:680px"></div>
-    <div class="Trusted-by mb-24 flex" >
+    <div class="Trusted-by mb-24 flex">
       <p>Trusted By:</p>
       <img v-for="img in trustedByImg" :src="img" alt="">
     </div>
@@ -27,24 +27,27 @@
       </div>
     </div>
     <div class="home-freelance flex mb-24">
-        <div class="flex column ">
-          <h2 class="fs32 mb-24 mac-bold">A whole world of freelance talent at your fingertips</h2>
-          <h4><span></span> The best for every budget</h4>
-          <p>Find high-quality services at every price point. No hourly rates, just project-based pricing.</p>
-          <h4><span></span> Quality work done quickly</h4>
-          <p>Find the right freelancer to begin working on your project within minutes.</p>
-          <h4><span></span> Protected payments, every time</h4>
-          <p>Always know what you'll pay upfront. Your payment isn't released until you approve the work.</p>
-          <h4><span></span> 24/7 support</h4>
-          <p>Questions? Our round-the-clock support team is available to help anytime, anywhere.</p>
-        </div>
-        <img alt="Video teaser image" src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_700,dpr_1.0/v1/attachments/generic_asset/asset/089e3bb9352f90802ad07ad9f6a4a450-1599517407052/selling-proposition-still-1400-x1.png" loading="auto">
+      <div class="flex column ">
+        <h2 class="fs32 mb-24 mac-bold">A whole world of freelance talent at your fingertips</h2>
+        <h4><span></span> The best for every budget</h4>
+        <p>Find high-quality services at every price point. No hourly rates, just project-based pricing.</p>
+        <h4><span></span> Quality work done quickly</h4>
+        <p>Find the right freelancer to begin working on your project within minutes.</p>
+        <h4><span></span> Protected payments, every time</h4>
+        <p>Always know what you'll pay upfront. Your payment isn't released until you approve the work.</p>
+        <h4><span></span> 24/7 support</h4>
+        <p>Questions? Our round-the-clock support team is available to help anytime, anywhere.</p>
+      </div>
+      <img alt="Video teaser image"
+        src="https://fiverr-res.cloudinary.com/q_auto,f_auto,w_700,dpr_1.0/v1/attachments/generic_asset/asset/089e3bb9352f90802ad07ad9f6a4a450-1599517407052/selling-proposition-still-1400-x1.png"
+        loading="auto">
     </div>
   </section>
 </template>
 
 <script>
 import appHero from '../cmps/app-hero.vue'
+
 import gigFilter from '../cmps/gig-filter.vue'
 import imgHero from '../cmps/img-hero.vue'
 
@@ -65,37 +68,45 @@ export default {
   computed: {
     gigsUrl() {
       return [
-        {src: './src/imgs/home-img/slider1.jpg',
-        p: 'Build your brand',
-        title: 'Logo Design'
+        {
+          src: './src/imgs/home-img/slider1.jpg',
+          p: 'Build your brand',
+          title: 'Logo Design'
         },
-        {src: './src/imgs/home-img/slider2.jpg',
-        p: 'Custiomize your site',
-        title: 'WordPress'
+        {
+          src: './src/imgs/home-img/slider2.jpg',
+          p: 'Custiomize your site',
+          title: 'WordPress'
         },
-        {src: './src/imgs/home-img/slider3.jpg',
-        p: 'Share your message',
-        title: 'Voice Over'
+        {
+          src: './src/imgs/home-img/slider3.jpg',
+          p: 'Share your message',
+          title: 'Voice Over'
         },
-        {src: './src/imgs/home-img/slider4.jpg',
-        p: 'Engage your audience',
-        title: 'Video Explainer'
+        {
+          src: './src/imgs/home-img/slider4.jpg',
+          p: 'Engage your audience',
+          title: 'Video Explainer'
         },
-        {src: './src/imgs/home-img/slider5.jpg',
-        p: 'Unlock growth online',
-        title: 'SEO'
+        {
+          src: './src/imgs/home-img/slider5.jpg',
+          p: 'Unlock growth online',
+          title: 'SEO'
         },
-        {src: './src/imgs/home-img/slider6.jpg',
-        p: 'Color your dreams',
-        title: 'Illustration'
+        {
+          src: './src/imgs/home-img/slider6.jpg',
+          p: 'Color your dreams',
+          title: 'Illustration'
         },
-        {src: './src/imgs/home-img/slider7.jpg',
-        p: 'Go global',
-        title: 'Translation'
+        {
+          src: './src/imgs/home-img/slider7.jpg',
+          p: 'Go global',
+          title: 'Translation'
         },
-        {src: './src/imgs/home-img/slider8.jpg',
-        p: 'Learn your business',
-        title: 'Data entry'
+        {
+          src: './src/imgs/home-img/slider8.jpg',
+          p: 'Learn your business',
+          title: 'Data entry'
         },
       ]
     },
@@ -112,6 +123,7 @@ export default {
   components: {
     gigFilter,
     appHero,
+    appHeroCopy,
     imgHero
   }
 }
