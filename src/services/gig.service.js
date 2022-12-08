@@ -22,6 +22,7 @@ window.cs = gigService
 
 
 async function query(filterBy = { txt: '', tag: 0 }) {
+    console.log(filterBy)
     return httpService.get(STORAGE_KEY, filterBy)
 
 

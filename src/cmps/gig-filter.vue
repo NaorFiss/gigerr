@@ -4,7 +4,8 @@
             <div class="hero-title ">
                 <div class="search-bar ">
                     <form :class="!atExplore ? 'search-container' : 'search-container-explore'"
-                        @submit.prevent="loadGigs(); navigate()" role="link">
+                        @submit.prevent="loadGigs()" role="link">
+                        <!-- @submit.prevent="loadGigs(); navigate()" role="link"> -->
                         <input class="search-input" type="search" v-model="filterBy.txt"
                             placeholder="Try &quot;building mobile app&quot;" value>
                         <button class="submit search-button fs18 ">
@@ -19,10 +20,13 @@
                     <div class="flex justify-between items-center inline filter-tags popular-tags">
                         <!-- <a class="btn-filter" @click="setFilter('')">All</a> -->
                         <!-- <a class="btn-filter" @click="setFilter('app')">app</a> -->
-                        <router-link to="/explore/Website Design" @click="setFilter('Website Design')">Website Design</router-link>
+                        <router-link to="/explore/Website Design" @click="setFilter('Website Design')">Website
+                            Design</router-link>
                         <router-link to="/explore/WordPress" @click="setFilter('WordPress')">WordPress</router-link>
-                        <router-link to="/explore/Logo Design" @click="setFilter('Logo Design')">Logo Design</router-link>
-                        <router-link to="/explore/Video Editing" @click="setFilter('Video Editing')">Video Editing</router-link>
+                        <router-link to="/explore/Logo Design" @click="setFilter('Logo Design')">Logo
+                            Design</router-link>
+                        <router-link to="/explore/Video Editing" @click="setFilter('Video Editing')">Video
+                            Editing</router-link>
                     </div>
                 </div>
             </div>

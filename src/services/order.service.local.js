@@ -20,23 +20,7 @@ window.cs = orderService
 
 async function query(filterBy) {
     var orders = await storageService.query(STORAGE_KEY)
-    if (filterBy) {
-        if (filterBy.tag) {
-            orders.forEach(order =>
-                order.tags = order.tags.map(tag => tag.toLowerCase()))
-            orders = orders.filter(order =>
-                order.tags.includes(filterBy.tag.toLowerCase()))
-        }
-        else {
-            if (filterBy.txt) {
-                const regex = new RegExp(filterBy.txt, 'i')
-                orders = orders.filter(order => regex.test(order.title))
-            }
-        }
-    }
-    // if (filterBy) {
-    //     orders = orders.filter(order => order.price.basic <= filterBy.price)
-    // }
+
     return orders
 }
 
@@ -54,19 +38,19 @@ function getById(orderId) {
 }
 
 async function getBuyerOrders(userId) {
-    var orders = await storageService.query(STORAGE_KEY )
-    return  orders.filter(order => order.buyer._id === userId)
+    var orders = await storageService.query(STORAGE_KEY)
+    return orders.filter(order => order.buyer._id === userId)
 }
 
 async function getSellerOrders(userId) {
-    var orders = await storageService.query(STORAGE_KEY )
-    return  orders.filter(order => order.seller._id === userId)
+    var orders = await storageService.query(STORAGE_KEY)
+    return orders.filter(order => order.seller._id === userId)
 }
 
 async function remove(orderId) {
     let user = userService.getLoggedinUser()
     let idx = user.orders.findIndex(order => order._id === orderId)
-    user.orders.splice(idx ,1)
+    user.orders.splice(idx, 1)
     userService.update(user)
     await storageService.remove(STORAGE_KEY, orderId)
 }
@@ -77,11 +61,11 @@ async function save(order) {
         savedOrder = await storageService.put(STORAGE_KEY, order)
     } else {
         // Later, owner is set by the backend
-        const user =  userService.getLoggedinUser()
+        const user = userService.getLoggedinUser()
         order._id = utilService.makeId()
-        order.buyer = {_id: user._id, imgUrl : user.imgUrl, fullname:user.fullname}
+        order.buyer = { _id: user._id, imgUrl: user.imgUrl, fullname: user.fullname }
         order.createdAt = new Date().toDateString(),
-        order.status = 'pending'
+            order.status = 'pending'
         // order.owner.orders.push({ _id: order._id })
         // userService.update(order.owner)
         savedOrder = await storageService.post(STORAGE_KEY, order)

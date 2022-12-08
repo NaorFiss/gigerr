@@ -30,7 +30,6 @@ export default {
 
   computed: {
     gigs() {
-      console.log(this.$store.getters.gigs);
       return this.$store.getters.gigs
     },
     // filterTag(){
@@ -51,11 +50,11 @@ export default {
       this.$router.push({ name: 'gig-app', query: { ...filterBy } })
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
     },
-    
+
     close() {
       this.$emit("close");
     },
-    
+
   },
   watch: {
     $route: {
