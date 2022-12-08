@@ -1,5 +1,5 @@
 footer {
-    border-top: 1px $clr2 solid;
+    border-top: 1px $clr5 solid;
     padding-inline: 32px;
     padding-block: 20px;
     position: relative;
@@ -14,6 +14,9 @@ footer {
             box-shadow: 0 0 5px 5px rgb(223, 221, 221);
             border-radius: 5px;
         }
+    }
+    .footer-logo{
+        width: 90px;
     }
 }
 

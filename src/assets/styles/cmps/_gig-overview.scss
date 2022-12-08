@@ -73,9 +73,11 @@
     flex: 1;
     padding-inline: 70px;
     padding-block: 30px;
-    >:nth-child(2){
+
+    >:nth-child(2) {
         gap: 100px;
     }
+
     .checkout-img {
         max-width: 200px;
         max-height: 150px;
@@ -106,18 +108,25 @@
         }
     }
 
-    .checkout-btn{
+    .checkout-btn {
         line-height: 1.9;
     }
+
     .checkout-summary {
         flex: 2;
     }
-    
+
     .checkout-first-floor {
         >:first-child {
             color: rgb(49, 49, 49);
-            gap: 15px;
+            gap: 18px;
+
+            >:nth-child(2) {
+                padding-right: 30px;
+                line-height: 1.4;
+            }
         }
+
 
         padding-bottom: 30px;
         margin-bottom: 30px;
@@ -147,7 +156,7 @@
 
 .order-details {
     position: sticky;
-    top: 30px;
+    top: 81px;
     max-height: 725px;
 }
 

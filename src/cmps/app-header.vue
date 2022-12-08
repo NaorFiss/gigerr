@@ -11,8 +11,8 @@
       </div>
       <router-link to="/">
         <span role="img" aria-label="logo">
-          <img v-if="!stickyNav && atHome()" class="logo" src="@/assets/white-logo.svg" alt="">
-          <img v-else class="logo" src="@/assets/logo-test.svg" alt="">
+          <img v-if="!stickyNav && atHome()" class="logo" src="@/assets/logo-white.svg" alt="">
+          <img v-else class="logo" src="@/assets/black-logo.svg" alt="">
         </span>
       </router-link>
       <gig-filter v-if="!atHome()" :atExplore="'atExplore'" @setFilter="setFilter" />
