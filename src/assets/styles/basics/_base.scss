@@ -59,15 +59,19 @@ div{
 //     }
 // }
 
-.max-1400{
-    max-width: 1400px;
-}
-.margin{
-    margin: auto;
-}
+// .max-1400{
+//     max-width: 1400px;
+// }
+// .margin{
+//     margin: auto;
+// }
 
-.main-layout>*:not(.full) {
-    // max-width: 1400px;
-    // margin-inline-start: auto !important;
-    // margin-inline-end: auto !important;
+// .main-layout>*:not(.full) {
+//     max-width: 1400px;
+//     margin-inline-start: auto !important;
+//     margin-inline-end: auto !important;
+// }
+
+.pointer{
+    cursor: pointer;
 }

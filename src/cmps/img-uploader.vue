@@ -1,7 +1,7 @@
 <template>
   <div className="upload-preview flex column gap-16 align-center">
     <p for="imgUpload">{{ uploadMsg }}</p>
-    <label v-if="!isUploading" :class="{ 'drag-zone': isDragover }" @drop.prevent="uploadImg" @dragover.prevent="isDragover = true"
+    <label v-if="!isUploading" class="pointer" :class="{ 'drag-zone': isDragover }" @drop.prevent="uploadImg" @dragover.prevent="isDragover = true"
       @dragleave="isDragover = false">
       <uploadIcon />
       <input type="file" @change="uploadImg" accept="img/*" id="imgUpload" hidden />
