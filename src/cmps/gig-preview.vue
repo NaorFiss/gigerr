@@ -1,21 +1,32 @@
 <template >
-    <section class="gig-preview">
+    <section v-if="gig" class="gig-preview">
         <li>
             <imgCard @click="gigDetails" :imgs="gig.imgUrl" />
             <article class="preview-card flex column">
-                <div class="flex mini-user" v-if="gig.owner">
-                    <img :src="gig.owner.imgUrl" alt="">
-                    <div>
-                        <router-link class="fs14 mac-bold black mini-username" :to='("/user/" + gig.owner._id)'>{{
-                                gig.owner.fullname
-                        }}</router-link>
-                        <p :class='gig.owner.level === "Top Rated" ? "orange , fs14" : " $clr6, fs14"'>{{
-                                gig.owner.level
-                        }} Seller</p>
+                <div class="flex space">
+                    <div class="flex mini-user" v-if="gig.owner">
+                        <img :src="gig.owner.imgUrl" alt="">
+                        <div>
+                            <router-link class="fs14 mac-bold black mini-username" :to='("/user/" + gig.owner._id)'>{{
+                                    gig.owner.fullname
+                            }}</router-link>
+                            <p :class='gig.owner.level === "Top Rated" ? "orange , fs14" : " $clr6, fs14"'>{{
+                                    gig.owner.level
+                            }} Seller</p>
+                        </div>
                     </div>
+                    <el-dropdown class="edit-dropdown-container" v-if="isYourProfile" trigger="click" size="large">
+                        <img class="three-dots" src="@/assets/svg/three-dots.svg" alt="">
+                        <template #dropdown>
+                            <el-dropdown-menu>
+                                <el-dropdown-item><button class="edit-dropdown" @click="removeGig(gig._id)">Remove gig</button></el-dropdown-item>
+                                <el-dropdown-item><router-link class="edit-dropdown" :to="'/gig/edit/' + gig._id">Update</router-link></el-dropdown-item>
+                            </el-dropdown-menu>
+                        </template>
+                    </el-dropdown>
                 </div>
                 <router-link class="title" :to="'/gig/' + gig._id">{{ gig.title }}</router-link>
-                <p v-if="gig.owner" class="clr-6"><span class="orange  flex3">★{{ gig.owner.rate }}</span>(24)</p>
+                <p v-if="gig.owner" class="clr-6 fs14"><span class="orange ">★{{ gig.owner.rate }}</span>(24)</p>
             </article>
             <div class="flex space align-center li-bottom">
                 <p>❤</p>
@@ -25,9 +36,7 @@
                 </div>
             </div>
         </li>
-        <button v-if="isYourProfile" @click="removeGig(gig._id)">x</button>
     </section>
-    <!-- <button @click="updateGig(gig)">Update</button> -->
     <!-- <button @click="addGigMsg(gig._id)">Add gig msg</button>
 <button @click="printGigToConsole(gig)">Print msgs to console</button> -->
 </template>
@@ -64,18 +73,6 @@ export default {
                 showErrorMsg('Cannot remove gig')
             }
         },
-        // async updateGig(gig) {
-        //     try {
-        //       gig = { ...gig }
-        //       gig.price = +prompt('New price?', gig.price.basic)
-        //       await this.$store.dispatch(getActionUpdateGig(gig))
-        //       showSuccessMsg('Gig updated')
-
-        //     } catch (err) {
-        //       console.log(err)
-        //       showErrorMsg('Cannot update gig')
-        //     }
-        //   },
     },
     components: {
         imgCard

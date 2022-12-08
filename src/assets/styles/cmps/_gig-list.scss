@@ -95,7 +95,9 @@
             }
 
             max-height: 150px;
+
         }
+
 
 
         .el-carousel__indicator.is-active>* {
@@ -140,7 +142,7 @@
     }
 
     line-height: 20px;
-    
+
 }
 
 @media (max-width: 1200px) {
@@ -169,7 +171,22 @@
     overflow: hidden;
 }
 
+.edit-dropdown-container {
+    cursor: pointer;
 
+    .three-dots {
+        width: 15px;
+    }
+}
 
+.edit-dropdown {
+    background-color: transparent !important;
+    color: $clr1;
+    font-weight: 600;
+    font-size: 14px;
+    padding-inline: 10px;
 
-
+    &:hover {
+        color: $clr3;
+    }
+}

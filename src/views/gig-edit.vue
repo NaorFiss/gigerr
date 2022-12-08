@@ -35,19 +35,20 @@ export default {
     },
     methods: {
         async addGig() {
+            this.gigToAdd.price.basic = +this.gigToAdd.price.basic 
+            if (this.$route.params._id) this.updateGig()
             if (!this.gigToAdd.title || !this.gigToAdd.price.basic || !this.gigToAdd.description) {
-                this.msg = 'Please fill up the form'
-                return
+                return this.msg = 'Please fill up the form'
             }
             try {
                 await this.$store.dispatch({ type: 'addGig', gig: this.gigToAdd })
-                showSuccessMsg('Gig added successfully')
-                this.$router.push('/explore')
-                this.gigToAdd = gigService.getEmptyGig()
             } catch (err) {
                 console.log(err)
                 showErrorMsg('Cannot add gig')
             }
+            showSuccessMsg('Gig added successfully')
+            this.$router.push('/explore')
+            this.gigToAdd = gigService.getEmptyGig()
         },
         async addGigMsg(gigId) {
             try {
@@ -58,22 +59,16 @@ export default {
                 showErrorMsg('Cannot add gig msg')
             }
         },
-
-        // async updateGig(gig) {
-        //     try {
-        //         gig = { ...gig }
-        //         gig.price = +prompt('New price?', gig.price)
-        //         await this.$store.dispatch(getActionUpdateGig(gig))
-        //         showSuccessMsg('Gig updated')
-
-        //     } catch (err) {
-        //         console.log(err)
-        //         showErrorMsg('Cannot update gig')
-        //     }
-        // },
-        // printGigToConsole(gig) {
-        //     console.log('Gig msgs:', gig.msgs)
-        // }
+        async updateGig() {
+            try {
+                this.gigToAdd._id = this.$route.params._id
+                let newgig = await this.$store.dispatch({ type: 'updateGig', gig: this.gigToAdd })
+                showSuccessMsg('Gig updated')
+            } catch (err) {
+                console.log(err)
+                showErrorMsg('Cannot update gig')
+            }
+        },
     },
 }
 </script>

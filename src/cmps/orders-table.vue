@@ -44,6 +44,7 @@ export default {
     methods: {
         async approveOrder(order) {
             if (this.$store.getters.loggedinUser._id !== order.seller._id) return console.log('Not YOUR gig!');
+            if (order.status === 'complited') return
             order.status = order.status === 'pending' ? 'in progress' : 'complited'
             try {
                 await this.$store.dispatch({ type: 'updateOrder', order })

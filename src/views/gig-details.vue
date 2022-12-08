@@ -1,15 +1,17 @@
 <template>
-    <div class="details-header flex">
-        <!-- <a class="active-link" href="#gigoverview">Overview</a> -->
-        <router-link :to="{ path: '', hash: '#gig-overview' }">Overview</router-link>
-        <router-link :to="{ path: '', hash: '#gig-description' }">About the seller</router-link>
-        <router-link :to="{ path: '', hash: '#about-seller' }">Compare packages</router-link>
-        <router-link :to="{ path: '', hash: '#gigoverview' }">Reviews</router-link>
-        <!-- <a href="#bottom">About the seller</a>
+    <section ref="header" ></section>
+        <div class="details-header flex" :style="{position: stickyNav ? 'fixed' : 'static'}">
+            <!-- <a class="active-link" href="#gigoverview">Overview</a> -->
+            <router-link :to="{ path: '', hash: '#gig-overview' }" class="active-link">Overview</router-link>
+            <router-link :to="{ path: '', hash: '#gig-description' }">About the seller</router-link>
+            <router-link :to="{ path: '', hash: '#about-seller' }">Compare packages</router-link>
+            <router-link :to="{ path: '', hash: '#gigoverview' }">Reviews</router-link>
+            <!-- <a href="#bottom">About the seller</a>
         <a href="">Compare packages</a>
         <a href="">Reviews</a> -->
-    </div>
-    <section class="gig-details flex-grow">
+        </div>
+
+    <section class="gig-details flex-grow" :style="{marginTop: stickyNav ? '51px' : '0'}">
         <div class="gig-info flex">
             <div class="up-content flex column wrap space gap-16 details-left" id="gig-overview">
                 <gig-overview id="gig-overview" :gig="gig" />
@@ -19,7 +21,7 @@
                 <div style="height:200px"></div>
                 <a name="gigoverview" id="gigoverview"></a>
             </div>
-            <order-details class="order-details" :gig="gig" />
+            <order-details class="order-details" :gig="gig" :class="stickyNav ? 'order-sticky' : ''"/>
         </div>
     </section>
 
@@ -36,6 +38,8 @@ export default {
     data() {
         return {
             gig: null,
+            headerObserver: null,
+            stickyNav: false,
         }
     },
     async created() {
@@ -46,6 +50,19 @@ export default {
         } catch (err) {
             console.error(err)
         }
+    },
+    methods: {
+        onHeaderObserved(entries) {
+            entries.forEach((entry) => {
+                this.stickyNav = entry.isIntersecting ? false : true;
+            })
+        },
+    },
+    mounted() {
+        this.headerObserver = new IntersectionObserver(this.onHeaderObserved, {
+            rootMargin: "-2px 0px 0px",
+        });
+        this.headerObserver.observe(this.$refs.header);
     },
     components: {
         gigOverview,
