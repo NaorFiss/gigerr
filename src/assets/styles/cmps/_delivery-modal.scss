@@ -51,14 +51,7 @@
     margin-left: 15px;
 }
 
-i {
-    color: #b5b6ba;
-    font-style: normal;
-    position: absolute;
-    z-index: 1;
-    
-    right:15px;
-}
+
 
 .m-2 {
     ::placeholder {
@@ -207,8 +200,16 @@ i {
     line-height: 22px;
     font-weight: 600;
     pointer-events: none;
+    
 }
-
+.dollar-sign {
+    color: #b5b6ba;
+    font-style: normal;
+    position: absolute;
+    z-index: 1;
+    
+    right:15px;
+}
 .max {
     min-height: 36px;
     min-width: 120px;
