@@ -61,7 +61,7 @@
         }
     }
 
-    .popular-header{
+    .popular-header {
         font-size: 32px;
         padding-left: 32px;
         color: rgb(71, 70, 70);
@@ -75,12 +75,13 @@
         justify-content: center;
         margin-bottom: 96px;
 
-        p{
+        p {
             align-self: center;
             color: rgb(196, 193, 193);
             margin-inline-end: 20px;
             font-family: macan-bold;
         }
+
         img {
             object-fit: scale-down;
         }
@@ -102,20 +103,49 @@
             width: 48px;
             border-radius: 100%;
             position: absolute;
-            z-index: 1000;
+            z-index: 20;
             background-color: rgb(255, 255, 255);
             color: rgb(90, 90, 90);
             box-shadow: 0 0 5px gray;
+            button{
+                background-color: transparent;
+            }
         }
-
+        
         .left-slider-btn {
             left: -24px;
             top: 43%;
-        }
 
+            .left-svg {
+                position: relative;
+            }
+
+            ::before {
+                content: "";
+                position: absolute;
+                top: 2px;
+                width: 23px;
+                height: 23px;
+                background: url("@/assets/svg/left-arrow.png") center / contain no-repeat;
+            }
+        }
+        
         .right-slider-btn {
             right: -24px;
             top: 43%;
+
+            .left-right {
+                position: relative;
+            }
+            ::before {
+                content: "";
+                position: absolute;
+                top: 13px;
+                right: 10px;
+                width: 23px;
+                height: 23px;
+                background: url("@/assets/svg/right-arrow.png") center / contain no-repeat;
+            }
         }
     }
 
@@ -150,6 +180,13 @@
             width: 100%;
             width: auto;
             max-width: 230px;
+
+            // object-fit: ;
+            &:hover {
+                transition: 0.4s;
+                opacity: 0.8;
+                cursor: pointer;
+            }
         }
     }
 
@@ -178,13 +215,14 @@
             width: 23px;
             height: 23px;
             background: url("@/assets/svg/home-v.svg") center / contain no-repeat;
-         }
+        }
 
         h4 {
             font-size: 18px;
             font-family: macan-bold;
             position: relative;
-            span{
+
+            span {
                 padding-inline-end: 32px !important;
             }
         }
@@ -198,13 +236,15 @@
     }
 
     @media (min-width: 1150px) {
-        .header-title:first-child{
-                margin-bottom: 8px;
+        .header-title:first-child {
+            margin-bottom: 8px;
         }
+
         .hero-grid {
             padding: 86px 32px 48px !important;
         }
     }
+
     @media (max-width: 1150px) {
         .hero-title {
             .header-title {

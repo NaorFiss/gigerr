@@ -52,8 +52,7 @@ async function save(gig) {
     } else {
         // Later, owner is set by the backend
         // savedGig = await storageService.post(STORAGE_KEY, gig)
-        // gig.owner = userService.getLoggedinUser()
-        // console.log(gig.owner);
+        gig.owner = userService.getLoggedinUser()
         savedGig = await httpService.post('gig', gig)
         const user = await userService.getById(gig.owner._id)
         user.gigs.push({ _id: savedGig._id })

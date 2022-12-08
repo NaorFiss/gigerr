@@ -1,7 +1,7 @@
 <template>
     <section >
         <ul class="gig-list">
-            <gigPreview v-for="gig in gigs" :gig="gig" :key="gig._id"/>
+            <gigPreview v-if=gigs v-for="gig in gigs" :gig="gig" />
         </ul>
     </section>
 </template>

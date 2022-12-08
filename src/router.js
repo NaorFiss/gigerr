@@ -9,6 +9,7 @@ import signSup from './views/sign-up.vue'
 import userDetails from './views/user-details.vue'
 import gigDetails from './views/gig-details.vue'
 import gigEdit from './views/gig-edit.vue'
+import gigCheckout from './views/gig-checkout.vue'
 
 const routes = [
   {
@@ -55,6 +56,11 @@ const routes = [
     path: '/gig/edit/:_id?',
     name: 'gig-edit',
     component: gigEdit
+  },
+  {
+    path: '/checkout/:_id',
+    name: 'checkout',
+    component: gigCheckout
   },
 ]
 

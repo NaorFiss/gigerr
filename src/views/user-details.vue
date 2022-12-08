@@ -22,7 +22,7 @@
     <div v-if="(!myOrders && !myCart)" class="flex-grow">
       <div v-if="userGigsList.length" class="user-details-section">
         <div class="flex space ">
-          <p class="mac-semi">{{ user.fullname }}'s Gigs </p>
+          <p class="mac-semi">{{ whosProfile }}</p>
           <router-link v-if="(isYourProfile)" to="/gig/edit" class="btn green-btn add-btn-small">Create new gig</router-link>
         </div>
         <gigList :gigs="userGigsList" />
@@ -76,7 +76,6 @@ export default {
         if (this.userId) {
           this.userGigsList = []
           await this.$store.dispatch({ type: "loadAndWatchUser", userId: this.userId })
-          console.log(this.$store.getters.watchedUser)
           this.$store.getters.watchedUser.gigs.forEach(async ({ _id }) => {
             const gig = await this.$store.dispatch({ type: 'getGigById', _id })
             this.userGigsList.push(gig)
@@ -97,6 +96,10 @@ export default {
     isYourProfile() {
       return this.$store.getters.loggedinUser?._id === this.$store.getters.watchedUser?._id
     },
+    whosProfile(){
+      console.log(this.user.fullname);
+      return this.isYourProfile ? 'My Active Gigs' : this.user.fullname + `'s Gigs`
+    }
   },
   components: {
     aboutSeller,

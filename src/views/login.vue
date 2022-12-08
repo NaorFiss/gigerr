@@ -77,6 +77,7 @@ export default {
     },
     doLogout() {
       this.$store.dispatch({ type: 'logout' })
+      this.$router.push('/')
     },
     loadUsers() {
       this.$store.dispatch({ type: "loadUsers" })
