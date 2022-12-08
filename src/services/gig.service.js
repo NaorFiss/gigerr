@@ -28,19 +28,13 @@ async function query(filterBy = { txt: '', tag: 0 }) {
 }
 function getById(gigId) {
     // return storageService.get(STORAGE_KEY, gigId)
+    console.log('im here', gigId);
     return httpService.get(`gig/${gigId}`)
 }
 
 async function remove(gigId) {
     // await storageService.remove(STORAGE_KEY, gigId)
-    const user = userService.getLoggedinUser()
-    
-    // console.log(gigId)
-    // console.log(user)
-    let idx = user.gigs.findIndex(gig => gig._id === gigId)
-    if(idx === -1) return
-    user.gigs.splice(1,idx)
-    await userService.update(user)
+    console.log(gigId);
     return httpService.delete(`gig/${gigId}`)
 }
 async function save(gig) {
@@ -53,8 +47,8 @@ async function save(gig) {
         // Later, owner is set by the backend
         // savedGig = await storageService.post(STORAGE_KEY, gig)
         gig.owner = userService.getLoggedinUser()
-        savedGig = await httpService.post('gig', gig)
         const user = await userService.getById(gig.owner._id)
+        savedGig = await httpService.post('gig', gig)
         user.gigs.push({ _id: savedGig._id })
         await userService.update(user)
     }
@@ -85,14 +79,12 @@ function getEmptyGig() {
         title: 'I will',
         price: { basic: '' },
         description: '',
-        owner: {  },
+        owner: { rate: 4 },
         imgUrl: [
             "./src/imgs/gig-img/gig1/1.jpg",
             "./src/imgs/gig-img/gig1/2.jpg",
             "./src/imgs/gig-img/gig1/3.jpg",
         ],
-        tags: [],
-        daysToMake: '',
     }
 }
 
