@@ -60,8 +60,8 @@ export default {
                 max: null,
                 delivery: null,
             },
-            demoInfo: true,
-            try: false,
+            
+            
 
         }
     },
