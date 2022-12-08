@@ -1,5 +1,5 @@
 <template>
-  <section ref="header main-layout">
+  <section ref="header">
     <header :style="{ backgroundColor: stickyNav && atHome() ? 'white' : '' }"
       :class="atHome() ? 'atHome' : 'atExplore'">
       <div class="hamburger">

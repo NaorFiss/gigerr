@@ -11,7 +11,7 @@
     </div>
     <div v-else>
       <form @submit.prevent="doLogin" class="sign-form flex column">
-        <h2>Sign in to Gigger</h2>
+        <h2>Sign in to Gigerr</h2>
         <!-- <select v-model="loginCred.username">
           <option value="">Select User</option>
           <option v-for="user in users" :key="user._id" :value="user.username">{{ user.fullname }}</option>

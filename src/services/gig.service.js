@@ -48,10 +48,12 @@ async function save(gig) {
         // Later, owner is set by the backend
         // savedGig = await storageService.post(STORAGE_KEY, gig)
         gig.owner = userService.getLoggedinUser()
+        console.log(gig);
         const user = await userService.getById(gig.owner._id)
         savedGig = await httpService.post('gig', gig)
         user.gigs.push({ _id: savedGig._id })
         await userService.update(user)
+        console.log(gig);
     }
     return savedGig
 }
@@ -86,7 +88,7 @@ function getEmptyGig() {
             "./src/imgs/gig-img/gig1/2.jpg",
             "./src/imgs/gig-img/gig1/3.jpg",
         ],
-        img: []
+        level : 'level 1'
     }
 }
 
