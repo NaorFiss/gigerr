@@ -1,8 +1,8 @@
 <template>
-    <section class="hero-container full">
-        <div class="img-container">
+    <section class="hero-container ">
+        <div class="img-container ">
             <Transition>
-                <img class="full hero-img" v-if1="show" :src="getImgUrl" />
+                <img class=" hero-img" v-if1="show" :src="getImgUrl" />
             </Transition>
         </div>
     </section>

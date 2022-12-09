@@ -1,5 +1,6 @@
 <template>
-    <section class="checkout-container flex column">
+    <div class="main-layout flex-grow">
+    <section class="checkout-container flex column margin-0">
         <h2 class="mb-24">Order details</h2>
         <div v-if="gig" class="flex gap-16">
             <div class="flex column checkout-summary ">
@@ -49,8 +50,8 @@
                     alt="">
             </div>
         </div>
-
     </section>
+</div>
 </template>
 
 <script>

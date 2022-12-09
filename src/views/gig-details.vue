@@ -1,17 +1,23 @@
 <template>
-    <section ref="header" ></section>
-        <div class="details-header flex" :style="{position: stickyNav ? 'fixed' : 'static'}">
+    <section ref="header"></section>
+        <div class=" details-header-container main-layout" :style="{ position: stickyNav ? 'fixed' : 'static' }">
             <!-- <a class="active-link" href="#gigoverview">Overview</a> -->
-            <router-link :to="{ path: '', hash: '#gig-overview' }" @click="activeNav = 1" :class="activeNav === 1 ? 'active' : ''">Overview</router-link>
-            <router-link :to="{ path: '', hash: '#gig-description' }" @click="(activeNav = 2)" :class="activeNav === 2 ? 'active' : ''">About the seller</router-link>
-            <router-link :to="{ path: '', hash: '#about-seller' }" @click="(activeNav = 3)" :class="activeNav === 3 ? 'active' : ''">Compare packages</router-link>
-            <router-link :to="{ path: '', hash: '#gigoverview' }" @click="(activeNav = 4)" :class="activeNav === 4 ? 'active' : ''">Reviews</router-link>
+            <div class="details-header flex" >
+                <router-link :to="{ path: '', hash: '#gig-overview' }" @click="activeNav = 1"
+                :class="activeNav === 1 ? 'active' : ''">Overview</router-link>
+            <router-link :to="{ path: '', hash: '#gig-description' }" @click="(activeNav = 2)"
+                :class="activeNav === 2 ? 'active' : ''">About the seller</router-link>
+            <router-link :to="{ path: '', hash: '#about-seller' }" @click="(activeNav = 3)"
+                :class="activeNav === 3 ? 'active' : ''">Compare packages</router-link>
+            <router-link :to="{ path: '', hash: '#gigoverview' }" @click="(activeNav = 4)"
+                :class="activeNav === 4 ? 'active' : ''">Reviews</router-link>
             <!-- <a href="#bottom">About the seller</a>
-        <a href="">Compare packages</a>
-        <a href="">Reviews</a> -->
-        </div>
+                <a href="">Compare packages</a>
+                <a href="">Reviews</a> -->
+            </div>
+    </div>
 
-    <section class="gig-details flex-grow" :style="{marginTop: stickyNav ? '51px' : '0'}">
+    <section class="gig-details flex-grow main-layout" :style="{ marginTop: stickyNav ? '51px' : '0' }">
         <div class="gig-info flex">
             <div class="up-content flex column wrap space gap-16 details-left" id="gig-overview">
                 <gig-overview id="gig-overview" :gig="gig" />
@@ -20,7 +26,7 @@
                 <details-review id="gigoverview" v-if="gig?.reviews" :gig="gig" />
                 <div style="height:200px"></div>
             </div>
-            <order-details class="order-details" :gig="gig" :class="stickyNav ? 'order-sticky' : ''"/>
+            <order-details class="order-details" :gig="gig" :class="stickyNav ? 'order-sticky' : ''" />
         </div>
     </section>
 

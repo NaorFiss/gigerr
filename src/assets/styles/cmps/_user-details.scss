@@ -223,11 +223,16 @@
         }
     }
 }
-
+.user-details-header-container{
+    border-bottom: 1px solid $clr5;
+    background-color: white;
+}
+.user-details-main-container{
+    background-color:  #f7f7f7;
+}
 .user-details-header {
     height: 50px;
     width: 100%;
-    border-bottom: 1px solid $clr5;
     padding-inline: 32px;
     gap: 15px;
 

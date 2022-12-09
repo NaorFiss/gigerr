@@ -1,50 +1,56 @@
 <template>
-  <div v-if="isYourProfile" class="user-details-header flex ">
-    <button @click="pageToShow = 'profile'; activeNav = 1" :class="activeNav === 1 ? 'active' : ''" >Profile</button>
-    <button @click="pageToShow = 'manageOrders'; activeNav = 2" :class="activeNav === 2 ? 'active' : ''">Manage Orders</button>
-    <button @click="pageToShow = 'gigs'; activeNav = 3" :class="activeNav === 3 ? 'active' : ''">Gigs</button>
-  </div>
-  <section v-if="user" class="user-details-page flex">
-    <div v-if="(pageToShow === 'profile')" class="personal-user-details">
-      <about-seller class="about-seller flex column mb-24" :owner="user" />
-      <div class="about-seller ">
-        <!-- <p class=" b-pad-25">{{ owner.about }}</p> -->
-        <h4 class="black mb-24">Description</h4>
-        <p class="b-pad-25 ">Hey There!
-          My name is Wania Arif. I'm 23 years old passionate and highly skilled graphic designer working with
-          skillful team of designers and developers. My passion is designing Illustrating new ideas making them
-          come to life. I have been in this industry for more then 4 years. I will design for you a very
-          high-quality, clean, and proffesional logo that stands out from other designs. I'm here to serve all my
-          beautiful upcoming clients.</p>
+  <div class="main-layout flex-grow user-details-main-container">
+    <div v-if="isYourProfile" class="user-details-header-container full main-layout">
+      <div class="user-details-header flex">
+        <button @click="pageToShow = 'profile'; activeNav = 1" :class="activeNav === 1 ? 'active' : ''">Profile</button>
+        <button @click="pageToShow = 'manageOrders'; activeNav = 2" :class="activeNav === 2 ? 'active' : ''">Manage
+          Orders</button>
+        <button @click="pageToShow = 'gigs'; activeNav = 3" :class="activeNav === 3 ? 'active' : ''">Gigs</button>
       </div>
     </div>
-
-    <div v-if="(pageToShow === 'profile')" class="flex-grow">
-      <div v-if="userGigsList.length" class="user-details-section">
-        <div class="flex space ">
-          <p class="mac-semi">{{ whosProfile }}</p>
-          <router-link v-if="(isYourProfile)" to="/gig/edit" class="btn green-btn add-btn-small">Create new gig</router-link>
+    <section v-if="user" class="user-details-page flex ">
+      <div v-if="(pageToShow === 'profile')" class="personal-user-details">
+        <about-seller class="about-seller flex column mb-24" :owner="user" />
+        <div class="about-seller ">
+          <!-- <p class=" b-pad-25">{{ owner.about }}</p> -->
+          <h4 class="black mb-24">Description</h4>
+          <p class="b-pad-25 ">Hey There!
+            My name is Wania Arif. I'm 23 years old passionate and highly skilled graphic designer working with
+            skillful team of designers and developers. My passion is designing Illustrating new ideas making them
+            come to life. I have been in this industry for more then 4 years. I will design for you a very
+            high-quality, clean, and proffesional logo that stands out from other designs. I'm here to serve all my
+            beautiful upcoming clients.</p>
         </div>
-        <gigList :gigs="userGigsList" />
       </div>
 
-      <div class="create-new-gig flex column" v-if="(!isLoading && isYourProfile && !userGigsList.length)">
-        <img class="create-gig-img" src="@/assets/svg/create-gig.svg" alt="">
-        <p>It seems that you don't have any active Gigs</p>
-        <router-link to="/gig/edit" class="btn green-btn add-btn">Create a new Gig</router-link>
+      <div v-if="(pageToShow === 'profile')" class="flex-grow">
+        <div v-if="userGigsList.length" class="user-details-section">
+          <div class="flex space ">
+            <p class="mac-semi">{{ whosProfile }}</p>
+            <router-link v-if="(isYourProfile)" to="/gig/edit" class="btn green-btn add-btn-small">Create new
+              gig</router-link>
+          </div>
+          <gigList :gigs="userGigsList" />
+        </div>
+
+        <div class="create-new-gig flex column" v-if="(!isLoading && isYourProfile && !userGigsList.length)">
+          <img class="create-gig-img" src="@/assets/svg/create-gig.svg" alt="">
+          <p>It seems that you don't have any active Gigs</p>
+          <router-link to="/gig/edit" class="btn green-btn add-btn">Create a new Gig</router-link>
+        </div>
       </div>
-    </div>
 
-    <div v-if="(pageToShow === 'manageOrders')" class="order-table-container">
-      <h1 class="mb-24">Manage Seller Orders</h1>
-      <ordersTable :orders="sellerOrders" />
-    </div>
+      <div v-if="(pageToShow === 'manageOrders')" class="order-table-container">
+        <h1 class="mb-24">Manage Seller Orders</h1>
+        <ordersTable :orders="sellerOrders" />
+      </div>
 
-    <div v-if="pageToShow === 'gigs'" class="order-table-container">
-      <h1 class="mb-24">Your Buyer orders</h1>
-      <ordersTable :orders="buyerOrders" />
-    </div>
-  </section>
+      <div v-if="pageToShow === 'gigs'" class="order-table-container">
+        <h1 class="mb-24">Your Buyer orders</h1>
+        <ordersTable :orders="buyerOrders" />
+      </div>
+    </section>
+  </div>
 </template>
 
 <script>
@@ -96,7 +102,7 @@ export default {
     isYourProfile() {
       return this.$store.getters.loggedinUser?._id === this.$store.getters.watchedUser?._id
     },
-    whosProfile(){
+    whosProfile() {
       console.log(this.user.fullname);
       return this.isYourProfile ? 'My Active Gigs' : this.user.fullname + `'s Gigs`
     }

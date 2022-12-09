@@ -49,9 +49,9 @@ a:hover :not(button) {
     color: $clr3;
 }
 
-div{
-    margin: 0%;
-}
+// div :not(.main-layout){
+//     margin: 0%;
+// }
 
 // @media (max-width: 1150px){
 //     html{
@@ -59,18 +59,28 @@ div{
 //     }
 // }
 
-// .max-1400{
-//     max-width: 1400px;
-// }
+.max-1400{
+    max-width: 1400px;
+    margin-inline-start: auto ;
+    margin-inline-end: auto ;
+}
+
+.margin-0{
+     div{
+        // background-color: aqua;
+        // margin: 0% ;
+    }
+
+}
 // .margin{
 //     margin: auto;
 // }
 
-// .main-layout>*:not(.full) {
-//     max-width: 1400px;
-//     margin-inline-start: auto !important;
-//     margin-inline-end: auto !important;
-// }
+.main-layout>*:not(.full) {
+    max-width: 1400px;
+    margin-inline-start: auto !important;
+    margin-inline-end: auto !important;
+}
 
 .pointer{
     cursor: pointer;

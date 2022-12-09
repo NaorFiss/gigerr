@@ -35,23 +35,24 @@
 
     .details-review {
         padding-block: 40px;
-        
+
         .country-flag {
             width: 24px;
         }
-        
+
         .review-user-details {
             border-top: 1px solid rgb(202, 200, 200);
             padding-top: 40px;
             gap: 18px;
         }
 
-        .reviews-header{
+        .reviews-header {
             padding-bottom: 20px;
             color: #404145;
             font-family: macan-bold;
             font-size: 20px;
         }
+
         .user-img {
             width: 48px;
             height: 48px;
@@ -80,6 +81,7 @@
             padding-inline-start: 64px;
             line-height: 1.5;
         }
+
         .helpful-container {
             gap: 10px;
         }
@@ -89,13 +91,15 @@
         margin-top: 0;
         // width: 50%;
     }
+
     .seller-info {
-        > :first-child{
+        > :first-child {
             padding-bottom: 10px;
         }
+
         gap: 0;
     }
-    
+
 
 }
 
@@ -222,15 +226,19 @@
     gap: 16px;
 }
 
+.details-header-container {
+    width: 100%;
+    z-index: 100;
+
+    border-bottom: 1px solid $clr5;
+}
+
 .details-header {
     padding-inline: 32px;
-    border-bottom: 1px solid $clr5;
     gap: 20px;
     color: $clr1;
     align-items: center;
-    z-index: 100;
     background-color: white;
-    width: 100%;
     // font-size: 0.8rem;   
     // .router-link-exact-active {
     //     // color: rgb(192, 203, 209);
