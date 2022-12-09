@@ -1,11 +1,11 @@
 <template>
   <div v-if="isYourProfile" class="user-details-header flex ">
-    <button @click="myOrders = false; myCart = false">Profile</button>
-    <button @click="myOrders = true ; myCart = false">Manage Orders</button>
-    <button @click="myCart = true">Gigs</button>
+    <button @click="pageToShow = 'profile'; activeNav = 1" :class="activeNav === 1 ? 'active' : ''" >Profile</button>
+    <button @click="pageToShow = 'manageOrders'; activeNav = 2" :class="activeNav === 2 ? 'active' : ''">Manage Orders</button>
+    <button @click="pageToShow = 'gigs'; activeNav = 3" :class="activeNav === 3 ? 'active' : ''">Gigs</button>
   </div>
   <section v-if="user" class="user-details-page flex">
-    <div v-if="(!myOrders && !myCart)" class="personal-user-details">
+    <div v-if="(pageToShow === 'profile')" class="personal-user-details">
       <about-seller class="about-seller flex column mb-24" :owner="user" />
       <div class="about-seller ">
         <!-- <p class=" b-pad-25">{{ owner.about }}</p> -->
@@ -19,7 +19,7 @@
       </div>
     </div>
 
-    <div v-if="(!myOrders && !myCart)" class="flex-grow">
+    <div v-if="(pageToShow === 'profile')" class="flex-grow">
       <div v-if="userGigsList.length" class="user-details-section">
         <div class="flex space ">
           <p class="mac-semi">{{ whosProfile }}</p>
@@ -35,12 +35,12 @@
       </div>
     </div>
 
-    <div v-if="(myOrders && !myCart)" class="order-table-container">
+    <div v-if="(pageToShow === 'manageOrders')" class="order-table-container">
       <h1 class="mb-24">Manage Seller Orders</h1>
       <ordersTable :orders="sellerOrders" />
     </div>
 
-    <div v-if="myCart" class="order-table-container">
+    <div v-if="pageToShow === 'gigs'" class="order-table-container">
       <h1 class="mb-24">Your Buyer orders</h1>
       <ordersTable :orders="buyerOrders" />
     </div>
@@ -58,10 +58,10 @@ export default {
     return {
       userGigsList: [],
       isLoading: true,
-      myOrders: false,
-      myCart: false,
       buyerOrders: [],
-      sellerOrders: []
+      sellerOrders: [],
+      activeNav: 1,
+      pageToShow: 'profile',
     }
   },
   async created() {

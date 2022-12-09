@@ -2,6 +2,7 @@
     <div class="details-review flex column mb-24" v-if=gig>
         <!-- <div class="user-img-container"> -->
         <!-- </div> -->
+        <h3 class="reviews-header">Reviews</h3>
         <div class="flex review-user-details">
             <img class="user-img" :src="gig.reviews[0].userImgUrl" />
             <div class="flex column space">
@@ -31,7 +32,7 @@
                 price/performance
                 ratio
             </div>
-            <section class="helpful-container flex gap-16">
+            <section class="helpful-container flex ">
                 <span class="helpful">helpful? </span>
                 <div class="like">👍</div>
                 <div class="yes">Yes </div>

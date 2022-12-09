@@ -2,14 +2,14 @@
   <section class="home main-container max-width-container ">
     <div class="main-layout">
       <div class="hero-title ">
-        <app-hero />
+        <app-hero @modelName="modelNameChange" @modelJob="modelJobChange"/>
         <div class="hero-grid">
           <div class="mb-10 bold-font">
             <h2 class="header-title ">Find the perfect <span class="courgette"> freelance</span></h2>
             <h2 class="header-title">services for your business</h2>
           </div>
           <gig-filter @setFilter="setFilter" />
-          <p class="img-names">Zack, Bar Owner</p>
+          <p class="img-names">{{modelName}}<span class="mac-bold ">{{modelJob}}</span></p>
         </div>
       </div>
     </div>
@@ -59,6 +59,12 @@ import imgHero from '../cmps/img-hero.vue'
 export default {
 
   name: 'home',
+  data(){
+    return{
+      modelName : 'Andrea, ',
+      modelJob: 'Fashion Designer',
+    }
+  },
   created() {
     this.$store.dispatch({ type: 'getGigsUrl', })
   },
@@ -68,7 +74,15 @@ export default {
     },
     scrollImg(dir) {
       this.$refs.slider.scrollBy({ right: dir * 2000, left: dir * 2000, behavior: "smooth" })
-    }
+    },
+    modelNameChange(name){
+      console.log(name);
+      this.modelName = name
+    },
+    modelJobChange(job){
+      console.log(job);
+      this.modelJob = job
+    },
   },
   computed: {
     gigsUrl() {

@@ -2,10 +2,10 @@
     <section ref="header" ></section>
         <div class="details-header flex" :style="{position: stickyNav ? 'fixed' : 'static'}">
             <!-- <a class="active-link" href="#gigoverview">Overview</a> -->
-            <router-link :to="{ path: '', hash: '#gig-overview' }" class="active-link">Overview</router-link>
-            <router-link :to="{ path: '', hash: '#gig-description' }">About the seller</router-link>
-            <router-link :to="{ path: '', hash: '#about-seller' }">Compare packages</router-link>
-            <router-link :to="{ path: '', hash: '#gigoverview' }">Reviews</router-link>
+            <router-link :to="{ path: '', hash: '#gig-overview' }" @click="activeNav = 1" :class="activeNav === 1 ? 'active' : ''">Overview</router-link>
+            <router-link :to="{ path: '', hash: '#gig-description' }" @click="(activeNav = 2)" :class="activeNav === 2 ? 'active' : ''">About the seller</router-link>
+            <router-link :to="{ path: '', hash: '#about-seller' }" @click="(activeNav = 3)" :class="activeNav === 3 ? 'active' : ''">Compare packages</router-link>
+            <router-link :to="{ path: '', hash: '#gigoverview' }" @click="(activeNav = 4)" :class="activeNav === 4 ? 'active' : ''">Reviews</router-link>
             <!-- <a href="#bottom">About the seller</a>
         <a href="">Compare packages</a>
         <a href="">Reviews</a> -->
@@ -17,9 +17,8 @@
                 <gig-overview id="gig-overview" :gig="gig" />
                 <gig-description id="gig-description" :gig="gig" />
                 <about-seller id="about-seller" v-if="gig" :owner="gig.owner" />
-                <details-review v-if="gig?.reviews" :gig="gig" />
+                <details-review id="gigoverview" v-if="gig?.reviews" :gig="gig" />
                 <div style="height:200px"></div>
-                <a name="gigoverview" id="gigoverview"></a>
             </div>
             <order-details class="order-details" :gig="gig" :class="stickyNav ? 'order-sticky' : ''"/>
         </div>
@@ -40,6 +39,7 @@ export default {
             gig: null,
             headerObserver: null,
             stickyNav: false,
+            activeNav: 1,
         }
     },
     async created() {

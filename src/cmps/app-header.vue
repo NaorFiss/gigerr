@@ -9,13 +9,15 @@
           <rect y="8" width="23" height="3" rx="1.5" fill="#555"></rect>
         </svg>
       </div>
-      <router-link to="/">
-        <span role="img" aria-label="logo">
-          <img v-if="!stickyNav && atHome()" class="logo" src="@/assets/white-logo.svg" alt="">
-          <img v-else class="logo" src="@/assets/black-logo.svg" alt="">
-        </span>
-      </router-link>
-      <gig-filter v-if="!atHome()" :atExplore="'atExplore'" @setFilter="setFilter" />
+      <div class="flex align-center gap-32">
+        <router-link to="/">
+          <span role="img" aria-label="logo">
+            <img v-if="!stickyNav && atHome()" class="logo" src="@/assets/white-logo.svg" alt="">
+            <img v-else class="logo" src="@/assets/black-logo.svg" alt="">
+          </span>
+        </router-link>
+        <gig-filter v-if="!atHome()" :atExplore="'atExplore'" @setFilter="setFilter" />
+      </div>
       <nav :class="!stickyNav && atHome() ? 'white-links' : ''">
         <router-link to="/explore">Explore</router-link>
         <!-- <router-link to="/review">Reviews</router-link> -->

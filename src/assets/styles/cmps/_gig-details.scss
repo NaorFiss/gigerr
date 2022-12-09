@@ -35,16 +35,23 @@
 
     .details-review {
         padding-block: 40px;
-        border-bottom: 1px solid rgb(202, 200, 200);
-
+        
         .country-flag {
             width: 24px;
         }
-
+        
         .review-user-details {
+            border-top: 1px solid rgb(202, 200, 200);
+            padding-top: 40px;
             gap: 18px;
         }
 
+        .reviews-header{
+            padding-bottom: 20px;
+            color: #404145;
+            font-family: macan-bold;
+            font-size: 20px;
+        }
         .user-img {
             width: 48px;
             height: 48px;
@@ -73,8 +80,22 @@
             padding-inline-start: 64px;
             line-height: 1.5;
         }
+        .helpful-container {
+            gap: 10px;
+        }
     }
 
+    .seller-info> :last-child {
+        margin-top: 0;
+        // width: 50%;
+    }
+    .seller-info {
+        > :first-child{
+            padding-bottom: 10px;
+        }
+        gap: 0;
+    }
+    
 
 }
 
@@ -126,10 +147,8 @@
     gap: 0.5rem;
 
     & img {
-
         border-radius: 50%;
         object-fit: cover;
-
     }
 
 
@@ -206,7 +225,7 @@
 .details-header {
     padding-inline: 32px;
     border-bottom: 1px solid $clr5;
-    gap: 10px;
+    gap: 20px;
     color: $clr1;
     align-items: center;
     z-index: 100;
@@ -219,11 +238,14 @@
     //     color: #404145;
     // }
     transition: 0.7s;
+
+
+    .active {
+        box-shadow: inset 0 -4px $clr3;
+        color: #404145;
+    }
 }
-.order-sticky{
-    // transform: translate3d(0px, 50px, 0px);
-    // transition: 0.7s;
-}
+
 .details-header>* {
     color: #919191;
     height: 50px;
@@ -233,10 +255,6 @@
     font-family: macan-bold;
 }
 
-.active-link {
-    box-shadow: inset 0 -4px $clr3;
-    color: #404145;
-}
 
 @media (min-width: 1200px) {
     .gig-details {

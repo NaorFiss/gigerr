@@ -4,17 +4,17 @@
         <el-table-column class="order-img" v-if="buyerProfile" prop="buyer.imgUrl" label="" width="100">
             <template #default="scope"><img class="order-img" :src="scope.row.gig.img" /></template>
         </el-table-column>
-        <el-table-column v-else prop="buyer.imgUrl" label="Buyer" width="100">
+        <el-table-column v-else prop="buyer.imgUrl" width="100">
             <template #default="scope"><img :src="scope.row.buyer.imgUrl" /></template>
         </el-table-column>
-        <el-table-column v-if="!buyerProfile" prop="buyer.fullname" width="100" />
+        <el-table-column v-if="!buyerProfile" prop="buyer.fullname" label="Buyer" width="100" />
         <el-table-column v-if="buyerProfile" prop="seller.fullname" label="Seller" width="100" />
         <el-table-column prop="gig.title" label="Gig" width="300" />
         <el-table-column prop="createdAt" label="Date" width="180" />
         <el-table-column prop="gig.price" label="Total" width="100">
             <template #default="scope"> $ {{ scope.row.gig.price }}</template>
         </el-table-column>
-        <el-table-column prop="status" label="Status" width="130">
+        <el-table-column prop="status" label="Status" width="105" class="last-col">
             <template #default="scope"><button @click="approveOrder(scope.row)"
                     :class="orderStatus(scope.row.status)">{{ scope.row.status }}
                 </button></template>

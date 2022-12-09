@@ -10,6 +10,13 @@
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 32px;
 
+    .gig-preview {
+        :hover .title {
+            color: $clr3;
+        }
+
+    }
+
     li:not(.el-carousel__indicator) {
         min-width: 250px;
         border: 1px solid $clr5;
@@ -79,9 +86,6 @@
             min-height: 43px;
         }
 
-        .title:hover {
-            color: $clr3;
-        }
 
         // .flex3 {
         //     flex-basis: 20%;
