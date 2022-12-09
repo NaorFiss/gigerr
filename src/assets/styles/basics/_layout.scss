@@ -1,7 +1,4 @@
-.container {
-    max-width: 1400px;
-    // padding: 10px;
-}
+
 
 .main-view{
     min-height: 100vh;
@@ -54,22 +51,22 @@ display: grid;
 grid-template-columns: minmax(24px,1fr) minmax(auto,1240px) minmax(24px,1fr);
 }
 
-.main-layout > .full {
-    grid-column: 1/-1;
-}
+// .main-layout > .full {
+//     grid-column: 1/-1;
+// }
 
-.app-container:not(.full){
+// .app-container:not(.full){
+//     padding: 32px;
+//     flex: 1;
+// }
+
+.app-container{
     padding: 32px;
-    flex: 1;
 }
 
-.app-container > *{
-    margin-bottom: 30px;
-}
-
-.max-width-container{
-    max-width: 1400px;
-}
+// .max-width-container{
+//     max-width: 1400px;
+// }
 
 @media (max-width: 1150px){
     .pad-inline{

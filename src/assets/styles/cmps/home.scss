@@ -113,7 +113,7 @@
         }
         
         .left-slider-btn {
-            left: -24px;
+            left: 8px;
             top: 43%;
 
             .left-svg {
@@ -131,7 +131,7 @@
         }
         
         .right-slider-btn {
-            right: -24px;
+            right: 8px;
             top: 43%;
 
             .left-right {
@@ -189,9 +189,11 @@
             }
         }
     }
+    .home-freelance-container{
 
-    .home-freelance {
         background-color: #f1fdf7;
+    }
+    .home-freelance {
         padding: 64px 32px;
         align-items: center;
         margin-bottom: 96px;

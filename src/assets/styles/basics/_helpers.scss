@@ -34,6 +34,7 @@
 .fs30 {
     font-size: rem(30px);
 }
+
 .fs32 {
     font-size: rem(32px);
 }
@@ -48,9 +49,9 @@
 
     display: flex;
 
-    >*.full {
-        flex: 1;
-    }
+    // >*.full {
+    //     flex: 1;
+    // }
 
     &.column {
         flex-direction: column;
@@ -130,7 +131,7 @@
     border: 1px solid rgb(209, 209, 209);
 }
 
-.gray-btn{
+.gray-btn {
     background-color: $clr1;
     padding: 13px;
 }
@@ -142,7 +143,7 @@
 
 .green-btn {
     background-color: $clr3;
-    color:white;
+    color: white;
     border: 1px solid rgb(209, 209, 209);
 }
 
@@ -150,22 +151,38 @@
     background-color: #16995c;
 }
 
-.b-pad-25{
+.b-pad-25 {
     padding-bottom: 25px
 }
 
-.inline{
+.inline {
     display: inline;
 }
 
-.mb-10{
+.mb-10 {
     margin-bottom: 10px;
 }
 
-.mb-24{
+.mb-24 {
     margin-bottom: 24px;
 }
 
-.bold-font{
+.bold-font {
     font-family: macan-bold;
+}
+
+.gap-32 {
+    gap: 32px;
+}
+
+.border-top {
+    border-top: 1px solid $clr5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid $clr5;
+}
+
+.margin-32{
+    margin-inline: 32px;
 }

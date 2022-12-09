@@ -1,5 +1,5 @@
 <template>
-  <section class="main-view flex column">
+  <section class="main-view flex column ">
     <user-msg/>
     <app-header />
     <router-view />

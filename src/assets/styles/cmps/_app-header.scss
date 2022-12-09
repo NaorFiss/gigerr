@@ -1,5 +1,4 @@
 header {
-    border-bottom: 1px $clr5 solid;
     padding-block: 10px;
     padding-inline: 32px;
     display: flex;
@@ -132,6 +131,7 @@ header {
     border: none;
     transition: 0.4s;
     padding-block: 25px;
+    min-width: 100%;
 }
 
 

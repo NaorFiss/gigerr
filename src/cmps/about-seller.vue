@@ -1,14 +1,14 @@
 <template>
     <div class="b-pad-25" v-if=owner>
-        <h3 class="black b-pad-25 hide-detail">About The Seller</h3>
+        <h3 class="black b-pad-25 hide-detail fs20 mac-bold">About The Seller</h3>
         <div class="flex gap-16 b-pad-25 mini-user-info">
             <img class="user-details-img" :src="owner.imgUrl">
             <div class="seller-info flex column ">
-                <p @click="userDetails" class="fs14 mac-bold black mini-username">{{ owner.fullname }}</p>
+                <p @click="userDetails" class="fs16 mac-bold  mini-username">{{ owner.fullname }}</p>
                 <p>Quality is more important than quantity</p>
                 <div>
-                    <p class="clr-6 inline"><span class="orange flex3"><span v-for="n in rate"
-                                class="star-img">★</span> {{ owner.rate }}</span>(24)</p>
+                    <p class="clr-6 inline fs14"><span class="orange flex3"><span v-for="n in rate"
+                                class="star-img">★</span> {{ owner.rate }}</span> (24)</p>
                 </div>
                 <button class="btn white-btn">Contact Me</button>
             </div>

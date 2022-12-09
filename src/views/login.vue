@@ -1,5 +1,5 @@
 <template>
-  <div class="container about log-sign flex column">
+  <div class="about log-sign flex column main-layout">
     <p>{{ msg }}</p>
 
     <div v-if="loggedinUser">
