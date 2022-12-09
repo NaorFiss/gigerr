@@ -7,7 +7,7 @@
                     <div class="price-range-filter">
                         <div class="input-div">
                             <label class="budget-l">MIN.</label>
-                            <el-option value="1"><el-input class="min" type="number" v-model.number="filterBy.min"
+                            <el-option value="1"><el-input class="max" type="number" v-model.number="filterBy.min"
                                     @click.stop placeholder="Any" />
                                 <i class="dollar-sign">$</i>
                             </el-option>
