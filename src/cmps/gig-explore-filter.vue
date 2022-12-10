@@ -1,7 +1,7 @@
 <template>
-    <h1 v-if="$route.query.title">Results for "{{ $route.query.title }}"</h1>
-    <h1 v-else-if="$route.query.tag">{{ $route.query.tag }}</h1>
-    <h1 v-else>Explore</h1>
+    <h1 class="txt-black-tag" v-if="$route.query.title">Results for "{{ $route.query.title }}"</h1>
+    <h1 class="txt-black-tag" v-else-if="$route.query.tag">{{ $route.query.tag }}</h1>
+    <h1 class="txt-black-tag" v-else>Explore</h1>
     <div class="advanced-filter">
         <div class="advanced-input">
 
