@@ -19,15 +19,15 @@
         <gig-filter v-if="!atHome()" :atExplore="'atExplore'" @setFilter="setFilter" />
       </div>
       <nav :class="!stickyNav && atHome() ? 'white-links' : ''">
-        <router-link to="/explore">Explore</router-link>
+        <router-link to="/explore" @click="exploreGo">Explore</router-link>
         <!-- <router-link to="/review">Reviews</router-link> -->
         <!-- <router-link to="/chat">Chat</router-link> -->
-        
+
         <router-link v-if="!loggedInUser" to="/login">Sign In</router-link>
         <router-link v-if="!loggedInUser" class="join" to="/signup">Join</router-link>
-        
+
         <el-dropdown v-if="loggedInUser" trigger="click" size="large">
-          <div class="loggedin-user"><img :src="loggedInUser.imgUrl"/></div>
+          <div class="loggedin-user"><img :src="loggedInUser.imgUrl" /></div>
           <template #dropdown>
             <el-dropdown-menu>
               <el-dropdown-item @click="goToProfile">Profile</el-dropdown-item>
@@ -56,9 +56,9 @@ export default {
   },
   methods: {
     atHome() {
-      return this.$route.path === '/' 
+      return this.$route.path === '/'
     },
-    goToProfile(){
+    goToProfile() {
       this.$router.push(`/user/${this.loggedInUser._id}`)
     },
     onHeaderObserved(entries) {
@@ -67,6 +67,10 @@ export default {
       })
     },
     setFilter(filterBy) {
+      this.$router.push({ name: 'gig-app', query: { ...filterBy } })
+      // this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
+    },
+    exploreGo (filterBy) {
       this.$store.dispatch({ type: 'setFilter', filterBy })
     },
     doLogout() {

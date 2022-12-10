@@ -20,12 +20,12 @@
                     <div class="flex justify-between items-center inline filter-tags popular-tags">
                         <!-- <a class="btn-filter" @click="setFilter('')">All</a> -->
                         <!-- <a class="btn-filter" @click="setFilter('app')">app</a> -->
-                        <router-link to="/explore/Website Design" @click="setTagFilter('Website Design')">Website
+                        <router-link to="/explore" @click="setTagFilter('Website Design')">Website
                             Design</router-link>
-                        <router-link to="/explore/WordPress" @click="setTagFilter('WordPress')">WordPress</router-link>
-                        <router-link to="/explore/Logo Design" @click="setTagFilter('Logo Design')">Logo
+                        <router-link to="/explore" @click="setTagFilter('WordPress')">WordPress</router-link>
+                        <router-link to="/explore" @click="setTagFilter('Logo Design')">Logo
                             Design</router-link>
-                        <router-link to="/explore/Video Editing" @click="setTagFilter('Video Editing')">Video
+                        <router-link to="/explore" @click="setTagFilter('Video Editing')">Video
                             Editing</router-link>
                     </div>
                 </div>
