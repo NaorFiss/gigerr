@@ -6,9 +6,9 @@
                     <form :class="!atExplore ? 'search-container' : 'search-container-explore'"
                         @submit.prevent="loadGigs()" role="link">
                         <!-- @submit.prevent="loadGigs(); navigate()" role="link"> -->
-                        <input class="search-input" type="search" v-model="filterBy.txt"
+                        <input class="search-input" type="search" v-model="filterBy.title"
                             placeholder="Try &quot;building mobile app&quot;" value>
-                        <button class="submit search-button fs18 ">
+                        <button class="submit search-button fs18 " @click="setTitleFilter(filterBy.title)">
                             {{ !atExplore ? 'Search' : '' }}
                             <img v-if="atExplore" class="white-search" src="@/assets/svg/white-search.svg" alt="">
                         </button>
@@ -20,12 +20,12 @@
                     <div class="flex justify-between items-center inline filter-tags popular-tags">
                         <!-- <a class="btn-filter" @click="setFilter('')">All</a> -->
                         <!-- <a class="btn-filter" @click="setFilter('app')">app</a> -->
-                        <router-link to="/explore/Website Design" @click="setFilter('Website Design')">Website
+                        <router-link to="/explore/Website Design" @click="setTagFilter('Website Design')">Website
                             Design</router-link>
-                        <router-link to="/explore/WordPress" @click="setFilter('WordPress')">WordPress</router-link>
-                        <router-link to="/explore/Logo Design" @click="setFilter('Logo Design')">Logo
+                        <router-link to="/explore/WordPress" @click="setTagFilter('WordPress')">WordPress</router-link>
+                        <router-link to="/explore/Logo Design" @click="setTagFilter('Logo Design')">Logo
                             Design</router-link>
-                        <router-link to="/explore/Video Editing" @click="setFilter('Video Editing')">Video
+                        <router-link to="/explore/Video Editing" @click="setTagFilter('Video Editing')">Video
                             Editing</router-link>
                     </div>
                 </div>
@@ -43,22 +43,23 @@ export default {
     data() {
         return {
             filterBy: {
-                title: '',
-                price: 0,
-                tag: '',
+                
             },
         }
     },
     methods: {
         async loadGigs() {
-            const filterBy = JSON.parse(JSON.stringify(this.filterBy))
-            this.$emit('setFilter', { ...filterBy })
+            
+            this.$emit('setFilter', { ...this.filterBy })
             // this.filterBy.tag = ''
             // this.$router.push('/explore')
         },
-        setFilter(tag) {
+        setTagFilter(tag) {
             this.filterBy.tag = tag
-            this.filterBy.title = tag
+            this.loadGigs()
+        },
+        setTitleFilter(title) {
+            this.filterBy.title = title
             this.loadGigs()
         }
     },

@@ -76,7 +76,8 @@ export default {
   },
   methods: {
     setFilter(filterBy) {
-      this.$store.dispatch({ type: 'setFilter', filterBy })
+      this.$router.push({ name: 'gig-app', query: { ...filterBy } })
+      this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
     },
     scrollImg(dir) {
       this.$refs.slider.scrollBy({ right: dir * 2000, left: dir * 2000, behavior: "smooth" })

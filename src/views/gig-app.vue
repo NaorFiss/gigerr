@@ -18,7 +18,7 @@ export default {
     return {
       filterBy: {
         title: '',
-        tags: 'all',
+        tag: 'all',
         delivery: 'all',
 
         min: 0,
