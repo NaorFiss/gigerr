@@ -108,7 +108,8 @@ header {
             color: #74767e !important;
             width: 100%;
             padding-inline: 0;
-            &:hover{
+
+            &:hover {
                 color: $clr3 !important;
             }
         }
@@ -128,10 +129,37 @@ header {
 .atHome {
     position: fixed;
     background-color: transparent;
-    border: none;
     transition: 0.4s;
     padding-block: 25px;
     min-width: 100%;
+    border: none;
+}
+
+.second-header-home {
+    top: 80px;
+    background-color: white;
+    z-index: 100;
+    transform:  scaleY(0);
+}
+
+.second-header-sticky {
+    transition: transform 0.2s;
+    height: 45px;
+    transform:  scaleY(1);
+}
+
+.second-header {
+    gap: 30px;
+    padding-inline: 32px;
+    padding-block: 15px;
+    border-top: 1px solid $clr5;
+    overflow: hidden;
+
+    a {
+        color: $clr1;
+        font-weight: 200;
+        min-width: fit-content;
+    }
 }
 
 

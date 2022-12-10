@@ -1,7 +1,7 @@
 <template>
-  <section ref="header" class="main-layout full border-bottom">
+  <section ref="header" class="main-layout full ">
     <header :style="{ backgroundColor: stickyNav && atHome() ? 'white' : '' }"
-      :class="atHome() ? 'atHome' : 'atExplore'" class=" ">
+      :class="atHome() ? 'atHome' : 'atExplore'" >
       <div class="hamburger">
         <svg xmlns="http://www.w3.org/2000/svg" width="23" height="19" viewBox="0 0 23 19">
           <rect y="16" width="23" height="3" rx="1.5" fill="#555"></rect>
@@ -16,7 +16,7 @@
             <img v-else class="logo" src="@/assets/black-logo.svg" alt="">
           </span>
         </router-link>
-        <gig-filter v-if="!atHome()" :atExplore="'atExplore'" @setFilter="setFilter" />
+        <gig-filter v-if="!atHome() || stickyNav && atHome()" :atExplore="'atExplore'" @setFilter="setFilter" />
       </div>
       <nav :class="!stickyNav && atHome() ? 'white-links' : ''">
         <router-link to="/explore" @click="exploreGo">Explore</router-link>
@@ -37,6 +37,23 @@
         </el-dropdown>
       </nav>
     </header>
+    <div class="second-header flex border-bottom" :class="atHome() ? 'atHome , second-header-home' : 'atExplore' , 
+      stickyNav ? 'second-header-sticky' : ''" >
+      <router-link to="/explore" @click="setTagFilter('Website Design')">Website
+        Design</router-link>
+      <router-link to="/explore" @click="setTagFilter('WordPress')">WordPress</router-link>
+      <router-link to="/explore" @click="setTagFilter('Marketing')">Marketing</router-link>
+      <router-link to="/explore" @click="setTagFilter('Business plan')">Business Plan</router-link>
+      <router-link to="/explore" @click="setTagFilter('Analyst')">Analyst</router-link>
+      <router-link to="/explore" @click="setTagFilter('Lifestyle')">Lifestyle</router-link>
+      <router-link to="/explore" @click="setTagFilter('Computer')">Computer</router-link>
+      <router-link to="/explore" @click="setTagFilter('Traveling')">Traveling</router-link>
+      <router-link to="/explore" @click="setTagFilter('Coaching')">Coaching</router-link>
+      <router-link to="/explore" @click="setTagFilter('Logo Design')">Logo
+        Design</router-link>
+      <router-link to="/explore" @click="setTagFilter('Video Editing')">Video
+        Editing</router-link>
+    </div>
   </section>
 </template>
 
@@ -70,11 +87,17 @@ export default {
       this.$router.push({ name: 'gig-app', query: { ...filterBy } })
       // this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
     },
-    exploreGo (filterBy) {
+    exploreGo(filterBy) {
       this.$store.dispatch({ type: 'setFilter', filterBy })
     },
     doLogout() {
       this.$store.dispatch({ type: 'logout' })
+    },
+    setTagFilter(tag) {
+      console.log(tag);
+      var filterBy = {}
+      filterBy.tag = tag
+      this.setFilter(filterBy)
     },
   },
   mounted() {

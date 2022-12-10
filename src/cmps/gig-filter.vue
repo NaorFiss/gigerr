@@ -18,8 +18,6 @@
                 <div v-if="!atExplore" class="flex popular-tags-container">
                     <p class="fs14 mac-bold">Popular: </p>
                     <div class="flex justify-between items-center inline filter-tags popular-tags">
-                        <!-- <a class="btn-filter" @click="setFilter('')">All</a> -->
-                        <!-- <a class="btn-filter" @click="setFilter('app')">app</a> -->
                         <router-link to="/explore" @click="setTagFilter('Website Design')">Website
                             Design</router-link>
                         <router-link to="/explore" @click="setTagFilter('WordPress')">WordPress</router-link>
@@ -43,13 +41,12 @@ export default {
     data() {
         return {
             filterBy: {
-                
+
             },
         }
     },
     methods: {
         async loadGigs() {
-            
             this.$emit('setFilter', { ...this.filterBy })
             // this.filterBy.tag = ''
             // this.$router.push('/explore')

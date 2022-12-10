@@ -223,13 +223,47 @@
         }
     }
 }
-.user-details-header-container{
+
+.income-table {
+    border: 1px solid $clr5;
+    list-style: none;
+    padding-block: 25px;
+    margin-bottom: 30px;
+    margin-inline: 0px;
+    padding-inline: 0px;
+
+    p{
+        color: rgb(158, 158, 158);
+        font-size: 14px;
+    }
+    h3{
+        font-size: 24px;
+        color: #323336;
+    }
+    >* {
+        flex: 1;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: space-between;
+        padding-inline: 20px;
+    }
+
+    >*:not(:last-child) {
+        border-inline-end: 1px solid $clr5;
+    }
+}
+
+.user-details-header-container {
     border-bottom: 1px solid $clr5;
     background-color: white;
 }
-.user-details-main-container{
-    background-color:  #f7f7f7;
+
+.user-details-main-container {
+    background-color: #f7f7f7;
 }
+
 .user-details-header {
     height: 50px;
     width: 100%;

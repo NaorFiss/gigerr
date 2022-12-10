@@ -58,7 +58,6 @@
 
 <script>
 import appHero from '../cmps/app-hero.vue'
-
 import gigFilter from '../cmps/gig-filter.vue'
 import imgHero from '../cmps/img-hero.vue'
 
@@ -83,11 +82,9 @@ export default {
       this.$refs.slider.scrollBy({ right: dir * 2000, left: dir * 2000, behavior: "smooth" })
     },
     modelNameChange(name) {
-      console.log(name);
       this.modelName = name
     },
     modelJobChange(job) {
-      console.log(job);
       this.modelJob = job
     },
   },

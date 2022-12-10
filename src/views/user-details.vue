@@ -41,6 +41,27 @@
       </div>
 
       <div v-if="(pageToShow === 'manageOrders')" class="order-table-container">
+        <h1 class="mb-24">Earning</h1>
+        <div>
+          <ul class="flex income-table">
+            <li>
+              <p>Net Income</p>
+              <h3>$90.00</h3>
+            </li>
+            <li>
+              <p>Widthrawn</p>
+              <h3>$50.00</h3>
+            </li>
+            <li>
+              <p>Available For Widthrawn</p>
+              <h3>$40.00</h3>
+            </li>
+            <li>
+              <p>Order Pending</p>
+              <h3>1</h3>
+            </li>
+          </ul>
+        </div>
         <h1 class="mb-24">Manage Seller Orders</h1>
         <ordersTable :orders="sellerOrders" />
       </div>

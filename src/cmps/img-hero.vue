@@ -26,7 +26,6 @@ export default {
             this.filterBy.tag=tag
             this.$router.push({ name: 'gig-app', query: { ...this.filterBy } })
             this.$store.commit({ type: 'setFilter', filterBy: { ...this.filterBy } })
-
         },
     }
 }

@@ -44,7 +44,7 @@
 
     </div>
     <div class="sorting-click">
-        <div class="flex ">
+        <div class="flex mb-24">
             <h4 class="available-services" v-if="gigs">{{ gigs.length }} Services available</h4>
         </div>
     </div>
