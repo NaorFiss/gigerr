@@ -92,7 +92,7 @@ export default {
     },
     setFilter(filterBy) {
       this.$router.push({ name: 'gig-app', query: { ...filterBy } })
-      // this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
+      this.$store.dispatch({ type: 'setFilter', filterBy: { ...filterBy } })
     },
     exploreGo(filterBy) {
       this.$store.dispatch({ type: 'setFilter', filterBy })

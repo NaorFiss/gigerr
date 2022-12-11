@@ -1,9 +1,9 @@
 <template>
     <section ref="header"></section>
-        <div class=" details-header-container main-layout" :style="{ position: stickyNav ? 'fixed' : 'static' }">
-            <!-- <a class="active-link" href="#gigoverview">Overview</a> -->
-            <div class="details-header flex" >
-                <router-link :to="{ path: '', hash: '#gig-overview' }" @click="activeNav = 1"
+    <div class=" details-header-container main-layout" :style="{ position: stickyNav ? 'fixed' : 'static' }">
+        <!-- <a class="active-link" href="#gigoverview">Overview</a> -->
+        <div class="details-header flex">
+            <router-link :to="{ path: '', hash: '#gig-overview' }" @click="activeNav = 1"
                 :class="activeNav === 1 ? 'active' : ''">Overview</router-link>
             <router-link :to="{ path: '', hash: '#gig-description' }" @click="(activeNav = 2)"
                 :class="activeNav === 2 ? 'active' : ''">About the seller</router-link>
@@ -14,7 +14,7 @@
             <!-- <a href="#bottom">About the seller</a>
                 <a href="">Compare packages</a>
                 <a href="">Reviews</a> -->
-            </div>
+        </div>
     </div>
 
     <section class="gig-details flex-grow main-layout" :style="{ marginTop: stickyNav ? '51px' : '0' }">
@@ -23,6 +23,7 @@
                 <gig-overview id="gig-overview" :gig="gig" />
                 <gig-description id="gig-description" :gig="gig" />
                 <about-seller id="about-seller" v-if="gig" :owner="gig.owner" />
+                <h3 class="reviews-header">Reviews</h3>
                 <details-review id="gigoverview" v-if="gig?.reviews" :gig="gig" />
                 <div style="height:200px"></div>
             </div>

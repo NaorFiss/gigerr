@@ -56,16 +56,11 @@
 export default {
     data() {
         return {
-            filterBy: {
-                title: '',
-                tag: '',
+            filterBy: {  
                 min: null,
                 max: null,
                 delivery: null,
             },
-            
-            
-
         }
     },
     computed: {
