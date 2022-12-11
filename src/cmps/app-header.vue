@@ -16,7 +16,7 @@
             <img v-else class="logo" src="@/assets/black-logo.svg" alt="">
           </span>
         </router-link>
-        <gig-filter v-if="!atHome() || stickyNav && atHome()" :atExplore="'atExplore'" @setFilter="setFilter" />
+        <gig-filter v-if="!atHome() || secondStickyNav && atHome()" :atExplore="'atExplore'" @setFilter="setFilter" />
       </div>
       <nav :class="!stickyNav && atHome() ? 'white-links' : ''">
         <router-link to="/explore" @click="exploreGo">Explore</router-link>
@@ -38,7 +38,7 @@
       </nav>
     </header>
     <div class="second-header flex border-bottom" :class="atHome() ? 'atHome , second-header-home' : 'atExplore' , 
-      stickyNav ? 'second-header-sticky' : ''" >
+      secondStickyNav ? 'second-header-sticky' : ''" >
       <router-link to="/explore" @click="setTagFilter('Website Design')">Website
         Design</router-link>
       <router-link to="/explore" @click="setTagFilter('WordPress')">WordPress</router-link>
@@ -64,6 +64,8 @@ export default {
     return {
       headerObserver: null,
       stickyNav: false,
+      headerSecondObserver: null,
+      secondStickyNav:false,
     }
   },
   computed: {
@@ -83,6 +85,11 @@ export default {
         this.stickyNav = entry.isIntersecting ? false : true;
       })
     },
+    onSecondHeaderObserved(entries) {
+      entries.forEach((entry) => {
+        this.secondStickyNav = entry.isIntersecting ? false : true;
+      })
+    },
     setFilter(filterBy) {
       this.$router.push({ name: 'gig-app', query: { ...filterBy } })
       // this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
@@ -94,7 +101,6 @@ export default {
       this.$store.dispatch({ type: 'logout' })
     },
     setTagFilter(tag) {
-      console.log(tag);
       var filterBy = {}
       filterBy.tag = tag
       this.setFilter(filterBy)
@@ -103,8 +109,13 @@ export default {
   mounted() {
     this.headerObserver = new IntersectionObserver(this.onHeaderObserved, {
       rootMargin: "0px 0px 0px",
-    });
-    this.headerObserver.observe(this.$refs.header);
+    })
+    this.headerObserver.observe(this.$refs.header)
+
+    this.headerSecondObserver = new IntersectionObserver(this.onSecondHeaderObserved, {
+      rootMargin: "150px 0px 0px",
+    })
+    this.headerSecondObserver.observe(this.$refs.header)
   },
   components: {
     gigFilter

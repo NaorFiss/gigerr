@@ -1,17 +1,17 @@
 <template>
-    <pre>{{ gig }}</pre>
+    <!-- <pre>{{ gig }}</pre> -->
+    <h3 class="reviews-header">Reviews</h3>
     <div v-if=gig class="details-review flex column mb-24" v-for="review in gig.reviews">
 
         <!-- <div class="user-img-container"> -->
         <!-- </div> -->
-        <h3 class="reviews-header">Reviews</h3>
         <div class="flex review-user-details">
             <img class="user-img" :src="review.userImgUrl" />
             <div class="flex column space">
                 <!-- <p class="user-review-name fs14 mac-bold black">{{ likedByUsers.username }}</p> -->
                 <div class="user-review-country flex">
                     <img class="country-flag" :src="review.countryFlag" />
-                    <p class="country-name">review.countryName</p>
+                    <p class="country-name">{{review.countryName}}</p>
                 </div>
             </div>
         </div>

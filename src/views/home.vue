@@ -60,6 +60,7 @@
 import appHero from '../cmps/app-hero.vue'
 import gigFilter from '../cmps/gig-filter.vue'
 import imgHero from '../cmps/img-hero.vue'
+import imgUrl from '@/imgs/home-img/slider1.jpg'
 
 export default {
 
@@ -92,7 +93,7 @@ export default {
     gigsUrl() {
       return [
         {
-          src: './src/imgs/home-img/slider1.jpg',
+          src: imgUrl,
           p: 'Build your brand',
           title: 'Logo Design'
         },

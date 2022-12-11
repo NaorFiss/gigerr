@@ -14,7 +14,7 @@
         <el-table-column prop="gig.price" label="Total" width="100">
             <template #default="scope"> $ {{ scope.row.gig.price }}</template>
         </el-table-column>
-        <el-table-column prop="status" label="Status" width="105" class="last-col">
+        <el-table-column v-if="!buyerProfile" prop="status" label="Status" width="105" class="last-col">
             <template #default="scope">
                 <el-dropdown trigger="click" >
                 <button :class="orderStatus(scope.row.status)">
@@ -30,11 +30,11 @@
             </el-dropdown>
             </template>
         </el-table-column>
-        <!-- <el-table-column prop="status" label="Status" width="105" class="last-col">
-            <template #default="scope"><button @click="approveOrder(scope.row)"
-                    :class="orderStatus(scope.row.status)">{{ scope.row.status }}
-                </button></template>
-        </el-table-column> -->
+        <el-table-column v-else prop="status" label="Status" width="105" class="last-col">
+            <template #default="scope">
+                <button :class="orderStatus(scope.row.status)" class="cursor-default">{{ scope.row.status }}</button>
+            </template>
+        </el-table-column>
     </el-table>
 </template>
   
