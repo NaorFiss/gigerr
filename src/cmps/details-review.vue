@@ -45,7 +45,7 @@ export default {
     },
     computed: {
         rate() {
-            return Math.trunc(+this.gig.reviews[0].rate)
+            return Math.trunc(+review.rate)
         },
         date() {
             return Math.trunc((+this.gig.reviews[0].rate) - 2)
