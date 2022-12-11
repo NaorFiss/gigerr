@@ -15,8 +15,8 @@
         </div>
       </div>
 
-      <div class="main-layout">
-        <div class="Trusted-by mb-24 flex">
+      <div class="main-layout ">
+        <div class="Trusted-by mb-24 flex full">
           <p>Trusted By:</p>
           <img v-for="img in trustedByImg" :src="img" alt="">
         </div>

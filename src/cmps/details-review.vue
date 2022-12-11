@@ -15,7 +15,7 @@
         </div>
         <section class="main-details-review flex column">
             <div class="performance-grade flex">
-                <p class="clr-6 inline fs14"><span class="orange "><span v-for="n in  Math.round(review.rate)"
+                <p class="clr-6 inline fs14"><span class="orange mac-bold"><span v-for="n in  Math.round(review.rate)"
                             class="star-img">★</span> {{
                                     review.rate
                             }}</span></p>

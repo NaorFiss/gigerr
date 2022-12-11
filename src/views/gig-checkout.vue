@@ -9,7 +9,7 @@
                         <img class="checkout-img" :src="gig.imgUrl[0]" alt="">
                         <div>
                             <p>{{ gig.title }}</p>
-                            <p class="clr-6 inline fs14"><span class="orange flex3"><span v-for="n in rate"
+                            <p class="clr-6 inline fs14 "><span class="orange flex3 mac-bold"><span v-for="n in rate"
                                         class="star-img">
                                         ★</span>{{ gig.owner.rate }}</span>(24)</p>
                         </div>
@@ -65,7 +65,6 @@ export default {
     },
     async created() {
         this.gig = await this.$store.dispatch({ type: 'getGigById', _id: this.$route.params._id })
-        console.log(this.gig);
     },
     computed: {
         rate() {
@@ -74,7 +73,6 @@ export default {
     },
     methods: {
         async makeOrder() {
-            console.log(this.gig.owner);
             var order = {
                 seller: { _id: this.gig.owner._id, fullname: this.gig.owner.fullname },
                 gig: {
@@ -91,7 +89,8 @@ export default {
                 console.log(err)
                 showErrorMsg('Cannot add gig msg')
             }
-            console.log('buying succseed');
+            let userId = this.$store.getters.loggedinUser._id 
+            this.$router.push('/user/' + userId )
         }
     },
 }
