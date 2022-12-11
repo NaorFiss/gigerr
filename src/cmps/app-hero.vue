@@ -9,6 +9,12 @@
 </template>
 
 <script>
+// import heroImg1 from '@/imgs/hero-img/hero1.jpg'
+// import heroImg2 from '@/imgs/hero-img/hero2.jpg'
+// import heroImg3 from '@/imgs/hero-img/hero3.jpg'
+// import heroImg4 from '@/imgs/hero-img/hero4.jpg'
+// import heroImg5 from '@/imgs/hero-img/hero5.jpg'
+
 export default {
     name: 'hero',
     mounted() {
@@ -31,7 +37,14 @@ export default {
                 'Shoemaker and Designer',
                 'Bar Owner',
                 'Video Editor',
-            ]
+            ],
+            // imgs: [
+            //     heroImg1,
+            //     heroImg2,
+            //     heroImg3,
+            //     heroImg4,
+            //     heroImg5,
+            // ]
         }
     },
     methods: {
@@ -46,9 +59,11 @@ export default {
     },
     computed: {
         getImgUrl() {
-            return `src/imgs/hero-img/hero${this.idx}.jpg`
+            return new URL(`../imgs/hero-img/hero${this.idx }.jpg`, import.meta.url).href
         },
+        // getImgUrl() {
+        //     return this.imgs[this.idx -1]  
+        // },
     }
 }
 </script>
- 
