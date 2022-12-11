@@ -102,15 +102,15 @@ header {
         flex-direction: column;
 
         >* {
-            align-self: flex-start;
+            // align-self: flex-start;
             width: 100%;
             font-size: 16px;
-            color: #74767e !important;
+            color: #74767e ;
             width: 100%;
             padding-inline: 0;
 
             &:hover {
-                color: $clr3 !important;
+                color: $clr3 ;
             }
         }
     }

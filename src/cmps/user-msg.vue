@@ -1,6 +1,7 @@
 <template>
   <div  class="alert content" :class="alive ? alertClass : ''">
-    {{ msg?.txt }}
+    {{ msg?.txt }} 
+    <button @click="(alive = false)">X</button>
   </div>
 </template>
 
@@ -21,9 +22,9 @@ export default {
       var delay = msg.delay || 2400
       this.alive = true
       // window.scrollTo({ top: 0, behavior: 'smooth' });
-      setTimeout(() => {
-        this.alive = false
-      }, delay)
+      // setTimeout(() => {
+      //   this.alive = false
+      // }, delay)
     })
   },
   computed: {

@@ -86,8 +86,7 @@ export default {
             }
             try {
                 await this.$store.dispatch({ type: 'addOrder', order })
-                showSuccessMsg('You got the gig!')
-                console.log('hee');
+                showSuccessMsg('You got the gig! Please wait for the seller to confirm your order')
             } catch (err) {
                 console.log(err)
                 showErrorMsg('Cannot add gig msg')

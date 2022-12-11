@@ -157,7 +157,7 @@
         }
     }
 
-    .el-table {
+    .order-table {
 
         // min-width: 900px;
 
@@ -190,6 +190,11 @@
         .progress-btn {
             background-color: #ffbe5b;
         }
+
+        .rejected-btn {
+            background-color: rgb(199, 4, 4);
+        }
+     
     }
 
     .create-new-gig {
@@ -223,6 +228,48 @@
         }
     }
 }
+.order-dropdown{
+    gap: 10px;
+    padding: 10px;
+    >*{
+        padding-inline: 10px !important;
+        max-height: 20px;
+        color: white !important;
+        text-align: center;
+    }
+}
+    .table-btn {
+        border-radius: 5px;
+        min-width: 80px;
+        padding: 3px;
+        border: 0;
+        &:hover{
+            background-color: #5f5e5d ;
+        }
+    }
+
+    .progress-btn {
+        background-color: #ffbe5b;
+        &:hover{
+            color: #f7f7f7 !important;
+            background-color: #ebab4d !important;
+        }
+    }
+    .green-btn{
+        
+        &:hover{
+            color: #f7f7f7 !important;
+            background-color: $clr3 !important;
+        }
+    }
+    
+    .rejected-btn {
+        background-color: rgb(199, 4, 4);
+        &:hover{
+            color: #f7f7f7 !important;
+            background-color: rgb(141, 2, 2) !important;
+        }
+    }
 
 .income-table {
     border: 1px solid $clr5;
@@ -232,14 +279,16 @@
     margin-inline: 0px;
     padding-inline: 0px;
 
-    p{
+    p {
         color: rgb(158, 158, 158);
         font-size: 14px;
     }
-    h3{
+
+    h3 {
         font-size: 24px;
         color: #323336;
     }
+
     >* {
         flex: 1;
         text-align: center;

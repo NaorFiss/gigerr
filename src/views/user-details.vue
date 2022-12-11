@@ -46,7 +46,7 @@
           <ul class="flex income-table">
             <li>
               <p>Net Income</p>
-              <h3>$90.00</h3>
+              <h3>${{netIncome}}.00</h3>
             </li>
             <li>
               <p>Widthrawn</p>
@@ -54,11 +54,11 @@
             </li>
             <li>
               <p>Available For Widthrawn</p>
-              <h3>$40.00</h3>
+              <h3>${{netIncome - 50}}.00</h3>
             </li>
             <li>
               <p>Order Pending</p>
-              <h3>1</h3>
+              <h3>{{pendingOrders}}</h3>
             </li>
           </ul>
         </div>
@@ -67,7 +67,7 @@
       </div>
 
       <div v-if="pageToShow === 'gigs'" class="order-table-container">
-        <h1 class="mb-24">Your Buyer orders</h1>
+        <h1 class="mb-24">Your orders</h1>
         <ordersTable :orders="buyerOrders" />
       </div>
     </section>
@@ -126,8 +126,20 @@ export default {
     whosProfile() {
       console.log(this.user.fullname);
       return this.isYourProfile ? 'My Active Gigs' : this.user.fullname + `'s Gigs`
+    },
+    netIncome(){
+      var complitedOrders = this.sellerOrders.filter(order => order.status === 'complited')
+      var income = complitedOrders.reduce((acc , order) => acc+ order.gig.price ,0)
+      return income
+    },
+    pendingOrders(){
+      var complitedOrders = this.sellerOrders.filter(order => order.status === 'pending')
+      return complitedOrders.length
     }
   },
+  methods:{
+    
+  },  
   components: {
     aboutSeller,
     gigList,

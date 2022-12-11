@@ -15,12 +15,25 @@
             <template #default="scope"> $ {{ scope.row.gig.price }}</template>
         </el-table-column>
         <el-table-column prop="status" label="Status" width="105" class="last-col">
+            <template #default="scope">
+                <el-dropdown trigger="click" >
+                <button :class="orderStatus(scope.row.status)">
+                    {{scope.row.status }}
+                </button>
+                <template #dropdown>
+                    <el-dropdown-menu class="order-dropdown">
+                        <el-dropdown-item @click="approveOrder('rejected' ,scope.row)" class="table-btn rejected-btn">rejected</el-dropdown-item>
+                        <el-dropdown-item @click="approveOrder('in progress' ,scope.row)" class="table-btn progress-btn">in progress</el-dropdown-item>
+                        <el-dropdown-item @click="approveOrder('complited' ,scope.row)" class="table-btn green-btn">complited</el-dropdown-item>
+                    </el-dropdown-menu>
+                </template>
+            </el-dropdown>
+            </template>
+        </el-table-column>
+        <!-- <el-table-column prop="status" label="Status" width="105" class="last-col">
             <template #default="scope"><button @click="approveOrder(scope.row)"
                     :class="orderStatus(scope.row.status)">{{ scope.row.status }}
                 </button></template>
-        </el-table-column>
-        <!-- <el-table-column prop="" width="70">
-            <template #default="scope">edit</template>
         </el-table-column> -->
     </el-table>
 </template>
@@ -42,10 +55,22 @@ export default {
         }
     },
     methods: {
-        async approveOrder(order) {
+        // async approveOrder(order) {
+        //     if (this.$store.getters.loggedinUser._id !== order.seller._id) return console.log('Not YOUR gig!');
+        //     if (order.status === 'complited') return
+        //     order.status = order.status === 'pending' ? 'in progress' : 'complited'
+        //     try {
+        //         await this.$store.dispatch({ type: 'updateOrder', order })
+        //         showSuccessMsg('Thanks!  We will update the buyer')
+        //     } catch (err) {
+        //         console.log(err)
+        //         showErrorMsg('Cannot update')
+        //     }
+        // },
+        async approveOrder(status , order) {
             if (this.$store.getters.loggedinUser._id !== order.seller._id) return console.log('Not YOUR gig!');
-            if (order.status === 'complited') return
-            order.status = order.status === 'pending' ? 'in progress' : 'complited'
+            // if (order.status === 'complited') return
+            order.status = status 
             try {
                 await this.$store.dispatch({ type: 'updateOrder', order })
                 showSuccessMsg('Thanks!  We will update the buyer')
@@ -57,6 +82,7 @@ export default {
         orderStatus(status) {
             if (status === 'pending') return 'table-btn'
             else if (status === 'in progress') return 'table-btn progress-btn'
+            else if(status === 'rejected') return 'rejected-btn table-btn'
             else return 'green-btn table-btn'
         },
     },
