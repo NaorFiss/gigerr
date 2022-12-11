@@ -3,8 +3,8 @@
     <h1 class="black">{{ gig.title }}</h1>
     <div class="seller-details flex align-center ">
       <img class="user-img" :src="gig.owner.imgUrl" />
-      <p @click="userDetails" class="fs14 mac-bold black mini-username">{{ gig.owner.fullname }}</p> 
-      <p class="fs14"><span class="clr-6">|</span>  {{ gig.owner.level }} Seller </p>
+      <p @click="userDetails" class="fs14 mac-bold black mini-username">{{ gig.owner.fullname }}</p>
+      <p class="fs14"><span class="clr-6">|</span> {{ gig.owner.level }} Seller </p>
       <div>
         <p class="clr-6 inline fs14"><span class="orange flex3"><span v-for="n in rate" class="star-img">★</span> {{
             gig.owner.rate
@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     rate() {
-      return Math.trunc(+this.gig.owner.rate)
+      return Math.round(+this.gig.owner.rate)
     },
   },
   methods: {
