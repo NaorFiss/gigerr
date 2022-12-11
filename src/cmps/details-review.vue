@@ -1,15 +1,17 @@
 <template>
-    <div class="details-review flex column mb-24" v-if=gig>
+    <pre>{{ gig }}</pre>
+    <div v-if=gig class="details-review flex column mb-24" v-for="review in gig.reviews">
+
         <!-- <div class="user-img-container"> -->
         <!-- </div> -->
         <h3 class="reviews-header">Reviews</h3>
         <div class="flex review-user-details">
-            <img class="user-img" :src="gig.reviews[0].userImgUrl" />
+            <img class="user-img" :src="review.userImgUrl" />
             <div class="flex column space">
-                <p class="user-review-name fs14 mac-bold black">{{ gig.likedByUsers[0].username }}</p>
+                <!-- <p class="user-review-name fs14 mac-bold black">{{ likedByUsers.username }}</p> -->
                 <div class="user-review-country flex">
-                    <img class="country-flag" :src="gig.reviews[0].countryFlag" />
-                    <p class="country-name">country</p>
+                    <img class="country-flag" :src="review.countryFlag" />
+                    <p class="country-name">review.countryName</p>
                 </div>
             </div>
         </div>
@@ -20,18 +22,9 @@
                 }}</span></p>
                 <p class="review-date inline fs14 "> | {{ date }} days ago</p>
             </div>
-            <div class="review-txt mb-24">
-                I am satisfied with my first experience on fiverr and with mohsinfancy. Communication was good, even
-                though
-                sometimes a
-                bit short and informal. I am happy with the solid design skill, even if nothing extraordinary. You
-                can tell
-                he
-                has his
-                style or template but this is ok, as it fits well with what I was looking for. All in all very good
-                price/performance
-                ratio
-            </div>
+            <p class="review-txt mb-24">
+                {{ review.txt }}
+            </p>
             <section class="helpful-container flex ">
                 <span class="helpful">helpful? </span>
                 <div class="like">👍</div>
