@@ -1,4 +1,4 @@
-import { orderService } from '../services/order.service.local.js'
+import { orderService } from '../services/order.service.js'
 
 export function getActionRemoveOrder(orderId) {
     return {
@@ -31,17 +31,10 @@ export const orderStore = {
     state: {
         orders: [],
         ordersUrl: [],
-        filterBy: {
-            txt: '',
-            price: 0,
-            tag: '',
-        },
-        // userOrders:[],
     },
     getters: {
         orders({ orders }) { return orders },
         ordersUrl({ ordersUrl }) { return ordersUrl },
-        // ordersUrl({ userOrders }) { return userOrders },
     },
     mutations: {
         setOrders(state, { orders }) {
@@ -82,6 +75,7 @@ export const orderStore = {
         },
         async updateOrder(context, { order }) {
             try {
+                console.log(order);
                 order = await orderService.save(order)
                 context.commit(getActionUpdateOrder(order))
                 return order

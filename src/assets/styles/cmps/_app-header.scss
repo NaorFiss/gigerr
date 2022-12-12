@@ -39,7 +39,7 @@ header {
         padding: 5px 0;
     }
 
-    nav>* {
+    nav > *:not(:last-child){
         margin-inline: 10px;
         line-height: 2;
     }

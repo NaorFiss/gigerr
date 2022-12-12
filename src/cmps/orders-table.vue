@@ -12,7 +12,7 @@
         <el-table-column prop="gig.title" label="Gig" width="300" />
         <el-table-column prop="createdAt" label="Date" width="180" />
         <el-table-column prop="gig.price" label="Total" width="100">
-            <template #default="scope"> $ {{ scope.row.gig.price }}</template>
+            <template #default="scope">${{ scope.row.gig.price }}</template>
         </el-table-column>
         <el-table-column v-if="!buyerProfile" prop="status" label="Status" width="105" class="last-col">
             <template #default="scope">
@@ -41,7 +41,6 @@
 <script >
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 export default {
-
     props: {
         orders: Array
     },
@@ -51,12 +50,12 @@ export default {
     },
     computed: {
         buyerProfile() {
-            return this.$store.getters.loggedinUser._id === this.orders[0].buyer._id
+            return this.$store.getters.loggedinUser?._id === this.orders[0].buyer?._id
         }
     },
     methods: {
         async approveOrder(status , order) {
-            if (this.$store.getters.loggedinUser._id !== order.seller._id) return console.log('Not YOUR gig!');
+            if (this.$store.getters.loggedinUser._id !== order.seller._id) return console.log('Not YOUR gig!')
             order.status = status 
             try {
                 await this.$store.dispatch({ type: 'updateOrder', order })
