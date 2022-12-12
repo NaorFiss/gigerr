@@ -22,7 +22,7 @@
                 <h3 id="gig-review" class="reviews-header">Reviews</h3>
                 <!-- <review-app></review-app> -->
                 <details-review v-if="gig?.reviews" :gig="gig" />
-                <div style="height:200px"></div>
+                <div style="height:100px"></div>
             </div>
             <order-details class="order-details" :gig="gig" :class="stickyNav ? 'order-sticky' : ''" />
         </div>

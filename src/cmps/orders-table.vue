@@ -68,7 +68,7 @@ export default {
         orderStatus(status) {
             if (status === 'Pending') return 'table-btn'
             else if (status === 'In progress') return 'table-btn progress-btn'
-            else if(status === 'Rejected') return 'Rejected-btn table-btn'
+            else if(status === 'Rejected') return 'rejected-btn table-btn'
             else return 'green-btn table-btn'
         },
     },
