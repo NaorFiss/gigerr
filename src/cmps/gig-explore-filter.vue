@@ -1,6 +1,6 @@
 <template>
     <h1 class="txt-black-tag" v-if="$route.query.title">Results for "{{ $route.query.title }}"</h1>
-    <h1 class="txt-black-tag" v-else-if="$route.query.tag">{{ $route.query.tag }}</h1>
+    <h1 class="txt-black-tag" v-else-if="$route.query.tag">{{ writeTag($route.query.tag) }}</h1>
     <h1 class="txt-black-tag" v-else>Explore</h1>
     <div class="advanced-filter">
         <div class="advanced-input">
@@ -73,7 +73,7 @@ export default {
         }
     },
     created() {
-        
+
         this.filterBy = { ...this.$route.query }
         this.filter()
     },
@@ -104,6 +104,13 @@ export default {
             this.filterBy.max = ''
             this.filter()
         },
+        writeTag(tag) {
+            var tagWs = tag.split(' ')
+            for (let i = 0; i < tagWs.length; i++) {
+                tagWs[i] = tagWs[i][0].toUpperCase() + tagWs[i].substr(1);
+            }
+            return tagWs.join(' ')
+        }
     },
     watch: {
         $route: {
