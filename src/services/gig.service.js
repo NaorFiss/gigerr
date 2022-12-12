@@ -23,9 +23,8 @@ window.cs = gigService
 
 async function query(filterBy = { txt: '', tag: 0 }) {
     return httpService.get(STORAGE_KEY, filterBy)
-
-
 }
+
 function getById(gigId) {
     // return storageService.get(STORAGE_KEY, gigId)
     return httpService.get(`gig/${gigId}`)

@@ -84,6 +84,41 @@
         .helpful-container {
             gap: 10px;
         }
+
+        position: relative;
+
+        .like {
+            cursor: pointer;
+            padding-inline-start: 20px;
+            position: relative;
+            span{
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 2px;
+                    left: 0;
+                    width: 14px;
+                    height: 14px;
+                    background: url("@/assets/svg/thumb-up.svg") center / contain no-repeat;
+                }
+            }
+        }
+        .unlike {
+            cursor: pointer;
+            padding-inline-start: 20px;
+            position: relative;
+            span{
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 2px;
+                    left: 0;
+                    width: 14px;
+                    height: 14px;
+                    background: url("@/assets/svg/thumb-up.svg") center / contain no-repeat;
+                }
+            }
+        }
     }
 
     .seller-info> :last-child {

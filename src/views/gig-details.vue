@@ -20,8 +20,9 @@
                 <gig-description id="gig-description" :gig="gig" />
                 <about-seller id="about-seller" v-if="gig" :owner="gig.owner" />
                 <h3 id="gig-review" class="reviews-header">Reviews</h3>
+                <!-- <review-app></review-app> -->
                 <details-review v-if="gig?.reviews" :gig="gig" />
-                <div style="height:200px"></div>
+                <div style="height:100px"></div>
             </div>
             <order-details class="order-details" :gig="gig" :class="stickyNav ? 'order-sticky' : ''" />
         </div>
@@ -35,6 +36,7 @@ import gigDescription from "../cmps/gig-description.vue"
 import aboutSeller from "../cmps/about-seller.vue"
 import orderDetails from "../cmps/order-details.vue"
 import detailsReview from "../cmps/details-review.vue"
+import reviewApp from "./review-app.vue"
 import { gigService } from "../services/gig.service.js"
 export default {
     data() {
@@ -72,7 +74,8 @@ export default {
         aboutSeller,
         gigDescription,
         orderDetails,
-        detailsReview
+        detailsReview,
+        reviewApp
     },
 }
 </script>

@@ -183,10 +183,18 @@
     border-bottom: 1px solid $clr5;
 }
 
-.margin-32{
+.margin-32 {
     margin-inline: 32px;
 }
 
-.cursor-default{
+.cursor-default {
     cursor: default;
+}
+
+.pad-32 {
+    padding-inline: 32px;
+}
+
+.pad-block-32 {
+    padding-block: 32px;
 }
