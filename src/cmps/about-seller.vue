@@ -13,7 +13,7 @@
                 <button class="btn white-btn">Contact Me</button>
             </div>
         </div>
-        <div class="seller-desc flex column b-pad-25">
+        <div class="seller-desc flex column b-pad-25 mb-24">
             <div class="seller-data flex wrap b-pad-25">
                 <div class="from">
                     <p class="seller-header">From</p>
