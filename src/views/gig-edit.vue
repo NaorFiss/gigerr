@@ -5,11 +5,26 @@
         <p v-if="!loggedInUser">Log-in before adding a gig</p>
         <form class="add-gig-container flex column gap-16" v-if="loggedInUser" @submit.prevent="addGig()">
             <div v-if="!secongPage" class="flex column gap-16 add-gig-inside-container">
-                <input type="text" placeholder="Gigs name" v-model="gigToAdd.title" />
-                <input type="text" placeholder="Gigs Description" v-model="gigToAdd.description" />
-                <input type="text" placeholder="Gigs price" v-model="gigToAdd.price.basic" />
-                <input type="text" placeholder="Days to deliver" v-model="gigToAdd.daysToMake" />
-                <input type="text" placeholder="Add tags" v-model="gigToAdd.tags" />
+                <div class="flex align-center gap-16">
+                    <h3>Title</h3>
+                    <input type="text" placeholder="Gigs name" v-model="gigToAdd.title" />
+                </div>
+                <div class="flex align-center gap-16">
+                    <h3>Description</h3>
+                    <input type="text" placeholder="Gigs Description" v-model="gigToAdd.description" />
+                </div>
+                <div class="flex align-center gap-16">
+                    <h3>Price</h3>
+                    <input type="text" placeholder="Gigs price" v-model="gigToAdd.price.basic" />
+                </div>
+                <div class="flex align-center gap-16">
+                    <h3>Days To Make</h3>
+                    <input type="text" placeholder="Days to deliver" v-model="gigToAdd.daysToMake" />
+                </div>
+                <div class="flex align-center gap-16">
+                    <h3>Tags</h3>
+                    <input type="text" placeholder="Add tags" v-model="gigToAdd.tags" />
+                </div>
                 <button @click="(secongPage = !secongPage)" class="btn green-btn ">Next</button>
             </div>
             <div v-else class="flex column gap-16 add-gig-inside-container">

@@ -4,15 +4,23 @@
     gap: 16px;
     padding: 32px;
     flex: 1;
-    
-    input{
+
+    form {
+        >* {
+            width: auto !important;
+        }
+    }
+
+    input {
         color: rgb(56, 56, 56);
     }
-    // height: ;
+
     position: relative;
-    button{
+
+    button {
         width: 200px;
     }
+
     .add-gig-container {
         background-color: white;
         padding-inline: 32px;
@@ -20,21 +28,26 @@
         border-radius: 7px;
         border: 1px solid $clr5;
         align-items: center;
-        // overflow: hidden;
-        width: 400px;
 
-        .add-gig-inside-container{
+        .add-gig-inside-container {
             align-items: center;
+
+            >*:not(button) {
+                width: 100%;
+                justify-content: space-between;
+            }
         }
     }
-    .svg-upload{
+
+    .svg-upload {
         width: 100px;
         height: 50px;
     }
+
     .drag {
         color: lightgray;
     }
-    
+
     .drag-zone {
         outline: 2px dashed lightgray;
     }

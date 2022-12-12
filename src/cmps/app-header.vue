@@ -26,6 +26,7 @@
             <router-link to="/explore" @click="exploreGo">Explore</router-link>
             <!-- <router-link to="/review">Reviews</router-link> -->
             <!-- <router-link to="/chat">Chat</router-link> -->
+            <router-link v-if="loggedInUser" to="/gig/edit">Become a seller</router-link>
             <router-link v-if="!loggedInUser" to="/login">Sign In</router-link>
             <router-link v-if="!loggedInUser" class="join" to="/signup">Join</router-link>
             <el-dropdown v-if="loggedInUser" trigger="click" size="large">

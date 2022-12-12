@@ -49,7 +49,7 @@ export default {
   },
   computed: {
     uploadMsg() {
-      if (this.imgUrl.length) return 'Upload Another?'
+      if (this.imgUrl.length) return 'Upload Another Image?'
       return this.isUploading ? 'Uploading....' : 'Upload Image'
     }
   },
