@@ -1,5 +1,6 @@
 <template>
     <div class="main-layout flex-grow">
+<<<<<<< HEAD
         <section class="checkout-container flex column margin-0">
             <h2 class="mb-24">Order details</h2>
             <div v-if="gig" class="flex gap-16">
@@ -21,6 +22,20 @@
                         <div class="flex space mb-24">
                             <p class="mac-bold">Gig delivery in {{ gig.daysToMake }} Days</p>
                             <p>US${{ gig.price.basic }}</p>
+=======
+    <section class="checkout-container flex column margin-0">
+        <h2 class="mb-24">Order details</h2>
+        <div v-if="gig" class="flex gap-16">
+            <div class="flex column checkout-summary ">
+                <div class="flex space checkout-first-floor">
+                    <div class="flex space">
+                        <img class="checkout-img" :src="gig.imgUrl[0]" alt="">
+                        <div>
+                            <p>{{ gig.title }}</p>
+                            <p class="clr-6 inline fs14 "><span class="orange flex3 mac-bold"><span v-for="n in rate"
+                                        class="star-img">
+                                        ★</span>{{ gig.owner.rate }}</span>(24)</p>
+>>>>>>> 812dc4f1d9f46f178a84b2b76d2299ab00473a3e
                         </div>
                     </div>
                 </div>
@@ -65,7 +80,6 @@ export default {
     },
     async created() {
         this.gig = await this.$store.dispatch({ type: 'getGigById', _id: this.$route.params._id })
-        console.log(this.gig);
     },
     computed: {
         rate() {
@@ -90,6 +104,11 @@ export default {
                 console.log(err)
                 showErrorMsg('Cannot add gig msg')
             }
+<<<<<<< HEAD
+=======
+            let userId = this.$store.getters.loggedinUser._id 
+            this.$router.push('/user/' + userId )
+>>>>>>> 812dc4f1d9f46f178a84b2b76d2299ab00473a3e
         }
     },
 }

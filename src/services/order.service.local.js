@@ -65,7 +65,7 @@ async function save(order) {
         order._id = utilService.makeId()
         order.buyer = { _id: user._id, imgUrl: user.imgUrl, fullname: user.fullname }
         order.createdAt = new Date().toDateString(),
-            order.status = 'pending'
+            order.status = 'Pending'
         // order.owner.orders.push({ _id: order._id })
         // userService.update(order.owner)
         savedOrder = await storageService.post(STORAGE_KEY, order)

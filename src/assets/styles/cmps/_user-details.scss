@@ -229,10 +229,12 @@
     }
 }
 .order-dropdown{
+    background-color: #f7f7f7;
     gap: 10px;
     padding: 10px;
+    width: 100px !important;
     >*{
-        padding-inline: 10px !important;
+        padding-inline: 3px !important;
         max-height: 20px;
         color: white !important;
         text-align: center;
@@ -240,9 +242,10 @@
 }
     .table-btn {
         border-radius: 5px;
-        min-width: 80px;
-        padding: 3px;
+        width: 80px !important;
+        // padding: 3px;
         border: 0;
+        font-size: 13px !important;
         &:hover{
             background-color: #5f5e5d ;
         }
@@ -251,14 +254,14 @@
     .progress-btn {
         background-color: #ffbe5b;
         &:hover{
-            color: #f7f7f7 !important;
+            color: white !important;
             background-color: #ebab4d !important;
         }
     }
     .green-btn{
         
         &:hover{
-            color: #f7f7f7 !important;
+            color: white !important;
             background-color: $clr3 !important;
         }
     }
@@ -266,7 +269,7 @@
     .rejected-btn {
         background-color: rgb(199, 4, 4);
         &:hover{
-            color: #f7f7f7 !important;
+            color: white !important;
             background-color: rgb(141, 2, 2) !important;
         }
     }

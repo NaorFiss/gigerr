@@ -7,7 +7,7 @@
                 <p @click="userDetails" class="fs16 mac-bold  mini-username">{{ owner.fullname }}</p>
                 <p>Quality is more important than quantity</p>
                 <div>
-                    <p class="clr-6 inline fs14"><span class="orange flex3"><span v-for="n in rate"
+                    <p class="clr-6 inline fs14"><span class="orange flex3 mac-bold"><span v-for="n in rate"
                                 class="star-img">★</span> {{ owner.rate }}</span> (24)</p>
                 </div>
                 <button class="btn white-btn">Contact Me</button>
@@ -22,7 +22,7 @@
                 </div>
                 <div class="since">
                     <p class="seller-header">Member since</p>
-                    <h3>dec 2010</h3>
+                    <h3>Dec 2010</h3>
                     <!-- <h3>{{ owner.memberSince }}</h3> -->
                 </div>
                 <div class="from">

@@ -26,7 +26,7 @@
                     </el-dropdown>
                 </div>
                 <router-link class="title" :to="'/gig/' + gig._id">{{ gig.title }}</router-link>
-                <p v-if="gig.owner" class="clr-6 fs14"><span class="orange ">★{{ gig.owner.rate }}</span> (24)</p>
+                <p v-if="gig.owner" class="clr-6 fs14 "><span class="orange mac-bold">★{{ gig.owner.rate }}</span> (24)</p>
             </article>
             <div class="flex space align-center li-bottom">
                 <p>❤</p>
@@ -73,6 +73,9 @@ export default {
                 showErrorMsg('Cannot remove gig')
             }
         },
+        imgUrl(){
+            console.log(this.gig.owner.imgUrl)
+        }
     },
     components: {
         imgCard

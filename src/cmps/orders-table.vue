@@ -1,10 +1,10 @@
 <template>
     <p v-if="!orders.length">There are no gigs yet</p>
     <el-table v-else class="order-table" :data="orders" stripe style="width: 100%">
-        <el-table-column class="order-img" v-if="buyerProfile" prop="buyer.imgUrl" label="" width="100">
+        <el-table-column class="order-img" v-if="buyerProfile" prop="buyer.imgUrl" label="" width="80">
             <template #default="scope"><img class="order-img" :src="scope.row.gig.img" /></template>
         </el-table-column>
-        <el-table-column v-else prop="buyer.imgUrl" width="100">
+        <el-table-column v-else prop="buyer.imgUrl" width="80">
             <template #default="scope"><img :src="scope.row.buyer.imgUrl" /></template>
         </el-table-column>
         <el-table-column v-if="!buyerProfile" prop="buyer.fullname" label="Buyer" width="100" />
@@ -14,7 +14,7 @@
         <el-table-column prop="gig.price" label="Total" width="100">
             <template #default="scope"> $ {{ scope.row.gig.price }}</template>
         </el-table-column>
-        <el-table-column prop="status" label="Status" width="105" class="last-col">
+        <el-table-column v-if="!buyerProfile" prop="status" label="Status" width="105" class="last-col">
             <template #default="scope">
                 <el-dropdown trigger="click" >
                 <button :class="orderStatus(scope.row.status)">
@@ -24,17 +24,17 @@
                     <el-dropdown-menu class="order-dropdown">
                         <el-dropdown-item @click="approveOrder('rejected' ,scope.row)" class="table-btn rejected-btn">rejected</el-dropdown-item>
                         <el-dropdown-item @click="approveOrder('in progress' ,scope.row)" class="table-btn progress-btn">in progress</el-dropdown-item>
-                        <el-dropdown-item @click="approveOrder('complited' ,scope.row)" class="table-btn green-btn">complited</el-dropdown-item>
+                        <el-dropdown-item @click="approveOrder('completed' ,scope.row)" class="table-btn green-btn">completed</el-dropdown-item>
                     </el-dropdown-menu>
                 </template>
             </el-dropdown>
             </template>
         </el-table-column>
-        <!-- <el-table-column prop="status" label="Status" width="105" class="last-col">
-            <template #default="scope"><button @click="approveOrder(scope.row)"
-                    :class="orderStatus(scope.row.status)">{{ scope.row.status }}
-                </button></template>
-        </el-table-column> -->
+        <el-table-column v-else prop="status" label="Status" width="105" class="last-col">
+            <template #default="scope">
+                <button :class="orderStatus(scope.row.status)" class="cursor-default">{{ scope.row.status }}</button>
+            </template>
+        </el-table-column>
     </el-table>
 </template>
   
@@ -55,21 +55,8 @@ export default {
         }
     },
     methods: {
-        // async approveOrder(order) {
-        //     if (this.$store.getters.loggedinUser._id !== order.seller._id) return console.log('Not YOUR gig!');
-        //     if (order.status === 'complited') return
-        //     order.status = order.status === 'pending' ? 'in progress' : 'complited'
-        //     try {
-        //         await this.$store.dispatch({ type: 'updateOrder', order })
-        //         showSuccessMsg('Thanks!  We will update the buyer')
-        //     } catch (err) {
-        //         console.log(err)
-        //         showErrorMsg('Cannot update')
-        //     }
-        // },
         async approveOrder(status , order) {
             if (this.$store.getters.loggedinUser._id !== order.seller._id) return console.log('Not YOUR gig!');
-            // if (order.status === 'complited') return
             order.status = status 
             try {
                 await this.$store.dispatch({ type: 'updateOrder', order })

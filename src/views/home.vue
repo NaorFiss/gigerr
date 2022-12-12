@@ -15,8 +15,8 @@
         </div>
       </div>
 
-      <div class="main-layout">
-        <div class="Trusted-by mb-24 flex">
+      <div class="main-layout ">
+        <div class="Trusted-by mb-24 flex full">
           <p>Trusted By:</p>
           <img v-for="img in trustedByImg" :src="img" alt="">
         </div>
@@ -60,6 +60,14 @@
 import appHero from '../cmps/app-hero.vue'
 import gigFilter from '../cmps/gig-filter.vue'
 import imgHero from '../cmps/img-hero.vue'
+import imgSlider1 from '@/imgs/home-img/slider1.jpg'
+import imgSlider2 from '@/imgs/home-img/slider2.jpg'
+import imgSlider3 from '@/imgs/home-img/slider3.jpg'
+import imgSlider4 from '@/imgs/home-img/slider4.jpg'
+import imgSlider5 from '@/imgs/home-img/slider5.jpg'
+import imgSlider6 from '@/imgs/home-img/slider6.jpg'
+import imgSlider7 from '@/imgs/home-img/slider7.jpg'
+import imgSlider8 from '@/imgs/home-img/slider8.jpg'
 
 export default {
 
@@ -92,42 +100,42 @@ export default {
     gigsUrl() {
       return [
         {
-          src: './src/imgs/home-img/slider1.jpg',
+          src: imgSlider1,
           p: 'Build your brand',
           title: 'Logo Design'
         },
         {
-          src: './src/imgs/home-img/slider2.jpg',
+          src: imgSlider2,
           p: 'Custiomize your site',
           title: 'WordPress'
         },
         {
-          src: './src/imgs/home-img/slider3.jpg',
+          src: imgSlider3,
           p: 'Share your message',
           title: 'Voice Over'
         },
         {
-          src: './src/imgs/home-img/slider4.jpg',
+          src: imgSlider4,
           p: 'Engage your audience',
           title: 'Video Explainer'
         },
         {
-          src: './src/imgs/home-img/slider5.jpg',
+          src: imgSlider5,
           p: 'Unlock growth online',
           title: 'SEO'
         },
         {
-          src: './src/imgs/home-img/slider6.jpg',
+          src: imgSlider6,
           p: 'Color your dreams',
           title: 'Illustration'
         },
         {
-          src: './src/imgs/home-img/slider7.jpg',
+          src: imgSlider7,
           p: 'Go global',
           title: 'Translation'
         },
         {
-          src: './src/imgs/home-img/slider8.jpg',
+          src: imgSlider8,
           p: 'Learn your business',
           title: 'Data entry'
         },

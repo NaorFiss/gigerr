@@ -45,7 +45,7 @@
         <div>
           <ul class="flex income-table">
             <li>
-              <p>Net Income</p>
+              <p>Monthly Income</p>
               <h3>${{netIncome}}.00</h3>
             </li>
             <li>

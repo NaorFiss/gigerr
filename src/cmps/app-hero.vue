@@ -31,7 +31,7 @@ export default {
                 'Shoemaker and Designer',
                 'Bar Owner',
                 'Video Editor',
-            ]
+            ],
         }
     },
     methods: {
@@ -46,9 +46,8 @@ export default {
     },
     computed: {
         getImgUrl() {
-            return `src/imgs/hero-img/hero${this.idx}.jpg`
+            return new URL(`../imgs/hero-img/hero${this.idx }.jpg`, import.meta.url).href
         },
     }
 }
 </script>
- 

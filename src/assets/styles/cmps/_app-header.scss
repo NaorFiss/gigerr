@@ -30,7 +30,7 @@ header {
         }
 
         margin-inline-end: 0 !important;
-        border: none !important;
+        // border: none !important;
     }
 
 
@@ -125,6 +125,11 @@ header {
         padding: 10px 16px;
     }
 }
+.try-header{
+    min-width: 100%;
+    // background-color: #74767e;
+    height: fit-content;
+}
 
 .atHome {
     position: fixed;
@@ -132,7 +137,8 @@ header {
     transition: 0.4s;
     padding-block: 25px;
     min-width: 100%;
-    border: none;
+    // max-width: 1400px;
+    // border-bottom: none;
 }
 
 .second-header-home {
@@ -152,8 +158,8 @@ header {
     gap: 30px;
     padding-inline: 32px;
     padding-block: 15px;
-    border-top: 1px solid $clr5;
     overflow: hidden;
+    // border-top: 1px solid $clr5;
 
     a {
         color: $clr1;
