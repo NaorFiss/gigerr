@@ -9,13 +9,9 @@
                             <img class="checkout-img" :src="gig.imgUrl[0]" alt="">
                             <div>
                                 <p>{{ gig.title }}</p>
-                                <<<<<<< HEAD <p class="clr-6 inline fs14 "><span class="orange flex3 mac-bold"><span
-                                            v-for="n in rate" class="star-img">
-                                            =======
-                                            <p class="clr-6 inline fs14"><span class="orange flex3 mac-bold"><span
-                                                        v-for="n in rate" class="star-img">
-                                                        >>>>>>> cb68db53cc0670596f6c6100aec5fff4cfe715b9
-                                                        ★</span>{{ gig.owner.rate }}</span>(24)</p>
+                                <p class="clr-6 inline fs14"><span class="orange flex3 mac-bold"><span v-for="n in rate"
+                                            class="star-img">
+                                            ★</span>{{ gig.owner.rate }}</span>(24)</p>
                             </div>
                         </div>
                     </div>
