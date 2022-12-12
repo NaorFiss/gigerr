@@ -28,13 +28,13 @@
             </el-select>
 
 
-            <el-select @visible-change="filter()" class="m-2 delivery-input" v-model="filterBy.delivery"
+            <el-select  class="m-2 delivery-input" 
                 placeholder="Delivery Time" size="large">
                 <div class1="content-scroll">
-                    <el-option class="delivery-opt" value="1" v-model="filterBy.delivery">Express 24H</el-option>
-                    <el-option class="delivery-opt" value="3" v-model="filterBy.delivery">Up to 3 days</el-option>
-                    <el-option class="delivery-opt" value="7" v-model="filterBy.delivery">Up to 7 days</el-option>
-                    <el-option class="delivery-opt" value="" v-model="filterBy.delivery">Anytime</el-option>
+                    <el-option class="delivery-opt" value="" @click="setDelFilter(1)">Express 24H</el-option>
+                    <el-option class="delivery-opt" value="" @click="setDelFilter(3)">Up to 3 days</el-option>
+                    <el-option class="delivery-opt" value="" @click="setDelFilter(7)">Up to 7 days</el-option>
+                    <el-option class="delivery-opt" value="" @click="setDelFilter('')">Anytime</el-option>
                     <!-- <div class="btn-row"><el-button class="clear" @click="clearDeliverby()">Clear
                             All</el-button>
                     </div> -->
@@ -85,6 +85,11 @@ export default {
         filter(filterBy = this.filterBy) {
             this.$router.push({ name: 'gig-app', query: { ...filterBy } })
             this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
+
+        },
+        setDelFilter(delivery){
+            this.filterBy.delivery=delivery
+            this.filter()
 
         },
         clearBudget() {
