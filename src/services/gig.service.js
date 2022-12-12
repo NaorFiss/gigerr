@@ -22,7 +22,6 @@ window.cs = gigService
 
 
 async function query(filterBy = { txt: '', tag: 0 }) {
-    console.log(filterBy)
     return httpService.get(STORAGE_KEY, filterBy)
 
 
@@ -88,7 +87,7 @@ function getEmptyGig() {
             "./src/imgs/gig-img/gig1/2.jpg",
             "./src/imgs/gig-img/gig1/3.jpg",
         ],
-        level : 'level 1'
+        level: 'level 1'
     }
 }
 
