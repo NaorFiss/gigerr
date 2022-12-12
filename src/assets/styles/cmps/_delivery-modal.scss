@@ -48,12 +48,14 @@
 
     }
 }
+
 .txt-black-tag {
     color: #222325;
     font-size: 32px;
     padding-bottom: 0;
-    text-transform: none!important;
+    text-transform: none !important;
 }
+
 .delivery-opt {
     margin-left: 15px;
 }
@@ -68,14 +70,14 @@
 @media(max-width:600px) {
     .budget-input {
         .el-input__inner {
-            width: 55px;
+            width: 62px;
 
         }
     }
 
     .delivery-input {
         .el-input__inner {
-            width: 109px;
+            width: 114px;
 
             // height: 70px;
         }
@@ -113,6 +115,7 @@
 .el-input__inner {
     color: black;
     width: 125px;
+    padding-left: 4px;
 }
 
 
@@ -122,7 +125,32 @@
 }
 
 
-.el-select-dropdown__item.selected {
+
+.sel0.gr {
+    color: #1dbf73;
+}
+
+
+.sel1.gr {
+    color: #1dbf73;
+}
+
+.sel3.gr {
+    color: #1dbf73;
+}
+
+
+.sel7.gr {
+    color: #1dbf73;
+}
+
+
+
+
+
+
+.el-select-dropdown__item.selected,
+.el-select-dropdown__item:active {
     color: #1dbf73;
 }
 
@@ -187,7 +215,7 @@
     opacity: 1;
     top: -7px;
     padding: 12px 24px;
-    
+
     position: relative;
     transition: all .24s cubic-bezier(.215, .61, .355, 1);
     border: 0;
@@ -215,7 +243,7 @@
 }
 
 .input-div {
-    
+
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -223,7 +251,7 @@
     position: relative;
     -webkit-box-flex: 1;
     flex: 1 1;
-    
+
     border: 0;
     margin: 0;
     outline: 0;
@@ -232,7 +260,7 @@
     line-height: 22px;
     font-weight: 600;
     margin-right: 10px;
-    
+
 
 }
 
@@ -248,11 +276,11 @@
     min-height: 36px;
     min-width: 120px;
     box-shadow: none;
-   
-    transition: border-color .35s ease;
-   
 
-    
+    transition: border-color .35s ease;
+
+
+
     box-sizing: border-box;
     color: #404145;
     font: inherit;
@@ -309,14 +337,16 @@
     color: #95979d;
     border: 0;
     font-weight: 600;
-    margin-left:-15px;
+    margin-left: -15px;
     background-color: inherit;
 }
+
 .clear:active,
-.clear:hover{
+.clear:hover {
     background-color: inherit;
     color: #1dbf73;
 }
+
 .el-select-dropdown__list {
     overflow: hidden;
 }

@@ -66,8 +66,8 @@ export default {
                 console.log(err)
                 showErrorMsg('Cannot add gig msg')
             }
-            let userId = this.$store.getters.loggedinUser._id
-            this.$router.push('/user/' + userId)
+            let userId = this.$store.getters.loggedinUser._id 
+            this.$router.push('/user/' + userId )
         }
     },
 }

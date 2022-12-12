@@ -41,17 +41,17 @@
       <div class=" main-layout full border-bottom border-top" >
         <div class="second-header flex  main-layout " :class="atHome() ? 'atHome , second-header-home' : 'atExplore',
       secondStickyNav ? 'second-header-sticky' : ''"> 
-          <router-link to="/explore" @click="setTagFilter('Website Design')">Website Design</router-link>
-          <router-link to="/explore" @click="setTagFilter('WordPress')">WordPress</router-link>
-          <router-link to="/explore" @click="setTagFilter('Marketing')">Marketing</router-link>
-          <router-link to="/explore" @click="setTagFilter('Business plan')">Business Plan</router-link>
-          <router-link to="/explore" @click="setTagFilter('Analyst')">Analyst</router-link>
-          <router-link to="/explore" @click="setTagFilter('Lifestyle')">Lifestyle</router-link>
-          <router-link to="/explore" @click="setTagFilter('Computer')">Computer</router-link>
-          <router-link to="/explore" @click="setTagFilter('Traveling')">Traveling</router-link>
-          <router-link to="/explore" @click="setTagFilter('Coaching')">Coaching</router-link>
-          <router-link to="/explore" @click="setTagFilter('Logo Design')">Logo Design</router-link>
-          <router-link to="/explore" @click="setTagFilter('Video Editing')">Video Editing</router-link>
+          <router-link to="/explore" @click="setTagFilter('website design')">Website Design</router-link>
+          <router-link to="/explore" @click="setTagFilter('wordpress')">WordPress</router-link>
+          <router-link to="/explore" @click="setTagFilter('marketing')">Marketing</router-link>
+          <router-link to="/explore" @click="setTagFilter('business plan')">Business Plan</router-link>
+          <router-link to="/explore" @click="setTagFilter('analyst')">Analyst</router-link>
+          <router-link to="/explore" @click="setTagFilter('lifestyle')">Lifestyle</router-link>
+          <router-link to="/explore" @click="setTagFilter('computer')">Computer</router-link>
+          <router-link to="/explore" @click="setTagFilter('traveling')">Traveling</router-link>
+          <router-link to="/explore" @click="setTagFilter('coaching')">Coaching</router-link>
+          <router-link to="/explore" @click="setTagFilter('logo design')">Logo Design</router-link>
+          <router-link to="/explore" @click="setTagFilter('video editing')">Video Editing</router-link>
         </div>
       </div>
     </div>
@@ -102,8 +102,13 @@ export default {
       this.$store.dispatch({ type: 'logout' })
     },
     setTagFilter(tag) {
-      var filterBy = {}
-      filterBy.tag = tag
+      var filterBy= {
+                min: '',
+                max: '',
+                delivery: '',
+                tag: tag,
+                title: ''
+            }
       this.setFilter(filterBy)
     },
   },
