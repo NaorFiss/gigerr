@@ -41,6 +41,11 @@ export default {
     data() {
         return {
             filterBy: {
+                min: '',
+                max: '',
+                delivery: '',
+                tag: '',
+                title: ''
             },
         }
     },
