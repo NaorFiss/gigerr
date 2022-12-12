@@ -191,10 +191,22 @@
     cursor: default;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 .pad-32 {
     padding-inline: 32px;
 }
 
 .pad-block-32 {
     padding-block: 32px;
+}
+
+.red{
+    color: rgb(199, 46, 46);
+}
+
+.green{
+    color: #16995c;
 }

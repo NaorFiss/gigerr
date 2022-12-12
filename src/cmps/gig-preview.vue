@@ -32,7 +32,7 @@
                     ({{ getRandomIntInclusive(50, 400) }})</p>
             </article>
             <div class="flex space align-center li-bottom">
-                <p>❤</p>
+                <p ref="heart" @click="likedGig" class="pointer">❤</p>
                 <div class="flex align-end sapce">
                     <p class="fs10 weight-7">STARTING AT</p>
                     <p class="fs18 black">US${{ gig.price.basic?.toLocaleString() }}</p>
@@ -64,7 +64,9 @@ export default {
         }
     },
     methods: {
-
+        likedGig(){
+            this.$refs.heart.classList.toggle('orange') 
+        },
         gigDetails() {
             this.$router.push('/gig/' + this.gig._id)
         },
