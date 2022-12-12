@@ -18,12 +18,12 @@
                 <div v-if="!atExplore" class="flex popular-tags-container">
                     <p class="fs14 mac-bold">Popular: </p>
                     <div class="flex justify-between items-center inline filter-tags popular-tags">
-                        <router-link to="/explore" @click="setTagFilter('Website Design')">Website
+                        <router-link to="/explore" @click="setTagFilter('website design')">Website
                             Design</router-link>
-                        <router-link to="/explore" @click="setTagFilter('WordPress')">WordPress</router-link>
-                        <router-link to="/explore" @click="setTagFilter('Logo Design')">Logo
+                        <router-link to="/explore" @click="setTagFilter('wordpress')">WordPress</router-link>
+                        <router-link to="/explore" @click="setTagFilter('logo design')">Logo
                             Design</router-link>
-                        <router-link to="/explore" @click="setTagFilter('Video Editing')">Video
+                        <router-link to="/explore" @click="setTagFilter('video editing')">Video
                             Editing</router-link>
                     </div>
                 </div>
