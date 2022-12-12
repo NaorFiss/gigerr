@@ -1,14 +1,11 @@
 <template>
-  <div class="app-container home main-layout">
-    <!-- <h2 v-if="filterTag">{{filterTag}}</h2> -->
+  <div class="home main-layout pad-block-32">
     <gig-explore-filter />
     <gig-list :gigs="gigs" />
   </div>
 </template>
 
 <script>
-// import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
-// import { getActionRemoveGig, getActionUpdateGig } from '../store/gig.store'
 import gigExploreFilter from '../cmps/gig-explore-filter.vue'
 import gigFilter from '../cmps/gig-filter.vue'
 import gigList from '../cmps/gig-list.vue'
@@ -31,6 +28,7 @@ export default {
   computed: {
     gigs() {
       // console.log(this.$store.getters.gigs);
+      console.log(this.$store.getters.gigs);
       return this.$store.getters.gigs
     },
     // filterTag(){

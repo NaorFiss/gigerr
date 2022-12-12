@@ -75,7 +75,7 @@
 </template>
 
 <script>
-// import {userService} from '../services/user.service'
+import {userService} from '../services/user.service'
 import gigList from '../cmps/gig-list.vue'
 import aboutSeller from "../cmps/about-seller.vue"
 import ordersTable from '../cmps/orders-table.vue'
@@ -127,12 +127,12 @@ export default {
       return this.isYourProfile ? 'My Active Gigs' : this.user.fullname + `'s Gigs`
     },
     netIncome(){
-      var complitedOrders = this.sellerOrders.filter(order => order.status === 'completed')
+      var complitedOrders = this.sellerOrders.filter(order => order.status === 'Completed')
       var income = complitedOrders.reduce((acc , order) => acc+ order.gig.price ,0)
       return income
     },
     pendingOrders(){
-      var complitedOrders = this.sellerOrders.filter(order => order.status === 'pending')
+      var complitedOrders = this.sellerOrders.filter(order => order.status === 'Pending')
       return complitedOrders.length
     }
   },

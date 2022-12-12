@@ -1,8 +1,5 @@
 <template>
     <div v-if=gig class="details-review flex column mb-24" v-for="review in gig.reviews">
-
-        <!-- <div class="user-img-container"> -->
-        <!-- </div> -->
         <div class="flex review-user-details">
             <img class="user-img" :src="review.userImgUrl" />
             <div class="flex column space">
@@ -16,20 +13,14 @@
         <section class="main-details-review flex column">
             <div class="performance-grade flex">
                 <p class="clr-6 inline fs14"><span class="orange mac-bold"><span v-for="n in  Math.round(review.rate)"
-                            class="star-img">★</span> {{
-                                    review.rate
-                            }}</span></p>
+                            class="star-img">★</span> {{review.rate}}</span></p>
                 <p class="review-date inline fs14 "> | {{ Math.trunc(review.rate - 2) }} days ago</p>
             </div>
-            <p class="review-txt mb-24">
-                {{ review.txt }}
-            </p>
-            <section class="helpful-container flex ">
-                <span class="helpful">helpful? </span>
-                <div class="like">👍</div>
-                <div class="yes">Yes </div>
-                <div class="deslike">👎 </div>
-                <div class="no">No</div>
+            <p class="review-txt mb-24">{{ review.txt }}</p>
+            <section class="helpful-container flex mac-bold fs14 black">
+                <p class="helpful">Helpful?</p>
+                <p class="like"><span></span> Yes</p>
+                <p class="unlike"><span></span> No</p>
             </section>
 
         </section>
@@ -40,8 +31,6 @@
 export default {
     props: {
         gig: Object,
-
     },
-
 }
 </script>

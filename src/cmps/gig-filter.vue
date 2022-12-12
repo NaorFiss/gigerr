@@ -2,7 +2,7 @@
     <section class="filter-container">
         <div class="hero-wrapper flex column">
             <div class="hero-title ">
-                <div class="search-bar hide-600">
+                <div class="search-bar ">
                     <form :class="!atExplore ? 'search-container' : 'search-container-explore'"
                         @submit.prevent="loadGigs()" role="link">
                         <!-- @submit.prevent="loadGigs(); navigate()" role="link"> -->

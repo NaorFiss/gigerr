@@ -22,9 +22,9 @@
                 </button>
                 <template #dropdown>
                     <el-dropdown-menu class="order-dropdown">
-                        <el-dropdown-item @click="approveOrder('rejected' ,scope.row)" class="table-btn rejected-btn">rejected</el-dropdown-item>
-                        <el-dropdown-item @click="approveOrder('in progress' ,scope.row)" class="table-btn progress-btn">in progress</el-dropdown-item>
-                        <el-dropdown-item @click="approveOrder('completed' ,scope.row)" class="table-btn green-btn">completed</el-dropdown-item>
+                        <el-dropdown-item @click="approveOrder('Rejected' ,scope.row)" class="table-btn rejected-btn">Rejected</el-dropdown-item>
+                        <el-dropdown-item @click="approveOrder('In progress' ,scope.row)" class="table-btn progress-btn">In progress</el-dropdown-item>
+                        <el-dropdown-item @click="approveOrder('Completed' ,scope.row)" class="table-btn green-btn">Completed</el-dropdown-item>
                     </el-dropdown-menu>
                 </template>
             </el-dropdown>
@@ -66,9 +66,9 @@ export default {
             }
         },
         orderStatus(status) {
-            if (status === 'pending') return 'table-btn'
-            else if (status === 'in progress') return 'table-btn progress-btn'
-            else if(status === 'rejected') return 'rejected-btn table-btn'
+            if (status === 'Pending') return 'table-btn'
+            else if (status === 'In progress') return 'table-btn progress-btn'
+            else if(status === 'Rejected') return 'Rejected-btn table-btn'
             else return 'green-btn table-btn'
         },
     },

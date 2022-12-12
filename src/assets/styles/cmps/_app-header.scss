@@ -1,6 +1,5 @@
 header {
     padding-block: 10px;
-    padding-inline: 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,13 +32,22 @@ header {
         // border: none !important;
     }
 
+    .header-test {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding-inline: 32px;
+    }
+
+
 
 
     nav {
         padding: 5px 0;
     }
 
-    nav > *:not(:last-child){
+    nav>*:not(:last-child) {
         margin-inline: 10px;
         line-height: 2;
     }
@@ -92,6 +100,14 @@ header {
     }
 }
 
+.header-test-second {
+    display: flex;
+    gap: 30px;
+    width: 100%;
+    padding-inline: 32px;
+
+}
+
 .el-dropdown__popper {
     --el-dropdown-menuItem-hover-fill: none;
 
@@ -105,7 +121,7 @@ header {
             // align-self: flex-start;
             width: 100%;
             font-size: 16px;
-            color: #74767e ;
+            color: #74767e;
             width: 100%;
             padding-inline: 0;
 
@@ -125,9 +141,9 @@ header {
         padding: 10px 16px;
     }
 }
-.try-header{
+
+.try-header {
     min-width: 100%;
-    // background-color: #74767e;
     height: fit-content;
 }
 
@@ -137,29 +153,26 @@ header {
     transition: 0.4s;
     padding-block: 25px;
     min-width: 100%;
-    // max-width: 1400px;
-    // border-bottom: none;
 }
 
 .second-header-home {
     top: 80px;
     background-color: white;
     z-index: 100;
-    transform:  scaleY(0);
+    transform: scaleY(0);
 }
 
 .second-header-sticky {
     transition: transform 0.2s;
     height: 45px;
-    transform:  scaleY(1);
+    transform: scaleY(1);
 }
 
 .second-header {
     gap: 30px;
-    padding-inline: 32px;
+    // padding-inline: 32px;
     padding-block: 15px;
     overflow: hidden;
-    // border-top: 1px solid $clr5;
 
     a {
         color: $clr1;
@@ -173,22 +186,24 @@ header {
 @media (max-width: 600px) {
 
     header {
-        border: none;
+        // border: none;
+        // flex-wrap: wrap;
+        width: 100%;
 
         .hamburger {
             display: block;
-            cursor: pointer;
+            // cursor: pointer;
         }
 
         > :last-child :last-child {
-            color: $clr2;
-            border: none;
-            padding-inline: 0;
+            // color: $clr2;
+            // border: none;
+            // padding-inline: 0;
         }
 
         > :nth-child(3),
         > :last-child :not(:last-child) {
-            display: none;
+            // display: none;
         }
     }
 }
