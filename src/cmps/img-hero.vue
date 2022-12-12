@@ -27,7 +27,7 @@ export default {
     },
     methods: {
         setFilter(tag) {
-            this.filterBy.tag = tag
+            this.filterBy.tag = tag.toLowerCase()
             this.$router.push({ name: 'gig-app', query: { ...this.filterBy } })
             this.$store.commit({ type: 'setFilter', filterBy: { ...this.filterBy } })
         },
