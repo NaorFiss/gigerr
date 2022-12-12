@@ -106,8 +106,13 @@ export default {
       this.$store.dispatch({ type: 'logout' })
     },
     setTagFilter(tag) {
-      var filterBy = {}
-      filterBy.tag = tag
+      var filterBy= {
+                min: '',
+                max: '',
+                delivery: '',
+                tag: tag,
+                title: ''
+            }
       this.setFilter(filterBy)
     },
   },

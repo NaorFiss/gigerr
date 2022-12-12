@@ -14,13 +14,11 @@ export default {
   data() {
     return {
       filterBy: {
-        title: '',
-        tag: 'all',
-        delivery: 'all',
-
-        min: 0,
-        max: Infinity
-
+        min: '',
+        max: '',
+        delivery: '',
+        tag: '',
+        title: ''
       },
     }
   },
@@ -49,11 +47,11 @@ export default {
       this.$router.push({ name: 'gig-app', query: { ...filterBy } })
       this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
     },
-    
+
     close() {
       this.$emit("close");
     },
-    
+
   },
   watch: {
     $route: {
