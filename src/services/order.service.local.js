@@ -20,7 +20,6 @@ window.cs = orderService
 
 async function query(filterBy) {
     var orders = await storageService.query(STORAGE_KEY)
-
     return orders
 }
 

@@ -50,11 +50,11 @@
             </li>
             <li>
               <p>Widthrawn</p>
-              <h3>$50.00</h3>
+              <h3>$20.00</h3>
             </li>
             <li>
               <p>Available For Widthrawn</p>
-              <h3>${{netIncome - 50}}.00</h3>
+              <h3>${{(netIncome - 20)}}.00</h3>
             </li>
             <li>
               <p>Order Pending</p>
@@ -124,11 +124,10 @@ export default {
       return this.$store.getters.loggedinUser?._id === this.$store.getters.watchedUser?._id
     },
     whosProfile() {
-      console.log(this.user.fullname);
       return this.isYourProfile ? 'My Active Gigs' : this.user.fullname + `'s Gigs`
     },
     netIncome(){
-      var complitedOrders = this.sellerOrders.filter(order => order.status === 'complited')
+      var complitedOrders = this.sellerOrders.filter(order => order.status === 'completed')
       var income = complitedOrders.reduce((acc , order) => acc+ order.gig.price ,0)
       return income
     },

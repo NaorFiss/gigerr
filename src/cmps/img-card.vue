@@ -12,6 +12,11 @@ export default {
     props: {
         imgs: Array
     },
+    // methods:{
+    //     getImgUrl() {
+    //         return new URL(`../imgs/hero-img/hero${this.idx }.jpg`, import.meta.url).href
+    //     },
+    // },  
     components: {
     }
 }

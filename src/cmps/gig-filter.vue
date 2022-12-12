@@ -2,11 +2,11 @@
     <section class="filter-container">
         <div class="hero-wrapper flex column">
             <div class="hero-title ">
-                <div class="search-bar ">
+                <div class="search-bar hide-600">
                     <form :class="!atExplore ? 'search-container' : 'search-container-explore'"
                         @submit.prevent="loadGigs()" role="link">
                         <!-- @submit.prevent="loadGigs(); navigate()" role="link"> -->
-                        <input class="search-input" type="search" v-model="filterBy.title"
+                        <input class="search-input " type="search" v-model="filterBy.title"
                             placeholder="Try &quot;building mobile app&quot;" value>
                         <button class="submit search-button fs18 " @click="setTitleFilter(filterBy.title)">
                             {{ !atExplore ? 'Search' : '' }}

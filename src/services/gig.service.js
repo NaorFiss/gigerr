@@ -29,7 +29,6 @@ async function query(filterBy = { txt: '', tag: 0 }) {
 }
 function getById(gigId) {
     // return storageService.get(STORAGE_KEY, gigId)
-    console.log('im here', gigId);
     return httpService.get(`gig/${gigId}`)
 }
 
