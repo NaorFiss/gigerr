@@ -18,6 +18,9 @@ import { uploadService } from '../services/upload.service.js'
 import uploadIcon from '../assets/svg/upload-icon.vue'
 
 export default {
+  props:{
+    imgs: Array
+  },
   data() {
     return {
       imgUrl: [],
@@ -25,6 +28,11 @@ export default {
       width: 500,
       isUploading: false,
       isDragover : false
+    }
+  },
+  created(){
+    if (this.imgs?.length){
+      this.imgUrl = this.imgs
     }
   },
   methods: {

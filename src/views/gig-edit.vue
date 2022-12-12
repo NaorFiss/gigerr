@@ -1,10 +1,10 @@
 <template>
     <section class="gig-edit log-sign flex column ">
-        <h2>Add gig</h2>
+        <h2>{{ addOrUpdate ? 'Update gig' : 'Add gig' }}</h2>
         <p>{{ msg }}</p>
         <p v-if="!loggedInUser">Log-in before adding a gig</p>
         <form class="add-gig-container flex column gap-16" v-if="loggedInUser" @submit.prevent="addGig()">
-            <div v-if="!secongPage" class="flex column gap-16 add-gig-inside-container" >
+            <div v-if="!secongPage" class="flex column gap-16 add-gig-inside-container">
                 <input type="text" placeholder="Gigs name" v-model="gigToAdd.title" />
                 <input type="text" placeholder="Gigs Description" v-model="gigToAdd.description" />
                 <input type="text" placeholder="Gigs price" v-model="gigToAdd.price.basic" />
@@ -12,8 +12,8 @@
                 <input type="text" placeholder="Add tags" v-model="gigToAdd.tags" />
                 <button @click="(secongPage = !secongPage)" class="btn green-btn ">Next</button>
             </div>
-            <div v-else class="flex column gap-16 add-gig-inside-container" >
-                <imgUploader @uploaded="addImage"/>
+            <div v-else class="flex column gap-16 add-gig-inside-container">
+                <imgUploader @uploaded="addImage" :imgs="gigToAdd.imgUrl"/>
                 <button class="btn green-btn">Save</button>
                 <button @click="(secongPage = !secongPage)" class="btn green-btn">Back</button>
             </div>
@@ -33,17 +33,26 @@ export default {
         return {
             msg: '',
             gigToAdd: gigService.getEmptyGig(),
-            secongPage :false,
+            secongPage: false,
+        }
+    },
+    async created() {
+        if (this.addOrUpdate) {
+            const gig = await this.$store.dispatch({ type: 'getGigById', _id: this.addOrUpdate })
+            this.gigToAdd = gig
         }
     },
     computed: {
         loggedInUser() {
             return this.$store.getters.loggedinUser
         },
+        addOrUpdate() {
+            return this.$route.params._id
+        },
     },
     methods: {
         async addGig() {
-            this.gigToAdd.price.basic = +this.gigToAdd.price.basic 
+            this.gigToAdd.price.basic = +this.gigToAdd.price.basic
             if (this.$route.params._id) this.updateGig()
             if (!this.gigToAdd.title || !this.gigToAdd.price.basic || !this.gigToAdd.description) {
                 return this.msg = 'Please fill up the form'
@@ -77,13 +86,13 @@ export default {
                 showErrorMsg('Cannot update gig')
             }
         },
-        async addImage(img){
+        async addImage(img) {
             if (!img) return
             this.gigToAdd.imgUrl = []
             this.gigToAdd.imgUrl.push(...img)
         }
     },
-    components:{
+    components: {
         imgUploader
     }
 }
