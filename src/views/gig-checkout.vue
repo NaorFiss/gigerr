@@ -1,6 +1,5 @@
 <template>
     <div class="main-layout flex-grow">
-<<<<<<< HEAD
         <section class="checkout-container flex column margin-0">
             <h2 class="mb-24">Order details</h2>
             <div v-if="gig" class="flex gap-16">
@@ -104,11 +103,8 @@ export default {
                 console.log(err)
                 showErrorMsg('Cannot add gig msg')
             }
-<<<<<<< HEAD
-=======
             let userId = this.$store.getters.loggedinUser._id 
             this.$router.push('/user/' + userId )
->>>>>>> 812dc4f1d9f46f178a84b2b76d2299ab00473a3e
         }
     },
 }
