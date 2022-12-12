@@ -10,12 +10,19 @@ footer {
     .links-container {
         img:hover {
             cursor: pointer;
-            box-shadow: 0 0 5px 5px rgb(223, 221, 221);
-            border-radius: 5px;
+            background-color: #efeff0;
+            transition:  .1s;
+            box-shadow: 0 0 5px 10px #efeff0;
+            border-radius: 3px;
         }
     }
-    .footer-logo{
+
+    .footer-logo {
         width: 90px;
+    }
+
+    a {
+        width: 100%;
     }
 }
 

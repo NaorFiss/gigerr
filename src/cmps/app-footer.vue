@@ -6,11 +6,11 @@
                 <p class="clr-6 fs14">© Gigerr International Ltd. 2022</p>
             </div>
             <div class="flex links-container">
-                <img class="clr-6" src="@/assets/svg/twitter.svg" alt="">
-                <img class="clr-6" src="@/assets/svg/facebook.svg" alt="">
-                <img class="clr-6" src="@/assets/svg/linkedin.svg" alt="s">
-                <img class="clr-6" src="@/assets/svg/pinterest.svg" alt="s">
-                <img class="clr-6" src="@/assets/svg/instagram.svg" alt="">
+                <a href="https://www.twitter.com"><img class="clr-6" src="@/assets/svg/twitter.svg" alt=""></a>
+                <a href="https://www.facebook.com"><img class="clr-6" src="@/assets/svg/facebook.svg" alt=""></a>
+                <a href="https://www.linkedin.com"><img class="clr-6" src="@/assets/svg/linkedin.svg" alt=""></a>
+                <a href="https://www.pinterest.com"><img class="clr-6" src="@/assets/svg/pinterest.svg" alt=""></a>
+                <a href="https://www.instagram.com"><img class="clr-6" src="@/assets/svg/instagram.svg" alt=""></a>
             </div>
         </footer>
     </section>
