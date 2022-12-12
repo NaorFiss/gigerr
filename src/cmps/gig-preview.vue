@@ -19,14 +19,17 @@
                         <img class="three-dots" src="@/assets/svg/three-dots.svg" alt="">
                         <template #dropdown>
                             <el-dropdown-menu>
-                                <el-dropdown-item><button class="edit-dropdown" @click="removeGig(gig._id)">Remove gig</button></el-dropdown-item>
-                                <el-dropdown-item><router-link class="edit-dropdown" :to="'/gig/edit/' + gig._id">Update</router-link></el-dropdown-item>
+                                <el-dropdown-item><button class="edit-dropdown" @click="removeGig(gig._id)">Remove
+                                        gig</button></el-dropdown-item>
+                                <el-dropdown-item><router-link class="edit-dropdown"
+                                        :to="'/gig/edit/' + gig._id">Update</router-link></el-dropdown-item>
                             </el-dropdown-menu>
                         </template>
                     </el-dropdown>
                 </div>
                 <router-link class="title" :to="'/gig/' + gig._id">{{ gig.title }}</router-link>
-                <p v-if="gig.owner" class="clr-6 fs14 "><span class="orange mac-bold">★{{ gig.owner.rate }}</span> (24)</p>
+                <p v-if="gig.owner" class="clr-6 fs14 "><span class="orange mac-bold">★{{ gig.owner.rate }}</span>
+                    ({{ getRandomIntInclusive(50, 400) }})</p>
             </article>
             <div class="flex space align-center li-bottom">
                 <p>❤</p>
@@ -44,7 +47,7 @@
 <script>
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { getActionRemoveGig, getActionUpdateGig } from '../store/gig.store'
-
+import { utilService } from '../services/util.service'
 import imgCard from './img-card.vue'
 
 export default {
@@ -61,9 +64,16 @@ export default {
         }
     },
     methods: {
+
         gigDetails() {
             this.$router.push('/gig/' + this.gig._id)
         },
+        getRandomIntInclusive(min, max) {
+            min = Math.ceil(min)
+            max = Math.floor(max)
+            return Math.floor(Math.random() * (max - min + 1)) + min //The maximum is inclusive and the minimum is inclusive 
+        },
+
         async removeGig(gigId) {
             try {
                 await this.$store.dispatch(getActionRemoveGig(gigId))
@@ -73,12 +83,13 @@ export default {
                 showErrorMsg('Cannot remove gig')
             }
         },
-        imgUrl(){
+        imgUrl() {
             console.log(this.gig.owner.imgUrl)
         }
     },
     components: {
-        imgCard
+        imgCard,
+        utilService
     }
 }
 </script>
