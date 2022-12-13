@@ -55,8 +55,8 @@ export default {
                 min: '',
                 max: '',
                 delivery: '',
-                tag: this.$route.query.tag,
-                title: this.$route.query.title
+                tag: '',
+                title: ''
             },
         }
     },
@@ -73,14 +73,17 @@ export default {
     },
     created() {
 
-        this.filterBy = { ...this.$route.query }
-        this.filter()
+        // this.filterBy = { ...this.$route.query }
+        // this.filter()
     },
     components: {
 
     },
     methods: {
         filter(filterBy = this.filterBy) {
+            this.filterBy.title = this.$route.query.title
+            this.filterBy.tag = this.$route.query.tag
+            // this.filterBy.delivery = this.$route.query.delivery
             this.$router.push({ name: 'gig-app', query: { ...filterBy } })
             this.$store.commit({ type: 'setFilter', filterBy: { ...filterBy } })
 
@@ -93,8 +96,8 @@ export default {
             document.querySelector(`.sel${delivery}`).classList.add('gr')
             if (!delivery) delivery = ''
             this.filterBy.delivery = delivery
-            this.filterBy.min = this.$route.query.min
-            this.filterBy.max = this.$route.query.max
+            this.filterBy.title = this.$route.query.title
+            this.filterBy.tag = this.$route.query.tag
             this.filter()
         },
         clearBudget() {
