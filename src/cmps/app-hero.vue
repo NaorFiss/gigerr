@@ -1,8 +1,8 @@
 <template>
     <section class="hero-container ">
         <div class="img-container ">
-            <Transition>
-                <img class=" hero-img" v-if="show" :src="getImgUrl" />
+            <Transition >
+                <img class="hero-img" v-if="show" :src="getImgUrl" />
             </Transition>
         </div>
     </section>
@@ -44,9 +44,8 @@ export default {
                 // this.show = false
                 // setTimeout(() => {
                 //     this.show = true
-                // }, 100)
+                // }, 1000)
             }
-            console.log(this.show);
         }
     },
     computed: {
