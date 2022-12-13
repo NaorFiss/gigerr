@@ -12,7 +12,7 @@
 export default {
     name: 'hero',
     mounted() {
-        // setInterval(this.changeCurrImage, 6000)
+        setInterval(this.changeCurrImage, 6000)
     },
     data() {
         return {
@@ -41,10 +41,10 @@ export default {
                 this.idx = this.idx < 5 ? this.idx + 1 : 1
                 this.$emit('modelName', this.modelNames[this.idx - 1])
                 this.$emit('modelJob', this.modelJobs[this.idx - 1])
-                this.show = false
-                setTimeout(() => {
-                    this.show = true
-                }, 100)
+                // this.show = false
+                // setTimeout(() => {
+                //     this.show = true
+                // }, 100)
             }
             console.log(this.show);
         }
