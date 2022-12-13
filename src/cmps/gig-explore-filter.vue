@@ -55,8 +55,8 @@ export default {
                 min: '',
                 max: '',
                 delivery: '',
-                tag: '',
-                title: ''
+                tag: this.$route.query.tag,
+                title: this.$route.query.title
             },
         }
     },
