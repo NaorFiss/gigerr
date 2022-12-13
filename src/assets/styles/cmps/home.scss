@@ -1,5 +1,7 @@
 .home {
 
+
+
     .hero-title {
 
         // font-size: 19px;
@@ -285,4 +287,39 @@
     .hide-600 {
         display: none;
     }
+}
+
+
+// .v-leave-active {
+//     // transition: opacity 0.1s ease;
+//     .v-enter-from{
+//         opacity: 1;
+
+//     }
+// }
+
+// .v-enter-active{
+//     transition: opacity 0.1s ease;
+//     .v-leave-to {
+//         opacity: 1;
+//     }
+// }
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+// .v-enter-from,
+
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }

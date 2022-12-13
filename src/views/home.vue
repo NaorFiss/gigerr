@@ -53,6 +53,10 @@
         </div>
       </div>
     </section>
+    <button @click="show = !show">Toggle</button>
+    <Transition>
+      <p v-if="show">hello</p>
+    </Transition>
   </div>
 </template>
 
@@ -76,6 +80,7 @@ export default {
     return {
       modelName: 'Andrea, ',
       modelJob: 'Fashion Designer',
+      show:false
     }
   },
   created() {

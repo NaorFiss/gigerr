@@ -28,7 +28,7 @@
                 <button @click="(secongPage = !secongPage)" class="btn green-btn ">Next</button>
             </div>
             <div v-else class="flex column gap-16 add-gig-inside-container">
-                <imgUploader @uploaded="addImage" :imgs="gigToAdd.imgUrl"/>
+                <imgUploader @uploaded="addImage" :imgs="gigToAdd.imgUrl" />
                 <button class="btn green-btn">Save</button>
                 <button @click="(secongPage = !secongPage)" class="btn green-btn">Back</button>
             </div>
@@ -68,7 +68,7 @@ export default {
     methods: {
         async addGig() {
             this.gigToAdd.price.basic = +this.gigToAdd.price.basic
-            if (this.$route.params._id) this.updateGig()
+            if (this.$route.params._id) return this.updateGig()
             if (!this.gigToAdd.title || !this.gigToAdd.price.basic || !this.gigToAdd.description) {
                 return this.msg = 'Please fill up the form'
             }
@@ -79,7 +79,7 @@ export default {
                 showErrorMsg('Cannot add gig')
             }
             showSuccessMsg('Gig added successfully')
-            this.$router.push('/explore')
+            this.$router.push('/user/' + this.loggedInUser._id)
             this.gigToAdd = gigService.getEmptyGig()
         },
         async addGigMsg(gigId) {
@@ -94,8 +94,9 @@ export default {
         async updateGig() {
             try {
                 this.gigToAdd._id = this.$route.params._id
-                let newgig = await this.$store.dispatch({ type: 'updateGig', gig: this.gigToAdd })
+                await this.$store.dispatch({ type: 'updateGig', gig: this.gigToAdd })
                 showSuccessMsg('Gig updated')
+                this.$router.push('/user/' + this.loggedInUser._id)
             } catch (err) {
                 console.log(err)
                 showErrorMsg('Cannot update gig')
