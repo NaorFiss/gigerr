@@ -53,10 +53,6 @@
         </div>
       </div>
     </section>
-    <button @click="show = !show">Toggle</button>
-    <Transition>
-      <p v-if="show">hello</p>
-    </Transition>
   </div>
 </template>
 
